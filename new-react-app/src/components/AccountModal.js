@@ -128,68 +128,10 @@ export default function AccountModal({
     }
   };
 
-  // Quick 1-Click Simulated Slip for instant testing
-  const handleUseDemoSlip = () => {
-    // Generate clean canvas SVG slip
-    const canvas = document.createElement('canvas');
-    canvas.width = 400;
-    canvas.height = 600;
-    const ctx = canvas.getContext('2d');
-
-    // Background gradient
-    const grad = ctx.createLinearGradient(0, 0, 0, 600);
-    grad.addColorStop(0, '#024b30');
-    grad.addColorStop(1, '#0b1d16');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 400, 600);
-
-    // Header
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 22px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('โอนเงินสำเร็จ', 200, 50);
-
-    ctx.font = '14px sans-serif';
-    ctx.fillStyle = '#6ee7b7';
-    ctx.fillText('PromptPay Bank Transfer', 200, 80);
-
-    // Amount
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = 'bold 36px sans-serif';
-    const amtText = currency === 'THB' ? `฿${Number(account.priceTHB).toLocaleString()}` : `${Number(account.priceVND).toLocaleString()} ₫`;
-    ctx.fillText(amtText, 200, 160);
-
-    // Receiver info
-    ctx.fillStyle = '#e2e8f0';
-    ctx.font = 'bold 16px sans-serif';
-    ctx.fillText(storeSettings.promptPayName || 'SIMA SHOP (THAILAND)', 200, 230);
-
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '13px monospace';
-    ctx.fillText(`Ref: ${pendingOrderId}`, 200, 260);
-    ctx.fillText(new Date().toLocaleString('th-TH'), 200, 290);
-
-    // QR simulation
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(130, 340, 140, 140);
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(145, 355, 110, 110);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(160, 370, 80, 80);
-
-    // Bottom note
-    ctx.fillStyle = '#10b981';
-    ctx.font = 'bold 15px sans-serif';
-    ctx.fillText('✓ สลิปถูกต้อง ตรวจสอบผ่านระบบ', 200, 530);
-
-    const demoSlipUrl = canvas.toDataURL('image/jpeg', 0.9);
-    setSlipImage(demoSlipUrl);
-  };
-
   // Verify slip & issue account
   const handleVerifyAndComplete = () => {
     if (!slipImage) {
-      alert('กรุณาแนบรูปภาพสลิปการโอนเงิน หรือคลิก "⚡ ใช้สลิปทดสอบโอนเงินสำเร็จ" ครับ');
+      alert('กรุณาแนบรูปภาพสลิปการโอนเงินจากแอปธนาคารของคุณก่อนครับ');
       return;
     }
 
@@ -648,19 +590,11 @@ export default function AccountModal({
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <span className="text-xs font-bold text-amber-400 flex items-center gap-1.5 uppercase tracking-wider">
                   <span>📸</span>
-                  <span>แนบสลิปการโอนเงินเพื่อตรวจสอบ (Slip Verification)</span>
+                  <span>แนบสลิปการโอนเงินจากแอปธนาคาร (Slip Verification)</span>
                 </span>
-
-                {/* 1-Click Demo Slip for testing */}
-                <button
-                  type="button"
-                  onClick={handleUseDemoSlip}
-                  className="text-[11px] bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-2.5 py-1 rounded-lg font-bold transition-all flex items-center gap-1"
-                  title="คลิกเพื่อจำลองสลิปโอนเงินสำเร็จสำหรับทดสอบระบบทันที"
-                >
-                  <span>⚡</span>
-                  <span>คลิกเพื่อใส่สลิปทดสอบโอนเงินสำเร็จ</span>
-                </button>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-bold">
+                  ตรวจสอบสลิปอัตโนมัติ 24 ชม.
+                </span>
               </div>
 
               {/* Slip Input Area */}
