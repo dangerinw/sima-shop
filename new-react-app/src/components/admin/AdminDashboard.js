@@ -679,6 +679,57 @@ export default function AdminDashboard({
               </div>
             </div>
 
+            {/* Delivered Count Metric Configuration */}
+            <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-4 md:col-span-2">
+              <div className="flex items-center justify-between">
+                <h3 className="font-black text-white text-base flex items-center gap-2">
+                  <span>📈</span>
+                  <span>ตัวเลขสถิติยอดส่งมอบหน้าร้าน (Delivered Count Metric)</span>
+                </h3>
+                <span className="text-[11px] bg-amber-500/10 text-amber-400 border border-amber-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  ระบบนับจริง Real-time
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">
+                ตัวเลขนี้จะแสดงผลบนแบนเนอร์หน้าแรก (ใต้ปุ่มเลือกดูไอดี) โดยระบบจะคำนวณจากยอดคำสั่งซื้อจริงที่ส่งมอบสำเร็จในระบบอัตโนมัติ
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                  <span className="text-slate-400 text-xs">ยอดคำสั่งซื้อจริงในระบบ:</span>
+                  <div className="text-xl font-black text-emerald-400">
+                    {orders ? orders.filter((o) => o.status === 'completed' || !o.status).length : 0} ไอดี
+                  </div>
+                  <span className="text-[10px] text-slate-500">นับจากออเดอร์ที่สั่งซื้อสำเร็จ</span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                  <label className="text-slate-300 text-xs font-bold block">
+                    ยอดสะสมเริ่มต้น (Base Count):
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="0"
+                    value={settingsForm.baseDeliveredCount ?? 0}
+                    onChange={(e) => setSettingsForm({ ...settingsForm, baseDeliveredCount: Math.max(0, parseInt(e.target.value) || 0) })}
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
+                  />
+                  <span className="text-[10px] text-slate-500 block">ใส่ 0 หากต้องการนับเฉพาะยอดในเว็บ</span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-gradient-to-br from-amber-500/10 to-amber-950/20 border border-amber-500/30 space-y-1">
+                  <span className="text-amber-300 text-xs font-bold">ตัวเลขที่จะแสดงบนหน้าแรก:</span>
+                  <div className="text-2xl font-black text-white">
+                    {((orders ? orders.filter((o) => o.status === 'completed' || !o.status).length : 0) + Number(settingsForm.baseDeliveredCount || 0)) > 0
+                      ? `${((orders ? orders.filter((o) => o.status === 'completed' || !o.status).length : 0) + Number(settingsForm.baseDeliveredCount || 0)).toLocaleString()}+`
+                      : '0'}
+                  </div>
+                  <span className="text-[10px] text-amber-400/80">ไอดี Steam ที่ส่งมอบแล้ว</span>
+                </div>
+              </div>
+            </div>
+
             {/* Announcement Bar & Save */}
             <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-4 md:col-span-2">
               <h3 className="font-black text-white text-base flex items-center gap-2">

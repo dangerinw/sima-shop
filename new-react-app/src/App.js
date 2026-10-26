@@ -160,6 +160,13 @@ function App() {
     return accounts.find((item) => item.isHot && !item.isSold) || accounts[0];
   }, [accounts]);
 
+  // Calculate real delivered count (completed orders + base count)
+  const realDeliveredCount = useMemo(() => {
+    const completedOrders = orders.filter((o) => o.status === 'completed' || !o.status).length;
+    const base = Number(storeSettings.baseDeliveredCount || 0);
+    return base + completedOrders;
+  }, [orders, storeSettings.baseDeliveredCount]);
+
   // Category item counts (counts available accounts)
   const categoryCounts = useMemo(() => {
     const available = accounts.filter((a) => !a.isSold);
@@ -412,6 +419,7 @@ function App() {
         t={t}
         onOpenAccount={(acc) => setSelectedAccount(acc)} 
         hotAccount={hotAccount} 
+        deliveredCount={realDeliveredCount}
       />
 
       {/* Interactive Filter Toolbar with Region & Category Filter */}

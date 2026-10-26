@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccount }) {
+export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccount, deliveredCount = 0 }) {
   const formatPrice = (vnd, thb) => {
     if (currency === 'THB') {
       return `฿${thb.toLocaleString()}`;
@@ -62,7 +62,11 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
             {/* Quick Metrics */}
             <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
               <div>
-                <div className="text-2xl font-black text-white">2,150+</div>
+                <div className="text-2xl font-black text-white">
+                  {typeof deliveredCount === 'number' 
+                    ? (deliveredCount > 0 ? `${deliveredCount.toLocaleString()}+` : '0') 
+                    : (deliveredCount || '0')}
+                </div>
                 <div className="text-xs text-slate-400 font-medium">{t.statDelivered}</div>
               </div>
               <div>

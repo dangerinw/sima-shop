@@ -23,6 +23,10 @@ export const defaultStoreSettings = {
   supportLine: '@SIMASHOP',
   supportDiscord: 'discord.gg/simashop',
 
+  // Store Front Metrics (Delivered Count)
+  deliveredCountMode: 'real', // 'real' | 'custom'
+  baseDeliveredCount: 0,
+
   // Cloud Database (Supabase)
   supabaseUrl: 'https://ldcafwhhchadgfijiqte.supabase.co',
   supabaseAnonKey: '',
