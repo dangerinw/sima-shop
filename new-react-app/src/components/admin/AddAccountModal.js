@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { dbService } from '../../services/dbService';
 
 export default function AddAccountModal({ isOpen, onClose, onSave, editingAccount, lang }) {
   // Quick Paste Raw Text
@@ -94,7 +95,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     }
   }, [editingAccount, isOpen]);
 
-  // IMAGE OPTIMIZER
+  // IMAGE OPTIMIZER & CLOUD STORAGE UPLOADER
   const processImageFile = (file) => {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -113,7 +114,19 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
           canvas.height = height;
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, width, height);
-          resolve(canvas.toDataURL('image/jpeg', 0.85));
+
+          // Upload to Supabase Cloud Storage if enabled
+          canvas.toBlob(async (blob) => {
+            if (blob && dbService.useCloudDb) {
+              const cloudUrl = await dbService.uploadImage(blob, 'accounts');
+              if (cloudUrl) {
+                resolve(cloudUrl);
+                return;
+              }
+            }
+            // Fallback to optimized Base64
+            resolve(canvas.toDataURL('image/jpeg', 0.85));
+          }, 'image/jpeg', 0.85);
         };
         img.src = e.target.result;
       };

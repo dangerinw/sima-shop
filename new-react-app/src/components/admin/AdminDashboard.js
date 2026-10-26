@@ -35,6 +35,7 @@ export default function AdminDashboard({
   const [settingsForm, setSettingsForm] = useState(storeSettings);
   const [testingCloud, setTestingCloud] = useState(false);
   const [cloudTestResult, setCloudTestResult] = useState(null);
+  const [showAnonKey, setShowAnonKey] = useState(false);
 
   const formatPrice = (vnd, thb) => {
     if (currency === 'THB') {
@@ -115,6 +116,9 @@ export default function AdminDashboard({
     setTestingCloud(true);
     setCloudTestResult(null);
     const result = await dbService.testConnection(settingsForm.supabaseUrl, settingsForm.supabaseAnonKey);
+    if (result.correctedUrl) {
+      setSettingsForm((prev) => ({ ...prev, supabaseUrl: result.correctedUrl }));
+    }
     setTestingCloud(false);
     setCloudTestResult(result);
   };
@@ -594,14 +598,14 @@ export default function AdminDashboard({
               <div className="flex items-center justify-between">
                 <h3 className="font-black text-white text-base flex items-center gap-2">
                   <span>☁️</span>
-                  <span>ฐานข้อมูลออนไลน์ (Supabase Cloud DB)</span>
+                  <span>ฐานข้อมูล & สตอเรจ (Supabase Cloud DB & Storage)</span>
                 </h3>
                 <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">
-                  PostgreSQL Ready
+                  PostgreSQL & Storage Ready
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                เชื่อมต่อฐานข้อมูลกลางเพื่อให้ลูกค้าและแอดมินทุกเครื่องเห็นข้อมูลตรงกันแบบ Real-time
+                เชื่อมต่อฐานข้อมูลกลางและคลาวด์สตอเรจสำหรับจัดเก็บรูปภาพไอดีและสลิปโอนเงิน เพื่อให้ลูกค้าและแอดมินทุกเครื่องเห็นข้อมูลตรงกันแบบ Real-time
               </p>
 
               <div className="space-y-3 pt-1 text-xs">
@@ -609,7 +613,7 @@ export default function AdminDashboard({
                   <label className="block text-slate-300 font-bold">Supabase Project URL:</label>
                   <input
                     type="url"
-                    placeholder="https://xxxxxxxx.supabase.co"
+                    placeholder="https://ldcafwhhchadgfijiqte.supabase.co"
                     value={settingsForm.supabaseUrl || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, supabaseUrl: e.target.value })}
                     className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
@@ -617,19 +621,31 @@ export default function AdminDashboard({
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-slate-300 font-bold">Supabase Anon Public Key:</label>
+                  <div className="flex items-center justify-between">
+                    <label className="block text-slate-300 font-bold">Supabase Anon Public Key:</label>
+                    <button
+                      type="button"
+                      onClick={() => setShowAnonKey(!showAnonKey)}
+                      className="text-[11px] text-amber-400 hover:text-amber-300 font-semibold"
+                    >
+                      {showAnonKey ? '🙈 ซ่อนคีย์' : '👁️ แสดงคีย์'}
+                    </button>
+                  </div>
                   <input
-                    type="password"
+                    type={showAnonKey ? 'text' : 'password'}
                     placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..."
                     value={settingsForm.supabaseAnonKey || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, supabaseAnonKey: e.target.value })}
                     className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
                   />
+                  <p className="text-[10px] text-slate-500">
+                    * คัดลอกจากแท็บ <strong>"Legacy anon, service_role API keys"</strong> ในหน้า API Keys ของ Supabase (ขึ้นต้นด้วย eyJhbGci...)
+                  </p>
                 </div>
 
                 <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
                   <div>
-                    <span className="font-bold text-white text-xs">เปิดใช้งาน Cloud Database</span>
+                    <span className="font-bold text-white text-xs">เปิดใช้งาน Cloud Database & Storage</span>
                     <p className="text-[10px] text-slate-500">หากปิดไว้ ระบบจะใช้ LocalStorage ในเครื่องอัตโนมัติ</p>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -644,12 +660,12 @@ export default function AdminDashboard({
                 </div>
 
                 {/* Test Connection Button */}
-                <div className="pt-1 flex items-center gap-3">
+                <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-3">
                   <button
                     type="button"
                     disabled={testingCloud}
                     onClick={handleTestCloudConnection}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold text-xs border border-slate-700 transition-colors"
+                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold text-xs border border-slate-700 transition-colors w-fit"
                   >
                     {testingCloud ? '⏳ กำลังทดสอบ...' : '⚡ ทดสอบการเชื่อมต่อ Supabase'}
                   </button>

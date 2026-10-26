@@ -24,7 +24,7 @@ export const defaultStoreSettings = {
   supportDiscord: 'discord.gg/simashop',
 
   // Cloud Database (Supabase)
-  supabaseUrl: '',
+  supabaseUrl: 'https://ldcafwhhchadgfijiqte.supabase.co',
   supabaseAnonKey: '',
   useCloudDb: false
 };
@@ -33,7 +33,13 @@ export const getStoredSettings = () => {
   try {
     const saved = localStorage.getItem('sima_store_settings');
     if (saved) {
-      return { ...defaultStoreSettings, ...JSON.parse(saved) };
+      let parsed = JSON.parse(saved);
+      // Auto-correct any legacy typo in project URL
+      if (parsed.supabaseUrl && parsed.supabaseUrl.includes('ldcafwhhchsdgfijiqte')) {
+        parsed.supabaseUrl = parsed.supabaseUrl.replace('ldcafwhhchsdgfijiqte', 'ldcafwhhchadgfijiqte');
+        localStorage.setItem('sima_store_settings', JSON.stringify(parsed));
+      }
+      return { ...defaultStoreSettings, ...parsed };
     }
   } catch (e) {
     console.error('Failed to load store settings', e);

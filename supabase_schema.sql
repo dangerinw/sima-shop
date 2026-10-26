@@ -1,6 +1,6 @@
 -- =====================================================================
 -- SIMA SHOP - PUBG PC (Steam) Marketplace
--- Database Schema for Supabase (PostgreSQL)
+-- Database & Cloud Storage Schema for Supabase (PostgreSQL)
 -- =====================================================================
 
 -- 1. ACCOUNTS TABLE (PUBG Steam Accounts Inventory)
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS public.orders (
     mail_info TEXT NOT NULL,
     warranty TEXT DEFAULT 'มีประกันมือ 1 แท้ (ปลอดภัย 100%)',
     region TEXT DEFAULT 'th',
-    slip_image TEXT, -- Base64 or URL of customer uploaded bank transfer slip
+    slip_image TEXT, -- CDN URL or Base64 of customer uploaded bank transfer slip
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -90,30 +90,60 @@ CREATE TABLE IF NOT EXISTS public.store_settings (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Enable Row Level Security (RLS)
+-- 5. CLOUD STORAGE BUCKET (PUBG Screenshots & Bank Transfer Slips)
+-- Create public bucket 'sima-assets' if not already created
+INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+VALUES (
+    'sima-assets',
+    'sima-assets',
+    true,
+    5242880, -- 5 MB max per image
+    ARRAY['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml']
+)
+ON CONFLICT (id) DO UPDATE SET public = true;
+
+-- Enable Row Level Security (RLS) on all tables
 ALTER TABLE public.accounts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.store_settings ENABLE ROW LEVEL SECURITY;
 
--- Allow Public Read Access for Available Accounts & Store Settings
+-- Reset table policies for clean idempotent execution
+DROP POLICY IF EXISTS "Public Read Accounts" ON public.accounts;
+DROP POLICY IF EXISTS "Public Manage Accounts" ON public.accounts;
+DROP POLICY IF EXISTS "Public Read Orders" ON public.orders;
+DROP POLICY IF EXISTS "Public Manage Orders" ON public.orders;
+DROP POLICY IF EXISTS "Public Read Users" ON public.users;
+DROP POLICY IF EXISTS "Public Manage Users" ON public.users;
+DROP POLICY IF EXISTS "Public Read Store Settings" ON public.store_settings;
+DROP POLICY IF EXISTS "Public Manage Store Settings" ON public.store_settings;
+
+-- Public Permissive Policies (Seamless Client Anon Key integration)
 CREATE POLICY "Public Read Accounts" ON public.accounts FOR SELECT USING (true);
+CREATE POLICY "Public Manage Accounts" ON public.accounts FOR ALL USING (true) WITH CHECK (true);
+
+CREATE POLICY "Public Read Orders" ON public.orders FOR SELECT USING (true);
+CREATE POLICY "Public Manage Orders" ON public.orders FOR ALL USING (true) WITH CHECK (true);
+
+CREATE POLICY "Public Read Users" ON public.users FOR SELECT USING (true);
+CREATE POLICY "Public Manage Users" ON public.users FOR ALL USING (true) WITH CHECK (true);
+
 CREATE POLICY "Public Read Store Settings" ON public.store_settings FOR SELECT USING (true);
+CREATE POLICY "Public Manage Store Settings" ON public.store_settings FOR ALL USING (true) WITH CHECK (true);
 
--- Allow Public Insert for Orders & Users (Customer registration & checkout)
-CREATE POLICY "Public Insert Orders" ON public.orders FOR INSERT WITH CHECK (true);
-CREATE POLICY "Public Select Orders" ON public.orders FOR SELECT USING (true);
-CREATE POLICY "Public Insert Users" ON public.users FOR INSERT WITH CHECK (true);
-CREATE POLICY "Public Select Users" ON public.users FOR SELECT USING (true);
+-- Storage Object Policies for 'sima-assets' bucket
+DROP POLICY IF EXISTS "Public Read sima-assets" ON storage.objects;
+DROP POLICY IF EXISTS "Public Upload sima-assets" ON storage.objects;
+DROP POLICY IF EXISTS "Public Update sima-assets" ON storage.objects;
+DROP POLICY IF EXISTS "Public Delete sima-assets" ON storage.objects;
 
--- Allow All Operations with Service Role (Admin)
-CREATE POLICY "Admin Full Access Accounts" ON public.accounts FOR ALL USING (true);
-CREATE POLICY "Admin Full Access Orders" ON public.orders FOR ALL USING (true);
-CREATE POLICY "Admin Full Access Users" ON public.users FOR ALL USING (true);
-CREATE POLICY "Admin Full Access Settings" ON public.store_settings FOR ALL USING (true);
+CREATE POLICY "Public Read sima-assets" ON storage.objects FOR SELECT USING (bucket_id = 'sima-assets');
+CREATE POLICY "Public Upload sima-assets" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'sima-assets');
+CREATE POLICY "Public Update sima-assets" ON storage.objects FOR UPDATE USING (bucket_id = 'sima-assets');
+CREATE POLICY "Public Delete sima-assets" ON storage.objects FOR DELETE USING (bucket_id = 'sima-assets');
 
 -- =====================================================================
--- INITIAL SEED DATA
+-- INITIAL PRODUCTION DATA
 -- =====================================================================
 
 -- Default Store Settings
@@ -121,8 +151,19 @@ INSERT INTO public.store_settings (id, promptpay_id, promptpay_name, vietqr_bank
 VALUES ('global', '0891234567', 'นาย สิมะ ช็อป (SIMA SHOP)', 'MB', '0987654321', 'SIMA SHOP VN')
 ON CONFLICT (id) DO NOTHING;
 
--- Initial Demo Accounts
-INSERT INTO public.accounts (id, region, category, title_th, title_en, subtitle_th, subtitle_en, price_thb, price_vnd, original_price_thb, original_price_vnd, tags, rank, playtime_th, playtime_en, gun_level_th, gun_level_en, details_th, details_en, steam_user, steam_pass, steam_email, is_sold, is_hot, accent_color)
+-- Seed: Real Production Account (PC-1001: Aug Minotaur Lv.10 Max + 3 Supercars)
+INSERT INTO public.accounts (
+    id, region, category,
+    title_th, title_en,
+    subtitle_th, subtitle_en,
+    price_thb, price_vnd,
+    original_price_thb, original_price_vnd,
+    tags, rank, playtime_th, playtime_en,
+    gun_level_th, gun_level_en,
+    details_th, details_en,
+    steam_user, steam_pass, steam_email,
+    is_sold, is_hot, accent_color
+)
 VALUES 
 (
     'PC-1001', 'cn', 'progressive',
@@ -130,62 +171,15 @@ VALUES
     'Aug Minotaur Lv.10 Max + Chroma & 3 Supercars',
     'แฟชั่นแต่งทรงจีนสวยๆ Urus S, Cayenne, Aston Martin',
     'Exclusive Fashion, Urus S, Cayenne & Aston Martin',
-    16000, 11500000, 19200, 13800000,
+    16000, 11500000,
+    19200, 13800000,
     '["Progressive", "OriginalMail", "HotDeal"]'::jsonb,
     'Master (Diamond+)', '1,500 ชม.', '1,500 hrs',
-    'Aug Lv.10 Max + Chroma | Mini Lv.6 Max | Beryl Lv.2',
-    'Aug Lv.10 Max + Chroma | Mini Lv.6 Max | Beryl Lv.2',
+    'Aug Lv.10 Max + Chroma | Mini Lv.6 Max | Beryl Lv.2 | MK12 Lv.1 | Dragunov Lv.1',
+    'Aug Lv.10 Max + Chroma | Mini Lv.6 Max | Beryl Lv.2 | MK12 Lv.1 | Dragunov Lv.1',
     'ขาย 16000 บาท Aug มิโนทอร์ ขาว คู่เขียว คู่ทอง ชุดสวยเเต่งทรงจีน,newjen,รถ 3 คัน,ไอดีที่คนตามหา\nid steam ไทย มีประกันมือ 1',
-    'Aug Minotaur Lv.10 Max + Chroma, Mini Lv.6, Beryl Lv.2, 3 Supercars, 1st Hand Warranty.',
-    'sima_minotaur_th', 'MinoSteam#2026', 'og_minotaur@gmail.com | pass: SteamMino99',
-    false, true, 'from-amber-950/60 via-slate-900 to-slate-950'
-),
-(
-    'PC-1002', 'th', 'rare-skins',
-    'PUBG Steam ยุคแรก + แจ็กเก็ต BAPE แท้ + เสื้อพราง',
-    'Original PUBG Steam + Authentic BAPE Jacket',
-    'ของสะสมระดับตำนาน ไม่มีขายในเกมอีกต่อไป',
-    'Rare Collector Edition, Discontinued Outfits',
-    2990, 2200000, 3800, 2800000,
-    '["BAPE", "OriginalMail", "Rare"]'::jsonb,
-    'Platinum II', '2,400 ชม.', '2,400 hrs',
-    'M416 Silver Plate, Kar98k Shark',
-    'M416 Silver Plate, Kar98k Shark',
-    'ไอดีไทยแท้ ยุคเปิดเซิร์ฟเวอร์ ชุด BAPE แท้ กล่องครบคอลเลกชัน',
-    'Authentic Early Access Steam account with exclusive BAPE outfits.',
-    'bape_collector_99', 'BapeSteam#998', 'bape_og_mail@yahoo.com | pass: BapeKing2026',
-    false, false, 'from-amber-900/40 to-slate-900'
-),
-(
-    'PC-1003', 'th', 'rank-ready',
-    'Rank Ready Plus + Survival Lv.120+ โอนย้ายทันที',
-    'Rank Ready Plus + Survival Lv.120+ Instant Transfer',
-    'ผูกเบอร์ใหม่ได้ทันที สถิติ KD 3.20 พร้อมลงแรงค์',
-    'Verified SMS Ready, Clean Stats KD 3.20',
-    530, 390000, 690, 500000,
-    '["RankReady", "Budget"]'::jsonb,
-    'Unranked (Plus Active)', '320 ชม.', '320 hrs',
-    'Default Weapon Arsenal',
-    'Default Weapon Arsenal',
-    'ไอดีสเมิร์ฟพร้อมลงแรงค์ Steam แท้ ไม่เคยใช้โปรแกรมช่วยเล่น',
-    'Competitive rank-ready smurf account with PUBG Plus activated.',
-    'rank_smurf_th', 'P@ssw0rdReady', 'smurf_rank_plus@outlook.com | pass: Th123456!',
-    false, false, 'from-emerald-950/40 to-slate-900'
-),
-(
-    'PC-1004', 'vn', 'progressive',
-    'M416 เทพเสือดาวคำราม Lv.8 พร้อมแอนิเมชันสังหาร',
-    'M416 Roaring Tiger Lv.8 with Kill Feed FX',
-    'สกินยอดนิยมตลอดกาล ฟูลออปชันพร้อมกระสุนทอง',
-    'Most Wanted M416 Skin with Custom Animations',
-    7500, 5400000, 9000, 6500000,
-    '["Progressive", "OriginalMail"]'::jsonb,
-    'Master 120 LP', '1,890 ชม.', '1,890 hrs',
-    'M416 Tiger Lv.8 | SLR Lv.3',
-    'M416 Tiger Lv.8 | SLR Lv.3',
-    'ไอดีเวียดนาม สกินยอดฮิต ส่งมอบเมลแรกแท้ 100%',
-    'High tier M416 Roaring Tiger account with original mail.',
-    'vn_tiger_pro', 'TigerSteam#2026', 'tiger_og@gmail.com | pass: TigerVn88',
-    false, false, 'from-rose-950/40 to-slate-900'
+    'Aug Minotaur Lv.10 Max + Chroma, Mini Lv.6 Max, Beryl Lv.2, 3 Supercars, 1st Hand Warranty.',
+    'sima_steam_user', 'Pass#2026Secure', 'ogmail_pubg@gmail.com | pass: Steam2026',
+    false, true, 'from-slate-900 via-amber-950/40 to-slate-950'
 )
 ON CONFLICT (id) DO NOTHING;

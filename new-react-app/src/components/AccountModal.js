@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPromptPayQrImageUrl, getVietQrImageUrl } from '../utils/paymentQr';
+import { dbService } from '../services/dbService';
 
 export default function AccountModal({ 
   account, 
@@ -99,9 +100,20 @@ export default function AccountModal({
   };
 
   // Process Slip File upload or paste
-  const handleSlipFileUpload = (e) => {
+  const handleSlipFileUpload = async (e) => {
     const file = e.target.files?.[0];
     if (file) {
+      if (dbService.useCloudDb) {
+        setIsVerifyingSlip(true);
+        setVerifyStatusText('☁️ กำลังอัปโหลดสลิปไปยัง Cloud Storage...');
+        const cloudUrl = await dbService.uploadImage(file, 'slips');
+        setIsVerifyingSlip(false);
+        setVerifyStatusText('');
+        if (cloudUrl) {
+          setSlipImage(cloudUrl);
+          return;
+        }
+      }
       const reader = new FileReader();
       reader.onload = (event) => {
         setSlipImage(event.target.result);
@@ -111,13 +123,24 @@ export default function AccountModal({
   };
 
   // Support Ctrl+V paste slip directly
-  const handlePasteSlip = (e) => {
+  const handlePasteSlip = async (e) => {
     const items = e.clipboardData?.items || [];
     for (const item of items) {
       if (item.type.indexOf('image') !== -1) {
         e.preventDefault();
         const file = item.getAsFile();
         if (file) {
+          if (dbService.useCloudDb) {
+            setIsVerifyingSlip(true);
+            setVerifyStatusText('☁️ กำลังอัปโหลดสลิปไปยัง Cloud Storage...');
+            const cloudUrl = await dbService.uploadImage(file, 'slips');
+            setIsVerifyingSlip(false);
+            setVerifyStatusText('');
+            if (cloudUrl) {
+              setSlipImage(cloudUrl);
+              return;
+            }
+          }
           const reader = new FileReader();
           reader.onload = (event) => {
             setSlipImage(event.target.result);

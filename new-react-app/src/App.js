@@ -14,6 +14,7 @@ import { mockAccounts } from './data/mockAccounts';
 import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
 import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
+import { dbService } from './services/dbService';
 
 function App() {
   const [currency, setCurrency] = useState('VND');
@@ -32,7 +33,29 @@ function App() {
   const handleUpdateStoreSettings = (newSettings) => {
     setStoreSettings(newSettings);
     saveStoredSettings(newSettings);
+    dbService.updateSettings(newSettings);
+    if (newSettings.useCloudDb) {
+      dbService.saveSettings(newSettings);
+    }
   };
+
+  // Sync state with Cloud DB / Storage when enabled
+  useEffect(() => {
+    dbService.updateSettings(storeSettings);
+    if (storeSettings.useCloudDb) {
+      dbService.getAccounts().then((cloudAccounts) => {
+        if (Array.isArray(cloudAccounts) && cloudAccounts.length > 0) {
+          setAccounts(cloudAccounts);
+        }
+      });
+      dbService.getOrders().then((cloudOrders) => {
+        if (Array.isArray(cloudOrders) && cloudOrders.length > 0) {
+          setOrders(cloudOrders);
+        }
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storeSettings.useCloudDb, storeSettings.supabaseUrl, storeSettings.supabaseAnonKey]);
 
   // Admin Authentication State
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
@@ -210,33 +233,42 @@ function App() {
   // Inventory Management Handlers
   const handleAddAccount = (newAccount) => {
     setAccounts([newAccount, ...accounts]);
+    dbService.saveAccount(newAccount);
   };
 
   const handleUpdateAccount = (updatedAccount) => {
     setAccounts(
       accounts.map((acc) => (acc.id === updatedAccount.id ? updatedAccount : acc))
     );
+    dbService.saveAccount(updatedAccount);
   };
 
   const handleDeleteAccount = (accountId) => {
     setAccounts(accounts.filter((acc) => acc.id !== accountId));
+    dbService.deleteAccount(accountId);
   };
 
   const handleToggleSold = (accountId) => {
+    let targetAcc = null;
     setAccounts(
       accounts.map((acc) => {
         if (acc.id === accountId) {
-          return { ...acc, isSold: !acc.isSold };
+          targetAcc = { ...acc, isSold: !acc.isSold };
+          return targetAcc;
         }
         return acc;
       })
     );
+    if (targetAcc) {
+      dbService.saveAccount(targetAcc);
+    }
   };
 
   const handleUpdateOrderStatus = (orderId, newStatus) => {
     setOrders(
       orders.map((ord) => (ord.orderId === orderId ? { ...ord, status: newStatus } : ord))
     );
+    dbService.updateOrderStatus(orderId, newStatus);
   };
 
   const handleClearAllAccounts = () => {
@@ -250,16 +282,22 @@ function App() {
   const handleBuySuccess = (accountId, newOrder) => {
     // 1. Add order to order history
     setOrders([newOrder, ...orders]);
+    dbService.saveOrder(newOrder);
 
     // 2. Mark account as sold in inventory
+    let soldAcc = null;
     setAccounts(
       accounts.map((acc) => {
         if (acc.id === accountId) {
-          return { ...acc, isSold: true };
+          soldAcc = { ...acc, isSold: true };
+          return soldAcc;
         }
         return acc;
       })
     );
+    if (soldAcc) {
+      dbService.saveAccount(soldAcc);
+    }
   };
 
   const handleClearOrders = () => {
