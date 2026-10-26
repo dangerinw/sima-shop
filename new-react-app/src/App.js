@@ -17,8 +17,36 @@ import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
 import { dbService } from './services/dbService';
 
 function App() {
-  const [currency, setCurrency] = useState('VND');
-  const [lang, setLang] = useState('th'); // 'th' | 'en'
+  const [currency, setCurrency] = useState(() => {
+    try {
+      const saved = localStorage.getItem('sima_currency');
+      return saved || 'THB';
+    } catch (_) {
+      return 'THB';
+    }
+  });
+  const [lang, setLang] = useState(() => {
+    try {
+      const saved = localStorage.getItem('sima_lang');
+      return saved || 'th';
+    } catch (_) {
+      return 'th';
+    }
+  });
+
+  const handleSetCurrency = (newCurr) => {
+    setCurrency(newCurr);
+    try {
+      localStorage.setItem('sima_currency', newCurr);
+    } catch (_) {}
+  };
+
+  const handleSetLang = (newLang) => {
+    setLang(newLang);
+    try {
+      localStorage.setItem('sima_lang', newLang);
+    } catch (_) {}
+  };
   const [viewMode, setViewMode] = useState('store'); // 'store' | 'admin'
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeRegion, setActiveRegion] = useState('all'); // 'all' | 'th' | 'cn' | 'vn'
@@ -399,9 +427,9 @@ function App() {
       {/* Navbar with Customer Auth & Admin button & Language/Currency Switchers */}
       <Navbar 
         currency={currency} 
-        setCurrency={setCurrency}
+        setCurrency={handleSetCurrency}
         lang={lang}
-        setLang={setLang}
+        setLang={handleSetLang}
         t={t}
         onSearchFocus={handleSearchFocus}
         onOpenAdmin={handleOpenAdmin}
