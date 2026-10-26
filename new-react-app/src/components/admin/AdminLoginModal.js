@@ -25,15 +25,9 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
         onLoginSuccess();
       } else {
         setIsLoading(false);
-        setErrorMsg('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง (ลองใช้ admin / sima2026)');
+        setErrorMsg('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง');
       }
     }, 400);
-  };
-
-  const handleFillDemo = () => {
-    setUsername('admin');
-    setPassword('sima2026');
-    setErrorMsg('');
   };
 
   return (
@@ -87,7 +81,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
                 type="text"
                 required
                 autoFocus
-                placeholder="กรอกชื่อผู้ใช้ เช่น admin"
+                placeholder="กรอกชื่อผู้ใช้แอดมิน"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-white placeholder-slate-600 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all font-mono"
@@ -121,28 +115,11 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
             </div>
           </div>
 
-          {/* Quick Demo Credentials Box */}
-          <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 space-y-1.5">
-            <div className="flex items-center justify-between">
-              <span className="text-amber-400 font-bold">🔑 รหัสผ่านทดสอบระบบ:</span>
-              <button
-                type="button"
-                onClick={handleFillDemo}
-                className="text-amber-400 hover:underline font-bold"
-              >
-                คลิกเพื่อใส่ให้อัตโนมัติ ⚡
-              </button>
-            </div>
-            <div className="font-mono text-slate-300">
-              User: <span className="text-white font-bold">admin</span> | Pass: <span className="text-white font-bold">sima2026</span>
-            </div>
-          </div>
-
           {/* Submit Button */}
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-sm shadow-lg pubg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-sm shadow-lg pubg-glow transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
           >
             {isLoading ? (
               <span>กำลังตรวจสอบข้อมูล...</span>
