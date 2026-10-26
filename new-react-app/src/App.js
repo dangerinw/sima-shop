@@ -63,11 +63,20 @@ function App() {
     } catch (e) {}
   }, [currentUser]);
 
-  // State for inventory & orders with LocalStorage persistence for Real Data testing
+  // State for inventory & orders with LocalStorage persistence for Real Data
   const [accounts, setAccounts] = useState(() => {
     try {
       const saved = localStorage.getItem('sima_accounts');
-      return saved ? JSON.parse(saved) : mockAccounts;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Auto-purge legacy mock items (PC-1006, PC-1005) if present from earlier testing
+        if (Array.isArray(parsed) && parsed.some((a) => a.id === 'PC-1006' || a.id === 'PC-1005')) {
+          localStorage.setItem('sima_accounts', JSON.stringify(mockAccounts));
+          return mockAccounts;
+        }
+        return parsed;
+      }
+      return mockAccounts;
     } catch (e) {
       return mockAccounts;
     }
@@ -76,9 +85,18 @@ function App() {
   const [orders, setOrders] = useState(() => {
     try {
       const saved = localStorage.getItem('sima_orders');
-      return saved ? JSON.parse(saved) : mockOrders;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Auto-purge legacy demo orders (ORD-8821, ORD-8820, ORD-8818) from browser cache
+        if (Array.isArray(parsed) && parsed.some((o) => o.orderId === 'ORD-8821' || o.orderId === 'ORD-8820' || o.orderId === 'ORD-8818')) {
+          localStorage.setItem('sima_orders', JSON.stringify([]));
+          return [];
+        }
+        return parsed;
+      }
+      return [];
     } catch (e) {
-      return mockOrders;
+      return [];
     }
   });
 
