@@ -12,13 +12,14 @@ const path = require('path');
 // Parse CLI flags
 const args = process.argv.slice(2);
 const isWatch = args.includes('--watch');
-const pagesArg = args.find(a => a.startsWith('--pages=') || a === '-p');
 let cliPages = 5; // Default 5 pages = 100 accounts
-if (pagesArg) {
-  if (pagesArg.startsWith('--pages=')) cliPages = parseInt(pagesArg.split('=')[1], 10);
-  else {
-    const idx = args.indexOf(pagesArg);
-    if (idx !== -1 && args[idx + 1]) cliPages = parseInt(args[idx + 1], 10);
+const pagesEq = args.find(a => a.startsWith('--pages='));
+if (pagesEq) {
+  cliPages = parseInt(pagesEq.split('=')[1], 10);
+} else {
+  const pIdx = args.findIndex(a => a === '--pages' || a === '-p');
+  if (pIdx !== -1 && args[pIdx + 1]) {
+    cliPages = parseInt(args[pIdx + 1], 10);
   }
 }
 const shouldSaveFirebase = args.includes('--firebase');
