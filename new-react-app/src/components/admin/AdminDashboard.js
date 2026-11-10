@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { chinaSyncService } from '../../services/chinaSync/chinaSyncService';
 import AddAccountModal from './AddAccountModal';
 import { dbService } from '../../services/dbService';
 import { defaultStoreSettings } from '../../data/defaultSettings';
@@ -36,6 +37,86 @@ export default function AdminDashboard({
   const [testingCloud, setTestingCloud] = useState(false);
   const [cloudTestResult, setCloudTestResult] = useState(null);
   const [showAnonKey, setShowAnonKey] = useState(false);
+
+  // China Real-time Sync State
+  const [syncingChina, setSyncingChina] = useState(false);
+  const [chinaSyncLogs, setChinaSyncLogs] = useState([]);
+  const [autoSyncInPage, setAutoSyncInPage] = useState(false);
+
+  // Trigger Instant Sync
+  const handleTriggerChinaSync = async () => {
+    if (!settingsForm.supabaseUrl || !settingsForm.supabaseAnonKey) {
+      alert('กรุณากรอก Supabase URL และ Anon Key ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
+      return;
+    }
+
+    setSyncingChina(true);
+    setChinaSyncLogs((prev) => [
+      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${settingsForm.chinaSyncPages || 2} หน้าล่าสุด (40-60 ไอดี)...`,
+      ...prev
+    ]);
+
+    const result = await chinaSyncService.runSync({
+      pages: settingsForm.chinaSyncPages || 2,
+      cnyRateThb: Number(settingsForm.chinaCnyRateThb || 5.2),
+      cnyRateVnd: Number(settingsForm.chinaCnyRateVnd || 3700),
+      markupPercent: Number(settingsForm.chinaMarkupPercent || 15),
+      supabaseUrl: settingsForm.supabaseUrl,
+      supabaseAnonKey: settingsForm.supabaseAnonKey,
+      fetchScreenshots: true
+    }, (progress) => {
+      if (progress.message) {
+        setChinaSyncLogs((prev) => [progress.message, ...prev.slice(0, 40)]);
+      }
+    });
+
+    setSyncingChina(false);
+    if (result.success) {
+      const now = new Date().toISOString();
+      const updated = {
+        ...settingsForm,
+        chinaLastSyncTime: now,
+        chinaLastSyncCount: result.totalSynced
+      };
+      setSettingsForm(updated);
+      if (onUpdateStoreSettings) {
+        onUpdateStoreSettings(updated);
+      }
+      setChinaSyncLogs((prev) => [
+        `[${new Date().toLocaleTimeString()}] ${result.message}`,
+        ...prev
+      ]);
+      if (result.syncedAccounts && result.syncedAccounts.length > 0) {
+        const existingMap = new Map(accounts.map((a) => [a.id, a]));
+        result.syncedAccounts.forEach((acc) => existingMap.set(acc.id, acc));
+        const merged = Array.from(existingMap.values());
+        if (onRestoreBackup) {
+          onRestoreBackup({ accounts: merged });
+        }
+      }
+    } else {
+      setChinaSyncLogs((prev) => [
+        `[${new Date().toLocaleTimeString()}] ❌ ${result.message}`,
+        ...prev
+      ]);
+      alert(result.message);
+    }
+  };
+
+  // Auto-sync interval loop in Admin page
+  useEffect(() => {
+    let interval = null;
+    if (autoSyncInPage) {
+      const mins = Number(settingsForm.chinaSyncIntervalMinutes || 15);
+      interval = setInterval(() => {
+        handleTriggerChinaSync();
+      }, mins * 60 * 1000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoSyncInPage, settingsForm.chinaSyncIntervalMinutes]);
 
   const formatPrice = (vnd, thb) => {
     if (currency === 'THB') {
@@ -263,6 +344,15 @@ export default function AdminDashboard({
             >
               <span>⚙️</span>
               <span>ตั้งค่าระบบ & ธนาคาร & Cloud DB</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('china-sync')}
+              className={`px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
+                activeTab === 'china-sync' ? 'bg-amber-500 text-black shadow' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <span>🇨🇳</span>
+              <span>ซิงค์สต็อกจีน Real-time</span>
             </button>
           </div>
 
@@ -829,6 +919,271 @@ export default function AdminDashboard({
                 >
                   🔄 รีเซ็ตข้อมูลเริ่มต้น
                 </button>
+              </div>
+            </div>
+
+          </div>
+        )}
+
+        {/* TAB 4: CHINA REAL-TIME STOCK SYNC ENGINE 🇨🇳 */}
+        {activeTab === 'china-sync' && (
+          <div className="space-y-6">
+            
+            {/* Top Status Banner */}
+            <div className="bg-gradient-to-r from-red-950/60 via-slate-900 to-amber-950/40 p-6 rounded-2xl border border-red-800/40 shadow-xl space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>API เชื่อมต่อตรง: fzht.xuxug.com (คลังจีน 12,240+ ไอดี)</span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+                    <span>🇨🇳</span>
+                    <span>ระบบซิงค์สต็อกไอดีจีน Real-time (China Auto-Sync)</span>
+                  </h2>
+                  <p className="text-xs text-slate-300">
+                    ดึงข้อมูลไอดีจากตลาดจีน แปลงชื่อสกิน/ปืนเป็นภาษาไทย แปลงราคาหยวนเป็นบาท+กำไร และนำเข้าระบบอัตโนมัติ
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-center min-w-[120px]">
+                    <span className="text-[10px] text-slate-400 font-bold block">ไอดีจีนในร้านเรา:</span>
+                    <span className="text-xl font-black text-amber-400">
+                      {accounts.filter((a) => a.region === 'cn').length} ไอดี
+                    </span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-center min-w-[140px]">
+                    <span className="text-[10px] text-slate-400 font-bold block">ซิงค์ล่าสุด:</span>
+                    <span className="text-xs font-mono font-bold text-emerald-400">
+                      {settingsForm.chinaLastSyncTime ? new Date(settingsForm.chinaLastSyncTime).toLocaleTimeString('th-TH') : 'ยังไม่เคยซิงค์'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sync Configuration Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              
+              {/* Formula & Margin Settings */}
+              <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-4 lg:col-span-2">
+                <h3 className="font-black text-white text-base flex items-center gap-2">
+                  <span>🧮</span>
+                  <span>ตั้งค่าเรทราคา & คำนวณกำไรอัตโนมัติ</span>
+                </h3>
+                <p className="text-xs text-slate-400">
+                  ระบบจะนำราคาหยวน (RMB) จากจีนมาคูณเรทแลกเปลี่ยนและบวกกำไรตามที่คุณกำหนด ก่อนตั้งเป็นราคาขายบนหน้าเว็บ
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-300 block">
+                      เรทเงินหยวน (1 RMB = กี่บาท THB):
+                    </label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      min="1"
+                      value={settingsForm.chinaCnyRateThb ?? 5.2}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaCnyRateThb: parseFloat(e.target.value) || 5.2 })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
+                    />
+                    <span className="text-[10px] text-slate-500 block">ปกติอยู่ที่ประมาณ 4.8 - 5.3</span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-300 block">
+                      กำไรบวกเพิ่ม (% Markup):
+                    </label>
+                    <input
+                      type="number"
+                      step="1"
+                      min="0"
+                      value={settingsForm.chinaMarkupPercent ?? 15}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaMarkupPercent: parseFloat(e.target.value) || 0 })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
+                    />
+                    <span className="text-[10px] text-slate-500 block">เช่น +15% จากราคาทุนจีน</span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-300 block">
+                      เรทเงินดงเวียดนาม (1 RMB = กี่ VND):
+                    </label>
+                    <input
+                      type="number"
+                      step="50"
+                      min="1000"
+                      value={settingsForm.chinaCnyRateVnd ?? 3700}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaCnyRateVnd: parseFloat(e.target.value) || 3700 })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
+                    />
+                    <span className="text-[10px] text-slate-500 block">มาตรฐาน 3,500 - 3,800 ₫</span>
+                  </div>
+                </div>
+
+                {/* Example Price Calculation Box */}
+                <div className="p-4 rounded-xl bg-slate-950/90 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                  <div>
+                    <span className="text-slate-400 font-semibold block">ตัวอย่างการคิดราคา:</span>
+                    <span className="text-white">
+                      ไอดีจีนราคา <strong className="text-amber-400">¥1,000 หยวน</strong> 
+                      &nbsp;→ ราคาขายหน้าร้านจะเป็น:
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="text-right">
+                      <div className="text-base font-black text-emerald-400">
+                        ฿{Math.round((1000 * (settingsForm.chinaCnyRateThb || 5.2) * (1 + (settingsForm.chinaMarkupPercent || 15) / 100)) / 10) * 10}
+                      </div>
+                      <span className="text-[10px] text-slate-500">กำไร ฿{Math.round(1000 * (settingsForm.chinaCnyRateThb || 5.2) * ((settingsForm.chinaMarkupPercent || 15) / 100))}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Batch Size & Interval */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-300 block">
+                      จำนวนหน้าดึงต่อรอบ (Batch Size):
+                    </label>
+                    <select
+                      value={settingsForm.chinaSyncPages || 2}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaSyncPages: parseInt(e.target.value, 10) })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-bold text-xs focus:border-amber-500 outline-none"
+                    >
+                      <option value="1">1 หน้า (20 ไอดีล่าสุด)</option>
+                      <option value="2">2 หน้า (40 ไอดีล่าสุด) - แนะนำ</option>
+                      <option value="3">3 หน้า (60 ไอดีล่าสุด)</option>
+                      <option value="5">5 หน้า (100 ไอดีล่าสุด)</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-bold text-slate-300 block">
+                      ความถี่ในการซิงค์อัตโนมัติ:
+                    </label>
+                    <select
+                      value={settingsForm.chinaSyncIntervalMinutes || 15}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaSyncIntervalMinutes: parseInt(e.target.value, 10) })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-bold text-xs focus:border-amber-500 outline-none"
+                    >
+                      <option value="10">ทุกๆ 10 นาที (Real-time สูงสุด)</option>
+                      <option value="15">ทุกๆ 15 นาที (แนะนำ)</option>
+                      <option value="30">ทุกๆ 30 นาที</option>
+                      <option value="60">ทุกๆ 1 ชั่วโมง</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="pt-3 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    disabled={syncingChina}
+                    onClick={handleTriggerChinaSync}
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 via-amber-500 to-amber-600 hover:from-red-500 hover:to-amber-500 text-black font-black text-xs sm:text-sm shadow-lg pubg-glow transition-all flex items-center gap-2 disabled:opacity-50"
+                  >
+                    <span>{syncingChina ? '⏳' : '⚡'}</span>
+                    <span>{syncingChina ? 'กำลังดึงข้อมูลจากจีน...' : 'สั่งซิงค์สต็อกจีนเดี๋ยวนี้ (Sync Now)'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleSaveSettings}
+                    className="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700 transition-colors"
+                  >
+                    💾 บันทึกค่าคอนฟิกซิงค์
+                  </button>
+                </div>
+              </div>
+
+              {/* In-Browser Auto-Sync & Cloud Scheduler Info */}
+              <div className="space-y-4">
+                
+                {/* Browser Real-time Loop Card */}
+                <div className="bg-[#111723] p-5 rounded-2xl border border-slate-800 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-white text-xs">ซิงค์อัตโนมัติในเบราว์เซอร์</span>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={autoSyncInPage}
+                        onChange={(e) => setAutoSyncInPage(e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
+                    </label>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    เมื่อเปิดสวิตช์นี้ ตราบใดที่คุณเปิดหน้าแอดมินทิ้งไว้ ระบบจะวนลูปซิงค์สต็อกไอดีใหม่เข้าฐานข้อมูลอัตโนมัติทุกๆ <strong>{settingsForm.chinaSyncIntervalMinutes || 15} นาที</strong>
+                  </p>
+                  {autoSyncInPage && (
+                    <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] flex items-center gap-2 font-bold animate-pulse">
+                      <span>🟢</span>
+                      <span>ระบบ Auto-Sync กำลังทำงานสดในเบราว์เซอร์</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Cloud Automation Card */}
+                <div className="bg-[#111723] p-5 rounded-2xl border border-slate-800 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">☁️</span>
+                    <h4 className="font-bold text-white text-xs">ระบบคลาวด์ 24 ชม. (GitHub Actions)</h4>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    เราได้ติดตั้งไฟล์ Workflow <strong>.github/workflows/sync-china-stock.yml</strong> ไว้ให้แล้ว ระบบสามารถทำงานในคลาวด์ตลอด 24 ชั่วโมง โดยที่คุณไม่จำเป็นต้องเปิดคอมพิวเตอร์ทิ้งไว้เลย!
+                  </p>
+                  <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-[10px] text-slate-400 space-y-1 font-mono">
+                    <div>✓ ความถี่: ทุกๆ 30 นาที 24/7</div>
+                    <div>✓ ปลายทาง: Supabase Cloud DB</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Real-time Streaming Sync Terminal Console */}
+            <div className="bg-[#0b0f17] p-5 rounded-2xl border border-slate-800 space-y-3 shadow-inner">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span className="w-3 h-3 rounded-full bg-amber-500"></span>
+                  <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+                  <span className="text-xs font-mono font-bold text-slate-300 ml-2">
+                    Terminal Output (บันทึกกิจกรรมซิงค์ Real-time)
+                  </span>
+                </div>
+                {syncingChina && (
+                  <span className="text-xs text-amber-400 font-bold flex items-center gap-1.5 animate-pulse">
+                    <span>⚡</span> กำลังประมวลผล...
+                  </span>
+                )}
+              </div>
+
+              <div className="bg-black/80 rounded-xl p-4 font-mono text-xs max-h-64 overflow-y-auto space-y-1.5 scrollbar-thin scrollbar-thumb-slate-800">
+                {chinaSyncLogs.length === 0 ? (
+                  <div className="text-slate-600 italic">
+                    ยังไม่มีกิจกรรมในเซสชันนี้ กดปุ่ม "สั่งซิงค์สต็อกจีนเดี๋ยวนี้" เพื่อเริ่มการกวาดข้อมูล
+                  </div>
+                ) : (
+                  chinaSyncLogs.map((log, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`${
+                        log.includes('✓') || log.includes('สำเร็จ') 
+                          ? 'text-emerald-400' 
+                          : log.includes('❌') 
+                          ? 'text-rose-400' 
+                          : 'text-slate-300'
+                      }`}
+                    >
+                      {log}
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 

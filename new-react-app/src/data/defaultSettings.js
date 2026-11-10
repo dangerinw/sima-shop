@@ -30,7 +30,17 @@ export const defaultStoreSettings = {
   // Cloud Database (Supabase)
   supabaseUrl: 'https://ldcafwhhchadgfijiqte.supabase.co',
   supabaseAnonKey: '',
-  useCloudDb: false
+  useCloudDb: false,
+
+  // China Real-time Sync Configuration 🇨🇳
+  chinaSyncActive: false,
+  chinaCnyRateThb: 5.2,
+  chinaCnyRateVnd: 3700,
+  chinaMarkupPercent: 15,
+  chinaSyncIntervalMinutes: 15,
+  chinaSyncPages: 2,
+  chinaLastSyncTime: null,
+  chinaLastSyncCount: 0
 };
 
 export const getStoredSettings = () => {

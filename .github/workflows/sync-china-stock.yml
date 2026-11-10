@@ -1,0 +1,31 @@
+name: Automated 24/7 China PUBG Stock Sync
+
+on:
+  schedule:
+    # Run every 30 minutes automatically 24/7
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    # Allows manual trigger button from GitHub Actions UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run China Stock Sync Engine
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || 'https://ldcafwhhchadgfijiqte.supabase.co' }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SYNC_PAGES: '3'
+          CNY_RATE_THB: '5.2'
+          CNY_RATE_VND: '3700'
+          MARKUP_PERCENT: '15'
+        run: |
+          node scripts/syncChinaStock.js
