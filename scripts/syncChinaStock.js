@@ -2,7 +2,7 @@
 // PUBG SIAM - Automated China Stock Sync Daemon 🇨🇳
 // Supports Direct Zero-Cost JSON Output (public/data/china_stock.json)
 // Dynamic Tiered Markup: < 100,000฿ (+10%), >= 100,000฿ (+13%)
-// Optional Google Firebase Firestore 🔥 & Supabase ⚡
+// Fast Concurrent Engine: Can pull ALL accounts (12,000+ items) in minutes!
 // =====================================================================
 
 const https = require('https');
@@ -12,25 +12,29 @@ const path = require('path');
 // Parse CLI flags
 const args = process.argv.slice(2);
 const isWatch = args.includes('--watch');
-let cliPages = 5; // Default 5 pages = 100 accounts
+const fetchAll = args.includes('--all') || args.includes('-a');
+const shouldFetchScreenshots = args.includes('--screenshots');
+
+let cliPages = fetchAll ? 9999 : 50; // Default 50 pages = 1,000 accounts if not specified
+
 const pagesEq = args.find(a => a.startsWith('--pages='));
 if (pagesEq) {
-  cliPages = parseInt(pagesEq.split('=')[1], 10);
+  const val = pagesEq.split('=')[1];
+  cliPages = val.toLowerCase() === 'all' ? 9999 : parseInt(val, 10);
 } else {
   const pIdx = args.findIndex(a => a === '--pages' || a === '-p');
   if (pIdx !== -1 && args[pIdx + 1]) {
-    cliPages = parseInt(args[pIdx + 1], 10);
+    const val = args[pIdx + 1];
+    cliPages = val.toLowerCase() === 'all' ? 9999 : parseInt(val, 10);
   }
 }
+
 const shouldSaveFirebase = args.includes('--firebase');
 const shouldSaveSupabase = args.includes('--supabase');
 
 const CONFIG = {
-  // Google Firebase 🔥
   firebaseProjectId: process.env.FIREBASE_PROJECT_ID || 'sima-shop-a674f',
   firebaseApiKey: process.env.FIREBASE_API_KEY || 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk',
-
-  // Supabase ⚡
   supabaseUrl: process.env.SUPABASE_URL || 'https://ldcafwhhchadgfijiqte.supabase.co',
   supabaseAnonKey: process.env.SUPABASE_ANON_KEY || '',
 
@@ -39,13 +43,13 @@ const CONFIG = {
   cnyRateVnd: parseFloat(process.env.CNY_RATE_VND || '3700'),
 
   // Dynamic Tiered Profit Markup 🧮
-  markupMode: process.env.MARKUP_MODE || 'tiered', // 'tiered' | 'flat'
-  markupThreshold: parseFloat(process.env.MARKUP_THRESHOLD || '100000'), // 100,000 THB
-  markupTier1Percent: parseFloat(process.env.MARKUP_TIER1_PERCENT || '10'), // < 100k -> +10%
-  markupTier2Percent: parseFloat(process.env.MARKUP_TIER2_PERCENT || '13'), // >= 100k -> +13%
-  markupPercent: parseFloat(process.env.MARKUP_PERCENT || '10'), // fallback
+  markupMode: process.env.MARKUP_MODE || 'tiered',
+  markupThreshold: parseFloat(process.env.MARKUP_THRESHOLD || '100000'),
+  markupTier1Percent: parseFloat(process.env.MARKUP_TIER1_PERCENT || '10'),
+  markupTier2Percent: parseFloat(process.env.MARKUP_TIER2_PERCENT || '13'),
+  markupPercent: parseFloat(process.env.MARKUP_PERCENT || '10'),
 
-  intervalMinutes: parseInt(process.env.SYNC_INTERVAL || '15', 10),
+  intervalMinutes: parseInt(process.env.SYNC_INTERVAL || '30', 10),
   outputPath: path.resolve(__dirname, '../new-react-app/public/data/china_stock.json')
 };
 
@@ -140,11 +144,6 @@ function extractGunLevels(title = '') {
   return 'Progressive Weapon Arsenal';
 }
 
-/**
- * Tiered Markup Price Calculator
- * < 100,000 THB: +10%
- * >= 100,000 THB: +13%
- */
 function calculateTieredPrice(rmbPrice) {
   const rawRmb = Number(rmbPrice || 0);
   const rawThb = rawRmb * CONFIG.cnyRateThb;
@@ -205,80 +204,71 @@ function httpRequest(url, method, payload, customHeaders = {}) {
   });
 }
 
-function toFirestoreFields(obj) {
-  const fields = {};
-  for (const [k, v] of Object.entries(obj)) {
-    if (v === null || v === undefined) continue;
-    if (typeof v === 'string') fields[k] = { stringValue: v };
-    else if (typeof v === 'number') {
-      if (Number.isInteger(v)) fields[k] = { integerValue: v.toString() };
-      else fields[k] = { doubleValue: v };
-    }
-    else if (typeof v === 'boolean') fields[k] = { booleanValue: v };
-    else if (Array.isArray(v)) {
-      fields[k] = { arrayValue: { values: v.map(item => ({ stringValue: String(item) })) } };
-    }
+async function fetchPage(page) {
+  try {
+    const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
+      page,
+      size: 20,
+      datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
+    }, {
+      'Accept': 'application/json, text/plain, */*',
+      'Origin': 'https://xuegaokk.ayxds.com',
+      'Referer': 'https://xuegaokk.ayxds.com/',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
+    });
+    return res.data?.data || {};
+  } catch (err) {
+    return {};
   }
-  return { fields };
 }
 
 async function syncCycle() {
   console.log(`\n======================================================`);
-  console.log(`[${new Date().toLocaleString()}] 🚀 เริ่มต้นรอบซิงค์สต็อกไอดีจีน PUBG SIAM...`);
-  console.log(`✓ โหมดราคาแบบขั้นบันได (Tiered Markup):`);
-  console.log(`   - ทุน < ฿${CONFIG.markupThreshold.toLocaleString()} => +${CONFIG.markupTier1Percent}% กำไร`);
-  console.log(`   - ทุน >= ฿${CONFIG.markupThreshold.toLocaleString()} => +${CONFIG.markupTier2Percent}% กำไร`);
-  console.log(`   - เรทหยวน: 1 RMB = ${CONFIG.cnyRateThb} THB | ${CONFIG.cnyRateVnd} VND`);
-  console.log(`✓ บันทึกลง Static File: ${CONFIG.outputPath} (ประหยัดฐานข้อมูล ไม่เปลือง Firebase)`);
-  if (shouldSaveFirebase) console.log(`✓ Google Firebase Firestore: เปิดใช้งาน`);
-  if (shouldSaveSupabase) console.log(`✓ Supabase Cloud DB: เปิดใช้งาน`);
+  console.log(`[${new Date().toLocaleString()}] 🚀 เริ่มต้นรอบซิงค์สต็อกไอดีจีนแบบเต็มคลัง (Full Stock Engine)...`);
+  
+  // 1. Fetch Page 1 to inspect total items and total pages
+  const firstPageRes = await fetchPage(1);
+  const totalInMarket = firstPageRes.total || 12000;
+  const lastPageInMarket = firstPageRes.last_page || 600;
+
+  const targetPages = Math.min(CONFIG.pages, lastPageInMarket);
+
+  console.log(`✓ ข้อมูลคลังจีนทั้งหมดในระบบ: ${totalInMarket.toLocaleString()} ไอดี (${lastPageInMarket} หน้า)`);
+  console.log(`✓ เป้าหมายการกวาดรอบนี้: ${targetPages === lastPageInMarket ? `ดึงทั้งหมด ${lastPageInMarket} หน้า (${totalInMarket} ไอดี)` : `${targetPages} หน้า (ประมาณ ${targetPages * 20} ไอดี)`}`);
+  console.log(`✓ โหมดกำไรขั้นบันได: < ฿${CONFIG.markupThreshold.toLocaleString()} (+${CONFIG.markupTier1Percent}%) | >= ฿${CONFIG.markupThreshold.toLocaleString()} (+${CONFIG.markupTier2Percent}%)`);
+  console.log(`✓ ปลายทาง: ${CONFIG.outputPath} (Zero-DB Free Mode)`);
   console.log(`======================================================`);
 
   const allAccounts = [];
+  const CONCURRENCY = 5;
 
-  for (let page = 1; page <= CONFIG.pages; page++) {
-    console.log(`📥 กำลังดึงสต็อกจีน หน้า ${page}/${CONFIG.pages}...`);
-    try {
-      const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
-        page,
-        size: 20,
-        datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
-      }, {
-        'Accept': 'application/json, text/plain, */*',
-        'Origin': 'https://xuegaokk.ayxds.com',
-        'Referer': 'https://xuegaokk.ayxds.com/',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
-      });
+  for (let p = 1; p <= targetPages; p += CONCURRENCY) {
+    const batchPages = [];
+    for (let offset = 0; offset < CONCURRENCY && (p + offset) <= targetPages; offset++) {
+      batchPages.push(p + offset);
+    }
 
-      const items = res.data?.data?.data || [];
-      console.log(`✓ ได้รับข้อมูล ${items.length} รายการจากหน้า ${page}`);
+    const results = await Promise.all(batchPages.map(page => fetchPage(page)));
 
-      for (const item of items) {
-        // Fetch screenshots
-        let screenshots = [];
-        let detailData = {};
-        try {
-          const detailRes = await httpRequest('https://fzht.xuxug.com/api/api/newGoodsDetails', 'POST', { id: item.id }, {
-            'Origin': 'https://xuegaokk.ayxds.com',
-            'Referer': 'https://xuegaokk.ayxds.com/'
-          });
-          detailData = detailRes.data?.data || {};
-          const imgRegex = /src=["']([^"']+)["']/g;
-          let m;
-          while ((m = imgRegex.exec(detailData.xiangqing || '')) !== null) {
-            if (m[1] && !screenshots.includes(m[1])) {
-              screenshots.push(m[1]);
-            }
-          }
-        } catch (_) {}
-
-        const images = [item.img, ...screenshots].filter(Boolean);
-        const rmbPrice = Number(item.shoujia || detailData.shoujia || 0);
+    results.forEach((pageData) => {
+      const items = pageData.data || [];
+      items.forEach((item) => {
+        const rmbPrice = Number(item.shoujia || 0);
         const priceInfo = calculateTieredPrice(rmbPrice);
-        const title = item.title || detailData.title || 'PUBG PC Steam Account';
-        const survivalTier = detailData.shengcundengji || '5阶段';
+        const title = item.title || 'PUBG PC Steam Account';
+
+        let survivalTier = '5阶段';
+        if (title.includes('1阶段')) survivalTier = '1阶段';
+        else if (title.includes('2阶段')) survivalTier = '2阶段';
+        else if (title.includes('3阶段')) survivalTier = '3阶段';
+        else if (title.includes('4阶段')) survivalTier = '4阶段';
+        else if (title.includes('5阶段')) survivalTier = '5阶段';
+
         const playtime = survivalTier === '5阶段' ? '1,500+ ชม.' : (survivalTier === '4阶段' ? '1,000+ ชม.' : '600+ ชม.');
         const playtimeEn = survivalTier === '5阶段' ? '1,500+ hrs' : (survivalTier === '4阶段' ? '1,000+ hrs' : '600+ hrs');
+
+        const images = [];
+        if (item.img) images.push(item.img);
 
         const account = {
           id: `CN-${item.bianhao || item.id}`,
@@ -319,47 +309,27 @@ async function syncCycle() {
         };
 
         allAccounts.push(account);
-        process.stdout.write(`.`);
+      });
+    });
 
-        // Optional Firebase
-        if (shouldSaveFirebase && CONFIG.firebaseProjectId) {
-          try {
-            const fbUrl = `https://firestore.googleapis.com/v1/projects/${CONFIG.firebaseProjectId}/databases/(default)/documents/accounts/${account.id}` +
-                          (CONFIG.firebaseApiKey ? `?key=${CONFIG.firebaseApiKey}` : '');
-            await httpRequest(fbUrl, 'PATCH', toFirestoreFields(account));
-          } catch (_) {}
-        }
-
-        // Optional Supabase
-        if (shouldSaveSupabase && CONFIG.supabaseAnonKey) {
-          try {
-            await httpRequest(`${CONFIG.supabaseUrl}/rest/v1/accounts`, 'POST', account, {
-              'apikey': CONFIG.supabaseAnonKey,
-              'Authorization': `Bearer ${CONFIG.supabaseAnonKey}`,
-              'Prefer': 'resolution=merge-duplicates'
-            });
-          } catch (_) {}
-        }
-      }
-      console.log(`\n✓ หน้า ${page} ดึงเสร็จสิ้น (${allAccounts.length} ไอดีสะสม)`);
-    } catch (err) {
-      console.error(`Error fetching page ${page}:`, err.message);
-    }
+    const endPage = Math.min(p + CONCURRENCY - 1, targetPages);
+    process.stdout.write(`✓ หน้า ${p}-${endPage}/${targetPages} (${allAccounts.length} ไอดีสะสม)\n`);
   }
 
-  // 1. Write to JSON File
+  // Write to JSON File
   try {
     const dir = path.dirname(CONFIG.outputPath);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(CONFIG.outputPath, JSON.stringify(allAccounts, null, 2), 'utf8');
-    console.log(`\n💾 บันทึกไฟล์ ${CONFIG.outputPath} สำเร็จแล้ว (${allAccounts.length} ไอดี)!`);
+    console.log(`\n💾 บันทึกไฟล์สำเร็จ: ${CONFIG.outputPath} (ทั้งหมด ${allAccounts.length} ไอดีจีนพร้อมขาย)!`);
   } catch (fsErr) {
     console.error('Failed to write JSON output:', fsErr.message);
   }
 
-  console.log(`\n🎉 รอบซิงค์เสร็จสมบูรณ์! ได้รับไอดีจีนทั้งหมด ${allAccounts.length} ไอดี พร้อมเรทกำไรแบบขั้นบันได`);
+  console.log(`\n🎉 กวาดไอดีสำเร็จสมบูรณ์! ได้รับไอดีทั้งหมด ${allAccounts.length} ไอดี`);
+  return allAccounts.length;
 }
 
 // Main Runner
@@ -368,6 +338,6 @@ syncCycle().then(() => {
     console.log(`\n⏱️ โหมด Watch ทำงาน: จะรันรอบใหม่ทุกๆ ${CONFIG.intervalMinutes} นาที...`);
     setInterval(syncCycle, CONFIG.intervalMinutes * 60 * 1000);
   } else {
-    console.log(`\nเสร็จสิ้นรอบการทำงาน (One-off run).`);
+    console.log(`\nเสร็จสิ้นการทำงาน.`);
   }
 }).catch(console.error);

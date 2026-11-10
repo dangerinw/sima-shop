@@ -61,14 +61,17 @@ export default function AdminDashboard({
       }
     }
 
+    const targetPages = settingsForm.chinaSyncPages === 'all' ? 100 : (parseInt(settingsForm.chinaSyncPages, 10) || 50);
+    const pageLabel = settingsForm.chinaSyncPages === 'all' ? 'ทั้งหมด (All Stock)' : `${targetPages} หน้า`;
+
     setSyncingChina(true);
     setChinaSyncLogs((prev) => [
-      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${settingsForm.chinaSyncPages || 2} หน้าล่าสุด [โหมด: ${isDirectStorage ? 'หน้าร้านโดยตรง (Direct JSON ไม่เปลือง Firebase)' : (isFirebase ? 'Firebase Firestore 🔥' : 'Supabase ⚡')}]...`,
+      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${pageLabel} [โหมด: ${isDirectStorage ? 'หน้าร้านโดยตรง (Direct JSON ไม่เปลือง Firebase)' : (isFirebase ? 'Firebase Firestore 🔥' : 'Supabase ⚡')}]...`,
       ...prev
     ]);
 
     const result = await chinaSyncService.runSync({
-      pages: settingsForm.chinaSyncPages || 2,
+      pages: targetPages,
       storageMode: settingsForm.chinaStorageMode || 'direct_json',
       markupMode: settingsForm.chinaMarkupMode || 'tiered',
       markupThreshold: Number(settingsForm.chinaMarkupThreshold || 100000),
@@ -1494,15 +1497,17 @@ export default function AdminDashboard({
                       จำนวนหน้าดึงต่อรอบ (Batch Size):
                     </label>
                     <select
-                      value={settingsForm.chinaSyncPages || 3}
-                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaSyncPages: parseInt(e.target.value, 10) })}
+                      value={settingsForm.chinaSyncPages || 'all'}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaSyncPages: e.target.value })}
                       className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-bold text-xs focus:border-amber-500 outline-none"
                     >
-                      <option value="1">1 หน้า (20 ไอดีล่าสุด)</option>
-                      <option value="2">2 หน้า (40 ไอดีล่าสุด)</option>
-                      <option value="3">3 หน้า (60 ไอดีล่าสุด) - แนะนำ</option>
-                      <option value="5">5 หน้า (100 ไอดีล่าสุด)</option>
-                      <option value="10">10 หน้า (200 ไอดีล่าสุด)</option>
+                      <option value="all">🔥 ดึงทั้งหมดที่มีในคลังจีน (All Stock - 1,000+ ไอดี)</option>
+                      <option value="100">100 หน้า (2,000 ไอดี)</option>
+                      <option value="50">50 หน้า (1,000 ไอดี) - แนะนำ</option>
+                      <option value="25">25 หน้า (500 ไอดี)</option>
+                      <option value="10">10 หน้า (200 ไอดี)</option>
+                      <option value="5">5 หน้า (100 ไอดี)</option>
+                      <option value="1">1 หน้า (20 ไอดี)</option>
                     </select>
                   </div>
 

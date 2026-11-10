@@ -73,7 +73,7 @@ export const defaultStoreSettings = {
   chinaMarkupPercent: 10,       // Fallback flat
   
   chinaSyncIntervalMinutes: 15,
-  chinaSyncPages: 3,
+  chinaSyncPages: 'all',
   chinaLastSyncTime: null,
   chinaLastSyncCount: 0
 };

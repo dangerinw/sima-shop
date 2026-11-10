@@ -28,7 +28,7 @@ jobs:
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY || 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk' }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-          SYNC_PAGES: '5'
+          SYNC_PAGES: '50'
           CNY_RATE_THB: '5.2'
           CNY_RATE_VND: '3700'
           MARKUP_MODE: 'tiered'
@@ -36,7 +36,7 @@ jobs:
           MARKUP_TIER1_PERCENT: '10'
           MARKUP_TIER2_PERCENT: '13'
         run: |
-          node scripts/syncChinaStock.js
+          node scripts/syncChinaStock.js --pages 50
 
       - name: Commit & push updated china_stock.json
         run: |
