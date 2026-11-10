@@ -85,6 +85,57 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeSettings.useCloudDb, storeSettings.supabaseUrl, storeSettings.supabaseAnonKey]);
 
+  // Seamless Zero-Cost China Inventory Static Sync (public/data/china_stock.json)
+  useEffect(() => {
+    fetch('/data/china_stock.json')
+      .then((res) => {
+        if (res.ok) return res.json();
+        return null;
+      })
+      .then((chinaStock) => {
+        if (Array.isArray(chinaStock) && chinaStock.length > 0) {
+          setAccounts((prev) => {
+            const map = new Map(prev.map((a) => [a.id, a]));
+            chinaStock.forEach((acc) => {
+              // Dynamically apply tiered markup according to current store settings
+              if (acc.rmbPrice) {
+                const rawThb = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateThb || 5.2);
+                const rawVnd = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateVnd || 3700);
+                let activeMarkup = Number(storeSettings.chinaMarkupPercent || 10);
+                if ((storeSettings.chinaMarkupMode || 'tiered') === 'tiered') {
+                  const threshold = Number(storeSettings.chinaMarkupThreshold || 100000);
+                  activeMarkup = rawThb < threshold
+                    ? Number(storeSettings.chinaMarkupTier1Percent ?? 10)
+                    : Number(storeSettings.chinaMarkupTier2Percent ?? 13);
+                }
+                const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
+                const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
+                acc.priceTHB = priceTHB;
+                acc.priceVND = priceVND;
+                acc.originalPriceTHB = Math.round(priceTHB * 1.15);
+                acc.originalPriceVND = Math.round(priceVND * 1.15);
+                acc.markupAppliedPercent = activeMarkup;
+                acc.profitTHB = Math.round(rawThb * (activeMarkup / 100));
+              }
+              map.set(acc.id, acc);
+            });
+            return Array.from(map.values());
+          });
+        }
+      })
+      .catch((_) => {
+        // Silently continue if static stock file isn't created yet
+      });
+  }, [
+    storeSettings.chinaMarkupMode,
+    storeSettings.chinaMarkupThreshold,
+    storeSettings.chinaMarkupTier1Percent,
+    storeSettings.chinaMarkupTier2Percent,
+    storeSettings.chinaMarkupPercent,
+    storeSettings.chinaCnyRateThb,
+    storeSettings.chinaCnyRateVnd
+  ]);
+
   // Admin Authentication State
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
     return sessionStorage.getItem('sima_admin_auth') === 'true';

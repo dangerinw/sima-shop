@@ -68,7 +68,7 @@ export class ChinaSyncService {
     return {};
   }
 
-  // 3. Sync batch of accounts to Cloud DB (Firebase or Supabase)
+  // 3. Sync batch of accounts (Direct JSON / LocalStorage OR Cloud DB Firebase/Supabase)
   async runSync(config = {}, onProgress = () => {}) {
     if (this.isSyncing) {
       return { success: false, message: 'ระบบกำลังซิงค์อยู่แล้ว กรุณารอสักครู่' };
@@ -77,21 +77,27 @@ export class ChinaSyncService {
     this.isSyncing = true;
     const {
       pages = 2,
+      storageMode = 'direct_json', // 'direct_json' | 'firebase'
+      markupMode = 'tiered',
+      markupThreshold = 100000,
+      markupTier1Percent = 10,
+      markupTier2Percent = 13,
+      markupPercent = 10,
       cnyRateThb = 5.2,
       cnyRateVnd = 3700,
-      markupPercent = 15,
       provider = 'firebase',
       supabaseUrl,
       supabaseAnonKey,
       fetchScreenshots = true
     } = config;
 
-    const useFirebase = provider === 'firebase' || firebaseService.isInitialized;
-    const useSupabase = !!supabaseUrl && !!supabaseAnonKey;
+    const isDirectStorage = storageMode === 'direct_json';
+    const useFirebase = !isDirectStorage && (provider === 'firebase' || firebaseService.isInitialized);
+    const useSupabase = !isDirectStorage && !!supabaseUrl && !!supabaseAnonKey;
 
-    if (!useFirebase && !useSupabase) {
+    if (!isDirectStorage && !useFirebase && !useSupabase) {
       this.isSyncing = false;
-      return { success: false, message: 'กรุณาเชื่อมต่อ Firebase หรือ Supabase ในหน้าตั้งค่าก่อนเริ่มซิงค์' };
+      return { success: false, message: 'กรุณาเชื่อมต่อ Firebase หรือ Supabase ในหน้าตั้งค่า หรือเลือกโหมด "หน้าร้านโดยตรง (Direct JSON)"' };
     }
 
     const cleanUrl = (supabaseUrl || '').trim().replace(/\/$/, '');
@@ -101,12 +107,60 @@ export class ChinaSyncService {
     try {
       onProgress({ 
         stage: 'start', 
-        message: `🚀 เริ่มต้นซิงค์สต็อกจีน ${pages} หน้าล่าสุด (${useFirebase ? 'Google Firebase 🔥' : 'Supabase ⚡'})...` 
+        message: `🚀 เริ่มต้นซิงค์สต็อกจีน ${pages} หน้าล่าสุด [โหมด: ${isDirectStorage ? 'หน้าร้านโดยตรง (ไม่เปลือง Firebase)' : (useFirebase ? 'Firebase Firestore 🔥' : 'Supabase ⚡')}]...` 
       });
 
       for (let page = 1; page <= pages; page++) {
         onProgress({ stage: 'fetching_page', page, message: `📥 กำลังดึงข้อมูลหน้า ${page}/${pages}...` });
-        const items = await this.fetchPage(page, 20);
+        let items = [];
+        try {
+          items = await this.fetchPage(page, 20);
+        } catch (fetchErr) {
+          console.warn('[ChinaSync] Direct browser fetch failed (likely CORS/Origin header policy):', fetchErr);
+          // If browser CORS prevents direct fetch, load local static JSON stock and recalculate
+          onProgress({ 
+            stage: 'fallback', 
+            message: `⚠️ เบราว์เซอร์บล็อก Origin header (CORS) — โหลดคลังสต็อกจีนจาก /data/china_stock.json แทน...` 
+          });
+          const staticRes = await fetch('/data/china_stock.json');
+          if (staticRes.ok) {
+            const staticList = await staticRes.json();
+            if (Array.isArray(staticList) && staticList.length > 0) {
+              const updatedAccounts = staticList.map((acc) => {
+                const rmb = Number(acc.rmbPrice || 0);
+                const rawThb = rmb * Number(cnyRateThb || 5.2);
+                const rawVnd = rmb * Number(cnyRateVnd || 3700);
+                let activeMarkup = Number(markupPercent || 10);
+                if (markupMode === 'tiered') {
+                  activeMarkup = rawThb < Number(markupThreshold || 100000)
+                    ? Number(markupTier1Percent ?? 10)
+                    : Number(markupTier2Percent ?? 13);
+                }
+                const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
+                const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
+                return {
+                  ...acc,
+                  priceTHB,
+                  priceVND,
+                  originalPriceTHB: Math.round(priceTHB * 1.15),
+                  originalPriceVND: Math.round(priceVND * 1.15),
+                  markupAppliedPercent: activeMarkup,
+                  profitTHB: Math.round(rawThb * (activeMarkup / 100))
+                };
+              });
+
+              this.isSyncing = false;
+              return {
+                success: true,
+                totalSynced: updatedAccounts.length,
+                syncedAccounts: updatedAccounts,
+                timestamp: new Date().toISOString(),
+                message: `🎉 อัปเดตราคาแบบขั้นบันไดเรียบร้อยแล้ว (${updatedAccounts.length} ไอดีจีนในระบบ)!`
+              };
+            }
+          }
+          throw fetchErr;
+        }
 
         if (!Array.isArray(items) || items.length === 0) {
           break;
@@ -122,10 +176,19 @@ export class ChinaSyncService {
           const account = normalizeChinaAccount(rawItem, detail, {
             cnyRateThb,
             cnyRateVnd,
+            markupMode,
+            markupThreshold,
+            markupTier1Percent,
+            markupTier2Percent,
             markupPercent
           });
 
           let savedSuccessfully = false;
+
+          // In direct storage mode, accounts are saved straight into memory & LocalStorage
+          if (isDirectStorage) {
+            savedSuccessfully = true;
+          }
 
           // 1. Write to Google Firebase Firestore
           if (useFirebase) {

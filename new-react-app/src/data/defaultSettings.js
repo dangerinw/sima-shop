@@ -41,17 +41,17 @@ export const defaultStoreSettings = {
   // Google Firebase Configuration 🔥
   firebaseConfigSnippet: `const firebaseConfig = {
   apiKey: "AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk",
-  authDomain: "pubg-siam-a674f.firebaseapp.com",
-  projectId: "pubg-siam-a674f",
-  storageBucket: "pubg-siam-a674f.firebasestorage.app",
+  authDomain: "sima-shop-a674f.firebaseapp.com",
+  projectId: "sima-shop-a674f",
+  storageBucket: "sima-shop-a674f.firebasestorage.app",
   messagingSenderId: "792858737977",
   appId: "1:792858737977:web:8f95f4519b8aee31c5fce8",
   measurementId: "G-BJ45QWS1YL"
 };`,
   firebaseApiKey: 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk',
-  firebaseAuthDomain: 'pubg-siam-a674f.firebaseapp.com',
-  firebaseProjectId: 'pubg-siam-a674f',
-  firebaseStorageBucket: 'pubg-siam-a674f.firebasestorage.app',
+  firebaseAuthDomain: 'sima-shop-a674f.firebaseapp.com',
+  firebaseProjectId: 'sima-shop-a674f',
+  firebaseStorageBucket: 'sima-shop-a674f.firebasestorage.app',
   firebaseMessagingSenderId: '792858737977',
   firebaseAppId: '1:792858737977:web:8f95f4519b8aee31c5fce8',
 
@@ -60,12 +60,20 @@ export const defaultStoreSettings = {
   supabaseAnonKey: '',
 
   // China Real-time Sync Configuration 🇨🇳
-  chinaSyncActive: false,
+  chinaSyncActive: true,
+  chinaStorageMode: 'direct_json', // 'direct_json' (ประหยัดฐานข้อมูล ไม่เปลือง Firebase) | 'firebase'
   chinaCnyRateThb: 5.2,
   chinaCnyRateVnd: 3700,
-  chinaMarkupPercent: 15,
+
+  // Tiered Profit Markup Settings 🧮
+  chinaMarkupMode: 'tiered', // 'tiered' (แบ่งตามเรทราคา) | 'flat' (คงที่)
+  chinaMarkupThreshold: 100000, // จุดแบ่งราคา เช่น 100,000 บาท
+  chinaMarkupTier1Percent: 10,  // ราคา < 100,000฿: +10%
+  chinaMarkupTier2Percent: 13,  // ราคา >= 100,000฿: +13%
+  chinaMarkupPercent: 10,       // Fallback flat
+  
   chinaSyncIntervalMinutes: 15,
-  chinaSyncPages: 2,
+  chinaSyncPages: 3,
   chinaLastSyncTime: null,
   chinaLastSyncCount: 0
 };

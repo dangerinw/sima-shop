@@ -45,30 +45,38 @@ export default function AdminDashboard({
 
   // Trigger Instant Sync
   const handleTriggerChinaSync = async () => {
+    const isDirectStorage = (settingsForm.chinaStorageMode || 'direct_json') === 'direct_json';
     const isFirebase = (settingsForm.cloudDbProvider || 'firebase') === 'firebase';
     const hasFirebase = !!(settingsForm.firebaseProjectId || settingsForm.firebaseConfigSnippet);
     const hasSupabase = !!(settingsForm.supabaseUrl && settingsForm.supabaseAnonKey);
 
-    if (isFirebase && !hasFirebase) {
-      alert('กรุณากรอกการตั้งค่า Google Firebase ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
-      return;
-    }
-    if (!isFirebase && !hasSupabase) {
-      alert('กรุณากรอก Supabase URL และ Anon Key ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
-      return;
+    if (!isDirectStorage) {
+      if (isFirebase && !hasFirebase) {
+        alert('กรุณากรอกการตั้งค่า Google Firebase ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
+        return;
+      }
+      if (!isFirebase && !hasSupabase) {
+        alert('กรุณากรอก Supabase URL และ Anon Key ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
+        return;
+      }
     }
 
     setSyncingChina(true);
     setChinaSyncLogs((prev) => [
-      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${settingsForm.chinaSyncPages || 2} หน้าล่าสุด (${isFirebase ? 'Google Firebase 🔥' : 'Supabase ⚡'})...`,
+      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${settingsForm.chinaSyncPages || 2} หน้าล่าสุด [โหมด: ${isDirectStorage ? 'หน้าร้านโดยตรง (Direct JSON ไม่เปลือง Firebase)' : (isFirebase ? 'Firebase Firestore 🔥' : 'Supabase ⚡')}]...`,
       ...prev
     ]);
 
     const result = await chinaSyncService.runSync({
       pages: settingsForm.chinaSyncPages || 2,
+      storageMode: settingsForm.chinaStorageMode || 'direct_json',
+      markupMode: settingsForm.chinaMarkupMode || 'tiered',
+      markupThreshold: Number(settingsForm.chinaMarkupThreshold || 100000),
+      markupTier1Percent: Number(settingsForm.chinaMarkupTier1Percent ?? 10),
+      markupTier2Percent: Number(settingsForm.chinaMarkupTier2Percent ?? 13),
+      markupPercent: Number(settingsForm.chinaMarkupPercent || 10),
       cnyRateThb: Number(settingsForm.chinaCnyRateThb || 5.2),
       cnyRateVnd: Number(settingsForm.chinaCnyRateVnd || 3700),
-      markupPercent: Number(settingsForm.chinaMarkupPercent || 15),
       provider: settingsForm.cloudDbProvider || 'firebase',
       supabaseUrl: settingsForm.supabaseUrl,
       supabaseAnonKey: settingsForm.supabaseAnonKey,
@@ -109,6 +117,39 @@ export default function AdminDashboard({
         ...prev
       ]);
       alert(result.message);
+    }
+  };
+
+  const handleDownloadChinaJson = () => {
+    const chinaAccounts = accounts.filter((a) => a.region === 'cn');
+    if (chinaAccounts.length === 0) {
+      alert('ยังไม่มีไอดีจีนในระบบให้ส่งออกครับ');
+      return;
+    }
+    const blob = new Blob([JSON.stringify(chinaAccounts, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'china_stock.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleClearOnlyChinaAccounts = () => {
+    const chinaCount = accounts.filter((a) => a.region === 'cn').length;
+    if (chinaCount === 0) {
+      alert('ไม่มีไอดีจีนในระบบให้ลบครับ');
+      return;
+    }
+    if (window.confirm(`คุณต้องการลบไอดีจีนทั้งหมด ${chinaCount} ไอดี ออกจากแคชหน้าร้านใช่หรือไม่? (ไอดีหลักจะไม่ถูกลบ)`)) {
+      const nonChina = accounts.filter((a) => a.region !== 'cn');
+      if (onRestoreBackup) {
+        onRestoreBackup({ accounts: nonChina });
+      }
+      setChinaSyncLogs((prev) => [
+        `[${new Date().toLocaleTimeString()}] 🗑️ ลบไอดีจีน ${chinaCount} รายการออกจากหน้าร้านเรียบร้อย`,
+        ...prev
+      ]);
     }
   };
 
@@ -1167,16 +1208,191 @@ export default function AdminDashboard({
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               
               {/* Formula & Margin Settings */}
-              <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-4 lg:col-span-2">
-                <h3 className="font-black text-white text-base flex items-center gap-2">
-                  <span>🧮</span>
-                  <span>ตั้งค่าเรทราคา & คำนวณกำไรอัตโนมัติ</span>
-                </h3>
-                <p className="text-xs text-slate-400">
-                  ระบบจะนำราคาหยวน (RMB) จากจีนมาคูณเรทแลกเปลี่ยนและบวกกำไรตามที่คุณกำหนด ก่อนตั้งเป็นราคาขายบนหน้าเว็บ
-                </p>
+              <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-5 lg:col-span-2">
+                <div className="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h3 className="font-black text-white text-base flex items-center gap-2">
+                      <span>🧮</span>
+                      <span>ตั้งค่าระบบกำไรขั้นบันได & คลังจัดเก็บ (Tiered Pricing & Storage)</span>
+                    </h3>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      กำหนดเปอร์เซ็นต์กำไรตามมูลค่าไอดี และเลือกบันทึกลงหน้าร้านโดยตรงเพื่อประหยัดโควต้า Firebase
+                    </p>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-black uppercase">
+                    Zero-DB Free Mode Ready
+                  </span>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                {/* 1. Storage Destination Mode */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-300 block flex items-center gap-1.5">
+                    <span>💾</span>
+                    <span>ปลายทางที่บันทึกข้อมูลสต็อกไอดีจีน:</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setSettingsForm({ ...settingsForm, chinaStorageMode: 'direct_json' })}
+                      className={`p-3.5 rounded-xl border text-left transition-all ${
+                        (settingsForm.chinaStorageMode || 'direct_json') === 'direct_json'
+                          ? 'bg-amber-500/10 border-amber-500 text-white shadow-lg'
+                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-xs flex items-center gap-1.5 text-amber-400">
+                          <span>⚡</span>
+                          <span>หน้าร้านโดยตรง (Direct JSON)</span>
+                        </span>
+                        <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-black">
+                          แนะนำ (ฟรี 100%)
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                        ไม่บันทึกลง Firebase / ไม่กินโควต้าฐานข้อมูล โหลดเร็วระดับมิลลิวินาทีจาก static JSON & LocalStorage
+                      </p>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setSettingsForm({ ...settingsForm, chinaStorageMode: 'firebase' })}
+                      className={`p-3.5 rounded-xl border text-left transition-all ${
+                        settingsForm.chinaStorageMode === 'firebase'
+                          ? 'bg-amber-500/10 border-amber-500 text-white shadow-lg'
+                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-xs flex items-center gap-1.5 text-orange-400">
+                          <span>🔥</span>
+                          <span>Google Firebase / Supabase</span>
+                        </span>
+                        <span className="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-bold">
+                          Cloud Database
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
+                        บันทึกลงฐานข้อมูลคลาวด์ Firestore หรือ Supabase (อาจใช้โควต้า Read/Write ของแพ็กเกจ)
+                      </p>
+                    </button>
+                  </div>
+                </div>
+
+                {/* 2. Markup Pricing Engine Mode */}
+                <div className="space-y-3 pt-1">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-bold text-slate-300 block flex items-center gap-1.5">
+                      <span>📊</span>
+                      <span>รูปแบบการคิดกำไรบวกเพิ่ม (% Markup):</span>
+                    </label>
+                    <div className="flex items-center gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setSettingsForm({ ...settingsForm, chinaMarkupMode: 'tiered' })}
+                        className={`px-3 py-1 rounded-lg font-bold text-xs transition-all ${
+                          (settingsForm.chinaMarkupMode || 'tiered') === 'tiered'
+                            ? 'bg-amber-500 text-black font-extrabold'
+                            : 'bg-slate-800 text-slate-400 hover:text-white'
+                        }`}
+                      >
+                        แบบขั้นบันไดตามราคา
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setSettingsForm({ ...settingsForm, chinaMarkupMode: 'flat' })}
+                        className={`px-3 py-1 rounded-lg font-bold text-xs transition-all ${
+                          settingsForm.chinaMarkupMode === 'flat'
+                            ? 'bg-amber-500 text-black font-extrabold'
+                            : 'bg-slate-800 text-slate-400 hover:text-white'
+                        }`}
+                      >
+                        เปอร์เซ็นต์คงที่
+                      </button>
+                    </div>
+                  </div>
+
+                  {(settingsForm.chinaMarkupMode || 'tiered') === 'tiered' ? (
+                    /* Tiered Markup Settings */
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="space-y-1">
+                          <label className="text-[11px] font-bold text-slate-300 block">
+                            จุดแบ่งมูลค่าราคาไอดี (Threshold บาท):
+                          </label>
+                          <input
+                            type="number"
+                            step="5000"
+                            min="10000"
+                            value={settingsForm.chinaMarkupThreshold ?? 100000}
+                            onChange={(e) => setSettingsForm({ ...settingsForm, chinaMarkupThreshold: parseFloat(e.target.value) || 100000 })}
+                            className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-amber-400 font-mono font-bold text-sm focus:border-amber-500 outline-none"
+                          />
+                          <span className="text-[10px] text-slate-500 block">เช่น 100,000 บาท</span>
+                        </div>
+
+                        <div className="space-y-1">
+                          <label className="text-[11px] font-bold text-slate-300 block">
+                            ต่ำกว่า {Number(settingsForm.chinaMarkupThreshold || 100000).toLocaleString()}฿ (+% กำไร):
+                          </label>
+                          <div className="relative">
+                            <input
+                              type="number"
+                              step="1"
+                              min="0"
+                              value={settingsForm.chinaMarkupTier1Percent ?? 10}
+                              onChange={(e) => setSettingsForm({ ...settingsForm, chinaMarkupTier1Percent: parseFloat(e.target.value) || 0 })}
+                              className="w-full bg-slate-900 border border-emerald-500/50 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold text-sm focus:border-emerald-500 outline-none pr-8"
+                            />
+                            <span className="absolute right-3 top-2 text-xs font-bold text-emerald-400">%</span>
+                          </div>
+                          <span className="text-[10px] text-slate-500 block">ค่ามาตรฐาน: +10%</span>
+                        </div>
+
+                        <div className="space-y-1">
+                          <label className="text-[11px] font-bold text-slate-300 block">
+                            ตั้งแต่ {Number(settingsForm.chinaMarkupThreshold || 100000).toLocaleString()}฿ ขึ้นไป (+% กำไร):
+                          </label>
+                          <div className="relative">
+                            <input
+                              type="number"
+                              step="1"
+                              min="0"
+                              value={settingsForm.chinaMarkupTier2Percent ?? 13}
+                              onChange={(e) => setSettingsForm({ ...settingsForm, chinaMarkupTier2Percent: parseFloat(e.target.value) || 0 })}
+                              className="w-full bg-slate-900 border border-amber-500/50 rounded-xl px-3 py-2 text-amber-400 font-mono font-bold text-sm focus:border-amber-500 outline-none pr-8"
+                            />
+                            <span className="absolute right-3 top-2 text-xs font-bold text-amber-400">%</span>
+                          </div>
+                          <span className="text-[10px] text-slate-500 block">ค่ามาตรฐาน: +13%</span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Flat Markup Settings */
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="space-y-1 max-w-xs">
+                        <label className="text-[11px] font-bold text-slate-300 block">
+                          เปอร์เซ็นต์กำไรคงที่ทุกไอดี (% Markup):
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="1"
+                            min="0"
+                            value={settingsForm.chinaMarkupPercent ?? 10}
+                            onChange={(e) => setSettingsForm({ ...settingsForm, chinaMarkupPercent: parseFloat(e.target.value) || 0 })}
+                            className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none pr-8"
+                          />
+                          <span className="absolute right-3 top-2 text-xs font-bold text-slate-400">%</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Exchange Rates Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-300 block">
                       เรทเงินหยวน (1 RMB = กี่บาท THB):
@@ -1189,22 +1405,7 @@ export default function AdminDashboard({
                       onChange={(e) => setSettingsForm({ ...settingsForm, chinaCnyRateThb: parseFloat(e.target.value) || 5.2 })}
                       className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
                     />
-                    <span className="text-[10px] text-slate-500 block">ปกติอยู่ที่ประมาณ 4.8 - 5.3</span>
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-300 block">
-                      กำไรบวกเพิ่ม (% Markup):
-                    </label>
-                    <input
-                      type="number"
-                      step="1"
-                      min="0"
-                      value={settingsForm.chinaMarkupPercent ?? 15}
-                      onChange={(e) => setSettingsForm({ ...settingsForm, chinaMarkupPercent: parseFloat(e.target.value) || 0 })}
-                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
-                    />
-                    <span className="text-[10px] text-slate-500 block">เช่น +15% จากราคาทุนจีน</span>
+                    <span className="text-[10px] text-slate-500 block">มาตรฐานตลาด: 5.0 - 5.3 บาท/หยวน</span>
                   </div>
 
                   <div className="space-y-1">
@@ -1219,44 +1420,89 @@ export default function AdminDashboard({
                       onChange={(e) => setSettingsForm({ ...settingsForm, chinaCnyRateVnd: parseFloat(e.target.value) || 3700 })}
                       className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm focus:border-amber-500 outline-none"
                     />
-                    <span className="text-[10px] text-slate-500 block">มาตรฐาน 3,500 - 3,800 ₫</span>
+                    <span className="text-[10px] text-slate-500 block">มาตรฐาน: 3,500 - 3,800 ₫</span>
                   </div>
                 </div>
 
-                {/* Example Price Calculation Box */}
-                <div className="p-4 rounded-xl bg-slate-950/90 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-                  <div>
-                    <span className="text-slate-400 font-semibold block">ตัวอย่างการคิดราคา:</span>
-                    <span className="text-white">
-                      ไอดีจีนราคา <strong className="text-amber-400">¥1,000 หยวน</strong> 
-                      &nbsp;→ ราคาขายหน้าร้านจะเป็น:
+                {/* Live Simulation Card (Two Cases) */}
+                <div className="p-4 rounded-xl bg-slate-950/90 border border-amber-500/30 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                      <span>💡</span>
+                      <span>ตัวอย่างการคำนวณราคาขายจริง (Live Simulator):</span>
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-mono">
+                      เรท 1¥ = {settingsForm.chinaCnyRateThb ?? 5.2}฿
                     </span>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="text-right">
-                      <div className="text-base font-black text-emerald-400">
-                        ฿{Math.round((1000 * (settingsForm.chinaCnyRateThb || 5.2) * (1 + (settingsForm.chinaMarkupPercent || 15) / 100)) / 10) * 10}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    {/* Case 1: Below Threshold */}
+                    <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-emerald-400 font-bold text-[11px]">
+                          🟢 ไอดีต่ำกว่า {Number(settingsForm.chinaMarkupThreshold || 100000).toLocaleString()}฿
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">
+                          +{settingsForm.chinaMarkupTier1Percent ?? 10}%
+                        </span>
                       </div>
-                      <span className="text-[10px] text-slate-500">กำไร ฿{Math.round(1000 * (settingsForm.chinaCnyRateThb || 5.2) * ((settingsForm.chinaMarkupPercent || 15) / 100))}</span>
+                      <div className="text-slate-400 text-[11px]">
+                        ทุนจีน ¥1,000 RMB (≈ ฿{Math.round(1000 * (settingsForm.chinaCnyRateThb || 5.2)).toLocaleString()})
+                      </div>
+                      <div className="flex items-baseline justify-between pt-1 border-t border-slate-800">
+                        <span className="text-slate-400 text-[10px]">ราคาขายหน้าร้าน:</span>
+                        <span className="text-base font-black text-emerald-400 font-mono">
+                          ฿{Math.round((1000 * (settingsForm.chinaCnyRateThb || 5.2) * (1 + (settingsForm.chinaMarkupTier1Percent ?? 10) / 100)) / 10) * 10}
+                        </span>
+                      </div>
+                      <div className="text-right text-[10px] text-slate-500">
+                        กำไร ฿{Math.round(1000 * (settingsForm.chinaCnyRateThb || 5.2) * ((settingsForm.chinaMarkupTier1Percent ?? 10) / 100))}
+                      </div>
+                    </div>
+
+                    {/* Case 2: Above Threshold */}
+                    <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-amber-400 font-bold text-[11px]">
+                          🟡 ไอดีตั้งแต่ {Number(settingsForm.chinaMarkupThreshold || 100000).toLocaleString()}฿ ขึ้นไป
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono font-bold">
+                          +{settingsForm.chinaMarkupTier2Percent ?? 13}%
+                        </span>
+                      </div>
+                      <div className="text-slate-400 text-[11px]">
+                        ทุนจีน ¥25,000 RMB (≈ ฿{Math.round(25000 * (settingsForm.chinaCnyRateThb || 5.2)).toLocaleString()})
+                      </div>
+                      <div className="flex items-baseline justify-between pt-1 border-t border-slate-800">
+                        <span className="text-slate-400 text-[10px]">ราคาขายหน้าร้าน:</span>
+                        <span className="text-base font-black text-amber-400 font-mono">
+                          ฿{Math.round((25000 * (settingsForm.chinaCnyRateThb || 5.2) * (1 + (settingsForm.chinaMarkupTier2Percent ?? 13) / 100)) / 10) * 10}
+                        </span>
+                      </div>
+                      <div className="text-right text-[10px] text-slate-500">
+                        กำไร ฿{Math.round(25000 * (settingsForm.chinaCnyRateThb || 5.2) * ((settingsForm.chinaMarkupTier2Percent ?? 13) / 100))}
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Batch Size & Interval */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-300 block">
                       จำนวนหน้าดึงต่อรอบ (Batch Size):
                     </label>
                     <select
-                      value={settingsForm.chinaSyncPages || 2}
+                      value={settingsForm.chinaSyncPages || 3}
                       onChange={(e) => setSettingsForm({ ...settingsForm, chinaSyncPages: parseInt(e.target.value, 10) })}
                       className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-bold text-xs focus:border-amber-500 outline-none"
                     >
                       <option value="1">1 หน้า (20 ไอดีล่าสุด)</option>
-                      <option value="2">2 หน้า (40 ไอดีล่าสุด) - แนะนำ</option>
-                      <option value="3">3 หน้า (60 ไอดีล่าสุด)</option>
+                      <option value="2">2 หน้า (40 ไอดีล่าสุด)</option>
+                      <option value="3">3 หน้า (60 ไอดีล่าสุด) - แนะนำ</option>
                       <option value="5">5 หน้า (100 ไอดีล่าสุด)</option>
+                      <option value="10">10 หน้า (200 ไอดีล่าสุด)</option>
                     </select>
                   </div>
 
@@ -1277,7 +1523,7 @@ export default function AdminDashboard({
                   </div>
                 </div>
 
-                {/* Action Buttons */}
+                {/* Action Buttons Toolbar */}
                 <div className="pt-3 flex flex-wrap items-center gap-3">
                   <button
                     type="button"
@@ -1286,7 +1532,7 @@ export default function AdminDashboard({
                     className="px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 via-amber-500 to-amber-600 hover:from-red-500 hover:to-amber-500 text-black font-black text-xs sm:text-sm shadow-lg pubg-glow transition-all flex items-center gap-2 disabled:opacity-50"
                   >
                     <span>{syncingChina ? '⏳' : '⚡'}</span>
-                    <span>{syncingChina ? 'กำลังดึงข้อมูลจากจีน...' : 'สั่งซิงค์สต็อกจีนเดี๋ยวนี้ (Sync Now)'}</span>
+                    <span>{syncingChina ? 'กำลังประมวลผลสต็อกจีน...' : 'สั่งซิงค์สต็อกจีนเดี๋ยวนี้ (Sync Now)'}</span>
                   </button>
 
                   <button
@@ -1295,6 +1541,24 @@ export default function AdminDashboard({
                     className="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700 transition-colors"
                   >
                     💾 บันทึกค่าคอนฟิกซิงค์
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleDownloadChinaJson}
+                    className="px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold text-xs border border-amber-500/30 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>📥</span>
+                    <span>ดาวน์โหลด china_stock.json</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleClearOnlyChinaAccounts}
+                    className="px-4 py-3 rounded-xl bg-red-950/40 hover:bg-red-900/40 text-red-400 font-bold text-xs border border-red-800/40 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>🗑️</span>
+                    <span>ลบเฉพาะไอดีจีนออกจากหน้าร้าน</span>
                   </button>
                 </div>
               </div>
@@ -1317,7 +1581,7 @@ export default function AdminDashboard({
                     </label>
                   </div>
                   <p className="text-[11px] text-slate-400 leading-relaxed">
-                    เมื่อเปิดสวิตช์นี้ ตราบใดที่คุณเปิดหน้าแอดมินทิ้งไว้ ระบบจะวนลูปซิงค์สต็อกไอดีใหม่เข้าฐานข้อมูลอัตโนมัติทุกๆ <strong>{settingsForm.chinaSyncIntervalMinutes || 15} นาที</strong>
+                    เมื่อเปิดสวิตช์นี้ ตราบใดที่คุณเปิดหน้าแอดมินทิ้งไว้ ระบบจะวนลูปซิงค์สต็อกไอดีใหม่เข้าหน้าร้านอัตโนมัติทุกๆ <strong>{settingsForm.chinaSyncIntervalMinutes || 15} นาที</strong>
                   </p>
                   {autoSyncInPage && (
                     <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] flex items-center gap-2 font-bold animate-pulse">
@@ -1327,18 +1591,27 @@ export default function AdminDashboard({
                   )}
                 </div>
 
-                {/* Cloud Automation Card */}
+                {/* Node.js Daemon & GitHub Actions Card (Zero-DB Free Automation) */}
                 <div className="bg-[#111723] p-5 rounded-2xl border border-slate-800 space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="text-base">☁️</span>
-                    <h4 className="font-bold text-white text-xs">ระบบคลาวด์ 24 ชม. (GitHub Actions)</h4>
+                    <h4 className="font-bold text-white text-xs">ระบบกวาดสต็อกจีน 24 ชม. (Zero Firebase)</h4>
                   </div>
                   <p className="text-[11px] text-slate-400 leading-relaxed">
-                    เราได้ติดตั้งไฟล์ Workflow <strong>.github/workflows/sync-china-stock.yml</strong> ไว้ให้แล้ว ระบบสามารถทำงานในคลาวด์ตลอด 24 ชั่วโมง โดยที่คุณไม่จำเป็นต้องเปิดคอมพิวเตอร์ทิ้งไว้เลย!
+                    รันสคริปต์เพื่อกวาดสต็อกจีนลงไฟล์ <strong>china_stock.json</strong> โดยตรง ไม่เปลืองฐานข้อมูล และประหยัดค่าใช้จ่าย 100%:
                   </p>
+                  
+                  <div className="p-3 rounded-xl bg-black border border-slate-800 text-[11px] font-mono text-amber-400 space-y-1">
+                    <div className="text-slate-500 text-[10px]"># คำสั่งรันกวาดไอดีจีนทันที (เช่น 5 หน้า = 100 ไอดี):</div>
+                    <div className="select-all">node scripts/syncChinaStock.js --pages 5</div>
+                    <div className="text-slate-500 text-[10px] pt-1"># คำสั่งรันวนลูปตลอด 24 ชั่วโมง:</div>
+                    <div className="select-all">node scripts/syncChinaStock.js --watch</div>
+                  </div>
+
                   <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-[10px] text-slate-400 space-y-1 font-mono">
-                    <div>✓ ความถี่: ทุกๆ 30 นาที 24/7</div>
-                    <div>✓ ปลายทาง: Supabase Cloud DB</div>
+                    <div>✓ อัปเดตผ่าน GitHub Actions ทุก 30 นาที 24/7</div>
+                    <div>✓ ปลายทาง: new-react-app/public/data/china_stock.json</div>
+                    <div>✓ ค่าใช้จ่าย: 0 บาท (ฟรีตลอดชีพ)</div>
                   </div>
                 </div>
 

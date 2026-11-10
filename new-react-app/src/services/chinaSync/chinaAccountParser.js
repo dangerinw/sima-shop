@@ -1,6 +1,7 @@
 // =====================================================================
 // PUBG SIAM - Chinese PUBG Account Translator & Normalizer
 // Translates Chinese Marketplace Data into TH/EN Formats for PUBG SIAM
+// With Dynamic Tiered Markup (เช่น < 100,000฿ +10%, >= 100,000฿ +13%)
 // =====================================================================
 
 export const CHINESE_SKIN_DICTIONARY = [
@@ -87,10 +88,7 @@ export function translateTitleTh(cnTitle = '') {
       th = th.replaceAll(dict.cn, ` [${dict.th}] `);
     }
   });
-
-  // Clean extra spaces
   th = th.replace(/\s+/g, ' ').trim();
-  // If still mostly Chinese, add readable prefix
   return `ไอดีจีน: ${th}`;
 }
 
@@ -126,7 +124,6 @@ export function extractTags(title = '') {
 }
 
 export function extractGunLevels(title = '') {
-  // Matches patterns like "10级南瓜" or "8级火麒麟"
   const gunMatch = title.match(/(\d+级[^\d\s,]+)/g);
   if (gunMatch && gunMatch.length > 0) {
     return gunMatch.slice(0, 4).map(item => {
@@ -143,24 +140,57 @@ export function extractGunLevels(title = '') {
 }
 
 /**
- * Normalizes raw Chinese API item into PUBG SIAM account model
+ * Calculates tiered profit margin based on account price
+ * e.g. < 100,000 THB -> +10%, >= 100,000 THB -> +13%
  */
-export function normalizeChinaAccount(rawItem, rawDetail = {}, config = {}) {
+export function calculateTieredPrice(rmbPrice, config = {}) {
   const {
     cnyRateThb = 5.2,
     cnyRateVnd = 3700,
+    markupMode = 'tiered', // 'tiered' | 'flat'
+    markupThreshold = 100000,
+    markupTier1Percent = 10,
+    markupTier2Percent = 13,
     markupPercent = 15
   } = config;
 
+  const rawRmb = Number(rmbPrice || 0);
+  const rawThb = rawRmb * Number(cnyRateThb || 5.2);
+  const rawVnd = rawRmb * Number(cnyRateVnd || 3700);
+
+  let activeMarkupPercent = Number(markupPercent || 15);
+  if (markupMode === 'tiered') {
+    if (rawThb < Number(markupThreshold || 100000)) {
+      activeMarkupPercent = Number(markupTier1Percent ?? 10);
+    } else {
+      activeMarkupPercent = Number(markupTier2Percent ?? 13);
+    }
+  }
+
+  const multiplier = 1 + (activeMarkupPercent / 100);
+  const priceTHB = Math.round((rawThb * multiplier) / 10) * 10;
+  const priceVND = Math.round((rawVnd * multiplier) / 1000) * 1000;
+
+  return {
+    priceTHB,
+    priceVND,
+    originalPriceTHB: Math.round(priceTHB * 1.15),
+    originalPriceVND: Math.round(priceVND * 1.15),
+    activeMarkupPercent,
+    profitTHB: Math.round(rawThb * (activeMarkupPercent / 100)),
+    rawThb
+  };
+}
+
+/**
+ * Normalizes raw Chinese API item into PUBG SIAM account model
+ */
+export function normalizeChinaAccount(rawItem, rawDetail = {}, config = {}) {
   const id = `CN-${rawItem.bianhao || rawItem.id}`;
   const rmbPrice = Number(rawItem.shoujia || rawDetail.shoujia || 0);
 
-  // Price calculations with markup
-  const multiplier = 1 + (markupPercent / 100);
-  const priceTHB = Math.round((rmbPrice * cnyRateThb * multiplier) / 10) * 10; // Round to tens
-  const priceVND = Math.round((rmbPrice * cnyRateVnd * multiplier) / 1000) * 1000;
-  const originalPriceTHB = Math.round(priceTHB * 1.15);
-  const originalPriceVND = Math.round(priceVND * 1.15);
+  // Dynamic Tiered Price Calculation
+  const priceInfo = calculateTieredPrice(rmbPrice, config);
 
   // Extract screenshots
   const images = [];
@@ -189,14 +219,17 @@ export function normalizeChinaAccount(rawItem, rawDetail = {}, config = {}) {
     id,
     region: 'cn',
     category,
+    rmbPrice,
     title_th: translateTitleTh(title),
     title_en: translateTitleEn(title),
-    subtitle_th: `ไอดีเซิร์ฟจีนแท้ [รหัส ${rawItem.bianhao}] ปลอดภัย 100% ประกันมือ 1`,
-    subtitle_en: `Authentic Chinese Server [Code ${rawItem.bianhao}] 100% Secured`,
-    priceTHB,
-    priceVND,
-    originalPriceTHB,
-    originalPriceVND,
+    subtitle_th: `ไอดีเซิร์ฟจีนแท้ [รหัส ${rawItem.bianhao}] ปลอดภัย 100% ประกันมือ 1 PUBG SIAM`,
+    subtitle_en: `Authentic Chinese Server [Code ${rawItem.bianhao}] 100% Secured PUBG SIAM`,
+    priceTHB: priceInfo.priceTHB,
+    priceVND: priceInfo.priceVND,
+    originalPriceTHB: priceInfo.originalPriceTHB,
+    originalPriceVND: priceInfo.originalPriceVND,
+    markupAppliedPercent: priceInfo.activeMarkupPercent,
+    profitTHB: priceInfo.profitTHB,
     tags,
     images: images.length > 0 ? images : ['https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80'],
     binding_th: 'id steam เซิร์ฟจีน โอนย้ายเข้าเมลผู้ซื้อทันที มีประกันมือ 1',
@@ -208,12 +241,12 @@ export function normalizeChinaAccount(rawItem, rawDetail = {}, config = {}) {
     gunLevel_en: extractGunLevels(title),
     warranty_th: 'มีประกันมือ 1 แท้ (ปลอดภัย 100% ไม่ดึงคืน)',
     warranty_en: '1st Hand Owner Warranty (100% Anti-pullback)',
-    details_th: `รหัสไอดีจีน: ${rawItem.bianhao}\nราคาต้นทาง: ¥${rmbPrice} RMB\nรายละเอียดจากระบบจีน: ${title}\nอัปเดตสต็อกล่าสุด: ${rawItem.zuihou_caozuo_time || new Date().toISOString()}`,
-    details_en: `China Stock Code: ${rawItem.bianhao}\nOriginal Price: ¥${rmbPrice} RMB\nDetails: ${title}\nLast Stock Update: ${rawItem.zuihou_caozuo_time || new Date().toISOString()}`,
+    details_th: `รหัสไอดีจีน: ${rawItem.bianhao}\nราคาทุนจีน: ¥${rmbPrice} RMB (≈ ฿${Math.round(priceInfo.rawThb).toLocaleString()})\nกำไรบวกเพิ่ม: +${priceInfo.activeMarkupPercent}%\nรายละเอียดจากระบบจีน: ${title}\nอัปเดตสต็อกล่าสุด: ${rawItem.zuihou_caozuo_time || new Date().toISOString()}`,
+    details_en: `China Stock Code: ${rawItem.bianhao}\nOriginal Price: ¥${rmbPrice} RMB\nMarkup: +${priceInfo.activeMarkupPercent}%\nDetails: ${title}\nLast Stock Update: ${rawItem.zuihou_caozuo_time || new Date().toISOString()}`,
     videoUrl: '',
     steamUser: `cn_steam_${rawItem.bianhao.toLowerCase()}`,
     steamPass: `SiamCN#${(rawItem.id || 8888).toString().slice(-4)}`,
-    steamEmail: `pubg_cn_${rawItem.bianhao.toLowerCase()}@163.com | pass: Sima2026!`,
+    steamEmail: `pubg_cn_${rawItem.bianhao.toLowerCase()}@163.com | pass: Siam2026!`,
     isSold: false,
     isHot: rmbPrice >= 5000 || title.includes('极品') || title.includes('柏林'),
     accentColor: 'from-amber-950/60 via-slate-900 to-slate-950',

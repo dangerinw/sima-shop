@@ -1,4 +1,4 @@
-name: Automated 24/7 China PUBG Stock Sync
+name: Automated 24/7 China PUBG Stock Sync (Zero-DB Free Mode)
 
 on:
   schedule:
@@ -6,6 +6,9 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch:
     # Allows manual trigger button from GitHub Actions UI
+
+permissions:
+  contents: write
 
 jobs:
   sync:
@@ -19,15 +22,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: Run China Stock Sync Engine
+      - name: Run China Stock Sync Engine (Tiered Markup)
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID || 'sima-shop-a674f' }}
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY || 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk' }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-          SYNC_PAGES: '3'
+          SYNC_PAGES: '5'
           CNY_RATE_THB: '5.2'
           CNY_RATE_VND: '3700'
-          MARKUP_PERCENT: '15'
+          MARKUP_MODE: 'tiered'
+          MARKUP_THRESHOLD: '100000'
+          MARKUP_TIER1_PERCENT: '10'
+          MARKUP_TIER2_PERCENT: '13'
         run: |
           node scripts/syncChinaStock.js
+
+      - name: Commit & push updated china_stock.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add new-react-app/public/data/china_stock.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(stock): auto-update China inventory [skip ci]" && git push)
