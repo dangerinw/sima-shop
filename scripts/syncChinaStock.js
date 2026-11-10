@@ -204,43 +204,58 @@ function httpRequest(url, method, payload, customHeaders = {}) {
   });
 }
 
-async function fetchPage(page) {
-  try {
-    const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
-      page,
-      size: 20,
-      datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
-    }, {
-      'Accept': 'application/json, text/plain, */*',
-      'Origin': 'https://xuegaokk.ayxds.com',
-      'Referer': 'https://xuegaokk.ayxds.com/',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
-    });
-    return res.data?.data || {};
-  } catch (err) {
-    return {};
+async function fetchPage(page, retries = 2) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
+        page,
+        size: 20,
+        datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
+      }, {
+        'Accept': 'application/json, text/plain, */*',
+        'Origin': 'https://xuegaokk.ayxds.com',
+        'Referer': 'https://xuegaokk.ayxds.com/',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
+      });
+      if (res.data?.data) {
+        return res.data.data;
+      }
+    } catch (err) {}
+    if (attempt < retries) {
+      await new Promise(r => setTimeout(r, 400));
+    }
   }
+  return {};
 }
 
 async function syncCycle() {
   console.log(`\n======================================================`);
   console.log(`[${new Date().toLocaleString()}] 🚀 เริ่มต้นรอบซิงค์สต็อกไอดีจีนแบบเต็มคลัง (Full Stock Engine)...`);
   
+  // Wipe previous file if wiping requested or full sweep
+  if (fetchAll && fs.existsSync(CONFIG.outputPath)) {
+    try {
+      fs.unlinkSync(CONFIG.outputPath);
+      console.log(`🗑️ ลบไฟล์สต็อกเดิมออกเรียบร้อย: ${CONFIG.outputPath}`);
+    } catch (_) {}
+  }
+
   // 1. Fetch Page 1 to inspect total items and total pages
   const firstPageRes = await fetchPage(1);
-  const totalInMarket = firstPageRes.total || 12000;
-  const lastPageInMarket = firstPageRes.last_page || 600;
+  const totalInMarket = firstPageRes.total || 12300;
+  const lastPageInMarket = firstPageRes.last_page || 616;
 
-  const targetPages = Math.min(CONFIG.pages, lastPageInMarket);
+  const targetPages = fetchAll ? lastPageInMarket : Math.min(CONFIG.pages, lastPageInMarket);
 
   console.log(`✓ ข้อมูลคลังจีนทั้งหมดในระบบ: ${totalInMarket.toLocaleString()} ไอดี (${lastPageInMarket} หน้า)`);
-  console.log(`✓ เป้าหมายการกวาดรอบนี้: ${targetPages === lastPageInMarket ? `ดึงทั้งหมด ${lastPageInMarket} หน้า (${totalInMarket} ไอดี)` : `${targetPages} หน้า (ประมาณ ${targetPages * 20} ไอดี)`}`);
+  console.log(`✓ เป้าหมายการกวาดรอบนี้: กวาดทั้งหมด ${targetPages} หน้า (ประมาณ ${targetPages * 20} ไอดี)`);
   console.log(`✓ โหมดกำไรขั้นบันได: < ฿${CONFIG.markupThreshold.toLocaleString()} (+${CONFIG.markupTier1Percent}%) | >= ฿${CONFIG.markupThreshold.toLocaleString()} (+${CONFIG.markupTier2Percent}%)`);
   console.log(`✓ ปลายทาง: ${CONFIG.outputPath} (Zero-DB Free Mode)`);
   console.log(`======================================================`);
 
-  const allAccounts = [];
-  const CONCURRENCY = 5;
+  const accountMap = new Map();
+  const CONCURRENCY = 8;
+  const startTime = Date.now();
 
   for (let p = 1; p <= targetPages; p += CONCURRENCY) {
     const batchPages = [];
@@ -253,6 +268,9 @@ async function syncCycle() {
     results.forEach((pageData) => {
       const items = pageData.data || [];
       items.forEach((item) => {
+        const id = `CN-${item.bianhao || item.id}`;
+        if (accountMap.has(id)) return;
+
         const rmbPrice = Number(item.shoujia || 0);
         const priceInfo = calculateTieredPrice(rmbPrice);
         const title = item.title || 'PUBG PC Steam Account';
@@ -271,7 +289,7 @@ async function syncCycle() {
         if (item.img) images.push(item.img);
 
         const account = {
-          id: `CN-${item.bianhao || item.id}`,
+          id,
           region: 'cn',
           category: detectCategory(title),
           title_th: `ไอดีจีน: ${translateTitle(title, 'th')}`,
@@ -308,13 +326,17 @@ async function syncCycle() {
           createdAt: new Date().toISOString()
         };
 
-        allAccounts.push(account);
+        accountMap.set(id, account);
       });
     });
 
     const endPage = Math.min(p + CONCURRENCY - 1, targetPages);
-    process.stdout.write(`✓ หน้า ${p}-${endPage}/${targetPages} (${allAccounts.length} ไอดีสะสม)\n`);
+    const percent = Math.round((endPage / targetPages) * 100);
+    const elapsedSec = Math.round((Date.now() - startTime) / 1000);
+    process.stdout.write(`[${percent}%] หน้า ${p}-${endPage}/${targetPages} (รวม ${accountMap.size.toLocaleString()} ไอดีใน ${elapsedSec}s)\n`);
   }
+
+  const allAccounts = Array.from(accountMap.values());
 
   // Write to JSON File
   try {
@@ -323,12 +345,12 @@ async function syncCycle() {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(CONFIG.outputPath, JSON.stringify(allAccounts, null, 2), 'utf8');
-    console.log(`\n💾 บันทึกไฟล์สำเร็จ: ${CONFIG.outputPath} (ทั้งหมด ${allAccounts.length} ไอดีจีนพร้อมขาย)!`);
+    console.log(`\n💾 บันทึกไฟล์สำเร็จ: ${CONFIG.outputPath} (ทั้งหมด ${allAccounts.length.toLocaleString()} ไอดีจีนพร้อมขาย)!`);
   } catch (fsErr) {
     console.error('Failed to write JSON output:', fsErr.message);
   }
 
-  console.log(`\n🎉 กวาดไอดีสำเร็จสมบูรณ์! ได้รับไอดีทั้งหมด ${allAccounts.length} ไอดี`);
+  console.log(`\n🎉 กวาดไอดีสำเร็จสมบูรณ์! ได้รับไอดีทั้งหมด ${allAccounts.length.toLocaleString()} ไอดี`);
   return allAccounts.length;
 }
 
