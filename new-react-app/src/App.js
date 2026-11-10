@@ -9,8 +9,6 @@ import Footer from './components/Footer';
 import Pagination from './components/Pagination';
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminLoginModal from './components/admin/AdminLoginModal';
-import UserAuthModal from './components/user/UserAuthModal';
-import UserPurchasesModal from './components/user/UserPurchasesModal';
 import { mockAccounts } from './data/mockAccounts';
 import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
@@ -241,29 +239,6 @@ function App() {
   });
   const [showAdminLoginModal, setShowAdminLoginModal] = useState(false);
 
-  // Customer / User Authentication State
-  const [currentUser, setCurrentUser] = useState(() => {
-    try {
-      const saved = localStorage.getItem('sima_current_user');
-      return saved ? JSON.parse(saved) : null;
-    } catch (e) {
-      return null;
-    }
-  });
-  const [showUserAuthModal, setShowUserAuthModal] = useState(false);
-  const [showUserPurchasesModal, setShowUserPurchasesModal] = useState(false);
-
-  // Automatically persist customer login to LocalStorage
-  useEffect(() => {
-    try {
-      if (currentUser) {
-        localStorage.setItem('sima_current_user', JSON.stringify(currentUser));
-      } else {
-        localStorage.removeItem('sima_current_user');
-      }
-    } catch (e) {}
-  }, [currentUser]);
-
   // State for inventory & orders with LocalStorage persistence for Real Data
   const [accounts, setAccounts] = useState(() => {
     try {
@@ -373,17 +348,6 @@ function App() {
     }
     return { all, progressive, rankReady, rareSkins };
   }, [accounts]);
-
-  // Count purchased accounts for the logged-in customer
-  const userPurchasedCount = useMemo(() => {
-    if (!currentUser) return 0;
-    return orders.filter((order) => {
-      if (order.userId && order.userId === currentUser.id) return true;
-      if (order.customerName && currentUser.name && order.customerName.toLowerCase() === currentUser.name.toLowerCase()) return true;
-      if (order.customerName && currentUser.username && order.customerName.toLowerCase() === currentUser.username.toLowerCase()) return true;
-      return false;
-    }).length;
-  }, [currentUser, orders]);
 
   // Filtered & Sorted accounts for Storefront
   const filteredAccounts = useMemo(() => {
@@ -584,17 +548,6 @@ function App() {
     setViewMode('store');
   };
 
-  // Customer Authentication Actions
-  const handleUserLoginSuccess = (userData) => {
-    setCurrentUser(userData);
-  };
-
-  const handleUserLogout = () => {
-    if (window.confirm('คุณต้องการออกจากระบบหรือไม่?')) {
-      setCurrentUser(null);
-    }
-  };
-
   // IF ADMIN VIEW MODE (Double-check auth)
   if (viewMode === 'admin') {
     if (!isAdminLoggedIn) {
@@ -630,7 +583,7 @@ function App() {
   // STOREFRONT VIEW MODE
   return (
     <div className="min-h-screen flex flex-col bg-[#0b0f17] text-slate-100 font-sans">
-      {/* Navbar with Customer Auth & Admin button & Language/Currency Switchers */}
+      {/* Navbar with Contact Admin buttons, Language/Currency Switchers, and Admin Login */}
       <Navbar 
         currency={currency} 
         setCurrency={handleSetCurrency}
@@ -639,11 +592,6 @@ function App() {
         t={t}
         onSearchFocus={handleSearchFocus}
         onOpenAdmin={handleOpenAdmin}
-        currentUser={currentUser}
-        onOpenUserAuth={() => setShowUserAuthModal(true)}
-        onOpenUserPurchases={() => setShowUserPurchasesModal(true)}
-        onUserLogout={handleUserLogout}
-        userPurchasedCount={userPurchasedCount}
         storeSettings={storeSettings}
       />
 
@@ -745,17 +693,15 @@ function App() {
       {/* Footer */}
       <Footer t={t} storeSettings={storeSettings} />
 
-      {/* Quick View Account Modal (with Dynamic QR & Slip Verification) */}
+      {/* Quick View Account Modal (Contact Admin to Purchase via Facebook/Discord) */}
       <AccountModal
+        isOpen={!!selectedAccount}
         account={selectedAccount}
         currency={currency}
         lang={lang}
         t={t}
         onClose={() => setSelectedAccount(null)}
         onBuySuccess={handleBuySuccess}
-        currentUser={currentUser}
-        onOpenUserAuth={() => setShowUserAuthModal(true)}
-        onOpenUserPurchases={() => setShowUserPurchasesModal(true)}
         storeSettings={storeSettings}
       />
 
@@ -764,27 +710,6 @@ function App() {
         isOpen={showAdminLoginModal}
         onClose={() => setShowAdminLoginModal(false)}
         onLoginSuccess={handleAdminLoginSuccess}
-      />
-
-      {/* Customer Auth (Login / Register) Modal */}
-      <UserAuthModal
-        isOpen={showUserAuthModal}
-        onClose={() => setShowUserAuthModal(false)}
-        onLoginSuccess={handleUserLoginSuccess}
-        lang={lang}
-      />
-
-      {/* Customer Purchases & Steam Credentials Vault Modal */}
-      <UserPurchasesModal
-        isOpen={showUserPurchasesModal}
-        onClose={() => setShowUserPurchasesModal(false)}
-        currentUser={currentUser}
-        orders={orders}
-        currency={currency}
-        lang={lang}
-        onBrowseStore={() => {
-          handleSearchFocus();
-        }}
       />
     </div>
   );

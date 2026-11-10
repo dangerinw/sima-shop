@@ -47,7 +47,10 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
   const regionInfo = getRegionBadge(account.region);
 
   return (
-    <div className="card-hover bg-[#111723] rounded-2xl border border-slate-800/90 overflow-hidden flex flex-col transition-all">
+    <div 
+      onClick={() => onSelect && onSelect(account)}
+      className="card-hover bg-[#111723] rounded-2xl border border-slate-800/90 overflow-hidden flex flex-col transition-all cursor-pointer group"
+    >
       {/* Card Header & Thumbnail */}
       <div className={`relative aspect-video ${account.images && account.images.length > 0 ? 'bg-black' : `bg-gradient-to-br ${account.accentColor}`} p-4 flex flex-col justify-between overflow-hidden group`}>
         
@@ -127,7 +130,11 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
             </div>
           </div>
           <button 
-            onClick={() => onSelect(account)}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelect && onSelect(account);
+            }}
             className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs transition-all shadow"
           >
             {t.btnCardDetails}

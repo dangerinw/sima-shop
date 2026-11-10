@@ -58,7 +58,7 @@ export default function AccountModal({
     }
   }, [account]);
 
-  if (!isOpen || !account) return null;
+  if (isOpen === false || !account) return null;
 
   const title = lang === 'th' ? account.title_th : account.title_en;
   const subtitle = lang === 'th' ? account.subtitle_th : account.subtitle_en;
@@ -208,8 +208,8 @@ export default function AccountModal({
               )}
             </div>
 
-            {/* Pricing & Contact Order Action */}
-            <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Pricing & Contact Admin Action */}
+            <div className="pt-4 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
                 <span className="text-xs text-slate-400">{t.modalNetPrice}</span>
                 <div className="text-3xl font-black text-amber-400">
@@ -217,15 +217,47 @@ export default function AccountModal({
                 </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
-                <button 
+              <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
+                {/* 1-Click Copy Info */}
+                <button
                   type="button"
-                  onClick={() => setStep('contact')}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 text-black font-black text-sm shadow-xl pubg-glow transition-all flex items-center justify-center gap-2"
+                  onClick={handleCopyOrderInfo}
+                  className={`px-3 py-3 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border shadow ${
+                    copiedText
+                      ? 'bg-emerald-500 text-black border-emerald-400'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                  }`}
+                  title="คัดลอกข้อความสั่งซื้อไอดีนี้"
                 >
-                  <span>💬</span>
-                  <span>ติดต่อสั่งซื้อไอดีนี้ (Discord / Facebook)</span>
+                  <span>{copiedText ? '✓' : '📋'}</span>
+                  <span>{copiedText ? 'คัดลอกรหัสแล้ว!' : 'คัดลอกรหัสไอดี'}</span>
                 </button>
+
+                {/* Facebook Button */}
+                <a
+                  href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={handleCopyOrderInfo}
+                  className="px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
+                  title="เปิดแชท Facebook Page (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
+                >
+                  <span>📘</span>
+                  <span>สั่งซื้อทาง Facebook</span>
+                </a>
+
+                {/* Discord Button */}
+                <a
+                  href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={handleCopyOrderInfo}
+                  className="px-4 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
+                  title="เปิด Discord (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
+                >
+                  <span>💜</span>
+                  <span>สั่งซื้อทาง Discord</span>
+                </a>
               </div>
             </div>
 
