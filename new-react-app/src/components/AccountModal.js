@@ -66,7 +66,18 @@ export default function AccountModal({
   const playtime = lang === 'th' ? account.playtime_th : account.playtime_en;
   const gunLevel = lang === 'th' ? account.gunLevel_th : account.gunLevel_en;
   const warranty = lang === 'th' ? account.warranty_th : account.warranty_en;
-  const details = lang === 'th' ? account.details_th : account.details_en;
+  const rawDetails = lang === 'th' ? account.details_th : account.details_en;
+  // Sanitize details: strictly hide wholesale cost, RMB prices, and profit margin percentages
+  const details = (rawDetails || '')
+    .split('\n')
+    .filter((line) => {
+      const lower = line.toLowerCase();
+      if (line.includes('ราคาทุน') || line.includes('กำไรบวกเพิ่ม') || line.includes('ต้นทุน')) return false;
+      if (lower.includes('original price') || lower.includes('markup') || lower.includes('rmb')) return false;
+      return true;
+    })
+    .join('\n')
+    .trim();
 
   const formatPrice = (vnd, thb) => {
     if (currency === 'THB') {
