@@ -530,6 +530,22 @@ async function syncCycle() {
   console.log(`======================================================`);
 
   const accountMap = new Map();
+
+  // Smart Merge: Preload existing stock so incremental sync never deletes older accounts!
+  if (!fetchAll && fs.existsSync(CONFIG.outputPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(CONFIG.outputPath, 'utf8'));
+      existing.forEach(acc => {
+        if (acc && acc.id) {
+          accountMap.set(acc.id, acc);
+        }
+      });
+      console.log(`📦 โหลดสต็อกเดิมที่มีอยู่แล้ว: ${accountMap.size.toLocaleString()} ไอดี (โหมด Smart Merge ไม่ลบของเดิม)`);
+    } catch (e) {
+      console.warn('Could not preload existing stock:', e.message);
+    }
+  }
+
   const CONCURRENCY = 8;
   const startTime = Date.now();
 
