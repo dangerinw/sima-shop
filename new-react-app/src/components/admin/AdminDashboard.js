@@ -45,14 +45,22 @@ export default function AdminDashboard({
 
   // Trigger Instant Sync
   const handleTriggerChinaSync = async () => {
-    if (!settingsForm.supabaseUrl || !settingsForm.supabaseAnonKey) {
+    const isFirebase = (settingsForm.cloudDbProvider || 'firebase') === 'firebase';
+    const hasFirebase = !!(settingsForm.firebaseProjectId || settingsForm.firebaseConfigSnippet);
+    const hasSupabase = !!(settingsForm.supabaseUrl && settingsForm.supabaseAnonKey);
+
+    if (isFirebase && !hasFirebase) {
+      alert('กรุณากรอกการตั้งค่า Google Firebase ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
+      return;
+    }
+    if (!isFirebase && !hasSupabase) {
       alert('กรุณากรอก Supabase URL และ Anon Key ในแท็บ "ตั้งค่าระบบ" ให้เรียบร้อยก่อนเริ่มซิงค์ครับ');
       return;
     }
 
     setSyncingChina(true);
     setChinaSyncLogs((prev) => [
-      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${settingsForm.chinaSyncPages || 2} หน้าล่าสุด (40-60 ไอดี)...`,
+      `[${new Date().toLocaleTimeString()}] 🚀 เริ่มต้นดึงสต็อกจีน ${settingsForm.chinaSyncPages || 2} หน้าล่าสุด (${isFirebase ? 'Google Firebase 🔥' : 'Supabase ⚡'})...`,
       ...prev
     ]);
 
@@ -61,6 +69,7 @@ export default function AdminDashboard({
       cnyRateThb: Number(settingsForm.chinaCnyRateThb || 5.2),
       cnyRateVnd: Number(settingsForm.chinaCnyRateVnd || 3700),
       markupPercent: Number(settingsForm.chinaMarkupPercent || 15),
+      provider: settingsForm.cloudDbProvider || 'firebase',
       supabaseUrl: settingsForm.supabaseUrl,
       supabaseAnonKey: settingsForm.supabaseAnonKey,
       fetchScreenshots: true
@@ -196,7 +205,7 @@ export default function AdminDashboard({
   const handleTestCloudConnection = async () => {
     setTestingCloud(true);
     setCloudTestResult(null);
-    const result = await dbService.testConnection(settingsForm.supabaseUrl, settingsForm.supabaseAnonKey);
+    const result = await dbService.testConnection(settingsForm);
     if (result.correctedUrl) {
       setSettingsForm((prev) => ({ ...prev, supabaseUrl: result.correctedUrl }));
     }
@@ -683,89 +692,201 @@ export default function AdminDashboard({
               </div>
             </div>
 
-            {/* Cloud Database (Supabase) Integration */}
+            {/* Cloud Database (Firebase 🔥 / Supabase ⚡) Integration */}
             <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-2">
                 <h3 className="font-black text-white text-base flex items-center gap-2">
                   <span>☁️</span>
-                  <span>ฐานข้อมูล & สตอเรจ (Supabase Cloud DB & Storage)</span>
+                  <span>ฐานข้อมูล & สตอเรจคลาวด์ (Cloud Database & Storage)</span>
                 </h3>
-                <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">
-                  PostgreSQL & Storage Ready
-                </span>
-              </div>
-              <p className="text-xs text-slate-400">
-                เชื่อมต่อฐานข้อมูลกลางและคลาวด์สตอเรจสำหรับจัดเก็บรูปภาพไอดีและสลิปโอนเงิน เพื่อให้ลูกค้าและแอดมินทุกเครื่องเห็นข้อมูลตรงกันแบบ Real-time
-              </p>
-
-              <div className="space-y-3 pt-1 text-xs">
-                <div className="space-y-1">
-                  <label className="block text-slate-300 font-bold">Supabase Project URL:</label>
-                  <input
-                    type="url"
-                    placeholder="https://ldcafwhhchadgfijiqte.supabase.co"
-                    value={settingsForm.supabaseUrl || ''}
-                    onChange={(e) => setSettingsForm({ ...settingsForm, supabaseUrl: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
-                  />
-                </div>
-
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between">
-                    <label className="block text-slate-300 font-bold">Supabase Anon Public Key:</label>
-                    <button
-                      type="button"
-                      onClick={() => setShowAnonKey(!showAnonKey)}
-                      className="text-[11px] text-amber-400 hover:text-amber-300 font-semibold"
-                    >
-                      {showAnonKey ? '🙈 ซ่อนคีย์' : '👁️ แสดงคีย์'}
-                    </button>
-                  </div>
-                  <input
-                    type={showAnonKey ? 'text' : 'password'}
-                    placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..."
-                    value={settingsForm.supabaseAnonKey || ''}
-                    onChange={(e) => setSettingsForm({ ...settingsForm, supabaseAnonKey: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
-                  />
-                  <p className="text-[10px] text-slate-500">
-                    * คัดลอกจากแท็บ <strong>"Legacy anon, service_role API keys"</strong> ในหน้า API Keys ของ Supabase (ขึ้นต้นด้วย eyJhbGci...)
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
-                  <div>
-                    <span className="font-bold text-white text-xs">เปิดใช้งาน Cloud Database & Storage</span>
-                    <p className="text-[10px] text-slate-500">หากปิดไว้ ระบบจะใช้ LocalStorage ในเครื่องอัตโนมัติ</p>
-                  </div>
-                  <label className="relative inline-flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={settingsForm.useCloudDb || false}
-                      onChange={(e) => setSettingsForm({ ...settingsForm, useCloudDb: e.target.checked })}
-                      className="sr-only peer"
-                    />
-                    <div className="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
-                  </label>
-                </div>
-
-                {/* Test Connection Button */}
-                <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-3">
+                <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-bold gap-1">
                   <button
                     type="button"
-                    disabled={testingCloud}
-                    onClick={handleTestCloudConnection}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold text-xs border border-slate-700 transition-colors w-fit"
+                    onClick={() => {
+                      setSettingsForm({ ...settingsForm, cloudDbProvider: "firebase" });
+                      setCloudTestResult(null);
+                    }}
+                    className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 ${
+                      (settingsForm.cloudDbProvider || "firebase") === "firebase"
+                        ? "bg-amber-500 text-black shadow"
+                        : "text-slate-400 hover:text-white"
+                    }`}
                   >
-                    {testingCloud ? '⏳ กำลังทดสอบ...' : '⚡ ทดสอบการเชื่อมต่อ Supabase'}
+                    <span>🔥</span>
+                    <span>Google Firebase (แนะนำ)</span>
                   </button>
-
-                  {cloudTestResult && (
-                    <span className={`text-xs font-bold ${cloudTestResult.success ? 'text-emerald-400' : 'text-rose-400'}`}>
-                      {cloudTestResult.message}
-                    </span>
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSettingsForm({ ...settingsForm, cloudDbProvider: "supabase" });
+                      setCloudTestResult(null);
+                    }}
+                    className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 ${
+                      settingsForm.cloudDbProvider === "supabase"
+                        ? "bg-amber-500 text-black shadow"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <span>⚡</span>
+                    <span>Supabase</span>
+                  </button>
                 </div>
+              </div>
+
+              {/* Firebase Form */}
+              {(settingsForm.cloudDbProvider || "firebase") === "firebase" ? (
+                <div className="space-y-4 text-xs">
+                  <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 leading-relaxed">
+                    <strong>🔥 Google Firebase (Firestore + Storage):</strong>
+                    <div className="text-[11px] text-slate-300 mt-1">
+                      ฟรีตลอดชีพ 100% <strong>ไม่มีระบบ Auto-Pause (ไม่หลับตลอดไป)</strong> เชื่อมต่อได้ตลอด 24 ชั่วโมง เหมาะที่สุดสำหรับเว็บขายไอดี
+                    </div>
+                  </div>
+
+                  {/* Quick Snippet Box */}
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <label className="block text-slate-200 font-bold">
+                        📋 วางโค้ด firebaseConfig (จาก Firebase Console):
+                      </label>
+                      <span className="text-[10px] text-slate-400 font-normal">ระบบจะดึง Project ID & API Key ให้อัตโนมัติ</span>
+                    </div>
+                    <textarea
+                      rows="4"
+                      placeholder='const firebaseConfig = { apiKey: "AIzaSy...", projectId: "sima-shop-pubg", ... };'
+                      value={settingsForm.firebaseConfigSnippet || ""}
+                      onChange={(e) => {
+                        const snippet = e.target.value;
+                        let extracted = { firebaseConfigSnippet: snippet };
+                        try {
+                          const projMatch = snippet.match(/projectId\s*:\s*["']([^"']+)["']/);
+                          const keyMatch = snippet.match(/apiKey\s*:\s*["']([^"']+)["']/);
+                          const authMatch = snippet.match(/authDomain\s*:\s*["']([^"']+)["']/);
+                          const bucketMatch = snippet.match(/storageBucket\s*:\s*["']([^"']+)["']/);
+                          const senderMatch = snippet.match(/messagingSenderId\s*:\s*["']([^"']+)["']/);
+                          const appMatch = snippet.match(/appId\s*:\s*["']([^"']+)["']/);
+                          if (projMatch) extracted.firebaseProjectId = projMatch[1];
+                          if (keyMatch) extracted.firebaseApiKey = keyMatch[1];
+                          if (authMatch) extracted.firebaseAuthDomain = authMatch[1];
+                          if (bucketMatch) extracted.firebaseStorageBucket = bucketMatch[1];
+                          if (senderMatch) extracted.firebaseMessagingSenderId = senderMatch[1];
+                          if (appMatch) extracted.firebaseAppId = appMatch[1];
+                        } catch (_) {}
+                        setSettingsForm({ ...settingsForm, ...extracted });
+                      }}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white font-mono text-[11px] focus:border-amber-500 outline-none"
+                    />
+                  </div>
+
+                  {/* Individual fields */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="space-y-1">
+                      <label className="block text-slate-300 font-bold">Firebase Project ID:</label>
+                      <input
+                        type="text"
+                        placeholder="sima-shop-pubg"
+                        value={settingsForm.firebaseProjectId || ""}
+                        onChange={(e) => setSettingsForm({ ...settingsForm, firebaseProjectId: e.target.value })}
+                        className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="block text-slate-300 font-bold">Firebase Web API Key:</label>
+                      <input
+                        type="text"
+                        placeholder="AIzaSy..."
+                        value={settingsForm.firebaseApiKey || ""}
+                        onChange={(e) => setSettingsForm({ ...settingsForm, firebaseApiKey: e.target.value })}
+                        className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Setup Guide Collapsible */}
+                  <details className="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 text-[11px] text-slate-300 space-y-2 cursor-pointer">
+                    <summary className="font-bold text-amber-400 select-none">
+                      📖 วิธีเปิดใช้งาน Google Firebase ฟรี (ใช้เวลา 2 นาที):
+                    </summary>
+                    <div className="pt-2 space-y-1.5 pl-2 text-slate-300 leading-relaxed">
+                      <div>1. เข้าเว็บ <a href="https://console.firebase.google.com" target="_blank" rel="noreferrer" className="text-amber-400 underline font-bold">console.firebase.google.com</a> แล้วล็อกอินด้วย Gmail</div>
+                      <div>2. กด <strong>"Add project"</strong> ตั้งชื่อโปรเจกต์ (เช่น sima-shop) แล้วกด Continue จนเสร็จ</div>
+                      <div>3. เมนูซ้ายมือ เลือก <strong>Build &gt; Firestore Database</strong> &gt; กด <strong>"Create database"</strong> &gt; เลือก Location สิงคโปร์ (asia-southeast1) &gt; เลือก <strong>Start in test mode</strong></div>
+                      <div>4. คลิกไอคอนรูปเฟือง ⚙️ (Project settings) &gt; เลื่อนลงมาที่หัวข้อ "Your apps" &gt; กดไอคอน <strong>&lt;/&gt; (Web)</strong> &gt; ก๊อปปี้โค้ด <code>firebaseConfig</code> มาวางในช่องด้านบนได้เลย!</div>
+                    </div>
+                  </details>
+                </div>
+              ) : (
+                /* Supabase Form */
+                <div className="space-y-3 pt-1 text-xs">
+                  <div className="space-y-1">
+                    <label className="block text-slate-300 font-bold">Supabase Project URL:</label>
+                    <input
+                      type="url"
+                      placeholder="https://ldcafwhhchadgfijiqte.supabase.co"
+                      value={settingsForm.supabaseUrl || ""}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, supabaseUrl: e.target.value })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="block text-slate-300 font-bold">Supabase Anon Public Key:</label>
+                      <button
+                        type="button"
+                        onClick={() => setShowAnonKey(!showAnonKey)}
+                        className="text-[11px] text-amber-400 hover:text-amber-300 font-semibold"
+                      >
+                        {showAnonKey ? "🙈 ซ่อนคีย์" : "👁️ แสดงคีย์"}
+                      </button>
+                    </div>
+                    <input
+                      type={showAnonKey ? "text" : "password"}
+                      placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+                      value={settingsForm.supabaseAnonKey || ""}
+                      onChange={(e) => setSettingsForm({ ...settingsForm, supabaseAnonKey: e.target.value })}
+                      className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Toggle Enable Cloud DB */}
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                <div>
+                  <span className="font-bold text-white text-xs">
+                    เปิดใช้งาน Cloud Database & Storage ({(settingsForm.cloudDbProvider || "firebase") === "firebase" ? "🔥 Google Firebase" : "⚡ Supabase"})
+                  </span>
+                  <p className="text-[10px] text-slate-500">หากปิดไว้ ระบบจะใช้ LocalStorage ในเครื่องอัตโนมัติ</p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={settingsForm.useCloudDb || false}
+                    onChange={(e) => setSettingsForm({ ...settingsForm, useCloudDb: e.target.checked })}
+                    className="sr-only peer"
+                  />
+                  <div className="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
+                </label>
+              </div>
+
+              {/* Test Connection Button */}
+              <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-3">
+                <button
+                  type="button"
+                  disabled={testingCloud}
+                  onClick={handleTestCloudConnection}
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-xs shadow transition-all flex items-center gap-2"
+                >
+                  <span>{testingCloud ? "⏳" : ((settingsForm.cloudDbProvider || "firebase") === "firebase" ? "🔥" : "⚡")}</span>
+                  <span>{testingCloud ? "กำลังทดสอบการเชื่อมต่อ..." : `ทดสอบการเชื่อมต่อ ${(settingsForm.cloudDbProvider || "firebase") === "firebase" ? "Google Firebase" : "Supabase"}`}</span>
+                </button>
+
+                {cloudTestResult && (
+                  <span className={`text-xs font-bold ${cloudTestResult.success ? "text-emerald-400" : "text-rose-400"}`}>
+                    {cloudTestResult.message}
+                  </span>
+                )}
               </div>
             </div>
 

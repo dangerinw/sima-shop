@@ -1,5 +1,6 @@
 // =====================================================================
 // SIMA SHOP - Automated China Stock Sync Daemon
+// Supports Google Firebase Firestore 🔥 + Supabase ⚡
 // Can run locally, on VPS/Docker, or in GitHub Actions 24/7
 // =====================================================================
 
@@ -7,8 +8,14 @@ const https = require('https');
 
 // Default Config (Can be overridden by Environment variables)
 const CONFIG = {
+  // Google Firebase 🔥
+  firebaseProjectId: process.env.FIREBASE_PROJECT_ID || '',
+  firebaseApiKey: process.env.FIREBASE_API_KEY || '',
+
+  // Supabase ⚡
   supabaseUrl: process.env.SUPABASE_URL || 'https://ldcafwhhchadgfijiqte.supabase.co',
-  supabaseAnonKey: process.env.SUPABASE_ANON_KEY || 'sb_publishable__3A_ezc4zSDflSDJ_d6ojg_6Vax8n..', // Or legacy anon
+  supabaseAnonKey: process.env.SUPABASE_ANON_KEY || '',
+
   pages: parseInt(process.env.SYNC_PAGES || '3', 10), // 3 pages = 60 accounts per cycle
   cnyRateThb: parseFloat(process.env.CNY_RATE_THB || '5.2'),
   cnyRateVnd: parseFloat(process.env.CNY_RATE_VND || '3700'),
@@ -75,15 +82,15 @@ function detectCategory(title) {
   return 'progressive';
 }
 
-function postRequest(url, payload, customHeaders = {}) {
+function httpRequest(url, method, payload, customHeaders = {}) {
   return new Promise((resolve, reject) => {
     const parsedUrl = new URL(url);
-    const postData = JSON.stringify(payload);
+    const postData = payload ? JSON.stringify(payload) : '';
     const req = https.request({
       hostname: parsedUrl.hostname,
       port: parsedUrl.port || 443,
       path: parsedUrl.pathname + parsedUrl.search,
-      method: 'POST',
+      method: method || 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData),
@@ -101,14 +108,34 @@ function postRequest(url, payload, customHeaders = {}) {
       });
     });
     req.on('error', reject);
-    req.write(postData);
+    if (postData) req.write(postData);
     req.end();
   });
+}
+
+// Convert JSON object to Firestore typed fields
+function toFirestoreFields(obj) {
+  const fields = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (v === null || v === undefined) continue;
+    if (typeof v === 'string') fields[k] = { stringValue: v };
+    else if (typeof v === 'number') {
+      if (Number.isInteger(v)) fields[k] = { integerValue: v.toString() };
+      else fields[k] = { doubleValue: v };
+    }
+    else if (typeof v === 'boolean') fields[k] = { booleanValue: v };
+    else if (Array.isArray(v)) {
+      fields[k] = { arrayValue: { values: v.map(item => ({ stringValue: String(item) })) } };
+    }
+  }
+  return { fields };
 }
 
 async function syncCycle() {
   console.log(`\n======================================================`);
   console.log(`[${new Date().toLocaleString()}] 🚀 เริ่มต้นรอบซิงค์สต็อกไอดีจีน Real-time...`);
+  if (CONFIG.firebaseProjectId) console.log(`✓ ปลายทางคลาวด์: Google Firebase Firestore [${CONFIG.firebaseProjectId}] 🔥`);
+  if (CONFIG.supabaseAnonKey) console.log(`✓ ปลายทางคลาวด์: Supabase Cloud DB [${CONFIG.supabaseUrl}] ⚡`);
   console.log(`======================================================`);
 
   let totalUpserted = 0;
@@ -116,7 +143,7 @@ async function syncCycle() {
   for (let page = 1; page <= CONFIG.pages; page++) {
     console.log(`📥 กำลังดึงสต็อกจีน หน้า ${page}/${CONFIG.pages}...`);
     try {
-      const res = await postRequest('https://fzht.xuxug.com/api/api/newShangpinList', {
+      const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
         page,
         size: 20,
         datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
@@ -134,7 +161,7 @@ async function syncCycle() {
         // Fetch screenshots
         let screenshots = [];
         try {
-          const detailRes = await postRequest('https://fzht.xuxug.com/api/api/newGoodsDetails', { id: item.id }, {
+          const detailRes = await httpRequest('https://fzht.xuxug.com/api/api/newGoodsDetails', 'POST', { id: item.id }, {
             'Origin': 'https://xuegaokk.ayxds.com',
             'Referer': 'https://xuegaokk.ayxds.com/'
           });
@@ -187,20 +214,37 @@ async function syncCycle() {
           updated_at: new Date().toISOString()
         };
 
-        // Upsert to Supabase
-        if (CONFIG.supabaseAnonKey) {
+        let saved = false;
+
+        // 1. Write to Google Firebase Firestore
+        if (CONFIG.firebaseProjectId) {
           try {
-            await postRequest(`${CONFIG.supabaseUrl}/rest/v1/accounts`, accountPayload, {
-              'apikey': CONFIG.supabaseAnonKey,
-              'Authorization': `Bearer ${CONFIG.supabaseAnonKey}`,
-              'Prefer': 'resolution=merge-duplicates'
-            });
-            totalUpserted++;
-            process.stdout.write(`✓`);
+            const fbUrl = `https://firestore.googleapis.com/v1/projects/${CONFIG.firebaseProjectId}/databases/(default)/documents/accounts/${accountPayload.id}` +
+                          (CONFIG.firebaseApiKey ? `?key=${CONFIG.firebaseApiKey}` : '');
+            await httpRequest(fbUrl, 'PATCH', toFirestoreFields(accountPayload));
+            saved = true;
+            process.stdout.write(`🔥`);
           } catch (e) {
             process.stdout.write(`x`);
           }
         }
+
+        // 2. Write to Supabase (if configured)
+        if (CONFIG.supabaseAnonKey) {
+          try {
+            await httpRequest(`${CONFIG.supabaseUrl}/rest/v1/accounts`, 'POST', accountPayload, {
+              'apikey': CONFIG.supabaseAnonKey,
+              'Authorization': `Bearer ${CONFIG.supabaseAnonKey}`,
+              'Prefer': 'resolution=merge-duplicates'
+            });
+            saved = true;
+            process.stdout.write(`⚡`);
+          } catch (e) {
+            process.stdout.write(`x`);
+          }
+        }
+
+        if (saved) totalUpserted++;
       }
       console.log(`\nหน้า ${page} เสร็จสิ้น`);
     } catch (err) {
@@ -208,7 +252,7 @@ async function syncCycle() {
     }
   }
 
-  console.log(`\n🎉 รอบซิงค์เสร็จสมบูรณ์! อัปเดตไอดีเข้าฐานข้อมูลแล้ว ${totalUpserted} ไอดี`);
+  console.log(`\n🎉 รอบซิงค์เสร็จสมบูรณ์! อัปเดตไอดีเข้าฐานข้อมูลคลาวด์แล้ว ${totalUpserted} ไอดี`);
 }
 
 // Main Runner

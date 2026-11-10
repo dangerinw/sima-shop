@@ -27,10 +27,22 @@ export const defaultStoreSettings = {
   deliveredCountMode: 'real', // 'real' | 'custom'
   baseDeliveredCount: 0,
 
-  // Cloud Database (Supabase)
+  // Cloud Database Configuration (Google Firebase 🔥 / Supabase ⚡)
+  cloudDbProvider: 'firebase', // 'firebase' | 'supabase'
+  useCloudDb: false,
+
+  // Google Firebase Configuration 🔥
+  firebaseConfigSnippet: '',
+  firebaseApiKey: '',
+  firebaseAuthDomain: '',
+  firebaseProjectId: '',
+  firebaseStorageBucket: '',
+  firebaseMessagingSenderId: '',
+  firebaseAppId: '',
+
+  // Supabase (Legacy)
   supabaseUrl: 'https://ldcafwhhchadgfijiqte.supabase.co',
   supabaseAnonKey: '',
-  useCloudDb: false,
 
   // China Real-time Sync Configuration 🇨🇳
   chinaSyncActive: false,

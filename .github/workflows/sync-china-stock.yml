@@ -21,7 +21,9 @@ jobs:
 
       - name: Run China Stock Sync Engine
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL || 'https://ldcafwhhchadgfijiqte.supabase.co' }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SYNC_PAGES: '3'
           CNY_RATE_THB: '5.2'
