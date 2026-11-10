@@ -14,6 +14,7 @@ export default function AccountModal({
   const [activeTab, setActiveTab] = useState('detail'); // 'detail' | 'cover'
   const [copiedText, setCopiedText] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxZoom, setLightboxZoom] = useState('fit'); // 'fit' | 'large' | 'ultra'
   const [loadingDetailImg, setLoadingDetailImg] = useState(false);
   const [detailImages, setDetailImages] = useState([]);
   const [coverImg, setCoverImg] = useState('');
@@ -25,6 +26,7 @@ export default function AccountModal({
     setStep('details');
     setCopiedText(false);
     setIsLightboxOpen(false);
+    setLightboxZoom('fit');
 
     const initialCover = account.coverImg || account.images?.[0] || '';
     setCoverImg(initialCover);
@@ -65,6 +67,21 @@ export default function AccountModal({
         });
     }
   }, [account]);
+
+  // Handle ESC key to close lightbox or modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (isLightboxOpen) {
+          setIsLightboxOpen(false);
+        } else if (isOpen) {
+          onClose && onClose();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLightboxOpen, isOpen, onClose]);
 
   if (isOpen === false || !account) return null;
 
@@ -172,7 +189,7 @@ export default function AccountModal({
               <div className="space-y-3">
                 {/* Dual Image Tabs (รูปหน้าคลังหลัก 1 VS รูปรายละเอียด 2) */}
                 <div className="flex items-center justify-between gap-2 flex-wrap">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     {/* Tab 2: Detail Screenshot (In-game Stats & Loadout) */}
                     <button
                       type="button"
@@ -180,7 +197,7 @@ export default function AccountModal({
                       className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 border shadow-sm ${
                         activeTab === 'detail'
                           ? 'bg-amber-500 text-black border-amber-400 scale-[1.02]'
-                          : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-750'
+                          : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-700'
                       }`}
                     >
                       <span>📊</span>
@@ -197,7 +214,7 @@ export default function AccountModal({
                       className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 border shadow-sm ${
                         activeTab === 'cover'
                           ? 'bg-amber-500 text-black border-amber-400 scale-[1.02]'
-                          : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-750'
+                          : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-700'
                       }`}
                     >
                       <span>🖼️</span>
@@ -210,62 +227,101 @@ export default function AccountModal({
                     <button
                       type="button"
                       onClick={() => setIsLightboxOpen(true)}
-                      className="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-amber-300 hover:text-white text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-all shadow"
+                      className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black text-xs font-black border border-amber-400 flex items-center gap-1.5 transition-all shadow-lg"
+                      title="เปิดดูรูปภาพขนาดใหญ่พิเศษเต็มหน้าจอ"
                     >
                       <span>🔍</span>
-                      <span>ดูรูปขนาดเต็ม 100% (Full Zoom)</span>
+                      <span>ขยายดูขนาดเต็มจอ (Full Zoom)</span>
                     </button>
                   )}
                 </div>
 
                 {/* LARGE ASPECT RATIO IMAGE DISPLAY CONTAINER ⭐ */}
-                <div className="relative w-full rounded-2xl overflow-hidden bg-black border border-slate-800/90 shadow-2xl flex items-center justify-center min-h-[380px] sm:min-h-[500px] lg:min-h-[600px] max-h-[72vh] group">
-                  {activeImageUrl ? (
-                    <img
-                      src={activeImageUrl}
-                      alt={title}
-                      className="w-full h-full max-h-[72vh] object-contain transition-all duration-300 cursor-zoom-in"
-                      onClick={() => setIsLightboxOpen(true)}
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
-                      <span className="text-4xl mb-2">🖼️</span>
-                      <span className="font-bold">กำลังโหลดรูปภาพจากระบบ...</span>
-                    </div>
-                  )}
+                {activeTab === 'detail' ? (
+                  /* Vertical Scrollable Container for Long Panoramic Detail Image (2160x20000+ px) */
+                  <div className="relative w-full rounded-2xl overflow-y-auto overflow-x-hidden bg-black border border-slate-700/80 shadow-2xl h-[560px] sm:h-[680px] lg:h-[750px] scrollbar-thin scrollbar-thumb-amber-500/60 scrollbar-track-slate-900 group">
+                    {activeImageUrl ? (
+                      <div className="w-full flex flex-col items-center">
+                        <img
+                          src={activeImageUrl}
+                          alt={title}
+                          className="w-full h-auto block select-none cursor-zoom-in"
+                          onClick={() => setIsLightboxOpen(true)}
+                          title="คลิกเพื่อขยายดูขนาดเต็มจอ"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center h-full p-8 text-center text-slate-500">
+                        <span className="text-4xl mb-2">🖼️</span>
+                        <span className="font-bold">กำลังโหลดรูปภาพจากระบบ...</span>
+                      </div>
+                    )}
 
-                  {/* Hover Hint */}
-                  {activeImageUrl && (
+                    {/* Floating hint to scroll down */}
+                    <div className="sticky bottom-3 inset-x-3 flex justify-between items-center pointer-events-none z-10 px-2">
+                      <div className="bg-slate-950/90 text-amber-300 text-xs px-3.5 py-2 rounded-xl border border-amber-500/40 backdrop-blur-md shadow-2xl flex items-center gap-2 pointer-events-auto animate-bounce">
+                        <span className="text-sm">⬇️</span>
+                        <span className="font-bold">เลื่อนเมาส์ลงเพื่อดูสกิน & สถิติทั้งหมด</span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setIsLightboxOpen(true)}
+                        className="bg-black/90 hover:bg-black text-amber-400 text-xs px-3.5 py-2 rounded-xl border border-amber-500/40 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-2xl pointer-events-auto font-bold"
+                      >
+                        <span>🔍</span>
+                        <span>ขยายเต็มจอ</span>
+                      </button>
+                    </div>
+
+                    {/* Top Left Badge Indicator */}
+                    <div className="sticky top-3 left-3 z-10 flex items-center gap-2 pointer-events-none px-2">
+                      <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-black/85 text-amber-300 border border-amber-500/40 backdrop-blur-md shadow">
+                        📊 รูปรายละเอียดสถิติ & สกินในเกม (เลื่อนลงเพื่อดูต่อ)
+                      </span>
+                    </div>
+
+                    {/* Live Loading Spinner Indicator */}
+                    {loadingDetailImg && (
+                      <div className="absolute top-12 left-4 bg-slate-900/95 border border-amber-500/40 text-amber-300 text-xs px-3 py-1.5 rounded-full flex items-center gap-2 shadow-2xl backdrop-blur-md animate-pulse z-20">
+                        <span className="animate-spin text-sm">⏳</span>
+                        <span>กำลังดึงรูปรายละเอียดในเกมความละเอียดสูงจากจีน...</span>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  /* Centered Landscape Preview for 20-slot Inventory Grid */
+                  <div className="relative w-full rounded-2xl overflow-hidden bg-black border border-slate-700/80 shadow-2xl flex items-center justify-center min-h-[420px] sm:min-h-[520px] max-h-[65vh] group">
+                    {activeImageUrl ? (
+                      <img
+                        src={activeImageUrl}
+                        alt={title}
+                        className="w-full h-full max-h-[62vh] object-contain transition-all duration-300 cursor-zoom-in"
+                        onClick={() => setIsLightboxOpen(true)}
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
+                        <span className="text-4xl mb-2">🖼️</span>
+                        <span className="font-bold">กำลังโหลดรูปภาพจากระบบ...</span>
+                      </div>
+                    )}
+
+                    <div className="absolute top-3 left-3 flex items-center gap-2">
+                      <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/40 backdrop-blur-md shadow">
+                        🖼️ รูปหน้าคลังหลัก (สกิน 20 ช่อง)
+                      </span>
+                    </div>
+
                     <button
                       type="button"
                       onClick={() => setIsLightboxOpen(true)}
-                      className="absolute bottom-3 right-3 bg-black/85 hover:bg-black text-white text-xs px-3 py-1.5 rounded-xl border border-slate-700 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg opacity-85 group-hover:opacity-100"
+                      className="absolute bottom-3 right-3 bg-black/85 hover:bg-black text-white text-xs px-3.5 py-1.5 rounded-xl border border-slate-700 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg"
                     >
                       <span>🔍</span>
-                      <span>คลิกเพื่อขยายดูรายละเอียดเต็มจอ</span>
+                      <span>คลิกเพื่อดูรูปใหญ่</span>
                     </button>
-                  )}
-
-                  {/* Top Left Badge Indicator */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/40 backdrop-blur-md shadow">
-                      {activeTab === 'detail' ? '📊 รูปรายละเอียดในเกม (สถิติ & ของแต่ง)' : '🖼️ รูปหน้าคลังหลัก (สกิน 20 ช่อง)'}
-                    </span>
-                    {account.isHot && (
-                      <span className="px-2.5 py-1 rounded-lg text-xs font-black bg-gradient-to-r from-red-600 to-amber-500 text-black shadow-lg">
-                        🔥 HOT DEAL
-                      </span>
-                    )}
                   </div>
-
-                  {/* Live Loading Spinner Indicator */}
-                  {loadingDetailImg && (
-                    <div className="absolute bottom-3 left-3 bg-slate-900/95 border border-amber-500/40 text-amber-300 text-xs px-3 py-1.5 rounded-full flex items-center gap-2 shadow-2xl backdrop-blur-md animate-pulse">
-                      <span className="animate-spin text-sm">⏳</span>
-                      <span>กำลังดึงรูปรายละเอียดในเกมความละเอียดสูงจากจีน...</span>
-                    </div>
-                  )}
-                </div>
+                )}
 
                 {/* Sub-strip of available thumbnails */}
                 <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-slate-800">
@@ -279,7 +335,7 @@ export default function AccountModal({
                       }`}
                     >
                       <img src={currentDetailImg} alt="Detail Preview" className="w-full h-full object-cover" />
-                      <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[10px] text-amber-300 font-bold text-center py-0.5">
+                      <span className="absolute bottom-0 inset-x-0 bg-black/85 text-[10px] text-amber-300 font-bold text-center py-0.5">
                         รูปรายละเอียด
                       </span>
                     </button>
@@ -295,7 +351,7 @@ export default function AccountModal({
                       }`}
                     >
                       <img src={coverImg} alt="Cover Preview" className="w-full h-full object-cover" />
-                      <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[10px] text-slate-200 font-bold text-center py-0.5">
+                      <span className="absolute bottom-0 inset-x-0 bg-black/85 text-[10px] text-slate-200 font-bold text-center py-0.5">
                         คลัง 20 ช่อง
                       </span>
                     </button>
@@ -560,44 +616,93 @@ export default function AccountModal({
         </div>
       </div>
 
-      {/* FULLSCREEN LIGHTBOX / HIGH-RES ZOOM MODAL ⭐ */}
+      {/* FULLSCREEN LIGHTBOX / HIGH-RES ZOOM MODAL (FIT WIDTH & FULL SCROLL) ⭐ */}
       {isLightboxOpen && activeImageUrl && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-2 sm:p-4 animate-in fade-in"
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center overflow-hidden animate-in fade-in"
           onClick={() => setIsLightboxOpen(false)}
         >
-          {/* Top Control Bar */}
-          <div className="w-full max-w-7xl flex items-center justify-between pb-3 text-white z-10 px-2" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center gap-2">
+          {/* Top Sticky Control Bar */}
+          <div 
+            className="w-full border-b border-slate-800 bg-slate-950/95 px-3 sm:px-6 py-3 flex items-center justify-between z-50 text-white shrink-0 shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-2.5">
               <span className="text-xs font-mono font-bold text-amber-300 bg-amber-500/20 border border-amber-500/40 px-2.5 py-1 rounded">
                 #{displayCode}
               </span>
-              <span className="text-xs text-slate-300 font-semibold truncate max-w-md">
+              <span className="text-xs text-slate-300 font-semibold truncate hidden sm:inline max-w-sm">
                 {activeTab === 'detail' ? '📊 รูปรายละเอียดในเกม (สถิติ & ของแต่ง)' : '🖼️ รูปหน้าคลังหลัก (สกิน 20 ช่อง)'} - {title}
               </span>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setIsLightboxOpen(false)}
-              className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold flex items-center gap-1.5 border border-slate-600 transition-all shadow"
+            {/* Zoom Controls */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-[11px] text-slate-400 hidden md:inline">ขนาดรูป:</span>
+              <button
+                type="button"
+                onClick={() => setLightboxZoom('fit')}
+                className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-black border transition-all ${
+                  lightboxZoom === 'fit'
+                    ? 'bg-amber-500 text-black border-amber-400 shadow-lg'
+                    : 'bg-slate-850 text-slate-300 border-slate-700 hover:text-white'
+                }`}
+              >
+                พอดีจอ (900px)
+              </button>
+              <button
+                type="button"
+                onClick={() => setLightboxZoom('large')}
+                className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-black border transition-all ${
+                  lightboxZoom === 'large'
+                    ? 'bg-amber-500 text-black border-amber-400 shadow-lg'
+                    : 'bg-slate-850 text-slate-300 border-slate-700 hover:text-white'
+                }`}
+              >
+                ขยายใหญ่ (1250px)
+              </button>
+              <button
+                type="button"
+                onClick={() => setLightboxZoom('ultra')}
+                className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-black border transition-all ${
+                  lightboxZoom === 'ultra'
+                    ? 'bg-amber-500 text-black border-amber-400 shadow-lg'
+                    : 'bg-slate-850 text-slate-300 border-slate-700 hover:text-white'
+                }`}
+              >
+                ขนาดเต็ม 100% (1800px)
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                className="ml-2 px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-black flex items-center gap-1 transition-all shadow-lg"
+              >
+                <span>✕</span>
+                <span>ปิด (ESC)</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Full High-Resolution Scroll Viewport */}
+          <div 
+            className="w-full flex-1 overflow-y-auto overflow-x-auto p-2 sm:p-6 flex justify-center scrollbar-thin scrollbar-thumb-amber-500/60 scrollbar-track-slate-950" 
+            onClick={e => e.stopPropagation()}
+          >
+            <div 
+              className={`transition-all duration-200 flex flex-col items-center pb-12 ${
+                lightboxZoom === 'fit' ? 'w-full max-w-4xl' : (lightboxZoom === 'large' ? 'w-full max-w-6xl' : 'w-[1800px] max-w-none')
+              }`}
             >
-              <span>✕</span>
-              <span>ปิดรูปภาพ (ESC)</span>
-            </button>
-          </div>
-
-          {/* Full High-Resolution Image Container */}
-          <div className="relative w-full max-w-7xl max-h-[90vh] flex items-center justify-center overflow-auto rounded-2xl bg-black border border-slate-800" onClick={e => e.stopPropagation()}>
-            <img
-              src={activeImageUrl}
-              alt="High-Res Zoom"
-              className="w-full h-auto max-h-[88vh] object-contain select-none"
-            />
-          </div>
-
-          <div className="text-[11px] text-slate-400 mt-2">
-            💡 รูปภาพความละเอียดต้นฉบับคมชัด 100% จากเซิร์ฟเวอร์
+              <img
+                src={activeImageUrl}
+                alt="High-Res Zoom"
+                className="w-full h-auto block select-none rounded-2xl shadow-2xl border border-slate-800"
+              />
+              <div className="text-xs text-slate-400 py-6 text-center font-semibold">
+                ✨ เลื่อนดูจนจบคลังสกิน • รูปภาพความละเอียดต้นฉบับแท้ 100% จากจีน
+              </div>
+            </div>
           </div>
         </div>
       )}
