@@ -9,8 +9,8 @@ const https = require('https');
 // Default Config (Can be overridden by Environment variables)
 const CONFIG = {
   // Google Firebase 🔥
-  firebaseProjectId: process.env.FIREBASE_PROJECT_ID || '',
-  firebaseApiKey: process.env.FIREBASE_API_KEY || '',
+  firebaseProjectId: process.env.FIREBASE_PROJECT_ID || 'sima-shop-a674f',
+  firebaseApiKey: process.env.FIREBASE_API_KEY || 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk',
 
   // Supabase ⚡
   supabaseUrl: process.env.SUPABASE_URL || 'https://ldcafwhhchadgfijiqte.supabase.co',

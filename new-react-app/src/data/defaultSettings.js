@@ -29,16 +29,24 @@ export const defaultStoreSettings = {
 
   // Cloud Database Configuration (Google Firebase 🔥 / Supabase ⚡)
   cloudDbProvider: 'firebase', // 'firebase' | 'supabase'
-  useCloudDb: false,
+  useCloudDb: true,
 
   // Google Firebase Configuration 🔥
-  firebaseConfigSnippet: '',
-  firebaseApiKey: '',
-  firebaseAuthDomain: '',
-  firebaseProjectId: '',
-  firebaseStorageBucket: '',
-  firebaseMessagingSenderId: '',
-  firebaseAppId: '',
+  firebaseConfigSnippet: `const firebaseConfig = {
+  apiKey: "AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk",
+  authDomain: "sima-shop-a674f.firebaseapp.com",
+  projectId: "sima-shop-a674f",
+  storageBucket: "sima-shop-a674f.firebasestorage.app",
+  messagingSenderId: "792858737977",
+  appId: "1:792858737977:web:8f95f4519b8aee31c5fce8",
+  measurementId: "G-BJ45QWS1YL"
+};`,
+  firebaseApiKey: 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk',
+  firebaseAuthDomain: 'sima-shop-a674f.firebaseapp.com',
+  firebaseProjectId: 'sima-shop-a674f',
+  firebaseStorageBucket: 'sima-shop-a674f.firebasestorage.app',
+  firebaseMessagingSenderId: '792858737977',
+  firebaseAppId: '1:792858737977:web:8f95f4519b8aee31c5fce8',
 
   // Supabase (Legacy)
   supabaseUrl: 'https://ldcafwhhchadgfijiqte.supabase.co',
