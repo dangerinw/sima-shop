@@ -610,6 +610,85 @@ export default function AdminDashboard({
         {activeTab === 'settings' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
+            {/* Social & Contact Channels (Facebook & Discord) ⭐ */}
+            <div className="bg-[#111723] p-6 rounded-2xl border border-amber-500/40 shadow-xl space-y-4 md:col-span-2">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl">💬</span>
+                  <div>
+                    <h3 className="font-black text-white text-base">
+                      ช่องทางติดต่อสั่งซื้อ (Facebook Page & Discord Server)
+                    </h3>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      ลูกค้าร้าน SIMA Shop จะนำรหัสไอดีและยอดเงินไปติดต่อสั่งซื้อกับแอดมินโดยตรงผ่าน 2 ช่องทางนี้
+                    </p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>Contact Order Mode เปิดใช้งานอยู่</span>
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs pt-1">
+                {/* Facebook Page Config */}
+                <div className="space-y-2 p-4 rounded-xl bg-slate-950 border border-blue-500/30">
+                  <div className="flex items-center justify-between text-blue-400 font-bold">
+                    <span className="flex items-center gap-1.5">
+                      <span>📘</span>
+                      <span>Facebook Page / Messenger URL:</span>
+                    </span>
+                    <a 
+                      href={settingsForm.facebookPageUrl || 'https://facebook.com'} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="text-[10px] text-blue-400 hover:underline"
+                    >
+                      เปิดทดสอบ ↗
+                    </a>
+                  </div>
+                  <input
+                    type="url"
+                    placeholder="https://facebook.com/simashoppubg หรือ https://m.me/simashoppubg"
+                    value={settingsForm.facebookPageUrl || ''}
+                    onChange={(e) => setSettingsForm({ ...settingsForm, facebookPageUrl: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-blue-500 outline-none text-xs"
+                  />
+                  <div className="flex items-center justify-between text-[10px] text-slate-500">
+                    <span>เช่น ลิงก์แฟนเพจ หรือ ลิงก์ข้อความ m.me/เพจของคุณ</span>
+                  </div>
+                </div>
+
+                {/* Discord Server Config */}
+                <div className="space-y-2 p-4 rounded-xl bg-slate-950 border border-indigo-500/30">
+                  <div className="flex items-center justify-between text-indigo-400 font-bold">
+                    <span className="flex items-center gap-1.5">
+                      <span>💜</span>
+                      <span>Discord Server Invite URL:</span>
+                    </span>
+                    <a 
+                      href={settingsForm.discordInviteUrl || 'https://discord.gg'} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="text-[10px] text-indigo-400 hover:underline"
+                    >
+                      เปิดทดสอบ ↗
+                    </a>
+                  </div>
+                  <input
+                    type="url"
+                    placeholder="https://discord.gg/simashop"
+                    value={settingsForm.discordInviteUrl || ''}
+                    onChange={(e) => setSettingsForm({ ...settingsForm, discordInviteUrl: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-indigo-500 outline-none text-xs"
+                  />
+                  <div className="flex items-center justify-between text-[10px] text-slate-500">
+                    <span>เช่น https://discord.gg/yourserver (ลิงก์คำเชิญถาวร)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             {/* Real Payment Gateway & QR Configuration */}
             <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 space-y-4">
               <h3 className="font-black text-white text-base flex items-center gap-2">

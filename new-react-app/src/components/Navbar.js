@@ -12,7 +12,8 @@ export default function Navbar({
   onOpenUserAuth,
   onOpenUserPurchases,
   onUserLogout,
-  userPurchasedCount = 0
+  userPurchasedCount = 0,
+  storeSettings = {}
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -54,6 +55,24 @@ export default function Navbar({
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
             <a href="#faq" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navFaq}</a>
+            <a 
+              href={storeSettings.facebookPageUrl || 'https://facebook.com/simashoppubg'} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-blue-400 hover:text-white transition-colors flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-blue-500/10 px-2.5 py-1 rounded-lg border border-blue-500/30"
+            >
+              <span>📘</span>
+              <span>Facebook</span>
+            </a>
+            <a 
+              href={storeSettings.discordInviteUrl || 'https://discord.gg/simashop'} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-indigo-400 hover:text-white transition-colors flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-indigo-500/10 px-2.5 py-1 rounded-lg border border-indigo-500/30"
+            >
+              <span>💜</span>
+              <span>Discord</span>
+            </a>
           </nav>
 
           {/* RIGHT ACTIONS */}
@@ -232,6 +251,26 @@ export default function Navbar({
               >
                 <span>❓</span>
                 <span>{t.navFaq}</span>
+              </a>
+              <a
+                href={storeSettings.facebookPageUrl || 'https://facebook.com/simashoppubg'}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3.5 py-2.5 rounded-xl text-blue-400 bg-blue-500/10 border border-blue-500/20 font-bold flex items-center gap-2.5 transition-colors"
+              >
+                <span>📘</span>
+                <span>Facebook Page ติดต่อสั่งซื้อ</span>
+              </a>
+              <a
+                href={storeSettings.discordInviteUrl || 'https://discord.gg/simashop'}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3.5 py-2.5 rounded-xl text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 font-bold flex items-center gap-2.5 transition-colors"
+              >
+                <span>💜</span>
+                <span>Discord Server สั่งซื้อ & ซัพพอร์ต</span>
               </a>
             </nav>
 

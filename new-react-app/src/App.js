@@ -438,6 +438,7 @@ function App() {
         onOpenUserPurchases={() => setShowUserPurchasesModal(true)}
         onUserLogout={handleUserLogout}
         userPurchasedCount={userPurchasedCount}
+        storeSettings={storeSettings}
       />
 
       {/* Hero Presentation & Daily Highlight */}
@@ -521,7 +522,7 @@ function App() {
       <FeaturesSection t={t} />
 
       {/* Footer */}
-      <Footer t={t} />
+      <Footer t={t} storeSettings={storeSettings} />
 
       {/* Quick View Account Modal (with Dynamic QR & Slip Verification) */}
       <AccountModal

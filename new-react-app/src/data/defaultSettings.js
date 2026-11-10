@@ -1,5 +1,12 @@
 export const defaultStoreSettings = {
-  // Payment Gateways - Thailand 🇹🇭
+  // Order & Contact Purchase Channels (Discord & Facebook Page) 💬
+  paymentMode: 'contact_admin', // Contact admin via Discord or Facebook Page
+  facebookPageUrl: 'https://facebook.com/simashoppubg',
+  facebookPageName: 'SIMA Shop - ซื้อขายไอดี PUBG PC',
+  discordInviteUrl: 'https://discord.gg/simashop',
+  discordServerName: 'SIMA SHOP Discord Server',
+
+  // Payment Gateways (Backup / Reference)
   promptPayActive: true,
   promptPayId: '0891234567',
   promptPayName: 'นาย สิมะ ช็อป (SIMA SHOP)',
