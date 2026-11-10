@@ -6,6 +6,7 @@ import AccountCard from './components/AccountCard';
 import AccountModal from './components/AccountModal';
 import FeaturesSection from './components/FeaturesSection';
 import Footer from './components/Footer';
+import Pagination from './components/Pagination';
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminLoginModal from './components/admin/AdminLoginModal';
 import UserAuthModal from './components/user/UserAuthModal';
@@ -85,6 +86,22 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeSettings.useCloudDb, storeSettings.supabaseUrl, storeSettings.supabaseAnonKey]);
 
+  // Track sold IDs locally so China accounts persist sold state without saving 43MB JSON
+  const [soldAccountIds, setSoldAccountIds] = useState(() => {
+    try {
+      const saved = localStorage.getItem('sima_sold_ids');
+      return saved ? JSON.parse(saved) : [];
+    } catch (_) {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('sima_sold_ids', JSON.stringify(soldAccountIds));
+    } catch (_) {}
+  }, [soldAccountIds]);
+
   // Seamless Zero-Cost China Inventory Static Sync (public/data/china_stock.json)
   useEffect(() => {
     fetch('/data/china_stock.json')
@@ -97,6 +114,11 @@ function App() {
           setAccounts((prev) => {
             const map = new Map(prev.map((a) => [a.id, a]));
             chinaStock.forEach((acc) => {
+              // Apply sold status if remembered in soldAccountIds
+              if (soldAccountIds.includes(acc.id)) {
+                acc.isSold = true;
+              }
+
               // Dynamically apply tiered markup according to current store settings
               if (acc.rmbPrice) {
                 const rawThb = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateThb || 5.2);
@@ -133,7 +155,8 @@ function App() {
     storeSettings.chinaMarkupTier2Percent,
     storeSettings.chinaMarkupPercent,
     storeSettings.chinaCnyRateThb,
-    storeSettings.chinaCnyRateVnd
+    storeSettings.chinaCnyRateVnd,
+    soldAccountIds
   ]);
 
   // Admin Authentication State
@@ -203,9 +226,11 @@ function App() {
   });
 
   // Automatically persist changes to LocalStorage so data never vanishes on refresh
+  // NOTE: Exclude China stock from localStorage to keep within 5MB browser quota and maintain 60 FPS
   useEffect(() => {
     try {
-      localStorage.setItem('sima_accounts', JSON.stringify(accounts));
+      const localOnly = accounts.filter((a) => a.region !== 'cn' || a.isCustomLocal);
+      localStorage.setItem('sima_accounts', JSON.stringify(localOnly));
     } catch (e) {}
   }, [accounts]);
 
@@ -216,6 +241,16 @@ function App() {
   }, [orders]);
 
   const searchInputRef = useRef(null);
+  const catalogSectionRef = useRef(null);
+
+  // Storefront Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(24);
+
+  // Reset pagination to page 1 whenever any filter or search query changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, activeRegion, selectedTag, searchQuery, sortBy]);
 
   // Current translation dictionary
   const t = useMemo(() => {
@@ -246,15 +281,21 @@ function App() {
     return base + completedOrders;
   }, [orders, storeSettings.baseDeliveredCount]);
 
-  // Category item counts (counts available accounts)
+  // Category item counts (optimized single pass over accounts)
   const categoryCounts = useMemo(() => {
-    const available = accounts.filter((a) => !a.isSold);
-    return {
-      all: available.length,
-      progressive: available.filter((a) => a.category === 'progressive').length,
-      rankReady: available.filter((a) => a.category === 'rank-ready').length,
-      rareSkins: available.filter((a) => a.category === 'rare-skins').length,
-    };
+    let all = 0;
+    let progressive = 0;
+    let rankReady = 0;
+    let rareSkins = 0;
+    for (let i = 0; i < accounts.length; i++) {
+      const a = accounts[i];
+      if (a.isSold) continue;
+      all++;
+      if (a.category === 'progressive') progressive++;
+      else if (a.category === 'rank-ready') rankReady++;
+      else if (a.category === 'rare-skins') rareSkins++;
+    }
+    return { all, progressive, rankReady, rareSkins };
   }, [accounts]);
 
   // Count purchased accounts for the logged-in customer
@@ -296,7 +337,7 @@ function App() {
       return true;
     });
 
-    // Sorting
+    // Sorting (fast comparison)
     return result.sort((a, b) => {
       if (sortBy === 'price-asc') {
         return currency === 'THB' ? a.priceTHB - b.priceTHB : a.priceVND - b.priceVND;
@@ -304,9 +345,37 @@ function App() {
       if (sortBy === 'price-desc') {
         return currency === 'THB' ? b.priceTHB - a.priceTHB : b.priceVND - a.priceVND;
       }
-      return b.id.localeCompare(a.id);
+      return a.id === b.id ? 0 : (b.id > a.id ? 1 : -1);
     });
   }, [accounts, activeCategory, activeRegion, selectedTag, searchQuery, sortBy, currency]);
+
+  // Storefront Pagination Calculations
+  const totalPages = Math.max(1, Math.ceil(filteredAccounts.length / pageSize));
+
+  // Ensure current page doesn't exceed total pages
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
+  const paginatedAccounts = useMemo(() => {
+    const startIndex = (currentPage - 1) * pageSize;
+    return filteredAccounts.slice(startIndex, startIndex + pageSize);
+  }, [filteredAccounts, currentPage, pageSize]);
+
+  const handlePageChange = (newPage) => {
+    const target = Math.max(1, Math.min(newPage, totalPages));
+    setCurrentPage(target);
+    if (catalogSectionRef.current) {
+      catalogSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handlePageSizeChange = (newSize) => {
+    setPageSize(newSize);
+    setCurrentPage(1);
+  };
 
   const handleResetFilters = () => {
     setActiveCategory('all');
@@ -336,15 +405,24 @@ function App() {
 
   const handleToggleSold = (accountId) => {
     let targetAcc = null;
+    let nextSoldStatus = false;
     setAccounts(
       accounts.map((acc) => {
         if (acc.id === accountId) {
-          targetAcc = { ...acc, isSold: !acc.isSold };
+          nextSoldStatus = !acc.isSold;
+          targetAcc = { ...acc, isSold: nextSoldStatus };
           return targetAcc;
         }
         return acc;
       })
     );
+    setSoldAccountIds((prev) => {
+      if (nextSoldStatus) {
+        return prev.includes(accountId) ? prev : [...prev, accountId];
+      } else {
+        return prev.filter((id) => id !== accountId);
+      }
+    });
     if (targetAcc) {
       dbService.saveAccount(targetAcc);
     }
@@ -381,6 +459,7 @@ function App() {
         return acc;
       })
     );
+    setSoldAccountIds((prev) => (prev.includes(accountId) ? prev : [...prev, accountId]));
     if (soldAcc) {
       dbService.saveAccount(soldAcc);
     }
@@ -520,13 +599,13 @@ function App() {
       />
 
       {/* Main Account Catalog */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+      <main ref={catalogSectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <span>{t.catalogTitle}</span>
               <span className="text-xs bg-slate-800 text-amber-400 px-2.5 py-0.5 rounded-full border border-slate-700 font-mono">
-                {filteredAccounts.length} {t.accountsCount}
+                {filteredAccounts.length.toLocaleString()} {t.accountsCount}
               </span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
@@ -537,18 +616,33 @@ function App() {
 
         {/* Cards Grid */}
         {filteredAccounts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredAccounts.map((account) => (
-              <AccountCard
-                key={account.id}
-                account={account}
-                currency={currency}
-                lang={lang}
-                t={t}
-                onSelect={(acc) => setSelectedAccount(acc)}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginatedAccounts.map((account) => (
+                <AccountCard
+                  key={account.id}
+                  account={account}
+                  currency={currency}
+                  lang={lang}
+                  t={t}
+                  onSelect={(acc) => setSelectedAccount(acc)}
+                />
+              ))}
+            </div>
+
+            {/* Pagination Controls */}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={filteredAccounts.length}
+              pageSize={pageSize}
+              pageSizeOptions={[24, 48, 96]}
+              onPageChange={handlePageChange}
+              onPageSizeChange={handlePageSizeChange}
+              lang={lang}
+              t={t}
+            />
+          </>
         ) : (
           /* Empty Search State */
           <div className="py-16 text-center bg-slate-900/30 rounded-3xl border border-slate-800/80">

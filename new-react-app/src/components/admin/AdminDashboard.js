@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { chinaSyncService } from '../../services/chinaSync/chinaSyncService';
 import AddAccountModal from './AddAccountModal';
+import Pagination from '../Pagination';
 import { dbService } from '../../services/dbService';
 import { defaultStoreSettings } from '../../data/defaultSettings';
 
@@ -217,6 +218,27 @@ export default function AdminDashboard({
     }
     return true;
   });
+
+  // Inventory Table Pagination
+  const [invPage, setInvPage] = useState(1);
+  const [invPageSize, setInvPageSize] = useState(50);
+
+  useEffect(() => {
+    setInvPage(1);
+  }, [categoryFilter, regionFilter, searchQuery]);
+
+  const invTotalPages = Math.max(1, Math.ceil(filteredInventory.length / invPageSize));
+
+  useEffect(() => {
+    if (invPage > invTotalPages) {
+      setInvPage(invTotalPages);
+    }
+  }, [invTotalPages, invPage]);
+
+  const paginatedInventory = filteredInventory.slice(
+    (invPage - 1) * invPageSize,
+    (invPage - 1) * invPageSize + invPageSize
+  );
 
   const handleOpenAdd = () => {
     setEditingAccount(null);
@@ -478,7 +500,7 @@ export default function AdminDashboard({
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80">
-                    {filteredInventory.map((item) => {
+                    {paginatedInventory.map((item) => {
                       const regionBadge = getRegionBadge(item.region);
                       return (
                         <tr key={item.id} className="hover:bg-slate-900/40 transition-colors">
@@ -555,6 +577,23 @@ export default function AdminDashboard({
                 </div>
               )}
             </div>
+
+            {/* Inventory Pagination */}
+            {filteredInventory.length > 0 && (
+              <Pagination
+                currentPage={invPage}
+                totalPages={invTotalPages}
+                totalItems={filteredInventory.length}
+                pageSize={invPageSize}
+                pageSizeOptions={[25, 50, 100, 200]}
+                onPageChange={(p) => setInvPage(p)}
+                onPageSizeChange={(s) => {
+                  setInvPageSize(s);
+                  setInvPage(1);
+                }}
+                lang={lang}
+              />
+            )}
 
           </div>
         )}
