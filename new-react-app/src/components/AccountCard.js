@@ -1,4 +1,5 @@
 import React from 'react';
+import { translateChinesePubgTitle } from '../services/chinaSync/chinaAccountParser';
 
 export default function AccountCard({ account, currency, lang, t, onSelect }) {
   const formatPrice = (vnd, thb) => {
@@ -8,11 +9,15 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
     return `${vnd.toLocaleString()} ₫`;
   };
 
-  const title = lang === 'th' ? account.title_th : account.title_en;
-  const subtitle = lang === 'th' ? account.subtitle_th : account.subtitle_en;
+  const rawTitle = lang === 'th' ? account.title_th : account.title_en;
+  const title = lang === 'th' ? translateChinesePubgTitle(rawTitle) : rawTitle;
+  const subtitle = lang === 'th' ? translateChinesePubgTitle(account.subtitle_th) : account.subtitle_en;
   const playtime = lang === 'th' ? account.playtime_th : account.playtime_en;
-  const gunLevel = lang === 'th' ? account.gunLevel_th : account.gunLevel_en;
+  const rawGun = lang === 'th' ? account.gunLevel_th : account.gunLevel_en;
+  const gunLevel = lang === 'th' ? translateChinesePubgTitle(rawGun) : rawGun;
   const warranty = lang === 'th' ? account.warranty_th : account.warranty_en;
+  const displayCode = account.bianhao || account.id?.replace(/^CN-/, '') || account.id;
+  const coverImage = account.coverImg || account.images?.[0];
 
   // Region Badge Helper
   const getRegionBadge = (region) => {
@@ -51,20 +56,21 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
       onClick={() => onSelect && onSelect(account)}
       className="card-hover bg-[#111723] rounded-2xl border border-slate-800/90 overflow-hidden flex flex-col transition-all cursor-pointer group"
     >
-      {/* Card Header & Thumbnail */}
-      <div className={`relative aspect-video ${account.images && account.images.length > 0 ? 'bg-black' : `bg-gradient-to-br ${account.accentColor}`} p-4 flex flex-col justify-between overflow-hidden group`}>
+      {/* Card Header & Thumbnail (รูปหน้าคลังหลัก 1) */}
+      <div className={`relative aspect-video ${coverImage ? 'bg-black' : `bg-gradient-to-br ${account.accentColor}`} p-4 flex flex-col justify-between overflow-hidden group`}>
         
-        {/* Real Cover Image if uploaded ⭐ */}
-        {account.images && account.images.length > 0 && (
+        {/* Real Cover Image (รูปหน้าคลังหลัก สกิน 20 ช่อง) ⭐ */}
+        {coverImage && (
           <img
-            src={account.images[0]}
+            src={coverImage}
             alt={title}
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90"
+            loading="lazy"
           />
         )}
         
         {/* Dark overlay for high contrast text */}
-        {account.images && account.images.length > 0 && (
+        {coverImage && (
           <div className="absolute inset-0 bg-gradient-to-t from-[#111723] via-black/40 to-black/60 pointer-events-none"></div>
         )}
 
@@ -83,12 +89,18 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
             </span>
           </div>
 
-          <span className="px-2 py-0.5 rounded bg-black/75 text-slate-200 text-[11px] font-mono backdrop-blur-md border border-slate-700/50">
-            #{account.id}
+          {/* Account Code Display */}
+          <span className="px-2 py-0.5 rounded bg-black/80 text-amber-300 text-[11px] font-mono font-bold backdrop-blur-md border border-amber-500/40 shadow">
+            #{displayCode}
           </span>
         </div>
 
         <div className="z-10">
+          <div className="flex items-center gap-1.5 mb-0.5">
+            <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-black/70 text-slate-300 border border-slate-700/60 backdrop-blur-sm">
+              🖼️ คลังสกิน 20 ช่อง
+            </span>
+          </div>
           <h3 className="font-extrabold text-white text-base sm:text-lg leading-snug line-clamp-1 drop-shadow-md">
             {title}
           </h3>
@@ -112,7 +124,7 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
             ⏱️ {playtime}
           </span>
           <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60 font-medium">
-            🏆 {account.rank}
+            🏆 {translateChinesePubgTitle(account.rank)}
           </span>
           <span className="px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 font-medium">
             🛡️ {warranty}

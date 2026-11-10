@@ -364,14 +364,21 @@ function App() {
       // Tag filter
       if (selectedTag && (!item.tags || !item.tags.includes(selectedTag))) return false;
 
-      // Search match (title, subtitle, gun level, or id)
+      // Search match (code, bianhao, rawId, title, subtitle, gun level, or rank)
       if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase();
-        const titleMatch = (item.title_th + ' ' + item.title_en).toLowerCase().includes(query);
-        const subMatch = (item.subtitle_th + ' ' + item.subtitle_en).toLowerCase().includes(query);
-        const gunMatch = (item.gunLevel_th + ' ' + item.gunLevel_en).toLowerCase().includes(query);
-        const idMatch = item.id.toLowerCase().includes(query);
-        return titleMatch || subMatch || gunMatch || idMatch;
+        const query = searchQuery.toLowerCase().trim();
+        const bianhaoStr = (item.bianhao || '').toLowerCase();
+        const rawBianhaoStr = (item.rawBianhao || '').toLowerCase();
+        const rawIdStr = item.rawId ? String(item.rawId).toLowerCase() : '';
+        const idStr = (item.id || '').toLowerCase();
+        
+        const idMatch = idStr.includes(query) || bianhaoStr.includes(query) || rawBianhaoStr.includes(query) || rawIdStr.includes(query);
+        const titleMatch = (item.title_th + ' ' + (item.title_en || '')).toLowerCase().includes(query);
+        const subMatch = (item.subtitle_th + ' ' + (item.subtitle_en || '')).toLowerCase().includes(query);
+        const gunMatch = (item.gunLevel_th + ' ' + (item.gunLevel_en || '')).toLowerCase().includes(query);
+        const rankMatch = (item.rank || '').toLowerCase().includes(query);
+
+        return idMatch || titleMatch || subMatch || gunMatch || rankMatch;
       }
 
       return true;
