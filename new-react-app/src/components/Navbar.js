@@ -29,14 +29,14 @@ export default function Navbar({
       <header className="sticky top-0 z-40 bg-[#0b0f17]/95 backdrop-blur-md border-b border-slate-800/80 transition-all">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* LOGO: SIMA SHOP */}
+          {/* LOGO: PUBG SIAM */}
           <a href="#hero" className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0 group">
             <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-black text-xl sm:text-2xl shadow-lg pubg-glow tracking-tighter shrink-0 transition-transform group-hover:scale-105">
-              S
+              PS
             </div>
             <div className="shrink-0">
               <div className="text-lg sm:text-xl font-extrabold tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
-                SIMA<span className="text-amber-400">SHOP</span>
+                PUBG<span className="text-amber-400"> SIAM</span>
                 <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">PUBG PC</span>
               </div>
               <p className="hidden md:block text-[11px] text-slate-400 -mt-0.5 font-medium tracking-wide whitespace-nowrap">{t.brandSub}</p>
@@ -56,7 +56,7 @@ export default function Navbar({
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
             <a href="#faq" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navFaq}</a>
             <a 
-              href={storeSettings.facebookPageUrl || 'https://facebook.com/simashoppubg'} 
+              href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'} 
               target="_blank" 
               rel="noreferrer" 
               className="text-blue-400 hover:text-white transition-colors flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-blue-500/10 px-2.5 py-1 rounded-lg border border-blue-500/30"
@@ -65,7 +65,7 @@ export default function Navbar({
               <span>Facebook</span>
             </a>
             <a 
-              href={storeSettings.discordInviteUrl || 'https://discord.gg/simashop'} 
+              href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'} 
               target="_blank" 
               rel="noreferrer" 
               className="text-indigo-400 hover:text-white transition-colors flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-indigo-500/10 px-2.5 py-1 rounded-lg border border-indigo-500/30"
@@ -253,7 +253,7 @@ export default function Navbar({
                 <span>{t.navFaq}</span>
               </a>
               <a
-                href={storeSettings.facebookPageUrl || 'https://facebook.com/simashoppubg'}
+                href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
@@ -263,7 +263,7 @@ export default function Navbar({
                 <span>Facebook Page ติดต่อสั่งซื้อ</span>
               </a>
               <a
-                href={storeSettings.discordInviteUrl || 'https://discord.gg/simashop'}
+                href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}

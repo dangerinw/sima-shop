@@ -1,6 +1,6 @@
 export const translations = {
   th: {
-    announcement: '🔥 SIMA Shop ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
+    announcement: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
     brandSub: 'STEAM MARKETPLACE & INSTANT DELIVERY',
     navHome: 'หน้าแรก',
     navCatalog: 'คลังไอดี PUBG PC',
@@ -9,18 +9,18 @@ export const translations = {
     navFaq: 'วิธีสั่งซื้อ & FAQ',
     loginBtn: 'เข้าสู่ระบบ',
 
-    heroBadge: 'SIMA Shop • คลังไอดี PUBG PC (Steam) คัดเกรด พร้อมส่งทันที 100%',
+    heroBadge: 'PUBG SIAM • คลังไอดี PUBG PC (Steam) คัดเกรด พร้อมส่งทันที 100%',
     heroTitle1: 'ซื้อ-ขายไอดี',
     heroTitle2: 'Steam ปลอดภัย',
     heroTitleHighlight: 'เมลแรกแท้',
-    heroDesc: 'SIMA Shop แหล่งรวมไอดี PUBG บนแพลตฟอร์ม Steam สกินปืนเติบโต Progressive สูงสุด Lv.10, ไอดี Rank Ready ปลดล็อกโหมดจัดอันดับ, และชุดแรร์ยุคบุกเบิก ส่งมอบข้อมูล Steam Guard และอีเมลต้นฉบับอย่างปลอดภัย',
+    heroDesc: 'PUBG SIAM แหล่งรวมไอดี PUBG บนแพลตฟอร์ม Steam สกินปืนเติบโต Progressive สูงสุด Lv.10, ไอดี Rank Ready ปลดล็อกโหมดจัดอันดับ, และชุดแรร์ยุคบุกเบิก ส่งมอบข้อมูล Steam Guard และอีเมลต้นฉบับอย่างปลอดภัย',
     heroBtnExplore: 'เลือกดูไอดี PUBG PC',
     heroBtnWarranty: 'ระบบประกัน Steam & เคลมเงิน',
     statDelivered: 'ไอดี Steam ที่ส่งมอบแล้ว',
     statOriginalMail: 'Original Mail (เมลแรก)',
     statNoVac: 'ตรวจประวัติทุกไอดี',
 
-    hotDealBadge: '⚡ SIMA Hot Deal ประจำวัน',
+    hotDealBadge: '⚡ PUBG SIAM Hot Deal ประจำวัน',
     hotDealDelivery: 'มอบ Steam Mail แรกทันที',
     specPlaytime: 'ชั่วโมงบิน Steam:',
     specRank: 'ระดับแรงค์:',
@@ -72,7 +72,7 @@ export const translations = {
     f4Title: 'สอนตั้งค่า Steam Guard ตัวต่อตัว',
     f4Desc: 'มีแอดมินช่วยแนะนำขั้นตอนการเปลี่ยนเบอร์โทร และเปิดใช้ยืนยันสองชั้น (Steam Guard) อย่างปลอดภัย',
 
-    footerCopy: '© 2026 SIMA Shop. สงวนลิขสิทธิ์ทุกประการ ระบบตัวกลางซื้อขายไอดีเกมมาตรฐานความปลอดภัยสูงสุด',
+    footerCopy: '© 2026 PUBG SIAM. สงวนลิขสิทธิ์ทุกประการ ระบบตัวกลางซื้อขายไอดีเกมมาตรฐานความปลอดภัยสูงสุด',
 
     modalRef: 'รหัสอ้างอิง:',
     modalPreviewTitle: 'ภาพพรีวิวคลังไอดี Steam & สกิน PUBG PC',
@@ -86,7 +86,7 @@ export const translations = {
     modalBuyBtn: '⚡ ดำเนินการสั่งซื้อไอดี Steam ทันที',
   },
   en: {
-    announcement: '🔥 #1 SIMA Shop PUBG PC (Steam) Marketplace | 100% Secure with Original Mail & Instant Steam Transfer',
+    announcement: '🔥 #1 PUBG SIAM PUBG PC (Steam) Marketplace | 100% Secure with Original Mail & Instant Steam Transfer',
     brandSub: 'STEAM MARKETPLACE & INSTANT DELIVERY',
     navHome: 'Home',
     navCatalog: 'Steam Catalog',
@@ -95,18 +95,18 @@ export const translations = {
     navFaq: 'How to Buy & FAQ',
     loginBtn: 'Sign In',
 
-    heroBadge: 'SIMA Shop • Verified PUBG PC (Steam) Accounts • Instant Delivery',
+    heroBadge: 'PUBG SIAM • Verified PUBG PC (Steam) Accounts • Instant Delivery',
     heroTitle1: 'Buy & Sell',
     heroTitle2: 'Secure Steam ID with',
     heroTitleHighlight: 'Original Mail',
-    heroDesc: 'SIMA Shop is the ultimate marketplace for PUBG PC Steam accounts. Progressive weapon skins up to Lv.10, Rank-ready accounts with Plus unlocked, and rare legacy apparel. Safe transfer with Steam Guard and original first email.',
+    heroDesc: 'PUBG SIAM is the ultimate marketplace for PUBG PC Steam accounts. Progressive weapon skins up to Lv.10, Rank-ready accounts with Plus unlocked, and rare legacy apparel. Safe transfer with Steam Guard and original first email.',
     heroBtnExplore: 'Explore PUBG PC Accounts',
     heroBtnWarranty: 'Steam Warranty & Refund Policy',
     statDelivered: 'Steam Accounts Delivered',
     statOriginalMail: 'Original Mail (First Mail)',
     statNoVac: 'Verified Clean History',
 
-    hotDealBadge: '⚡ SIMA Hot Deal of the Day',
+    hotDealBadge: '⚡ PUBG SIAM Hot Deal of the Day',
     hotDealDelivery: 'First Steam Email Included',
     specPlaytime: 'Steam Playtime:',
     specRank: 'Rank Tier:',
@@ -158,7 +158,7 @@ export const translations = {
     f4Title: '1-on-1 Steam Guard Setup Assistance',
     f4Desc: 'Our support team guides you through changing phone numbers and activating two-factor Steam Guard security safely.',
 
-    footerCopy: '© 2026 SIMA Shop. All Rights Reserved. Professional Gaming Marketplace with Highest Security Standards.',
+    footerCopy: '© 2026 PUBG SIAM. All Rights Reserved. Professional Gaming Marketplace with Highest Security Standards.',
 
     modalRef: 'Reference ID:',
     modalPreviewTitle: 'Steam Inventory & PUBG PC Skin Preview',

@@ -347,7 +347,7 @@ export default function UserAuthModal({ isOpen, onClose, onLoginSuccess, lang })
           {/* Benefits Feature Box */}
           <div className="pt-2 border-t border-slate-800">
             <span className="text-[11px] font-bold text-slate-400 block mb-2">
-              🛡️ {lang === 'th' ? 'สิทธิประโยชน์ของสมาชิก SIMA Shop:' : 'SIMA Member Privileges:'}
+              🛡️ {lang === 'th' ? 'สิทธิประโยชน์ของสมาชิก PUBG SIAM:' : 'SIMA Member Privileges:'}
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-400">
               <div className="flex items-center gap-1.5">

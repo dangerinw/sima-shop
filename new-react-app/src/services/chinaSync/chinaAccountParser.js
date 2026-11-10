@@ -1,6 +1,6 @@
 // =====================================================================
-// SIMA SHOP - Chinese PUBG Account Translator & Normalizer
-// Translates Chinese Marketplace Data into TH/EN Formats for SIMA Shop
+// PUBG SIAM - Chinese PUBG Account Translator & Normalizer
+// Translates Chinese Marketplace Data into TH/EN Formats for PUBG SIAM
 // =====================================================================
 
 export const CHINESE_SKIN_DICTIONARY = [
@@ -143,7 +143,7 @@ export function extractGunLevels(title = '') {
 }
 
 /**
- * Normalizes raw Chinese API item into SIMA Shop account model
+ * Normalizes raw Chinese API item into PUBG SIAM account model
  */
 export function normalizeChinaAccount(rawItem, rawDetail = {}, config = {}) {
   const {
@@ -212,7 +212,7 @@ export function normalizeChinaAccount(rawItem, rawDetail = {}, config = {}) {
     details_en: `China Stock Code: ${rawItem.bianhao}\nOriginal Price: ¥${rmbPrice} RMB\nDetails: ${title}\nLast Stock Update: ${rawItem.zuihou_caozuo_time || new Date().toISOString()}`,
     videoUrl: '',
     steamUser: `cn_steam_${rawItem.bianhao.toLowerCase()}`,
-    steamPass: `SimaCN#${(rawItem.id || 8888).toString().slice(-4)}`,
+    steamPass: `SiamCN#${(rawItem.id || 8888).toString().slice(-4)}`,
     steamEmail: `pubg_cn_${rawItem.bianhao.toLowerCase()}@163.com | pass: Sima2026!`,
     isSold: false,
     isHot: rmbPrice >= 5000 || title.includes('极品') || title.includes('柏林'),

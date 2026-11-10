@@ -1,5 +1,5 @@
 // =====================================================================
-// SIMA SHOP - Google Firebase Cloud Database & Storage Service 🔥
+// PUBG SIAM - Google Firebase Cloud Database & Storage Service 🔥
 // Powered by Google Cloud Firestore & Firebase Storage
 // 100% Free Forever, Never Pauses / Never Sleeps, Ultra-Fast
 // =====================================================================
@@ -68,13 +68,13 @@ export class FirebaseService {
       this.config = config;
       // Check if already initialized
       const existingApps = getApps();
-      const simaApp = existingApps.find(a => a.name === 'SIMA_SHOP') || 
+      const simaApp = existingApps.find(a => a.name === 'PUBG_SIAM') || 
                        (existingApps.length > 0 && existingApps[0].options.projectId === config.projectId ? existingApps[0] : null);
 
       if (simaApp) {
         this.app = simaApp;
       } else {
-        this.app = initializeApp(config, 'SIMA_SHOP');
+        this.app = initializeApp(config, 'PUBG_SIAM');
       }
 
       this.db = getFirestore(this.app);
@@ -111,7 +111,7 @@ export class FirebaseService {
       const testDocRef = doc(this.db, 'store_settings', '_healthcheck');
       await setDoc(testDocRef, {
         lastPing: new Date().toISOString(),
-        client: 'SIMA Shop Admin Test'
+        client: 'PUBG SIAM Admin Test'
       }, { merge: true });
 
       const snap = await getDoc(testDocRef);

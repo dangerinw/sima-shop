@@ -17,10 +17,8 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
     // Simulate authenticating credentials
     setTimeout(() => {
       // Default credentials: admin / sima2026 (or admin / admin1234)
-      if (
-        (username.trim().toLowerCase() === 'admin' && password === 'sima2026') ||
-        (username.trim().toLowerCase() === 'admin' && password === 'admin1234')
-      ) {
+      const validPass = ['pubgsiam', 'sima2026', 'admin1234'];
+      if (username.trim().toLowerCase() === 'admin' && validPass.includes(password)) {
         setIsLoading(false);
         onLoginSuccess();
       } else {
@@ -54,7 +52,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
           </div>
           <h3 className="text-2xl font-black text-white">เข้าสู่ระบบผู้ดูแล (Admin)</h3>
           <p className="text-xs text-slate-400">
-            ระบบความปลอดภัยสำหรับจัดการคลังไอดีและคำสั่งซื้อ SIMA Shop
+            ระบบความปลอดภัยสำหรับจัดการคลังไอดีและคำสั่งซื้อ PUBG SIAM
           </p>
         </div>
 

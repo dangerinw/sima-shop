@@ -44,7 +44,7 @@ export default function AccountModal({
   };
 
   const handleCopyOrderInfo = () => {
-    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${account.id}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน SIMA SHOP)`;
+    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${account.id}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
     navigator.clipboard.writeText(orderText);
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2500);
@@ -272,7 +272,7 @@ export default function AccountModal({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               {/* Facebook Page Button */}
               <a
-                href={storeSettings.facebookPageUrl || 'https://facebook.com/simashoppubg'}
+                href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
                 target="_blank"
                 rel="noreferrer"
                 className="p-5 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-xl transition-all flex flex-col justify-between space-y-4 group border border-blue-500/40"
@@ -298,7 +298,7 @@ export default function AccountModal({
 
               {/* Discord Server Button */}
               <a
-                href={storeSettings.discordInviteUrl || 'https://discord.gg/simashop'}
+                href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
                 target="_blank"
                 rel="noreferrer"
                 className="p-5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white shadow-xl transition-all flex flex-col justify-between space-y-4 group border border-indigo-500/40"
@@ -327,7 +327,7 @@ export default function AccountModal({
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs text-slate-400 space-y-2.5">
               <span className="font-bold text-slate-200 flex items-center gap-1.5">
                 <span>🛡️</span>
-                <span>การันตีความปลอดภัยและบริการส่งมอบของ SIMA SHOP:</span>
+                <span>การันตีความปลอดภัยและบริการส่งมอบของ PUBG SIAM:</span>
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px] text-slate-300">
                 <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">

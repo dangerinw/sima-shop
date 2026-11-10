@@ -62,7 +62,7 @@ export default function UserPurchasesModal({
   };
 
   const handleCopyAll = (order) => {
-    const content = `[SIMA SHOP - ข้อมูลไอดี PUBG PC]
+    const content = `[PUBG SIAM - ข้อมูลไอดี PUBG PC]
 รหัสคำสั่งซื้อ: ${order.orderId}
 ไอดี: #${order.accountId} - ${order.accountTitle}
 Steam Username: ${order.steamUser}
@@ -346,7 +346,7 @@ Original Mail: ${order.mailInfo}
               </div>
               <h3 className="text-lg font-bold text-white">ยังไม่มีประวัติการซื้อไอดี PUBG PC</h3>
               <p className="text-xs text-slate-400 max-w-sm mx-auto">
-                เมื่อคุณซื้อไอดีจากร้าน SIMA Shop รหัสผ่านและอีเมลแรกจะถูกเก็บรักษาไว้ที่คลังนี้ตลอดไป
+                เมื่อคุณซื้อไอดีจากร้าน PUBG SIAM รหัสผ่านและอีเมลแรกจะถูกเก็บรักษาไว้ที่คลังนี้ตลอดไป
               </p>
               <div className="pt-2">
                 <button

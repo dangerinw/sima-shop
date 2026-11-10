@@ -1,5 +1,5 @@
 // =====================================================================
-// Universal Database & Cloud Storage Service for SIMA Shop
+// Universal Database & Cloud Storage Service for PUBG SIAM
 // Supports Google Firebase Firestore 🔥 + Supabase REST ⚡ + LocalStorage Fallback
 // =====================================================================
 
@@ -498,7 +498,7 @@ export class DbService {
     const backupData = {
       version: '1.0',
       exportedAt: new Date().toISOString(),
-      storeName: 'SIMA Shop',
+      storeName: 'PUBG SIAM',
       data: {
         accounts,
         orders,

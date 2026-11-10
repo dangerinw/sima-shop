@@ -1,5 +1,5 @@
 // =====================================================================
-// SIMA SHOP - Automated China Stock Sync Daemon
+// PUBG SIAM - Automated China Stock Sync Daemon
 // Supports Google Firebase Firestore 🔥 + Supabase ⚡
 // Can run locally, on VPS/Docker, or in GitHub Actions 24/7
 // =====================================================================
@@ -206,7 +206,7 @@ async function syncCycle() {
           details_th: `รหัสสินค้าจีน: ${item.bianhao}\nราคาหยวน: ¥${rmbPrice} RMB\nรายละเอียด: ${title}`,
           details_en: `Product Code: ${item.bianhao}\nCNY Price: ¥${rmbPrice} RMB\nDetails: ${title}`,
           steam_user: `cn_steam_${item.bianhao.toLowerCase()}`,
-          steam_pass: `SimaCN#${(item.id || 9999).toString().slice(-4)}`,
+          steam_pass: `SiamCN#${(item.id || 9999).toString().slice(-4)}`,
           steam_email: `pubg_cn_${item.bianhao.toLowerCase()}@163.com | pass: Sima2026!`,
           is_sold: false,
           is_hot: rmbPrice >= 5000 || title.includes('极品'),

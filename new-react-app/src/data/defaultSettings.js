@@ -1,15 +1,15 @@
 export const defaultStoreSettings = {
   // Order & Contact Purchase Channels (Discord & Facebook Page) 💬
   paymentMode: 'contact_admin', // Contact admin via Discord or Facebook Page
-  facebookPageUrl: 'https://facebook.com/simashoppubg',
-  facebookPageName: 'SIMA Shop - ซื้อขายไอดี PUBG PC',
-  discordInviteUrl: 'https://discord.gg/simashop',
-  discordServerName: 'SIMA SHOP Discord Server',
+  facebookPageUrl: 'https://facebook.com/pubgsiam',
+  facebookPageName: 'PUBG SIAM - ซื้อขายไอดี PUBG PC',
+  discordInviteUrl: 'https://discord.gg/pubgsiam',
+  discordServerName: 'PUBG SIAM Discord Server',
 
   // Payment Gateways (Backup / Reference)
   promptPayActive: true,
   promptPayId: '0891234567',
-  promptPayName: 'นาย สิมะ ช็อป (SIMA SHOP)',
+  promptPayName: 'PUBG SIAM (PUBG SIAM)',
   truemoneyActive: true,
   truemoneyPhone: '089-123-4567',
 
@@ -17,7 +17,7 @@ export const defaultStoreSettings = {
   vietQrActive: true,
   vietQrBank: 'MB',
   vietQrAccountNo: '0987654321',
-  vietQrAccountName: 'SIMA SHOP VN',
+  vietQrAccountName: 'PUBG SIAM VN',
   momoActive: true,
   momoPhone: '0987654321',
 
@@ -26,9 +26,9 @@ export const defaultStoreSettings = {
   autoSlipVerify: true,
 
   // Announcements & Support
-  announcementText: '🔥 SIMA Shop ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
+  announcementText: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
   supportLine: '@SIMASHOP',
-  supportDiscord: 'discord.gg/simashop',
+  supportDiscord: 'discord.gg/pubgsiam',
 
   // Store Front Metrics (Delivered Count)
   deliveredCountMode: 'real', // 'real' | 'custom'
@@ -41,17 +41,17 @@ export const defaultStoreSettings = {
   // Google Firebase Configuration 🔥
   firebaseConfigSnippet: `const firebaseConfig = {
   apiKey: "AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk",
-  authDomain: "sima-shop-a674f.firebaseapp.com",
-  projectId: "sima-shop-a674f",
-  storageBucket: "sima-shop-a674f.firebasestorage.app",
+  authDomain: "pubg-siam-a674f.firebaseapp.com",
+  projectId: "pubg-siam-a674f",
+  storageBucket: "pubg-siam-a674f.firebasestorage.app",
   messagingSenderId: "792858737977",
   appId: "1:792858737977:web:8f95f4519b8aee31c5fce8",
   measurementId: "G-BJ45QWS1YL"
 };`,
   firebaseApiKey: 'AIzaSyDjg9hzjBB1Nh3rZmoLgHEBhiovGteLXhk',
-  firebaseAuthDomain: 'sima-shop-a674f.firebaseapp.com',
-  firebaseProjectId: 'sima-shop-a674f',
-  firebaseStorageBucket: 'sima-shop-a674f.firebasestorage.app',
+  firebaseAuthDomain: 'pubg-siam-a674f.firebaseapp.com',
+  firebaseProjectId: 'pubg-siam-a674f',
+  firebaseStorageBucket: 'pubg-siam-a674f.firebasestorage.app',
   firebaseMessagingSenderId: '792858737977',
   firebaseAppId: '1:792858737977:web:8f95f4519b8aee31c5fce8',
 

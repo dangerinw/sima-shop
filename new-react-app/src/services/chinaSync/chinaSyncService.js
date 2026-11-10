@@ -1,5 +1,5 @@
 // =====================================================================
-// SIMA SHOP - China Marketplace Sync Service
+// PUBG SIAM - China Marketplace Sync Service
 // Real-time synchronization engine from Chinese PUBG Marketplace to Firebase / Supabase
 // =====================================================================
 

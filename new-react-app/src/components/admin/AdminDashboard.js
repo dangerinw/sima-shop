@@ -243,11 +243,11 @@ export default function AdminDashboard({
           
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-black text-xl shadow pubg-glow">
-              S
+              PS
             </div>
             <div>
               <div className="text-lg font-black tracking-wider text-white flex items-center gap-2">
-                SIMA <span className="text-amber-400">ADMIN</span>
+                PUBG SIAM <span className="text-amber-400">ADMIN</span>
                 <span className="text-[10px] bg-red-500/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded font-mono font-bold">
                   CONTROL PANEL
                 </span>
@@ -620,7 +620,7 @@ export default function AdminDashboard({
                       ช่องทางติดต่อสั่งซื้อ (Facebook Page & Discord Server)
                     </h3>
                     <p className="text-xs text-slate-400 mt-0.5">
-                      ลูกค้าร้าน SIMA Shop จะนำรหัสไอดีและยอดเงินไปติดต่อสั่งซื้อกับแอดมินโดยตรงผ่าน 2 ช่องทางนี้
+                      ลูกค้าร้าน PUBG SIAM จะนำรหัสไอดีและยอดเงินไปติดต่อสั่งซื้อกับแอดมินโดยตรงผ่าน 2 ช่องทางนี้
                     </p>
                   </div>
                 </div>
@@ -649,7 +649,7 @@ export default function AdminDashboard({
                   </div>
                   <input
                     type="url"
-                    placeholder="https://facebook.com/simashoppubg หรือ https://m.me/simashoppubg"
+                    placeholder="https://facebook.com/pubgsiampubg หรือ https://m.me/pubgsiampubg"
                     value={settingsForm.facebookPageUrl || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, facebookPageUrl: e.target.value })}
                     className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-blue-500 outline-none text-xs"
@@ -677,7 +677,7 @@ export default function AdminDashboard({
                   </div>
                   <input
                     type="url"
-                    placeholder="https://discord.gg/simashop"
+                    placeholder="https://discord.gg/pubgsiam"
                     value={settingsForm.discordInviteUrl || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, discordInviteUrl: e.target.value })}
                     className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-indigo-500 outline-none text-xs"
@@ -721,7 +721,7 @@ export default function AdminDashboard({
                   </label>
                   <input
                     type="text"
-                    placeholder="เช่น นาย สิมะ ช็อป (SIMA SHOP)"
+                    placeholder="เช่น นาย สิมะ ช็อป (PUBG SIAM)"
                     value={settingsForm.promptPayName || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, promptPayName: e.target.value })}
                     className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white focus:border-amber-500 outline-none"
@@ -762,7 +762,7 @@ export default function AdminDashboard({
                   </label>
                   <input
                     type="text"
-                    placeholder="เช่น SIMA SHOP VN"
+                    placeholder="เช่น PUBG SIAM VN"
                     value={settingsForm.vietQrAccountName || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, vietQrAccountName: e.target.value })}
                     className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white focus:border-amber-500 outline-none"
