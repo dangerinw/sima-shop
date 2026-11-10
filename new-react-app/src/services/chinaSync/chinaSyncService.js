@@ -8,19 +8,22 @@ import { firebaseService } from '../firebaseService';
 
 export class ChinaSyncService {
   constructor() {
-    this.apiUrl = 'https://fzht.xuxug.com/api/api';
     this.isSyncing = false;
     this.lastSyncResult = null;
     this.intervalId = null;
   }
 
+  getApiUrl() {
+    if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+      return '/api-china';
+    }
+    return 'https://fzht.xuxug.com/api/api';
+  }
+
   getHeaders() {
     return {
       'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json',
-      'Origin': 'https://xuegaokk.ayxds.com',
-      'Referer': 'https://xuegaokk.ayxds.com/',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
+      'Content-Type': 'application/json'
     };
   }
 
@@ -38,7 +41,8 @@ export class ChinaSyncService {
       }
     };
 
-    const res = await fetch(`${this.apiUrl}/newShangpinList`, {
+    const targetUrl = `${this.getApiUrl()}/newShangpinList`;
+    const res = await fetch(targetUrl, {
       method: 'POST',
       headers: this.getHeaders(),
       body: JSON.stringify(payload)
@@ -55,7 +59,8 @@ export class ChinaSyncService {
   // 2. Fetch full details (screenshots) for an account
   async fetchDetail(id) {
     try {
-      const res = await fetch(`${this.apiUrl}/newGoodsDetails`, {
+      const targetUrl = `${this.getApiUrl()}/newGoodsDetails`;
+      const res = await fetch(targetUrl, {
         method: 'POST',
         headers: this.getHeaders(),
         body: JSON.stringify({ id })
