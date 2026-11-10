@@ -2,10 +2,6 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/api-china/:match*",
-      "destination": "https://fzht.xuxug.com/api/api/:match*"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

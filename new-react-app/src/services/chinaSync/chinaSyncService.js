@@ -8,16 +8,14 @@ import { firebaseService } from '../firebaseService';
 
 export class ChinaSyncService {
   constructor() {
+    this.apiUrl = 'https://fzht.xuxug.com/api/api';
     this.isSyncing = false;
     this.lastSyncResult = null;
     this.intervalId = null;
   }
 
   getApiUrl() {
-    if (typeof window !== 'undefined') {
-      return '/api-china';
-    }
-    return 'https://fzht.xuxug.com/api/api';
+    return this.apiUrl;
   }
 
   getHeaders() {
@@ -27,7 +25,7 @@ export class ChinaSyncService {
     };
   }
 
-  // 1. Fetch page from Chinese API
+  // 1. Fetch page directly from Chinese API
   async fetchPage(page = 1, size = 20) {
     const payload = {
       page,
@@ -41,7 +39,7 @@ export class ChinaSyncService {
       }
     };
 
-    const targetUrl = `${this.getApiUrl()}/newShangpinList`;
+    const targetUrl = `${this.apiUrl}/newShangpinList`;
     const res = await fetch(targetUrl, {
       method: 'POST',
       headers: this.getHeaders(),
@@ -56,10 +54,10 @@ export class ChinaSyncService {
     return data?.data?.data || [];
   }
 
-  // 2. Fetch full details (screenshots) for an account
+  // 2. Fetch full details (screenshots) directly from Chinese API
   async fetchDetail(id) {
     try {
-      const targetUrl = `${this.getApiUrl()}/newGoodsDetails`;
+      const targetUrl = `${this.apiUrl}/newGoodsDetails`;
       const res = await fetch(targetUrl, {
         method: 'POST',
         headers: this.getHeaders(),
@@ -125,7 +123,7 @@ export class ChinaSyncService {
           // If browser CORS prevents direct fetch, load local static JSON stock and recalculate
           onProgress({ 
             stage: 'fallback', 
-            message: `⚠️ เบราว์เซอร์บล็อก Origin header (CORS) — โหลดคลังสต็อกจีนจาก /data/china_stock.json แทน...` 
+            message: `ℹ️ กำลังซิงค์และคำนวณราคาขั้นบันไดจากคลังสต็อกจีน (/data/china_stock.json)...` 
           });
           const staticRes = await fetch('/data/china_stock.json');
           if (staticRes.ok) {
