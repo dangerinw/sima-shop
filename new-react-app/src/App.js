@@ -16,6 +16,7 @@ import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
 import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
 import { dbService } from './services/dbService';
+import { normalizeChinaAccount } from './services/chinaSync/chinaAccountParser';
 
 function App() {
   const [currency, setCurrency] = useState(() => {
@@ -148,6 +149,81 @@ function App() {
       .catch((_) => {
         // Silently continue if static stock file isn't created yet
       });
+  }, [
+    storeSettings.chinaMarkupMode,
+    storeSettings.chinaMarkupThreshold,
+    storeSettings.chinaMarkupTier1Percent,
+    storeSettings.chinaMarkupTier2Percent,
+    storeSettings.chinaMarkupPercent,
+    storeSettings.chinaCnyRateThb,
+    storeSettings.chinaCnyRateVnd,
+    soldAccountIds
+  ]);
+
+  // Live Real-Time China Stock Sync (Direct Browser-to-API Fetch without Firebase)
+  useEffect(() => {
+    let timer = null;
+
+    const fetchLiveArrivals = async () => {
+      try {
+        const res = await fetch('https://fzht.xuxug.com/api/api/newShangpinList', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            page: 1,
+            size: 20,
+            datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
+          })
+        });
+
+        if (!res.ok) return;
+        const data = await res.json();
+        const rawList = data?.data?.data || [];
+        if (!Array.isArray(rawList) || rawList.length === 0) return;
+
+        setAccounts((prev) => {
+          const map = new Map(prev.map((a) => [a.id, a]));
+          let hasChange = false;
+          rawList.forEach((raw) => {
+            const normalized = normalizeChinaAccount(raw, {}, {
+              cnyRateThb: Number(storeSettings.chinaCnyRateThb || 5.2),
+              cnyRateVnd: Number(storeSettings.chinaCnyRateVnd || 3700),
+              markupMode: storeSettings.chinaMarkupMode || 'tiered',
+              markupThreshold: Number(storeSettings.chinaMarkupThreshold || 100000),
+              markupTier1Percent: Number(storeSettings.chinaMarkupTier1Percent ?? 10),
+              markupTier2Percent: Number(storeSettings.chinaMarkupTier2Percent ?? 13),
+              markupPercent: Number(storeSettings.chinaMarkupPercent || 10)
+            });
+
+            if (soldAccountIds.includes(normalized.id)) {
+              normalized.isSold = true;
+            }
+
+            if (!map.has(normalized.id)) {
+              hasChange = true;
+            }
+            map.set(normalized.id, normalized);
+          });
+
+          return hasChange ? Array.from(map.values()) : prev;
+        });
+      } catch (_) {
+        // Silently continue if network fails
+      }
+    };
+
+    // Initial live check on load
+    fetchLiveArrivals();
+
+    // Check for newly posted accounts every 60 seconds while customer stays on the website
+    timer = setInterval(fetchLiveArrivals, 60 * 1000);
+
+    return () => {
+      if (timer) clearInterval(timer);
+    };
   }, [
     storeSettings.chinaMarkupMode,
     storeSettings.chinaMarkupThreshold,

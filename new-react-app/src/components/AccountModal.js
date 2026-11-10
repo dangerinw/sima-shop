@@ -12,12 +12,50 @@ export default function AccountModal({
   const [step, setStep] = useState('details'); // 'details' | 'contact'
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [copiedText, setCopiedText] = useState(false);
+  const [galleryImages, setGalleryImages] = useState(() => account?.images || []);
+  const [loadingScreenshots, setLoadingScreenshots] = useState(false);
 
-  // Reset modal state when new account opens
+  // Reset modal state and lazy-load high-res screenshots for Chinese accounts in real-time
   useEffect(() => {
     setStep('details');
     setActiveImgIndex(0);
     setCopiedText(false);
+    setGalleryImages(account?.images || []);
+
+    if (account && account.region === 'cn' && (!account.images || account.images.length <= 1)) {
+      const rawId = account.id.replace('CN-XGKK-', '').replace('CN-', '').trim();
+      setLoadingScreenshots(true);
+      fetch('https://fzht.xuxug.com/api/api/newGoodsDetails', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: rawId })
+      })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((detailData) => {
+          setLoadingScreenshots(false);
+          const detail = detailData?.data || {};
+          if (detail.xiangqing) {
+            const imgRegex = /src=["']([^"']+)["']/g;
+            const newImages = [...(account.images || [])];
+            let m;
+            while ((m = imgRegex.exec(detail.xiangqing)) !== null) {
+              if (m[1] && !newImages.includes(m[1])) {
+                newImages.push(m[1]);
+              }
+            }
+            if (newImages.length > (account.images?.length || 0)) {
+              setGalleryImages(newImages);
+              account.images = newImages;
+            }
+          }
+        })
+        .catch(() => {
+          setLoadingScreenshots(false);
+        });
+    }
   }, [account]);
 
   if (!isOpen || !account) return null;
@@ -94,14 +132,21 @@ export default function AccountModal({
             {/* Gallery Section */}
             <div className="space-y-3">
               <div className="h-64 sm:h-96 w-full rounded-2xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
-                {account.images && account.images.length > 0 ? (
+                {galleryImages && galleryImages.length > 0 ? (
                   <img
-                    src={account.images[activeImgIndex] || account.images[0]}
+                    src={galleryImages[activeImgIndex] || galleryImages[0]}
                     alt="PUBG Account Preview"
                     className="w-full h-full object-contain"
                   />
                 ) : (
                   <div className="text-slate-600 font-bold">ไม่มีรูปภาพ</div>
+                )}
+
+                {loadingScreenshots && (
+                  <div className="absolute bottom-3 right-3 bg-slate-900/90 border border-slate-700 text-amber-400 text-[11px] px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg backdrop-blur-sm animate-pulse">
+                    <span className="animate-spin text-xs">⏳</span>
+                    <span>กำลังโหลดรูปคลังสกินสดจากจีน...</span>
+                  </div>
                 )}
                 
                 {account.isHot && (
@@ -112,9 +157,9 @@ export default function AccountModal({
               </div>
 
               {/* Thumbnail strip */}
-              {account.images && account.images.length > 1 && (
+              {galleryImages && galleryImages.length > 1 && (
                 <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-slate-800">
-                  {account.images.map((img, idx) => (
+                  {galleryImages.map((img, idx) => (
                     <button
                       key={idx}
                       type="button"
