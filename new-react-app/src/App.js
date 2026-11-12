@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
+import ChinaOrderSection from './components/ChinaOrderSection';
 import FilterToolbar from './components/FilterToolbar';
 import AccountCard from './components/AccountCard';
 import AccountModal from './components/AccountModal';
@@ -640,6 +641,13 @@ function App() {
         onOpenAccount={(acc) => setSelectedAccount(acc)} 
         hotAccount={hotAccount} 
         deliveredCount={realDeliveredCount}
+        storeSettings={storeSettings}
+      />
+
+      {/* On-Demand China Accounts Order & Instant Lookup Service (4 Partner Websites) */}
+      <ChinaOrderSection 
+        currency={currency}
+        lang={lang}
         storeSettings={storeSettings}
       />
 

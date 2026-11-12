@@ -481,21 +481,50 @@ function httpRequest(url, method, payload, customHeaders = {}) {
   });
 }
 
-async function fetchPage(page, retries = 2) {
+const SOURCES = [
+  { key: 'xgkk', name: 'XueGaoKK (Link 4)', origin: 'https://xuegaokk.ayxds.com', type: 'ayxds' },
+  { key: 'xf', name: 'XF Shop (Link 1)', origin: 'https://xf.ayxds.com', type: 'ayxds' },
+  { key: 'xmgg', name: 'XMGG Shop (Link 3)', origin: 'https://xmgg.ayxds.com', type: 'ayxds' },
+  { key: 'yyy', name: 'YiYou PUBG (Link 2)', origin: 'https://www.yyyxkch.com', type: 'yyy' }
+];
+
+async function fetchSourcePage(src, page, retries = 2) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
-        page,
-        size: 20,
-        datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
-      }, {
-        'Accept': 'application/json, text/plain, */*',
-        'Origin': 'https://xuegaokk.ayxds.com',
-        'Referer': 'https://xuegaokk.ayxds.com/',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
-      });
-      if (res.data?.data) {
-        return res.data.data;
+      if (src.type === 'yyy') {
+        const res = await httpRequest('https://www.yyyxkch.com/api/goods_list', 'POST', {
+          page,
+          limit: 20,
+          cate_id: 5
+        }, {
+          'Referer': 'https://www.yyyxkch.com/'
+        });
+        if (res.data?.data) {
+          return {
+            total: res.data.data.total,
+            last_page: Math.ceil((res.data.data.total || 0) / 20),
+            data: (res.data.data.list || []).map(x => ({
+              id: x.id,
+              bianhao: x.code || `DLMX-${x.id}`,
+              title: x.title,
+              shoujia: x.price,
+              img: x.logo
+            }))
+          };
+        }
+      } else {
+        const res = await httpRequest('https://fzht.xuxug.com/api/api/newShangpinList', 'POST', {
+          page,
+          datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
+        }, {
+          'Accept': 'application/json, text/plain, */*',
+          'Origin': src.origin,
+          'Referer': `${src.origin}/`,
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        });
+        if (res.data?.data) {
+          return res.data.data;
+        }
       }
     } catch (err) {}
     if (attempt < retries) {
@@ -507,7 +536,7 @@ async function fetchPage(page, retries = 2) {
 
 async function syncCycle() {
   console.log(`\n======================================================`);
-  console.log(`[${new Date().toLocaleString()}] 🚀 เริ่มต้นรอบซิงค์สต็อกไอดีจีนแบบเต็มคลัง (Full Stock Engine)...`);
+  console.log(`[${new Date().toLocaleString()}] 🚀 เริ่มต้นรอบซิงค์สต็อกไอดีจีน 4 แพลตฟอร์มพาร์ทเนอร์ (Multi-Source Engine)...`);
   
   if (fetchAll && fs.existsSync(CONFIG.outputPath)) {
     try {
@@ -515,19 +544,6 @@ async function syncCycle() {
       console.log(`🗑️ ลบไฟล์สต็อกเดิมออกเรียบร้อย: ${CONFIG.outputPath}`);
     } catch (_) {}
   }
-
-  // 1. Fetch Page 1
-  const firstPageRes = await fetchPage(1);
-  const totalInMarket = firstPageRes.total || 12300;
-  const lastPageInMarket = firstPageRes.last_page || 616;
-
-  const targetPages = fetchAll ? lastPageInMarket : Math.min(CONFIG.pages, lastPageInMarket);
-
-  console.log(`✓ ข้อมูลคลังจีนทั้งหมดในระบบ: ${totalInMarket.toLocaleString()} ไอดี (${lastPageInMarket} หน้า)`);
-  console.log(`✓ เป้าหมายการกวาดรอบนี้: กวาดทั้งหมด ${targetPages} หน้า (ประมาณ ${targetPages * 20} ไอดี)`);
-  console.log(`✓ โหมดกำไรขั้นบันได: < ฿${CONFIG.markupThreshold.toLocaleString()} (+${CONFIG.markupTier1Percent}%) | >= ฿${CONFIG.markupThreshold.toLocaleString()} (+${CONFIG.markupTier2Percent}%)`);
-  console.log(`✓ ปลายทาง: ${CONFIG.outputPath} (Zero-DB Free Mode)`);
-  console.log(`======================================================`);
 
   const accountMap = new Map();
 
@@ -546,23 +562,32 @@ async function syncCycle() {
     }
   }
 
-  const CONCURRENCY = 8;
+  const CONCURRENCY = 6;
   const startTime = Date.now();
 
-  for (let p = 1; p <= targetPages; p += CONCURRENCY) {
-    const batchPages = [];
-    for (let offset = 0; offset < CONCURRENCY && (p + offset) <= targetPages; offset++) {
-      batchPages.push(p + offset);
-    }
+  for (const src of SOURCES) {
+    console.log(`\n--- เริ่มดึงข้อมูลจากแหล่ง: ${src.name} ---`);
+    const firstPage = await fetchSourcePage(src, 1);
+    const totalInMarket = firstPage.total || 0;
+    const lastPageInMarket = firstPage.last_page || 1;
+    const targetPages = fetchAll ? lastPageInMarket : Math.min(Math.ceil(CONFIG.pages / SOURCES.length), lastPageInMarket);
 
-    const results = await Promise.all(batchPages.map(page => fetchPage(page)));
+    console.log(`✓ แหล่ง ${src.name}: พบทั้งหมด ${totalInMarket.toLocaleString()} ไอดี, จะดึง ${targetPages} หน้า`);
 
-    results.forEach((pageData) => {
-      const items = pageData.data || [];
-      items.forEach((item) => {
-        const { cleanCode, rawOriginal } = cleanBianhao(item.bianhao || item.id);
-        const id = `CN-${cleanCode}`;
-        if (accountMap.has(id)) return;
+    for (let p = 1; p <= targetPages; p += CONCURRENCY) {
+      const batchPages = [];
+      for (let offset = 0; offset < CONCURRENCY && (p + offset) <= targetPages; offset++) {
+        batchPages.push(p + offset);
+      }
+
+      const results = await Promise.all(batchPages.map(page => fetchSourcePage(src, page)));
+
+      results.forEach((pageData) => {
+        const items = pageData.data || [];
+        items.forEach((item) => {
+          const { cleanCode, rawOriginal } = cleanBianhao(item.bianhao || item.id);
+          const id = `CN-${cleanCode}`;
+          if (accountMap.has(id)) return;
 
         const rmbPrice = Number(item.shoujia || 0);
         const priceInfo = calculateTieredPrice(rmbPrice);
@@ -630,10 +655,11 @@ async function syncCycle() {
       });
     });
 
-    const endPage = Math.min(p + CONCURRENCY - 1, targetPages);
-    const percent = Math.round((endPage / targetPages) * 100);
-    const elapsedSec = Math.round((Date.now() - startTime) / 1000);
-    process.stdout.write(`[${percent}%] หน้า ${p}-${endPage}/${targetPages} (รวม ${accountMap.size.toLocaleString()} ไอดีใน ${elapsedSec}s)\n`);
+      const endPage = Math.min(p + CONCURRENCY - 1, targetPages);
+      const percent = Math.round((endPage / targetPages) * 100);
+      const elapsedSec = Math.round((Date.now() - startTime) / 1000);
+      process.stdout.write(`[${percent}%] [${src.key.toUpperCase()}] หน้า ${p}-${endPage}/${targetPages} (รวม ${accountMap.size.toLocaleString()} ไอดีใน ${elapsedSec}s)\n`);
+    }
   }
 
   const allAccounts = Array.from(accountMap.values());
