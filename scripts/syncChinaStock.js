@@ -475,6 +475,9 @@ function httpRequest(url, method, payload, customHeaders = {}) {
         }
       });
     });
+    req.setTimeout(15000, () => {
+      req.destroy(new Error('Request timeout'));
+    });
     req.on('error', reject);
     if (postData) req.write(postData);
     req.end();
@@ -562,7 +565,7 @@ async function syncCycle() {
     }
   }
 
-  const CONCURRENCY = 6;
+  const CONCURRENCY = 12;
   const startTime = Date.now();
 
   for (const src of SOURCES) {
@@ -586,35 +589,40 @@ async function syncCycle() {
         const items = pageData.data || [];
         items.forEach((item) => {
           const { cleanCode, rawOriginal } = cleanBianhao(item.bianhao || item.id);
-          const id = `CN-${cleanCode}`;
+          let uniqueCode = cleanCode;
+          if (!uniqueCode.toLowerCase().startsWith(src.key.toLowerCase())) {
+            uniqueCode = `${src.key.toUpperCase()}-${uniqueCode}`;
+          }
+          const id = `CN-${uniqueCode}`;
           if (accountMap.has(id)) return;
 
-        const rmbPrice = Number(item.shoujia || 0);
-        const priceInfo = calculateTieredPrice(rmbPrice);
-        const rawTitle = item.title || 'PUBG PC Steam Account';
+          const rmbPrice = Number(item.shoujia || 0);
+          const priceInfo = calculateTieredPrice(rmbPrice);
+          const rawTitle = item.title || 'PUBG PC Steam Account';
 
-        let rankTierTh = 'แรงค์ Tier 3 (Rank Ready Plus)';
-        if (rawTitle.includes('5阶段') || rawTitle.includes('五阶段')) rankTierTh = 'แรงค์ Tier 5 (Rank Ready Plus)';
-        else if (rawTitle.includes('4阶段') || rawTitle.includes('四阶段')) rankTierTh = 'แรงค์ Tier 4 (Rank Ready Plus)';
-        else if (rawTitle.includes('3阶段') || rawTitle.includes('三阶段')) rankTierTh = 'แรงค์ Tier 3 (Rank Ready Plus)';
-        else if (rawTitle.includes('2阶段') || rawTitle.includes('二阶段')) rankTierTh = 'แรงค์ Tier 2 (Rank Ready Plus)';
-        else if (rawTitle.includes('1阶段') || rawTitle.includes('一阶段')) rankTierTh = 'แรงค์ Tier 1 (Rank Ready Plus)';
+          let rankTierTh = 'แรงค์ Tier 3 (Rank Ready Plus)';
+          if (rawTitle.includes('5阶段') || rawTitle.includes('五阶段')) rankTierTh = 'แรงค์ Tier 5 (Rank Ready Plus)';
+          else if (rawTitle.includes('4阶段') || rawTitle.includes('四阶段')) rankTierTh = 'แรงค์ Tier 4 (Rank Ready Plus)';
+          else if (rawTitle.includes('3阶段') || rawTitle.includes('三阶段')) rankTierTh = 'แรงค์ Tier 3 (Rank Ready Plus)';
+          else if (rawTitle.includes('2阶段') || rawTitle.includes('二阶段')) rankTierTh = 'แรงค์ Tier 2 (Rank Ready Plus)';
+          else if (rawTitle.includes('1阶段') || rawTitle.includes('一阶段')) rankTierTh = 'แรงค์ Tier 1 (Rank Ready Plus)';
 
-        const playtime = rankTierTh.includes('5') ? '1,500+ ชม.' : (rankTierTh.includes('4') ? '1,000+ ชม.' : '800+ ชม.');
-        const playtimeEn = rankTierTh.includes('5') ? '1,500+ hrs' : (rankTierTh.includes('4') ? '1,000+ hrs' : '800+ hrs');
+          const playtime = rankTierTh.includes('5') ? '1,500+ ชม.' : (rankTierTh.includes('4') ? '1,000+ ชม.' : '800+ ชม.');
+          const playtimeEn = rankTierTh.includes('5') ? '1,500+ hrs' : (rankTierTh.includes('4') ? '1,000+ hrs' : '800+ hrs');
 
-        const images = [];
-        if (item.img) images.push(item.img);
+          const images = [];
+          if (item.img) images.push(item.img);
 
-        const translatedTitleTh = translateToThai(rawTitle);
-        const gunLevelTh = extractGunLevels(rawTitle);
+          const translatedTitleTh = translateToThai(rawTitle);
+          const gunLevelTh = extractGunLevels(rawTitle);
 
-        const account = {
-          id,
-          rawId: item.id,
-          bianhao: cleanCode,
-          rawBianhao: rawOriginal,
-          sourceShop: src.name,
+          const account = {
+            id,
+            rawId: item.id,
+            bianhao: uniqueCode,
+            rawBianhao: rawOriginal,
+            sourceShop: src.name,
+            sourceKey: src.key,
           region: 'cn',
           category: detectCategory(rawTitle),
           title_th: translatedTitleTh,
@@ -645,6 +653,12 @@ async function syncCycle() {
       const elapsedSec = Math.round((Date.now() - startTime) / 1000);
       process.stdout.write(`[${percent}%] [${src.key.toUpperCase()}] หน้า ${p}-${endPage}/${targetPages} (รวม ${accountMap.size.toLocaleString()} ไอดีใน ${elapsedSec}s)\n`);
     }
+
+    try {
+      const currentList = Array.from(accountMap.values());
+      fs.writeFileSync(CONFIG.outputPath, JSON.stringify(currentList), 'utf8');
+      console.log(`💾 เซฟสต็อกชั่วคราว: รวม ${currentList.length.toLocaleString()} ไอดีลงไฟล์`);
+    } catch (_) {}
   }
 
   const allAccounts = Array.from(accountMap.values());

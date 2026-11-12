@@ -38,12 +38,9 @@ export default function Navbar({
           </a>
 
           {/* DESKTOP NAV LINKS (lg and up) */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-sm font-medium shrink-0">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium shrink-0">
             <a href="#hero" className="text-amber-400 font-semibold transition-colors flex items-center gap-1.5 whitespace-nowrap">
               <span>{t.navHome}</span>
-            </a>
-            <a href="#china-order" className="text-amber-400 hover:text-amber-300 font-bold transition-all flex items-center gap-1.5 whitespace-nowrap bg-amber-500/10 hover:bg-amber-500/20 px-3 py-1.5 rounded-xl border border-amber-500/30 shadow-sm">
-              <span>🇨🇳</span> บริการกดไอดีจีน
             </a>
             <a href="#catalog" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navCatalog}</a>
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
@@ -169,14 +166,6 @@ export default function Navbar({
               >
                 <span>🏠</span>
                 <span>{t.navHome}</span>
-              </a>
-              <a 
-                href="#china-order" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-red-500/20 text-amber-400 font-bold flex items-center gap-2.5 border border-amber-500/30"
-              >
-                <span>🇨🇳</span>
-                <span>บริการกดไอดีจีน (4 เว็บต้นทาง)</span>
               </a>
               <a 
                 href="#catalog" 

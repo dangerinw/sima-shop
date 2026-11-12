@@ -138,7 +138,8 @@ export default function AccountModal({
   };
 
   const handleCopyOrderInfo = () => {
-    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${displayCode}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
+    const sourceText = account.sourceShop ? `\nแหล่งคลัง: ${account.sourceShop}` : '';
+    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${displayCode}${sourceText}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
     navigator.clipboard.writeText(orderText);
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2500);
@@ -173,6 +174,11 @@ export default function AccountModal({
                   <span className="text-xs text-slate-300 font-semibold">
                     {getRegionText(account.region)}
                   </span>
+                  {account.sourceShop && (
+                    <span className="text-[11px] font-mono text-slate-400 bg-slate-800/90 border border-slate-700/80 px-2 py-0.5 rounded">
+                      คลัง: {account.sourceShop}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white line-clamp-1 mt-0.5">
                   {title}
@@ -497,6 +503,11 @@ export default function AccountModal({
                         #{displayCode}
                       </span>
                       <span className="text-[11px] text-slate-400">{getRegionText(account.region)}</span>
+                      {account.sourceShop && (
+                        <span className="text-[10px] text-slate-400 font-mono bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded">
+                          {account.sourceShop}
+                        </span>
+                      )}
                     </div>
                     <h4 className="text-sm font-bold text-white line-clamp-1 mt-1">
                       {title}
