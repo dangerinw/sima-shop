@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccount, deliveredCount = 0 }) {
+export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccount, deliveredCount = 0, storeSettings = {} }) {
   const formatPrice = (vnd, thb) => {
     if (currency === 'THB') {
       return `฿${thb.toLocaleString()}`;
@@ -76,6 +76,54 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
               <div>
                 <div className="text-2xl font-black text-emerald-400">Zero VAC</div>
                 <div className="text-xs text-slate-400 font-medium">{t.statNoVac}</div>
+              </div>
+            </div>
+
+            {/* Official Trade Manager Badge (SunsnappZ & AWESOMEZ SHOP) */}
+            <div className="pt-2 max-w-lg mx-auto lg:mx-0">
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 border border-amber-500/30 flex items-center justify-between gap-3 shadow-lg">
+                <div className="flex items-center gap-3 min-w-0">
+                  <img 
+                    src="/images/sunsnappz-logo.jpg" 
+                    alt="SunsnappZ" 
+                    className="w-12 h-12 rounded-xl object-cover border-2 border-amber-400 shrink-0 shadow-md" 
+                  />
+                  <div className="min-w-0 text-left">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-sm font-black text-white">SunsnappZ</span>
+                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                        ✓ ดูแลการซื้อขาย
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                      <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-4 object-contain brightness-110" />
+                      <span className="text-[11px] text-amber-400/90 font-medium hidden sm:inline">• AWESOMEZ SHOP</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <a
+                    href={storeSettings?.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-2.5 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/30 transition-all text-xs font-bold flex items-center gap-1"
+                    title="Facebook แอดมิน: SunsnappZ"
+                  >
+                    <span>📘</span>
+                    <span className="hidden xs:inline">Facebook</span>
+                  </a>
+                  <a
+                    href={storeSettings?.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-2.5 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/30 transition-all text-xs font-bold flex items-center gap-1"
+                    title="Discord Server"
+                  >
+                    <span>💜</span>
+                    <span className="hidden xs:inline">Discord</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

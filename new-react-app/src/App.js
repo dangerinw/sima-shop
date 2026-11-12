@@ -640,6 +640,7 @@ function App() {
         onOpenAccount={(acc) => setSelectedAccount(acc)} 
         hotAccount={hotAccount} 
         deliveredCount={realDeliveredCount}
+        storeSettings={storeSettings}
       />
 
       {/* Interactive Filter Toolbar with Region & Category Filter */}

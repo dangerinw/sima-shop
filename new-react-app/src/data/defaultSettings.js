@@ -1,10 +1,10 @@
 export const defaultStoreSettings = {
   // Order & Contact Purchase Channels (Discord & Facebook Page) 💬
   paymentMode: 'contact_admin', // Contact admin via Discord or Facebook Page
-  facebookPageUrl: 'https://facebook.com/pubgsiam',
-  facebookPageName: 'PUBG SIAM - ซื้อขายไอดี PUBG PC',
-  discordInviteUrl: 'https://discord.gg/pubgsiam',
-  discordServerName: 'PUBG SIAM Discord Server',
+  facebookPageUrl: 'https://www.facebook.com/profile.php?id=61596307388431',
+  facebookPageName: 'SunsnappZ (AWESOMEZ SHOP)',
+  discordInviteUrl: 'https://discord.gg/p9fHwmMUPd',
+  discordServerName: 'AWESOMEZ SHOP Discord Server',
 
   // Payment Gateways (Backup / Reference)
   promptPayActive: true,
@@ -28,7 +28,7 @@ export const defaultStoreSettings = {
   // Announcements & Support
   announcementText: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
   supportLine: '@PUBGSIAM',
-  supportDiscord: 'discord.gg/pubgsiam',
+  supportDiscord: 'discord.gg/p9fHwmMUPd',
 
   // Store Front Metrics (Delivered Count)
   deliveredCountMode: 'real', // 'real' | 'custom'
@@ -83,9 +83,25 @@ export const getStoredSettings = () => {
     const saved = localStorage.getItem('sima_store_settings');
     if (saved) {
       let parsed = JSON.parse(saved);
+      let needSave = false;
+
+      // Auto-update Facebook & Discord URLs to the official links
+      if (!parsed.facebookPageUrl || parsed.facebookPageUrl.includes('pubgsiam') || parsed.facebookPageUrl.includes('facebook.com/pubgsiam')) {
+        parsed.facebookPageUrl = 'https://www.facebook.com/profile.php?id=61596307388431';
+        needSave = true;
+      }
+      if (!parsed.discordInviteUrl || parsed.discordInviteUrl.includes('pubgsiam') || parsed.discordInviteUrl.includes('discord.gg/pubgsiam')) {
+        parsed.discordInviteUrl = 'https://discord.gg/p9fHwmMUPd';
+        needSave = true;
+      }
+
       // Auto-correct any legacy typo in project URL
       if (parsed.supabaseUrl && parsed.supabaseUrl.includes('ldcafwhhchsdgfijiqte')) {
         parsed.supabaseUrl = parsed.supabaseUrl.replace('ldcafwhhchsdgfijiqte', 'ldcafwhhchadgfijiqte');
+        needSave = true;
+      }
+
+      if (needSave) {
         localStorage.setItem('sima_store_settings', JSON.stringify(parsed));
       }
       return { ...defaultStoreSettings, ...parsed };

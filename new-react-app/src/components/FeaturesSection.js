@@ -67,6 +67,53 @@ export default function FeaturesSection({ t }) {
             </div>
           ))}
         </div>
+
+        {/* Verified Escrow & Trade Manager Guarantee Box (SunsnappZ / AWESOMEZ SHOP) */}
+        <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#111723] via-amber-950/20 to-[#111723] border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+          <div className="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
+            <img 
+              src="/images/sunsnappz-logo.jpg" 
+              alt="SunsnappZ Manager" 
+              className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md shrink-0" 
+            />
+            <div>
+              <div className="flex items-center justify-center md:justify-start gap-2 flex-wrap">
+                <span className="text-base font-black text-white">SunsnappZ</span>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                  ✓ ผู้ดูแลการซื้อขาย
+                </span>
+                <span className="text-xs text-amber-400 font-bold">• AWESOMEZ SHOP</span>
+              </div>
+              <div className="mt-1.5">
+                <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-5 object-contain mx-auto md:mx-0 brightness-110" />
+              </div>
+              <p className="text-xs text-slate-300 mt-2 max-w-xl leading-relaxed">
+                ปลอดภัยสูงสุด 100% สั่งซื้อโดยตรงผ่านคนดูแลการซื้อขายอย่างเป็นทางการ ตรวจเช็กคลังไอดีจริง โอนย้าย Steam และส่งมอบอีเมลแรกมือต่อมือ
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href="https://www.facebook.com/profile.php?id=61596307388431"
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all"
+            >
+              <span>📘</span>
+              <span>Facebook แอดมิน</span>
+            </a>
+            <a
+              href="https://discord.gg/p9fHwmMUPd"
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all"
+            >
+              <span>💜</span>
+              <span>Discord Server</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

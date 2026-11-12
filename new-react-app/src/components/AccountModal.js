@@ -423,12 +423,12 @@ export default function AccountModal({
 
                   {/* Facebook Button */}
                   <a
-                    href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
+                    href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
                     target="_blank"
                     rel="noreferrer"
                     onClick={handleCopyOrderInfo}
                     className="px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
-                    title="เปิดแชท Facebook Page (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
+                    title="เปิดแชท Facebook: SunsnappZ (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
                   >
                     <span>📘</span>
                     <span>สั่งซื้อทาง Facebook</span>
@@ -436,7 +436,7 @@ export default function AccountModal({
 
                   {/* Discord Button */}
                   <a
-                    href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
+                    href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
                     target="_blank"
                     rel="noreferrer"
                     onClick={handleCopyOrderInfo}
@@ -533,11 +533,35 @@ export default function AccountModal({
                 </div>
               </div>
 
-              {/* Two Big Contact Buttons (Facebook Page & Discord) */}
+              {/* Official Trade Manager Profile Card (SunsnappZ & AWESOMEZ SHOP) */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-amber-950/30 to-slate-900 border border-amber-500/30 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-xl">
+                <img 
+                  src="/images/sunsnappz-logo.jpg" 
+                  alt="SunsnappZ Manager" 
+                  className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md shrink-0" 
+                />
+                <div className="flex-1 min-w-0 text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+                    <h4 className="text-base font-black text-white">SunsnappZ</h4>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                      ✓ ผู้ดูแลการซื้อขายอย่างเป็นทางการ
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-center sm:justify-start gap-2 mt-1">
+                    <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-4 object-contain brightness-110" />
+                    <span className="text-xs text-amber-400 font-semibold">• AWESOMEZ SHOP</span>
+                  </div>
+                  <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                    แอดมินดูแลการส่งมอบไอดี PUBG PC โดยตรง รับประกันมือ 1 ปลอดภัย โอนย้าย Steam และส่งมอบอีเมลแรกแท้ 100%
+                  </p>
+                </div>
+              </div>
+
+              {/* Two Big Contact Buttons (Facebook & Discord) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                {/* Facebook Page Button */}
+                {/* Facebook Button */}
                 <a
-                  href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
+                  href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
                   target="_blank"
                   rel="noreferrer"
                   className="p-5 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-xl transition-all flex flex-col justify-between space-y-4 group border border-blue-500/40"
@@ -553,17 +577,17 @@ export default function AccountModal({
                   </div>
                   <div>
                     <h5 className="font-black text-lg group-hover:underline">
-                      ติดต่อทาง Facebook Page
+                      ติดต่อทาง Facebook: SunsnappZ
                     </h5>
                     <p className="text-xs text-blue-100 mt-1">
-                      ทักแชท Messenger ตอบกลับเร็วใน 5 นาที โอนย้าย Steam ทันที
+                      ทักแชท Facebook พูดคุยกับแอดมินโดยตรง ตอบกลับรวดเร็ว
                     </p>
                   </div>
                 </a>
 
                 {/* Discord Server Button */}
                 <a
-                  href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
+                  href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
                   target="_blank"
                   rel="noreferrer"
                   className="p-5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white shadow-xl transition-all flex flex-col justify-between space-y-4 group border border-indigo-500/40"
@@ -573,7 +597,7 @@ export default function AccountModal({
                       💜
                     </div>
                     <span className="text-xs bg-white/20 px-3 py-1 rounded-full font-bold flex items-center gap-1">
-                      <span>เปิด Ticket</span>
+                      <span>เข้าร่วม Discord</span>
                       <span>↗</span>
                     </span>
                   </div>
@@ -582,7 +606,7 @@ export default function AccountModal({
                       ติดต่อทาง Discord Server
                     </h5>
                     <p className="text-xs text-indigo-100 mt-1">
-                      เปิดห้อง Ticket พูดคุยกับแอดมินแบบส่วนตัว ปลอดภัย 100%
+                      เข้าห้องสั่งซื้อ AWESOMEZ SHOP พูดคุยกับแอดมินแบบส่วนตัว ปลอดภัย 100%
                     </p>
                   </div>
                 </a>

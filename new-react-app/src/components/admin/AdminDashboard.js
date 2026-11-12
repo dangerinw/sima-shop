@@ -764,7 +764,7 @@ export default function AdminDashboard({
                       <span>Facebook Page / Messenger URL:</span>
                     </span>
                     <a 
-                      href={settingsForm.facebookPageUrl || 'https://facebook.com'} 
+                      href={settingsForm.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
                       target="_blank" 
                       rel="noreferrer" 
                       className="text-[10px] text-blue-400 hover:underline"
@@ -774,13 +774,13 @@ export default function AdminDashboard({
                   </div>
                   <input
                     type="url"
-                    placeholder="https://facebook.com/pubgsiampubg หรือ https://m.me/pubgsiampubg"
+                    placeholder="https://www.facebook.com/profile.php?id=61596307388431"
                     value={settingsForm.facebookPageUrl || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, facebookPageUrl: e.target.value })}
                     className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-blue-500 outline-none text-xs"
                   />
                   <div className="flex items-center justify-between text-[10px] text-slate-500">
-                    <span>เช่น ลิงก์แฟนเพจ หรือ ลิงก์ข้อความ m.me/เพจของคุณ</span>
+                    <span>เช่น https://www.facebook.com/profile.php?id=61596307388431</span>
                   </div>
                 </div>
 
@@ -792,7 +792,7 @@ export default function AdminDashboard({
                       <span>Discord Server Invite URL:</span>
                     </span>
                     <a 
-                      href={settingsForm.discordInviteUrl || 'https://discord.gg'} 
+                      href={settingsForm.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'} 
                       target="_blank" 
                       rel="noreferrer" 
                       className="text-[10px] text-indigo-400 hover:underline"
@@ -802,13 +802,13 @@ export default function AdminDashboard({
                   </div>
                   <input
                     type="url"
-                    placeholder="https://discord.gg/pubgsiam"
+                    placeholder="https://discord.gg/p9fHwmMUPd"
                     value={settingsForm.discordInviteUrl || ''}
                     onChange={(e) => setSettingsForm({ ...settingsForm, discordInviteUrl: e.target.value })}
                     className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-indigo-500 outline-none text-xs"
                   />
                   <div className="flex items-center justify-between text-[10px] text-slate-500">
-                    <span>เช่น https://discord.gg/yourserver (ลิงก์คำเชิญถาวร)</span>
+                    <span>เช่น https://discord.gg/p9fHwmMUPd (ลิงก์คำเชิญถาวร)</span>
                   </div>
                 </div>
               </div>

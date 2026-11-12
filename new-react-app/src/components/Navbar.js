@@ -52,13 +52,35 @@ export default function Navbar({
           {/* RIGHT ACTIONS: Social contact + Language + Currency + Search + Admin + Mobile toggle */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             
+            {/* TRADE MANAGER BADGE (SunsnappZ / AWESOMEZ SHOP) */}
+            <a 
+              href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="hidden lg:inline-flex items-center gap-2 bg-[#121824] hover:bg-slate-800 border border-amber-500/30 hover:border-amber-400 px-2.5 py-1 rounded-xl transition-all shadow-sm group"
+              title="ผู้ดูแลการซื้อขาย: SunsnappZ (AWESOMEZ SHOP)"
+            >
+              <img 
+                src="/images/sunsnappz-logo.jpg" 
+                alt="SunsnappZ" 
+                className="w-7 h-7 rounded-lg object-cover border border-amber-400/60 group-hover:scale-105 transition-transform" 
+              />
+              <div className="text-left leading-tight">
+                <div className="flex items-center gap-1">
+                  <span className="text-[11px] font-black text-white">SunsnappZ</span>
+                  <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500 text-black font-extrabold uppercase">แอดมิน</span>
+                </div>
+                <div className="text-[9px] text-amber-400/90 font-medium">AWESOMEZ SHOP</div>
+              </div>
+            </a>
+
             {/* FACEBOOK CONTACT BUTTON */}
             <a 
-              href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'} 
+              href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
               target="_blank" 
               rel="noreferrer" 
               className="hidden sm:inline-flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-400 px-2.5 py-1.5 rounded-lg border border-blue-500/30 transition-all shadow-sm"
-              title="ติดต่อสั่งซื้อผ่าน Facebook Page"
+              title="ติดต่อสั่งซื้อผ่าน Facebook: SunsnappZ"
             >
               <span>📘</span>
               <span className="hidden md:inline">Facebook</span>
@@ -66,7 +88,7 @@ export default function Navbar({
 
             {/* DISCORD CONTACT BUTTON */}
             <a 
-              href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'} 
+              href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'} 
               target="_blank" 
               rel="noreferrer" 
               className="hidden sm:inline-flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-indigo-500/10 hover:bg-indigo-600 hover:text-white text-indigo-400 px-2.5 py-1.5 rounded-lg border border-indigo-500/30 transition-all shadow-sm"
@@ -201,19 +223,35 @@ export default function Navbar({
                 <span>{t.navFaq}</span>
               </a>
 
+              {/* Trade Manager Card in Mobile Menu */}
+              <div className="p-3 rounded-xl bg-slate-900 border border-amber-500/30 flex items-center gap-3">
+                <img 
+                  src="/images/sunsnappz-logo.jpg" 
+                  alt="SunsnappZ" 
+                  className="w-10 h-10 rounded-xl object-cover border border-amber-400 shrink-0" 
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-black text-white">SunsnappZ</span>
+                    <span className="text-[9px] bg-amber-500 text-black px-1.5 py-0.2 rounded font-extrabold">ผู้ดูแลการซื้อขาย</span>
+                  </div>
+                  <span className="text-[10px] text-amber-400 block font-medium">AWESOMEZ SHOP</span>
+                </div>
+              </div>
+
               {/* Direct Contact Links in Mobile Menu */}
               <a
-                href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
+                href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3.5 py-2.5 rounded-xl text-blue-400 bg-blue-500/10 border border-blue-500/20 font-bold flex items-center gap-2.5 transition-colors"
               >
                 <span>📘</span>
-                <span>Facebook Page ติดต่อสั่งซื้อ</span>
+                <span>Facebook แอดมิน: SunsnappZ</span>
               </a>
               <a
-                href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
+                href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}

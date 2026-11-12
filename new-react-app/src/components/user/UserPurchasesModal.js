@@ -325,7 +325,7 @@ Original Mail: ${order.mailInfo}
                       <div className="flex items-center gap-2">
                         <button
                           type="button"
-                          onClick={() => alert(`PUBG SIAM Support Hotline:\n- แอดมินดูแลออเดอร์: ${order.orderId}\n- ติดต่อเคลมประกันหรือสอบถามวิธีเปลี่ยนรหัสได้ที่ LINE/Discord: @PUBGSIAM`)}
+                          onClick={() => alert(`ผู้ดูแลการซื้อขาย: SunsnappZ (AWESOMEZ SHOP)\n- ออเดอร์: ${order.orderId}\n- ติดต่อเคลมประกันหรือสอบถามวิธีเปลี่ยนรหัสได้ที่:\nFacebook: https://www.facebook.com/profile.php?id=61596307388431\nDiscord: https://discord.gg/p9fHwmMUPd`)}
                           className="text-xs text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1 underline"
                         >
                           <span>💬</span>

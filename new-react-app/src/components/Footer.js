@@ -15,19 +15,31 @@ export default function Footer({ t, storeSettings = {} }) {
           </div>
         </div>
 
-        {/* Official Contact Badges */}
-        <div className="flex flex-wrap items-center gap-2.5">
+        {/* Trade Manager Card & Official Contact Badges */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-amber-500/30">
+            <img 
+              src="/images/sunsnappz-logo.jpg" 
+              alt="SunsnappZ" 
+              className="w-7 h-7 rounded-lg object-cover border border-amber-400" 
+            />
+            <div className="text-left leading-tight">
+              <span className="text-[10px] text-amber-400 block font-bold">ผู้ดูแลการซื้อขาย: SunsnappZ</span>
+              <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-3 object-contain mt-0.5" />
+            </div>
+          </div>
+
           <a
-            href={storeSettings.facebookPageUrl || 'https://facebook.com/pubgsiam'}
+            href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
             target="_blank"
             rel="noreferrer"
             className="px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600 hover:text-white border border-blue-500/30 text-blue-400 font-bold text-xs flex items-center gap-1.5 transition-all"
           >
             <span>📘</span>
-            <span>Facebook Page</span>
+            <span>Facebook แอดมิน</span>
           </a>
           <a
-            href={storeSettings.discordInviteUrl || 'https://discord.gg/pubgsiam'}
+            href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
             target="_blank"
             rel="noreferrer"
             className="px-3 py-1.5 rounded-lg bg-indigo-600/10 hover:bg-indigo-600 hover:text-white border border-indigo-500/30 text-indigo-400 font-bold text-xs flex items-center gap-1.5 transition-all"
