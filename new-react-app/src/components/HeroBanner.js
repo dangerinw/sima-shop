@@ -92,24 +92,33 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
                   <span className="text-[10px] text-slate-500 font-mono font-bold tracking-wider">OFFICIAL ESCROW</span>
                 </div>
 
-                <div className="flex items-center gap-3.5 my-0.5">
-                  <img 
-                    src="/images/sunsnappz-logo.png" 
-                    alt="SunsnappZ" 
-                    className="w-18 h-18 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
-                  />
-                  <div className="min-w-0">
-                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide leading-tight">
+                <div className="flex items-center gap-3.5 my-1">
+                  <div 
+                    style={{ width: '72px', height: '72px', minWidth: '72px', minHeight: '72px' }}
+                    className="rounded-2xl bg-slate-950/80 border border-amber-500/30 flex items-center justify-center p-1.5 shadow-inner shrink-0"
+                  >
+                    <img 
+                      src="/images/sunsnappz-logo.png" 
+                      alt="SunsnappZ" 
+                      style={{ width: '60px', height: '60px', maxWidth: '60px', maxHeight: '60px' }}
+                      className="object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] hover:scale-105 transition-transform" 
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg sm:text-xl font-black text-white tracking-wide leading-tight truncate">
                       SunsnappZ
                     </h3>
-                    <p className="text-xs text-amber-400/90 font-medium mt-1">
-                      คนดูแลการซื้อขายอย่างเป็นทางการ
+                    <p className="text-xs text-amber-400 font-bold mt-0.5">
+                      คนดูแลการซื้อขายทางการ
+                    </p>
+                    <p className="text-[11px] text-slate-400 mt-0.5 leading-snug">
+                      ตรวจเช็กคลัง & ส่งมอบไอดี ปลอดภัย 100%
                     </p>
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2.5">
-                  ดูแลความปลอดภัยทุกขั้นตอน ตรวจเช็กคลัง & ส่งมอบไอดี ปลอดภัย 100%
+                <p className="text-xs text-slate-400 leading-relaxed border-t border-slate-800/80 pt-2.5">
+                  ดูแลความปลอดภัยทุกขั้นตอน ตรวจเช็กคลังจริง โอนย้าย Steam ปลอดภัย 100%
                 </p>
               </div>
 
@@ -123,19 +132,33 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
                   <span className="text-[10px] text-slate-500 font-mono font-bold tracking-wider">OFFICIAL PARTNER</span>
                 </div>
 
-                <div className="flex flex-col justify-center my-0.5 min-h-[72px] sm:min-h-[80px]">
-                  <img 
-                    src="/images/awesomez-shop-logo.png" 
-                    alt="AWESOMEZ SHOP" 
-                    className="h-10 sm:h-12 w-auto max-w-[210px] sm:max-w-[240px] object-contain drop-shadow-[0_4px_16px_rgba(99,102,241,0.35)] brightness-110 hover:scale-105 transition-transform origin-left" 
-                  />
-                  <p className="text-xs text-indigo-400/90 font-medium mt-1.5">
-                    ร้านค้าและทีมงานอย่างเป็นทางการ
-                  </p>
+                <div className="flex items-center gap-3.5 my-1">
+                  <div 
+                    style={{ height: '72px', minHeight: '72px' }}
+                    className="px-3 rounded-2xl bg-slate-950/80 border border-indigo-500/30 flex items-center justify-center shrink-0 shadow-inner"
+                  >
+                    <img 
+                      src="/images/awesomez-shop-logo.png" 
+                      alt="AWESOMEZ SHOP" 
+                      style={{ height: '32px', width: 'auto', maxWidth: '130px' }}
+                      className="object-contain brightness-110 drop-shadow-[0_2px_10px_rgba(99,102,241,0.5)] hover:scale-105 transition-transform" 
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg sm:text-xl font-black text-white tracking-wide leading-tight truncate">
+                      AWESOMEZ SHOP
+                    </h3>
+                    <p className="text-xs text-indigo-400 font-bold mt-0.5">
+                      ร้านค้าทางการ & ทีมงาน
+                    </p>
+                    <p className="text-[11px] text-slate-400 mt-0.5 leading-snug">
+                      ดูแลระบบสต็อก คัดสรรไอดีคุณภาพ ปลอดภัย 24 ชม.
+                    </p>
+                  </div>
                 </div>
 
-                <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-2.5">
-                  ทีมงานดูแลระบบ สต็อกไอดีคุณภาพสูง พร้อมบริการดูแลตลอด 24 ชม.
+                <p className="text-xs text-slate-400 leading-relaxed border-t border-slate-800/80 pt-2.5">
+                  ทีมงานดูแลระบบ สต็อกไอดีคุณภาพสูง พร้อมบริการดูแลลูกค้าตลอด 24 ชม.
                 </p>
               </div>
 

@@ -72,7 +72,7 @@ export default function FeaturesSection({ t }) {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Card 1: SunsnappZ - Trade Manager */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0d131f] via-[#141b2b] to-[#0b0e14] border border-amber-500/40 shadow-xl shadow-amber-950/20 flex flex-col justify-between gap-4 hover:border-amber-400/80 transition-all">
+          <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-[#0d131f] via-[#141b2b] to-[#0b0e14] border border-amber-500/40 shadow-xl shadow-amber-950/20 flex flex-col justify-between gap-5 hover:border-amber-400/80 transition-all">
             <div className="flex items-center justify-between gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
@@ -81,49 +81,72 @@ export default function FeaturesSection({ t }) {
               <span className="text-[10px] text-slate-500 font-mono font-bold tracking-wider">OFFICIAL ESCROW</span>
             </div>
 
-            <div className="flex items-center gap-4 my-1">
-              <img 
-                src="/images/sunsnappz-logo.png" 
-                alt="SunsnappZ Manager" 
-                className="w-18 h-18 sm:w-22 sm:h-22 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
-              />
-              <div className="space-y-1 min-w-0">
-                <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide">
+            <div className="flex items-center gap-4 sm:gap-5 my-1">
+              <div 
+                style={{ width: '96px', height: '96px', minWidth: '96px', minHeight: '96px' }}
+                className="rounded-2xl bg-slate-950/80 border border-amber-500/30 flex items-center justify-center p-2 shadow-inner shrink-0"
+              >
+                <img 
+                  src="/images/sunsnappz-logo.png" 
+                  alt="SunsnappZ Manager" 
+                  style={{ width: '80px', height: '80px', maxWidth: '80px', maxHeight: '80px' }}
+                  className="object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.4)] hover:scale-105 transition-transform" 
+                />
+              </div>
+              <div className="space-y-1 min-w-0 flex-1">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-wide leading-tight truncate">
                   SunsnappZ
                 </h3>
-                <p className="text-xs text-amber-400/90 font-medium">
+                <p className="text-xs sm:text-sm text-amber-400 font-bold">
                   คนกลางดูแลการส่งมอบไอดี PUBG PC
+                </p>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  ดูแลความปลอดภัยทุกขั้นตอน ตรวจเช็กคลัง & โอนย้าย Steam ปลอดภัย 100%
                 </p>
               </div>
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+            <p className="text-xs text-slate-400 leading-relaxed border-t border-slate-800/80 pt-3">
               แอดมินคนกลางดูแลการส่งมอบไอดี PUBG PC โดยตรง ตรวจเช็กคลังไอดีจริง โอนย้าย Steam ปลอดภัย 100% มีประกันมือ 1 ไม่ดึงคืน
             </p>
           </div>
 
           {/* Card 2: AWESOMEZ SHOP - Official Partner Shop */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0d131f] via-[#15172b] to-[#0b0e14] border border-indigo-500/40 shadow-xl shadow-indigo-950/20 flex flex-col justify-between gap-4 hover:border-indigo-400/80 transition-all">
+          <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-[#0d131f] via-[#15172b] to-[#0b0e14] border border-indigo-500/40 shadow-xl shadow-indigo-950/20 flex flex-col justify-between gap-5 hover:border-indigo-400/80 transition-all">
             <div className="flex items-center justify-between gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/40 text-indigo-300 text-xs font-bold">
                 <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-                ร้านค้าผู้ดูแล
+                ร้านค้าผู้ดูแลร่วม
               </span>
               <span className="text-[10px] text-slate-500 font-mono font-bold tracking-wider">OFFICIAL PARTNER</span>
             </div>
 
-            <div className="flex flex-col justify-center my-1 min-h-[72px] sm:min-h-[88px]">
-              <img 
-                src="/images/awesomez-shop-logo.png" 
-                alt="AWESOMEZ SHOP" 
-                className="h-10 sm:h-12 w-auto max-w-[240px] sm:max-w-[280px] object-contain drop-shadow-[0_4px_16px_rgba(99,102,241,0.35)] brightness-110 hover:scale-105 transition-transform origin-left" 
-              />
-              <p className="text-xs text-indigo-400/90 font-medium mt-2">
-                ร้านค้าทางการและคอมมูนิตี้
-              </p>
+            <div className="flex items-center gap-4 sm:gap-5 my-1">
+              <div 
+                style={{ height: '96px', minHeight: '96px' }}
+                className="px-3.5 rounded-2xl bg-slate-950/80 border border-indigo-500/30 flex items-center justify-center shrink-0 shadow-inner"
+              >
+                <img 
+                  src="/images/awesomez-shop-logo.png" 
+                  alt="AWESOMEZ SHOP" 
+                  style={{ height: '42px', width: 'auto', maxWidth: '170px' }}
+                  className="object-contain brightness-110 drop-shadow-[0_2px_12px_rgba(99,102,241,0.5)] hover:scale-105 transition-transform" 
+                />
+              </div>
+              <div className="space-y-1 min-w-0 flex-1">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-wide leading-tight truncate">
+                  AWESOMEZ SHOP
+                </h3>
+                <p className="text-xs sm:text-sm text-indigo-400 font-bold">
+                  ร้านค้าทางการและคอมมูนิตี้
+                </p>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  ร้านค้าและทีมงานดูแลระบบ คัดสรรสต็อกไอดีคุณภาพ ซัพพอร์ตตลอด 24 ชม.
+                </p>
+              </div>
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+            <p className="text-xs text-slate-400 leading-relaxed border-t border-slate-800/80 pt-3">
               ร้านค้าและคอมมูนิตี้ทางการ คัดสรรไอดีคุณภาพสูง ตรวจสอบประวัติบัญชีขาวสะอาด พร้อมทีมงานดูแลระบบและซัพพอร์ตตลอด 24 ชม.
             </p>
           </div>
