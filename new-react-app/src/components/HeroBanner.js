@@ -79,51 +79,71 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
               </div>
             </div>
 
-            {/* Official Trade Manager Badge (SunsnappZ & AWESOMEZ SHOP) */}
-            <div className="pt-2 max-w-lg mx-auto lg:mx-0">
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900/90 via-amber-950/30 to-slate-900/90 border border-amber-500/40 flex items-center justify-between gap-4 shadow-xl backdrop-blur-md">
-                <div className="flex items-center gap-3.5 min-w-0">
+            {/* Two Separate Verified Badges: SunsnappZ & AWESOMEZ SHOP */}
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto lg:mx-0">
+              
+              {/* Entity 1: SunsnappZ (Trade Manager) */}
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-slate-900/90 via-amber-950/20 to-slate-900/90 border border-amber-500/40 flex items-center justify-between gap-3 shadow-lg">
+                <div className="flex items-center gap-3 min-w-0">
                   <img 
                     src="/images/sunsnappz-logo.png" 
                     alt="SunsnappZ" 
-                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
+                    className="w-12 h-12 object-contain drop-shadow-[0_2px_10px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
                   />
-                  <div className="min-w-0 text-left space-y-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-base font-black text-white">SunsnappZ</span>
-                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
-                        ✓ ดูแลการซื้อขาย
+                  <div className="min-w-0 text-left">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-sm font-black text-white">SunsnappZ</span>
+                      <span className="text-[9px] bg-amber-500/20 text-amber-400 border border-amber-500/40 px-1.5 py-0.2 rounded-full font-bold">
+                        ผู้ดูแลการซื้อขาย
                       </span>
                     </div>
-                    <div>
-                      <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-6 sm:h-7 object-contain drop-shadow-md brightness-110" />
-                    </div>
+                    <p className="text-[10px] text-slate-400 truncate mt-0.5">ดูแลการโอนย้าย ปลอดภัย 100%</p>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <a
-                    href={storeSettings?.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-2 rounded-xl bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/40 transition-all text-xs font-bold flex items-center gap-1.5 shadow-sm"
-                    title="Facebook แอดมิน: SunsnappZ"
-                  >
-                    <span>📘</span>
-                    <span className="hidden xs:inline">Facebook</span>
-                  </a>
-                  <a
-                    href={storeSettings?.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3 py-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/40 transition-all text-xs font-bold flex items-center gap-1.5 shadow-sm"
-                    title="Discord Server"
-                  >
-                    <span>💜</span>
-                    <span className="hidden xs:inline">Discord</span>
-                  </a>
-                </div>
+                <a
+                  href={storeSettings?.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-2.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition-all text-xs font-bold flex items-center gap-1 shadow shrink-0"
+                  title="Facebook แอดมิน: SunsnappZ"
+                >
+                  <span>📘</span>
+                  <span className="text-[11px]">Facebook</span>
+                </a>
               </div>
+
+              {/* Entity 2: AWESOMEZ SHOP (Discord Community & Shop) */}
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-slate-900/90 via-indigo-950/20 to-slate-900/90 border border-indigo-500/40 flex items-center justify-between gap-3 shadow-lg">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-12 h-12 rounded-xl bg-slate-950/80 border border-indigo-500/30 flex items-center justify-center p-1.5 shrink-0">
+                    <img 
+                      src="/images/awesomez-shop-logo.png" 
+                      alt="AWESOMEZ SHOP" 
+                      className="w-full h-auto object-contain drop-shadow-md brightness-110" 
+                    />
+                  </div>
+                  <div className="min-w-0 text-left">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-xs font-black text-white">AWESOMEZ</span>
+                      <span className="text-[9px] bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 px-1.5 py-0.2 rounded-full font-bold">
+                        Discord Shop
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-slate-400 truncate mt-0.5">คอมมูนิตี้ & สั่งซื้อไอดี</p>
+                  </div>
+                </div>
+                <a
+                  href={storeSettings?.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-2.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition-all text-xs font-bold flex items-center gap-1 shadow shrink-0"
+                  title="เข้าร่วม Discord: AWESOMEZ SHOP"
+                >
+                  <span>💜</span>
+                  <span className="text-[11px]">Discord</span>
+                </a>
+              </div>
+
             </div>
           </div>
 

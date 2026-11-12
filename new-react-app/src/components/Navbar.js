@@ -52,25 +52,49 @@ export default function Navbar({
           {/* RIGHT ACTIONS: Social contact + Language + Currency + Search + Admin + Mobile toggle */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             
-            {/* TRADE MANAGER BADGE (SunsnappZ / AWESOMEZ SHOP) */}
+            {/* SUNSNAPPZ BADGE (Trade Manager) */}
             <a 
               href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
               target="_blank" 
               rel="noreferrer" 
-              className="hidden lg:inline-flex items-center gap-2 bg-[#121824] hover:bg-slate-800 border border-amber-500/30 hover:border-amber-400 px-3 py-1.5 rounded-xl transition-all shadow-md group"
-              title="ผู้ดูแลการซื้อขาย: SunsnappZ (AWESOMEZ SHOP)"
+              className="hidden xl:inline-flex items-center gap-2 bg-[#121824] hover:bg-slate-800 border border-amber-500/30 hover:border-amber-400 px-2.5 py-1.5 rounded-xl transition-all shadow-md group"
+              title="ผู้ดูแลการซื้อขาย: SunsnappZ (Facebook)"
             >
               <img 
                 src="/images/sunsnappz-logo.png" 
                 alt="SunsnappZ" 
-                className="w-8 h-8 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] group-hover:scale-110 transition-transform" 
+                className="w-7 h-7 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] group-hover:scale-110 transition-transform" 
               />
               <div className="text-left leading-tight">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1">
                   <span className="text-xs font-black text-white">SunsnappZ</span>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500 text-black font-extrabold uppercase">แอดมิน</span>
+                  <span className="text-[8px] px-1 py-0.2 rounded bg-amber-500 text-black font-extrabold uppercase">แอดมิน</span>
                 </div>
-                <div className="text-[10px] text-amber-400 font-bold mt-0.5">AWESOMEZ SHOP</div>
+                <div className="text-[10px] text-blue-400 font-semibold mt-0.5">Facebook</div>
+              </div>
+            </a>
+
+            {/* AWESOMEZ SHOP BADGE (Discord Shop & Community) */}
+            <a 
+              href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="hidden xl:inline-flex items-center gap-2 bg-[#121824] hover:bg-slate-800 border border-indigo-500/30 hover:border-indigo-400 px-2.5 py-1.5 rounded-xl transition-all shadow-md group"
+              title="ร้านค้า & คอมมูนิตี้: AWESOMEZ SHOP (Discord)"
+            >
+              <div className="w-7 h-7 rounded-lg bg-slate-950 flex items-center justify-center p-1 border border-indigo-500/30">
+                <img 
+                  src="/images/awesomez-shop-logo.png" 
+                  alt="AWESOMEZ SHOP" 
+                  className="w-full h-auto object-contain brightness-110 group-hover:scale-110 transition-transform" 
+                />
+              </div>
+              <div className="text-left leading-tight">
+                <div className="flex items-center gap-1">
+                  <span className="text-[11px] font-black text-white">AWESOMEZ</span>
+                  <span className="text-[8px] px-1 py-0.2 rounded bg-indigo-500 text-white font-extrabold uppercase">Shop</span>
+                </div>
+                <div className="text-[10px] text-indigo-400 font-semibold mt-0.5">Discord</div>
               </div>
             </a>
 
@@ -223,35 +247,59 @@ export default function Navbar({
                 <span>{t.navFaq}</span>
               </a>
 
-              {/* Trade Manager Card in Mobile Menu */}
-              <div className="p-3 rounded-xl bg-slate-900 border border-amber-500/30 flex items-center gap-3">
-                <img 
-                  src="/images/sunsnappz-logo.png" 
-                  alt="SunsnappZ" 
-                  className="w-12 h-12 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] shrink-0" 
-                />
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-sm font-black text-white">SunsnappZ</span>
-                    <span className="text-[9px] bg-amber-500 text-black px-1.5 py-0.2 rounded font-extrabold">ผู้ดูแลการซื้อขาย</span>
-                  </div>
-                  <div className="mt-1">
-                    <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-4 object-contain brightness-110 drop-shadow-sm" />
+              {/* Trade Manager Card 1: SunsnappZ in Mobile Menu */}
+              <div className="p-3 rounded-xl bg-slate-900 border border-amber-500/30 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <img 
+                    src="/images/sunsnappz-logo.png" 
+                    alt="SunsnappZ" 
+                    className="w-10 h-10 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] shrink-0" 
+                  />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm font-black text-white">SunsnappZ</span>
+                      <span className="text-[9px] bg-amber-500 text-black px-1.5 py-0.2 rounded font-extrabold">ผู้ดูแลการซื้อขาย</span>
+                    </div>
+                    <p className="text-[10px] text-slate-400 truncate">โอนย้าย Steam ปลอดภัย 100%</p>
                   </div>
                 </div>
+                <a
+                  href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shrink-0 flex items-center gap-1 shadow"
+                >
+                  <span>📘</span>
+                  <span>Facebook</span>
+                </a>
               </div>
 
-              {/* Direct Contact Links in Mobile Menu */}
-              <a
-                href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-2.5 rounded-xl text-blue-400 bg-blue-500/10 border border-blue-500/20 font-bold flex items-center gap-2.5 transition-colors"
-              >
-                <span>📘</span>
-                <span>Facebook แอดมิน: SunsnappZ</span>
-              </a>
+              {/* Trade Manager Card 2: AWESOMEZ SHOP in Mobile Menu */}
+              <div className="p-3 rounded-xl bg-slate-900 border border-indigo-500/30 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center p-1.5 shrink-0 border border-indigo-500/20">
+                    <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="w-full h-auto object-contain brightness-110" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm font-black text-white">AWESOMEZ SHOP</span>
+                      <span className="text-[9px] bg-indigo-500 text-white px-1.5 py-0.2 rounded font-extrabold">Discord Shop</span>
+                    </div>
+                    <p className="text-[10px] text-slate-400 truncate">คอมมูนิตี้ & เปิดตั๋วสั่งซื้อ 24 ชม.</p>
+                  </div>
+                </div>
+                <a
+                  href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shrink-0 flex items-center gap-1 shadow"
+                >
+                  <span>💜</span>
+                  <span>Discord</span>
+                </a>
+              </div>
               <a
                 href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
                 target="_blank"

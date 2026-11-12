@@ -1,6 +1,6 @@
 export const translations = {
   th: {
-    announcement: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
+    announcement: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% มีประกันมือ 1 โอนย้าย Steam ทันที',
     brandSub: 'STEAM MARKETPLACE & INSTANT DELIVERY',
     navHome: 'หน้าแรก',
     navCatalog: 'คลังไอดี PUBG PC',
@@ -11,17 +11,17 @@ export const translations = {
 
     heroBadge: 'PUBG SIAM • คลังไอดี PUBG PC (Steam) คัดเกรด พร้อมส่งทันที 100%',
     heroTitle1: 'ซื้อ-ขายไอดี',
-    heroTitle2: 'Steam ปลอดภัย',
-    heroTitleHighlight: 'เมลแรกแท้',
-    heroDesc: 'PUBG SIAM แหล่งรวมไอดี PUBG บนแพลตฟอร์ม Steam สกินปืนเติบโต Progressive สูงสุด Lv.10, ไอดี Rank Ready ปลดล็อกโหมดจัดอันดับ, และชุดแรร์ยุคบุกเบิก ส่งมอบข้อมูล Steam Guard และอีเมลต้นฉบับอย่างปลอดภัย',
+    heroTitle2: 'Steam โอนย้ายทันที',
+    heroTitleHighlight: 'ปลอดภัย 100%',
+    heroDesc: 'PUBG SIAM แหล่งรวมไอดี PUBG บนแพลตฟอร์ม Steam สกินปืนเติบโต Progressive สูงสุด Lv.10, ไอดี Rank Ready ปลดล็อกโหมดจัดอันดับ, และชุดแรร์ยุคบุกเบิก โอนย้ายข้อมูลเข้าบัญชีของคุณอย่างปลอดภัย',
     heroBtnExplore: 'เลือกดูไอดี PUBG PC',
     heroBtnWarranty: 'ระบบประกัน Steam & เคลมเงิน',
     statDelivered: 'ไอดี Steam ที่ส่งมอบแล้ว',
-    statOriginalMail: 'Original Mail (เมลแรก)',
+    statOriginalMail: 'มีประกันมือ 1 ปลอดภัย',
     statNoVac: 'ตรวจประวัติทุกไอดี',
 
     hotDealBadge: '⚡ PUBG SIAM Hot Deal ประจำวัน',
-    hotDealDelivery: 'มอบ Steam Mail แรกทันที',
+    hotDealDelivery: 'โอนย้าย Steam ทันที',
     specPlaytime: 'ชั่วโมงบิน Steam:',
     specRank: 'ระดับแรงค์:',
     btnViewAndBuy: 'ดูรายละเอียด & ซื้อ',
@@ -50,14 +50,14 @@ export const translations = {
 
     popularTags: 'แท็กยอดฮิต:',
     tagProgressive: '🔫 ปืนเติบโต Progressive',
-    tagOriginalMail: '📧 Steam เมลแรกแท้',
+    tagOriginalMail: '🛡️ ไอดีแท้มีประกันมือ 1',
     tagRankReady: '🎖️ ไอดีพร้อมเล่นแรงค์ (Rank Ready)',
     tagBape: '🦍 เสื้อผ้าแรร์ BAPE / Shroud',
     tagBudget: '💰 ไอดีงบประหยัด (< 600฿)',
     clearFilters: 'ล้างตัวกรอง',
 
     catalogTitle: 'คลังไอดี PUBG PC (Steam) พร้อมส่ง',
-    catalogSubtitle: 'คลิกที่การ์ดเพื่อดูข้อมูลสกินเติบโต ชั่วโมงเล่น และความปลอดภัยในการส่งมอบเมลแรก',
+    catalogSubtitle: 'คลิกที่การ์ดเพื่อดูข้อมูลสกินเติบโต ชั่วโมงเล่น และความปลอดภัยในการโอนย้าย Steam',
     accountsCount: 'บัญชี',
     btnCardDetails: 'ดูรายละเอียด',
 
@@ -78,8 +78,8 @@ export const translations = {
 
     featuresTitle: 'ทำไมต้องซื้อไอดี PUBG PC กับ',
     featuresSubtitle: 'มาตรฐานความปลอดภัยระดับสูงสุดสำหรับบัญชี Steam การันตีไม่มีการดึงคืน',
-    f1Title: 'มอบ Steam เมลแรกแท้ 100%',
-    f1Desc: 'ได้รับอีเมลต้นฉบับ (Original Mail) พร้อมรหัสผ่าน ป้องกันการดึงคืนได้สมบูรณ์แบบที่สุด ปลอดภัยระยะยาว',
+    f1Title: 'โอนย้าย Steam ปลอดภัย 100%',
+    f1Desc: 'โอนย้ายบัญชี Steam ถูกต้องครบถ้วน เปลี่ยนรหัสผ่านและผูกข้อมูลของคุณได้ทันที ปลอดภัย มีประกันมือ 1',
     f2Title: 'ไร้ประวัติแบน (No VAC / Trade Ban)',
     f2Desc: 'ตรวจเช็คประวัติบัญชี Steam ลึกทุกไอดี ไม่เคยใช้โปรแกรมช่วยเล่น ไม่ติดข้อจำกัดด้านตลาดชุมชน',
     f3Title: 'ระบบส่งรหัสออโต้ 24 ชม.',
@@ -101,7 +101,7 @@ export const translations = {
     modalBuyBtn: '⚡ ดำเนินการสั่งซื้อไอดี Steam ทันที',
   },
   en: {
-    announcement: '🔥 #1 PUBG SIAM PUBG PC (Steam) Marketplace | 100% Secure with Original Mail & Instant Steam Transfer',
+    announcement: '🔥 #1 PUBG SIAM PUBG PC (Steam) Marketplace | 100% Secure Instant Steam Transfer with Warranty',
     brandSub: 'STEAM MARKETPLACE & INSTANT DELIVERY',
     navHome: 'Home',
     navCatalog: 'Steam Catalog',
@@ -112,17 +112,17 @@ export const translations = {
 
     heroBadge: 'PUBG SIAM • Verified PUBG PC (Steam) Accounts • Instant Delivery',
     heroTitle1: 'Buy & Sell',
-    heroTitle2: 'Secure Steam ID with',
-    heroTitleHighlight: 'Original Mail',
-    heroDesc: 'PUBG SIAM is the ultimate marketplace for PUBG PC Steam accounts. Progressive weapon skins up to Lv.10, Rank-ready accounts with Plus unlocked, and rare legacy apparel. Safe transfer with Steam Guard and original first email.',
+    heroTitle2: 'Secure Steam ID',
+    heroTitleHighlight: '100% Secure',
+    heroDesc: 'PUBG SIAM is the ultimate marketplace for PUBG PC Steam accounts. Progressive weapon skins up to Lv.10, Rank-ready accounts with Plus unlocked, and rare legacy apparel. Safe transfer with Steam Guard and instant ownership transfer.',
     heroBtnExplore: 'Explore PUBG PC Accounts',
     heroBtnWarranty: 'Steam Warranty & Refund Policy',
     statDelivered: 'Steam Accounts Delivered',
-    statOriginalMail: 'Original Mail (First Mail)',
+    statOriginalMail: '1st Hand Owner Warranty',
     statNoVac: 'Verified Clean History',
 
     hotDealBadge: '⚡ PUBG SIAM Hot Deal of the Day',
-    hotDealDelivery: 'First Steam Email Included',
+    hotDealDelivery: 'Instant Steam Transfer',
     specPlaytime: 'Steam Playtime:',
     specRank: 'Rank Tier:',
     btnViewAndBuy: 'View Details & Buy',
@@ -151,14 +151,14 @@ export const translations = {
 
     popularTags: 'Popular Tags:',
     tagProgressive: '🔫 Progressive Max',
-    tagOriginalMail: '📧 Original First Mail',
+    tagOriginalMail: '🛡️ Verified with Warranty',
     tagRankReady: '🎖️ Rank Ready (Plus)',
     tagBape: '🦍 Rare BAPE / Shroud',
     tagBudget: '💰 Budget (< $18)',
     clearFilters: 'Clear Filters',
 
     catalogTitle: 'Available PUBG PC (Steam) Accounts',
-    catalogSubtitle: 'Click on any card to view progressive skins, playtime hours, and original mail transfer details',
+    catalogSubtitle: 'Click on any card to view progressive skins, playtime hours, and security transfer details',
     accountsCount: 'Accounts',
     btnCardDetails: 'View Details',
 
@@ -179,8 +179,8 @@ export const translations = {
 
     featuresTitle: 'Why Choose PUBG PC on',
     featuresSubtitle: 'Highest security standards for Steam accounts with 100% anti-pullback guarantee',
-    f1Title: '100% Genuine First Email (OG Mail)',
-    f1Desc: 'Receive the authentic original creation email and password to prevent any account recovery permanently.',
+    f1Title: '100% Secure Steam Transfer',
+    f1Desc: 'Seamlessly transfer Steam credentials, update security info, and bind to your own account with 1st-hand owner warranty.',
     f2Title: 'Clean History (Zero VAC / Trade Bans)',
     f2Desc: 'Every Steam account is thoroughly audited for third-party software, clean status, and unrestricted market access.',
     f3Title: '24/7 Automated Instant Delivery',

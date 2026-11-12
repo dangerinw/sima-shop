@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS public.store_settings (
     vietqr_bank TEXT DEFAULT 'MB',
     vietqr_account_no TEXT DEFAULT '0987654321',
     vietqr_account_name TEXT DEFAULT 'SIMA SHOP VN',
-    announcement_text TEXT DEFAULT '🔥 SIMA Shop ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
+    announcement_text TEXT DEFAULT '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% โอนย้าย Steam ทันที มีประกันมือ 1',
     auto_delivery BOOLEAN DEFAULT TRUE,
     auto_slip_verify BOOLEAN DEFAULT TRUE,
     updated_at TIMESTAMPTZ DEFAULT NOW()

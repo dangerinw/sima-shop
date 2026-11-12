@@ -67,7 +67,7 @@ export default function UserPurchasesModal({
 ไอดี: #${order.accountId} - ${order.accountTitle}
 Steam Username: ${order.steamUser}
 Steam Password: ${order.steamPass}
-Original Mail: ${order.mailInfo}
+Email / ผูกข้อมูล: ${order.mailInfo}
 การรับประกัน: ${order.warranty || 'มีประกันมือ 1 แท้ (ปลอดภัย 100%)'}
 วันที่ซื้อ: ${order.createdAt}`;
 
@@ -158,7 +158,7 @@ Original Mail: ${order.mailInfo}
               </div>
               <ol className="list-decimal list-inside space-y-2 text-xs text-slate-300 leading-relaxed">
                 <li>
-                  <b>เข้าสู่ระบบ Steam และอีเมลแรก (Original Mail):</b> ตรวจสอบให้แน่ใจว่าเข้าได้ทั้ง Steam และกล่องข้อความอีเมล
+                  <b>เข้าสู่ระบบบัญชี Steam:</b> ตรวจสอบให้แน่ใจว่าเข้าเล่นเกมและตรวจสอบคลังไอดีได้ครบถ้วน
                 </li>
                 <li>
                   <b>เปลี่ยนรหัสผ่าน Steam & อีเมล:</b> เข้าไปที่เมนู <i>Settings &gt; Security &gt; Change Password</i> ตั้งรหัสผ่านใหม่ที่ปลอดภัย
@@ -234,7 +234,7 @@ Original Mail: ${order.mailInfo}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-amber-400 flex items-center gap-1.5 uppercase tracking-wider">
                           <span>🔐</span>
-                          <span>ข้อมูลบัญชี Steam & เมลแรก (Steam Vault)</span>
+                          <span>ข้อมูลบัญชี Steam ที่ส่งมอบ (Steam Vault)</span>
                         </span>
                         <button
                           type="button"
@@ -292,9 +292,9 @@ Original Mail: ${order.mailInfo}
                           </div>
                         </div>
 
-                        {/* Original Mail & Pass */}
+                        {/* Email & Pass */}
                         <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex flex-col justify-between">
-                          <span className="text-[10px] text-slate-400 block mb-1">Original Email (เมลแรก):</span>
+                          <span className="text-[10px] text-slate-400 block mb-1">Email / ผูกข้อมูลบัญชี:</span>
                           <div className="flex items-center justify-between gap-1">
                             <span className="font-mono font-bold text-emerald-400 text-xs truncate" title={order.mailInfo}>
                               {order.mailInfo}
@@ -346,7 +346,7 @@ Original Mail: ${order.mailInfo}
               </div>
               <h3 className="text-lg font-bold text-white">ยังไม่มีประวัติการซื้อไอดี PUBG PC</h3>
               <p className="text-xs text-slate-400 max-w-sm mx-auto">
-                เมื่อคุณซื้อไอดีจากร้าน PUBG SIAM รหัสผ่านและอีเมลแรกจะถูกเก็บรักษาไว้ที่คลังนี้ตลอดไป
+                เมื่อคุณซื้อไอดีจากร้าน PUBG SIAM รหัสผ่านและข้อมูลบัญชีจะถูกเก็บรักษาไว้ที่คลังนี้ตลอดไป
               </p>
               <div className="pt-2">
                 <button

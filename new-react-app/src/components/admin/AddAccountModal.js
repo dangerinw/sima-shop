@@ -710,7 +710,7 @@ All banks accepted.`;
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1 text-[11px]">Original Mail & Pass</label>
+                  <label className="block text-slate-400 mb-1 text-[11px]">Email & Pass (ผูกบัญชี)</label>
                   <input
                     type="text"
                     placeholder="email@gmail.com | pass"

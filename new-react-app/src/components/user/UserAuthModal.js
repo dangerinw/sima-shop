@@ -360,7 +360,7 @@ export default function UserAuthModal({ isOpen, onClose, onLoginSuccess, lang })
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-blue-400">✓</span>
-                <span>คัดลอกรหัส Steam & เมลแรกในคลิกเดียว</span>
+                <span>คัดลอกรหัสผ่าน Steam ในคลิกเดียว</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-amber-400">✓</span>

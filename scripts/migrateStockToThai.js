@@ -366,12 +366,12 @@ accounts.forEach(item => {
   // Clean Thai Translations
   const thaiTitle = translateToThai(item.title_th);
   item.title_th = thaiTitle;
-  item.subtitle_th = `ไอดีจีนแท้ [รหัส #${cleanCode}] ปลอดภัย 100% ประกันมือ 1 เมลแรกแท้ PUBG SIAM`;
+  item.subtitle_th = `ไอดีจีนแท้ [รหัส #${cleanCode}] ปลอดภัย 100% ประกันมือ 1 PUBG SIAM`;
   item.rank = translateRank(item.rank);
   item.gunLevel_th = translateGunLevel(item.gunLevel_th);
 
   // Formatted Clean Details without Wholesale Cost
-  item.details_th = `รหัสไอดี: #${cleanCode}\nสเปกคลัง & สกินเด่น: ${thaiTitle}\nระดับการเล่น: ${item.rank}\nปืนอัปเกรด: ${item.gunLevel_th}\nสถานะความปลอดภัย: มีอีเมลแรกแท้ 100% ปลอดภัย โอนย้าย Steam ทันที`;
+  item.details_th = `รหัสไอดี: #${cleanCode}\nสเปกคลัง & สกินเด่น: ${thaiTitle}\nระดับการเล่น: ${item.rank}\nปืนอัปเกรด: ${item.gunLevel_th}\nสถานะความปลอดภัย: ปลอดภัย 100% มีประกันมือ 1 โอนย้าย Steam ทันที`;
 
   count++;
 });

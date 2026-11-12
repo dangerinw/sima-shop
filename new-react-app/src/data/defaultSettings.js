@@ -26,7 +26,7 @@ export const defaultStoreSettings = {
   autoSlipVerify: true,
 
   // Announcements & Support
-  announcementText: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
+  announcementText: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% มีประกันมือ 1 โอนย้าย Steam ทันที',
   supportLine: '@PUBGSIAM',
   supportDiscord: 'discord.gg/p9fHwmMUPd',
 

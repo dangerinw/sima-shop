@@ -5,7 +5,7 @@ export default function FeaturesSection({ t }) {
     {
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
         </svg>
       ),
       color: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
@@ -68,50 +68,81 @@ export default function FeaturesSection({ t }) {
           ))}
         </div>
 
-        {/* Verified Escrow & Trade Manager Guarantee Box (SunsnappZ / AWESOMEZ SHOP) */}
-        <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#111723] via-amber-950/20 to-[#111723] border border-amber-500/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div className="flex items-center gap-5 text-center md:text-left flex-col md:flex-row">
-            <img 
-              src="/images/sunsnappz-logo.png" 
-              alt="SunsnappZ Manager" 
-              className="w-18 h-18 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
-            />
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-center md:justify-start gap-2 flex-wrap">
-                <span className="text-lg font-black text-white">SunsnappZ</span>
-                <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
-                  ✓ ผู้ดูแลการซื้อขาย
-                </span>
+        {/* Verified Escrow & Trade Manager Guarantee Boxes (Separated: SunsnappZ & AWESOMEZ SHOP) */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Card 1: SunsnappZ - Trade Manager */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#111723] via-amber-950/20 to-[#111723] border border-amber-500/40 flex flex-col justify-between gap-5 shadow-2xl hover:border-amber-400/70 transition-all">
+            <div className="flex items-start gap-4">
+              <img 
+                src="/images/sunsnappz-logo.png" 
+                alt="SunsnappZ Manager" 
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
+              />
+              <div className="space-y-1.5 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xl font-black text-white">SunsnappZ</span>
+                  <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
+                    ✓ ผู้ดูแลการซื้อขายอย่างเป็นทางการ
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  แอดมินคนกลางดูแลการส่งมอบไอดี PUBG PC โดยตรง ตรวจเช็กคลังไอดีจริง โอนย้าย Steam ปลอดภัย 100% มีประกันมือ 1 ไม่ดึงคืน
+                </p>
               </div>
-              <div>
-                <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-7 sm:h-8 object-contain mx-auto md:mx-0 drop-shadow-md brightness-110" />
-              </div>
-              <p className="text-xs text-slate-300 mt-2 max-w-xl leading-relaxed">
-                ปลอดภัยสูงสุด 100% สั่งซื้อโดยตรงผ่านคนดูแลการซื้อขายอย่างเป็นทางการ ตรวจเช็กคลังไอดีจริง โอนย้าย Steam และส่งมอบอีเมลแรกมือต่อมือ
-              </p>
+            </div>
+            <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              <span className="text-[11px] text-slate-400">ช่องทางติดต่อหลัก Facebook</span>
+              <a
+                href="https://www.facebook.com/profile.php?id=61596307388431"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all shrink-0"
+              >
+                <span>📘</span>
+                <span>Facebook แอดมิน</span>
+                <span>↗</span>
+              </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <a
-              href="https://www.facebook.com/profile.php?id=61596307388431"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all"
-            >
-              <span>📘</span>
-              <span>Facebook แอดมิน</span>
-            </a>
-            <a
-              href="https://discord.gg/p9fHwmMUPd"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all"
-            >
-              <span>💜</span>
-              <span>Discord Server</span>
-            </a>
+          {/* Card 2: AWESOMEZ SHOP - Official Discord Shop & Community */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#111723] via-indigo-950/20 to-[#111723] border border-indigo-500/40 flex flex-col justify-between gap-5 shadow-2xl hover:border-indigo-400/70 transition-all">
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-950/90 border border-indigo-500/30 flex items-center justify-center p-2 shrink-0">
+                <img 
+                  src="/images/awesomez-shop-logo.png" 
+                  alt="AWESOMEZ SHOP" 
+                  className="w-full h-auto object-contain drop-shadow-md brightness-110" 
+                />
+              </div>
+              <div className="space-y-1.5 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xl font-black text-white">AWESOMEZ SHOP</span>
+                  <span className="text-[10px] bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 px-2 py-0.5 rounded-full font-bold">
+                    💜 Discord Community & Shop
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  คอมมูนิตี้และร้านค้าทางการ สั่งซื้อไอดี พูดคุยปรึกษาทีมงาน และเปิดตั๋ว Ticket สั่งซื้อปลอดภัยกับทีมงานตลอด 24 ชม.
+                </p>
+              </div>
+            </div>
+            <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              <span className="text-[11px] text-slate-400">คอมมูนิตี้ & เปิดตั๋วสั่งซื้อไอดี</span>
+              <a
+                href="https://discord.gg/p9fHwmMUPd"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all shrink-0"
+              >
+                <span>💜</span>
+                <span>Discord Server</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </section>

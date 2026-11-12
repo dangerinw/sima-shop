@@ -15,38 +15,44 @@ export default function Footer({ t, storeSettings = {} }) {
           </div>
         </div>
 
-        {/* Trade Manager Card & Official Contact Badges */}
+        {/* Trade Manager Card & Official Contact Badges (Separated) */}
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-amber-500/30 shadow-md">
-            <img 
-              src="/images/sunsnappz-logo.png" 
-              alt="SunsnappZ" 
-              className="w-8 h-8 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] shrink-0" 
-            />
-            <div className="text-left leading-tight">
-              <span className="text-[10px] text-amber-400 block font-bold">ผู้ดูแลการซื้อขาย: SunsnappZ</span>
-              <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-4 object-contain mt-1 drop-shadow-sm brightness-110" />
-            </div>
-          </div>
-
+          {/* SunsnappZ Badge */}
           <a
             href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600 hover:text-white border border-blue-500/30 text-blue-400 font-bold text-xs flex items-center gap-1.5 transition-all"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-amber-500/30 hover:border-amber-400 shadow-md transition-all group"
+            title="ผู้ดูแลการซื้อขาย: SunsnappZ"
           >
-            <span>📘</span>
-            <span>Facebook แอดมิน</span>
+            <img 
+              src="/images/sunsnappz-logo.png" 
+              alt="SunsnappZ" 
+              className="w-7 h-7 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] group-hover:scale-110 transition-transform" 
+            />
+            <div className="text-left leading-tight">
+              <span className="text-[10px] text-amber-400 block font-bold">SunsnappZ</span>
+              <span className="text-[9px] text-slate-400">ผู้ดูแลการซื้อขาย 📘</span>
+            </div>
           </a>
+
+          {/* AWESOMEZ SHOP Badge */}
           <a
             href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-lg bg-indigo-600/10 hover:bg-indigo-600 hover:text-white border border-indigo-500/30 text-indigo-400 font-bold text-xs flex items-center gap-1.5 transition-all"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/30 hover:border-indigo-400 shadow-md transition-all group"
+            title="คอมมูนิตี้ & ร้านค้า: AWESOMEZ SHOP"
           >
-            <span>💜</span>
-            <span>Discord Server</span>
+            <div className="w-7 h-7 rounded-lg bg-slate-950 flex items-center justify-center p-1 border border-indigo-500/20">
+              <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="w-full h-auto object-contain brightness-110 group-hover:scale-110 transition-transform" />
+            </div>
+            <div className="text-left leading-tight">
+              <span className="text-[10px] text-indigo-400 block font-bold">AWESOMEZ SHOP</span>
+              <span className="text-[9px] text-slate-400">Discord Community 💜</span>
+            </div>
           </a>
+
           <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
             <span>🛡️</span>
             <span>ประกันมือ 1 แท้ 100%</span>
