@@ -9,14 +9,16 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
     return `${vnd.toLocaleString()} ₫`;
   };
 
-  const rawTitle = lang === 'th' ? account.title_th : account.title_en;
-  const title = lang === 'th' ? translateChinesePubgTitle(rawTitle) : rawTitle;
-  const subtitle = lang === 'th' ? translateChinesePubgTitle(account.subtitle_th) : account.subtitle_en;
-  const playtime = lang === 'th' ? account.playtime_th : account.playtime_en;
-  const rawGun = lang === 'th' ? account.gunLevel_th : account.gunLevel_en;
-  const gunLevel = lang === 'th' ? translateChinesePubgTitle(rawGun) : rawGun;
-  const warranty = lang === 'th' ? account.warranty_th : account.warranty_en;
   const displayCode = account.bianhao || account.id?.replace(/^CN-/, '') || account.id;
+  const rawTitle = lang === 'th' ? (account.title_th || account.title) : (account.title_en || account.title);
+  const title = lang === 'th' ? translateChinesePubgTitle(rawTitle) : rawTitle;
+  const subtitle = lang === 'th' 
+    ? translateChinesePubgTitle(account.subtitle_th || `ไอดีจีนแท้ [รหัส #${displayCode}] ปลอดภัย 100% ประกันมือ 1 แท้`) 
+    : (account.subtitle_en || `Authentic Steam [Code #${displayCode}] with Warranty`);
+  const playtime = lang === 'th' ? (account.playtime_th || '1,000+ ชม.') : (account.playtime_en || '1,000+ hrs');
+  const rawGun = lang === 'th' ? (account.gunLevel_th || 'ปืนอัปเกรด Progressive') : (account.gunLevel_en || 'Progressive Weapons');
+  const gunLevel = lang === 'th' ? translateChinesePubgTitle(rawGun) : rawGun;
+  const warranty = lang === 'th' ? (account.warranty_th || 'มีประกันมือ 1 แท้ (ปลอดภัย 100% ไม่ดึงคืน)') : (account.warranty_en || '1st Hand Owner Warranty');
   const coverImage = account.coverImg || account.images?.[0];
 
   // Region Badge Helper

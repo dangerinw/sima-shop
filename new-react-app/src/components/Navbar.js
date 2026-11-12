@@ -176,7 +176,7 @@ export default function Navbar({
                 className="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-red-500/20 text-amber-400 font-bold flex items-center gap-2.5 border border-amber-500/30"
               >
                 <span>🇨🇳</span>
-                <span>บริการกดไอดีจีน (4 เว็บพาร์ทเนอร์)</span>
+                <span>บริการกดไอดีจีน (4 เว็บต้นทาง)</span>
               </a>
               <a 
                 href="#catalog" 

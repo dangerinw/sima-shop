@@ -133,13 +133,13 @@ export default function ChinaOrderSection({ currency = 'THB', lang = 'th', store
         {/* Section Header */}
         <div className="relative z-10 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-red-500/20 to-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
-            <span>🇨🇳</span> บริการกดไอดี / รับฝากซื้อไอดีจีนโดยตรง
+            <span>🇨🇳</span> ระบบดึงข้อมูล & บริการรับกดไอดีจีนตรงจาก 4 เว็บดัง
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-            ค้นหา & คำนวณราคาไอดีจีนจาก <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500">4 เว็บพาร์ทเนอร์</span>
+            ค้นหา & คำนวณราคาไอดีจีนจาก <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500">4 เว็บไซต์ยอดนิยม</span>
           </h2>
           <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
-            เลือกดูรหัสที่ชอบจาก 4 เว็บไซต์ต้นทางของจีน จากนั้นนำลิงก์หรือรหัสมาวางที่นี่เพื่อเช็กภาพคลังความละเอียดสูง และคำนวณราคาเงินบาท/ดองแบบโปร่งใส พร้อมสั่งซื้อผ่านแอดมินคนกลางได้ทันที
+            PUBG SIAM เชื่อมต่อระบบ API ดึงข้อมูลคลังและสกินจาก 4 เว็บไซต์จีนต้นทาง นำมาแปลงเป็นภาษาไทยให้อ่านง่าย เช็กสเปก ดูภาพคลังความละเอียดสูง และคำนวณราคาเงินบาท/ดองในรูปแบบของเรา พร้อมสั่งซื้อผ่านแอดมินคนกลางได้ทันที
           </p>
 
           {/* Trust Middleman Badges */}
@@ -150,7 +150,7 @@ export default function ChinaOrderSection({ currency = 'THB', lang = 'th', store
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-xs text-slate-200">
               <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
-              <span>ร้านค้าคู่ดูแล: <strong>AWESOMEZ SHOP (Discord)</strong></span>
+              <span>คอมมูนิตี้ & สั่งซื้อไอดี: <strong>AWESOMEZ SHOP (Discord)</strong></span>
             </div>
           </div>
         </div>
