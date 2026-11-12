@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { chinaSyncService } from '../../services/chinaSync/chinaSyncService';
 import AddAccountModal from './AddAccountModal';
 import Pagination from '../Pagination';
+import { getSourceUrl } from '../AccountModal';
 import { dbService } from '../../services/dbService';
 import { defaultStoreSettings } from '../../data/defaultSettings';
 
@@ -548,10 +549,23 @@ export default function AdminDashboard({
                         <tr key={item.id} className="hover:bg-slate-900/40 transition-colors">
                           <td className="py-3.5 px-4 whitespace-nowrap">
                             <span className="font-mono font-bold text-amber-400 block text-xs">#{item.id}</span>
-                            <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold border mt-1 shadow-sm ${regionBadge.color}`}>
-                              <span>{regionBadge.flag}</span>
-                              <span>{regionBadge.label}</span>
-                            </span>
+                            <div className="flex items-center gap-1.5 flex-wrap mt-1">
+                              <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold border shadow-sm ${regionBadge.color}`}>
+                                <span>{regionBadge.flag}</span>
+                                <span>{regionBadge.label}</span>
+                              </span>
+                              {getSourceUrl(item) && (
+                                <a
+                                  href={getSourceUrl(item)}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-[10px] text-amber-400 hover:text-amber-300 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded transition-colors inline-flex items-center gap-0.5"
+                                  title="เปิดลิงก์คลังต้นทาง"
+                                >
+                                  🔗 เว็บจีน ↗
+                                </a>
+                              )}
+                            </div>
                           </td>
 
                           <td className="py-3.5 px-4 max-w-xs sm:max-w-md">

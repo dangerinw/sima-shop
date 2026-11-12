@@ -1,6 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { translateChinesePubgTitle } from '../services/chinaSync/chinaAccountParser';
 
+// Resolve direct Chinese platform URL for quick admin ordering
+export const getSourceUrl = (acc) => {
+  if (!acc) return '';
+  const rawId = acc.rawId;
+  const sourceKey = (acc.sourceKey || '').toLowerCase();
+  const sourceShop = (acc.sourceShop || '').toLowerCase();
+  const idStr = (acc.id || '').toLowerCase();
+  const bianhao = (acc.rawBianhao || acc.bianhao || '').toLowerCase();
+
+  // YYYXKCH (Link 2)
+  if (sourceKey === 'yyy' || sourceShop.includes('yiyou') || idStr.startsWith('cn-yyy') || idStr.startsWith('yyy-')) {
+    return rawId ? `https://www.yyyxkch.com/#/pages/detail/index?id=${rawId}` : 'https://www.yyyxkch.com/';
+  }
+
+  // XF Shop (Link 1)
+  if (sourceKey === 'xf' || sourceShop.includes('xf') || idStr.startsWith('cn-xf') || bianhao.startsWith('xf')) {
+    return rawId ? `https://xf.ayxds.com/pc/#/detail?id=${rawId}` : 'https://xf.ayxds.com/pc/';
+  }
+
+  // XMGG Shop (Link 3)
+  if (sourceKey === 'xmgg' || sourceShop.includes('xmgg') || idStr.startsWith('cn-xmgg')) {
+    return rawId ? `https://xmgg.ayxds.com/pc/#/detail?id=${rawId}` : 'https://xmgg.ayxds.com/pc/';
+  }
+
+  // XueGaoKK (Link 4)
+  if (sourceKey === 'xgkk' || sourceShop.includes('xuegao') || idStr.startsWith('cn-xgkk') || bianhao.startsWith('xgkk')) {
+    return rawId ? `https://xuegaokk.ayxds.com/pc/#/detail?id=${rawId}` : 'https://xuegaokk.ayxds.com/pc/';
+  }
+
+  // Fallback for general CN accounts with rawId
+  if (acc.region === 'cn' && rawId) {
+    return `https://xuegaokk.ayxds.com/pc/#/detail?id=${rawId}`;
+  }
+
+  return '';
+};
+
 export default function AccountModal({ 
   account, 
   isOpen, 
@@ -137,9 +174,11 @@ export default function AccountModal({
     return '🇹🇭 เซิร์ฟเวอร์ไทย (Thailand Steam)';
   };
 
+  const directUrl = getSourceUrl(account);
+
   const handleCopyOrderInfo = () => {
-    const sourceText = account.sourceShop ? `\nแหล่งคลัง: ${account.sourceShop}` : '';
-    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${displayCode}${sourceText}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
+    const urlLine = directUrl ? `\nลิงก์ไอดี: ${directUrl}` : '';
+    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${displayCode}${urlLine}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
     navigator.clipboard.writeText(orderText);
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2500);
@@ -174,11 +213,6 @@ export default function AccountModal({
                   <span className="text-xs text-slate-300 font-semibold">
                     {getRegionText(account.region)}
                   </span>
-                  {account.sourceShop && (
-                    <span className="text-[11px] font-mono text-slate-400 bg-slate-800/90 border border-slate-700/80 px-2 py-0.5 rounded">
-                      คลัง: {account.sourceShop}
-                    </span>
-                  )}
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white line-clamp-1 mt-0.5">
                   {title}
@@ -503,11 +537,6 @@ export default function AccountModal({
                         #{displayCode}
                       </span>
                       <span className="text-[11px] text-slate-400">{getRegionText(account.region)}</span>
-                      {account.sourceShop && (
-                        <span className="text-[10px] text-slate-400 font-mono bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded">
-                          {account.sourceShop}
-                        </span>
-                      )}
                     </div>
                     <h4 className="text-sm font-bold text-white line-clamp-1 mt-1">
                       {title}
@@ -544,9 +573,14 @@ export default function AccountModal({
                   </button>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-950 font-mono text-xs text-slate-300 border border-slate-800/80 leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-slate-950 font-mono text-xs text-slate-300 border border-slate-800/80 leading-relaxed space-y-1">
                   <div>สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC</div>
                   <div>รหัสไอดี: <strong className="text-amber-400">#{displayCode}</strong></div>
+                  {directUrl && (
+                    <div className="text-sky-400 break-all">
+                      ลิงก์ไอดี: <a href={directUrl} target="_blank" rel="noreferrer" className="underline hover:text-sky-300">{directUrl}</a>
+                    </div>
+                  )}
                   <div>ราคา: <strong className="text-emerald-400">{formatPrice(account.priceVND, account.priceTHB)}</strong></div>
                   <div className="truncate">ชื่อสกิน: {title}</div>
                 </div>
