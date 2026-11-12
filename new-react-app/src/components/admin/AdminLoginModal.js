@@ -16,8 +16,8 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
 
     // Simulate authenticating credentials
     setTimeout(() => {
-      // Default credentials: admin / sima2026 (or admin / admin1234)
-      const validPass = ['pubgsiam', 'sima2026', 'admin1234'];
+      // Default credentials: admin / pubgsiam2026 (or pubgsiam, siam2026, admin1234)
+      const validPass = ['pubgsiam2026', 'siam2026', 'pubgsiam', 'sima2026', 'admin1234'];
       if (username.trim().toLowerCase() === 'admin' && validPass.includes(password)) {
         setIsLoading(false);
         onLoginSuccess();

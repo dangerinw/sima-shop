@@ -325,7 +325,7 @@ Original Mail: ${order.mailInfo}
                       <div className="flex items-center gap-2">
                         <button
                           type="button"
-                          onClick={() => alert(`SIMA Support Hotline:\n- แอดมินดูแลออเดอร์: ${order.orderId}\n- ติดต่อเคลมประกันหรือสอบถามวิธีเปลี่ยนรหัสได้ที่ LINE/Discord: @SIMASHOP`)}
+                          onClick={() => alert(`PUBG SIAM Support Hotline:\n- แอดมินดูแลออเดอร์: ${order.orderId}\n- ติดต่อเคลมประกันหรือสอบถามวิธีเปลี่ยนรหัสได้ที่ LINE/Discord: @PUBGSIAM`)}
                           className="text-xs text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1 underline"
                         >
                           <span>💬</span>

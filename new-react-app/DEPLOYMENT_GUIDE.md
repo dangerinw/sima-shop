@@ -1,6 +1,6 @@
-# 🚀 คู่มือการนำ SIMA Shop ขึ้นออนไลน์ (Production Deployment Guide)
+# 🚀 คู่มือการนำ PUBG SIAM ขึ้นออนไลน์ (Production Deployment Guide)
 
-ยินดีด้วยครับ! เว็บไซต์ **SIMA Shop - ตลาดซื้อขายไอดี PUBG PC (Steam)** ได้รับการพัฒนาและเตรียมพร้อมสำหรับการ Deploy ขึ้นออนไลน์ระดับ Production ครบทุกส่วนแล้ว
+ยินดีด้วยครับ! เว็บไซต์ **PUBG SIAM - ตลาดซื้อขายไอดี PUBG PC (Steam)** ได้รับการพัฒนาและเตรียมพร้อมสำหรับการ Deploy ขึ้นออนไลน์ระดับ Production ครบทุกส่วนแล้ว
 
 ---
 
@@ -62,7 +62,7 @@ Vercel เป็นโฮสติ้งยอดนิยมระดับโ�
 5. ไปที่ **Project Settings** (รูปเฟือง) > **API**:
    * คัดลอก **Project URL**
    * คัดลอก **Project API keys (anon / public)**
-6. เปิดหน้าเว็บ SIMA Shop ของคุณ เข้าเมนู **Admin** > แถบ **"ตั้งค่าระบบ & Cloud DB"**:
+6. เปิดหน้าเว็บ PUBG SIAM ของคุณ เข้าเมนู **Admin** > แถบ **"ตั้งค่าระบบ & Cloud DB"**:
    * วาง **Supabase Project URL**
    * วาง **Anon Public Key**
    * ติ๊กถูก **"เปิดใช้งาน Cloud Database"**

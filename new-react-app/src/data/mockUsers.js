@@ -1,4 +1,4 @@
-// Initial Customers for SIMA Shop
+// Initial Customers for PUBG SIAM
 export const initialUsers = [];
 
 export const getStoredUsers = () => {

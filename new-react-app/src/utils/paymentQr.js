@@ -92,12 +92,12 @@ export function getPromptPayQrImageUrl(target, amount, size = 300) {
  * @param {string} orderId - Transfer Memo / AddInfo
  * @param {string} accountName - Account Owner Name
  */
-export function getVietQrImageUrl(bankId = 'MB', accountNo = '0987654321', amount = 0, orderId = '', accountName = 'SIMA SHOP') {
+export function getVietQrImageUrl(bankId = 'MB', accountNo = '0987654321', amount = 0, orderId = '', accountName = 'PUBG SIAM') {
   const cleanBank = bankId.trim().toUpperCase() || 'MB';
   const cleanAcc = accountNo.trim() || '0987654321';
   const cleanAmt = Math.round(Number(amount) || 0);
-  const cleanMemo = encodeURIComponent(orderId || 'SIMA SHOP');
-  const cleanName = encodeURIComponent(accountName || 'SIMA SHOP');
+  const cleanMemo = encodeURIComponent(orderId || 'PUBG SIAM');
+  const cleanName = encodeURIComponent(accountName || 'PUBG SIAM');
 
   return `https://img.vietqr.io/image/${cleanBank}-${cleanAcc}-compact2.png?amount=${cleanAmt}&addInfo=${cleanMemo}&accountName=${cleanName}`;
 }

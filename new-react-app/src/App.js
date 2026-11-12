@@ -67,13 +67,26 @@ function App() {
     }
   };
 
-  // Sync state with Cloud DB / Storage when enabled
+  // Sync state with Cloud DB / Storage when enabled (Preserves China Stock permanently!)
   useEffect(() => {
     dbService.updateSettings(storeSettings);
     if (storeSettings.useCloudDb) {
       dbService.getAccounts().then((cloudAccounts) => {
         if (Array.isArray(cloudAccounts) && cloudAccounts.length > 0) {
-          setAccounts(cloudAccounts);
+          setAccounts((prev) => {
+            // Preserve all China accounts from static stock, never overwrite with Cloud DB!
+            const chinaAccounts = prev.filter((a) => a.region === 'cn');
+            const map = new Map();
+            // 1. Add cloud accounts (Thai / VN / Custom accounts)
+            cloudAccounts.forEach((a) => {
+              if (a.region !== 'cn') {
+                map.set(a.id, a);
+              }
+            });
+            // 2. Always keep all China accounts from china_stock.json
+            chinaAccounts.forEach((a) => map.set(a.id, a));
+            return Array.from(map.values());
+          });
         }
       });
       dbService.getOrders().then((cloudOrders) => {
@@ -364,21 +377,43 @@ function App() {
       // Tag filter
       if (selectedTag && (!item.tags || !item.tags.includes(selectedTag))) return false;
 
-      // Search match (code, bianhao, rawId, title, subtitle, gun level, or rank)
+      // Multi-term Search match (supports multiple guns/skins: "AUG M416", "AUG, Beryl", "หมูชมพู กระทิงทอง", "AWM Kar98")
       if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase().trim();
-        const bianhaoStr = (item.bianhao || '').toLowerCase();
-        const rawBianhaoStr = (item.rawBianhao || '').toLowerCase();
-        const rawIdStr = item.rawId ? String(item.rawId).toLowerCase() : '';
-        const idStr = (item.id || '').toLowerCase();
-        
-        const idMatch = idStr.includes(query) || bianhaoStr.includes(query) || rawBianhaoStr.includes(query) || rawIdStr.includes(query);
-        const titleMatch = (item.title_th + ' ' + (item.title_en || '')).toLowerCase().includes(query);
-        const subMatch = (item.subtitle_th + ' ' + (item.subtitle_en || '')).toLowerCase().includes(query);
-        const gunMatch = (item.gunLevel_th + ' ' + (item.gunLevel_en || '')).toLowerCase().includes(query);
-        const rankMatch = (item.rank || '').toLowerCase().includes(query);
+        const terms = searchQuery.toLowerCase().split(/[\s,+/|]+/).map((t) => t.trim()).filter(Boolean);
+        if (terms.length > 0) {
+          const corpus = [
+            item.id,
+            item.bianhao,
+            item.rawBianhao,
+            item.rawId,
+            item.title_th,
+            item.title_en,
+            item.gunLevel_th,
+            item.gunLevel_en,
+            item.subtitle_th,
+            item.subtitle_en,
+            item.details_th,
+            item.rank,
+            (item.tags || []).join(' ')
+          ].filter(Boolean).join(' ').toLowerCase();
 
-        return idMatch || titleMatch || subMatch || gunMatch || rankMatch;
+          const allMatched = terms.every((term) => {
+            if (corpus.includes(term)) return true;
+            // Smart Gun & Skin Aliases
+            if ((term === 'm4' || term === 'm416') && (corpus.includes('m416') || corpus.includes('หมูชมพู') || corpus.includes('กลาเซีย') || corpus.includes('ฟักทอง'))) return true;
+            if (term === 'aug' && (corpus.includes('aug') || corpus.includes('มิโนทอร์') || corpus.includes('นีออน') || corpus.includes('กระทิงทอง') || corpus.includes('ระเบิดศึก'))) return true;
+            if ((term === 'beryl' || term === '762' || term === 'm762') && (corpus.includes('beryl') || corpus.includes('m762') || corpus.includes('กิเลนไฟ') || corpus.includes('762'))) return true;
+            if ((term === 'mk12' || term === 'mk') && (corpus.includes('mk12') || corpus.includes('เงามืด') || corpus.includes('shadow lord'))) return true;
+            if (term === 'awm' && (corpus.includes('awm') || corpus.includes('เมดูซ่า') || corpus.includes('ฟันเฟือง') || corpus.includes('gear head'))) return true;
+            if ((term === '98k' || term === 'kar98') && (corpus.includes('kar98') || corpus.includes('98k') || corpus.includes('จักรวาล'))) return true;
+            if (term === 'หมู' && (corpus.includes('หมูชมพู') || corpus.includes('หมูทองคำ') || corpus.includes('pigsy'))) return true;
+            if (term === 'กระทิง' && (corpus.includes('กระทิงทอง') || corpus.includes('มิโนทอร์'))) return true;
+            if (term === 'มัมมี่' && (corpus.includes('มัมมี่ดำ') || corpus.includes('มัมมี่ขาว') || corpus.includes('ผ้าพันแผล'))) return true;
+            return false;
+          });
+
+          if (!allMatched) return false;
+        }
       }
 
       return true;
@@ -523,7 +558,19 @@ function App() {
   // Restore Backup handler
   const handleRestoreBackup = (backupData) => {
     if (backupData.accounts && Array.isArray(backupData.accounts)) {
-      setAccounts(backupData.accounts);
+      setAccounts((prev) => {
+        const chinaAccounts = prev.filter((a) => a.region === 'cn');
+        const map = new Map();
+        // 1. Add custom / Thai / VN / backup accounts
+        backupData.accounts.forEach((a) => map.set(a.id, a));
+        // 2. Preserve all existing China accounts if not in backup
+        chinaAccounts.forEach((a) => {
+          if (!map.has(a.id)) {
+            map.set(a.id, a);
+          }
+        });
+        return Array.from(map.values());
+      });
     }
     if (backupData.orders && Array.isArray(backupData.orders)) {
       setOrders(backupData.orders);

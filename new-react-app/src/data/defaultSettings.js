@@ -27,7 +27,7 @@ export const defaultStoreSettings = {
 
   // Announcements & Support
   announcementText: '🔥 PUBG SIAM ตลาดซื้อ-ขายไอดี PUBG PC (Steam) อันดับ 1 | ปลอดภัย 100% ส่งมอบเมลแรก & โอนย้าย Steam ทันที',
-  supportLine: '@SIMASHOP',
+  supportLine: '@PUBGSIAM',
   supportDiscord: 'discord.gg/pubgsiam',
 
   // Store Front Metrics (Delivered Count)

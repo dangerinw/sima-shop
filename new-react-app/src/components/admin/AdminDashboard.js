@@ -223,11 +223,40 @@ export default function AdminDashboard({
     if (categoryFilter !== 'all' && item.category !== categoryFilter) return false;
     if (regionFilter !== 'all' && item.region !== regionFilter) return false;
     if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      const matchTitle = (item.title_th + ' ' + item.title_en).toLowerCase().includes(q);
-      const matchId = item.id.toLowerCase().includes(q);
-      const matchGun = (item.gunLevel_th + ' ' + item.gunLevel_en).toLowerCase().includes(q);
-      return matchTitle || matchId || matchGun;
+      const terms = searchQuery.toLowerCase().split(/[\s,+/|]+/).map((t) => t.trim()).filter(Boolean);
+      if (terms.length > 0) {
+        const corpus = [
+          item.id,
+          item.bianhao,
+          item.rawBianhao,
+          item.rawId,
+          item.title_th,
+          item.title_en,
+          item.gunLevel_th,
+          item.gunLevel_en,
+          item.subtitle_th,
+          item.subtitle_en,
+          item.details_th,
+          item.rank,
+          (item.tags || []).join(' ')
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        const allMatched = terms.every((term) => {
+          if (corpus.includes(term)) return true;
+          if ((term === 'm4' || term === 'm416') && (corpus.includes('m416') || corpus.includes('หมูชมพู') || corpus.includes('กลาเซีย') || corpus.includes('ฟักทอง'))) return true;
+          if (term === 'aug' && (corpus.includes('aug') || corpus.includes('มิโนทอร์') || corpus.includes('นีออน') || corpus.includes('กระทิงทอง') || corpus.includes('ระเบิดศึก'))) return true;
+          if ((term === 'beryl' || term === '762' || term === 'm762') && (corpus.includes('beryl') || corpus.includes('m762') || corpus.includes('กิเลนไฟ') || corpus.includes('762'))) return true;
+          if ((term === 'mk12' || term === 'mk') && (corpus.includes('mk12') || corpus.includes('เงามืด') || corpus.includes('shadow lord'))) return true;
+          if (term === 'awm' && (corpus.includes('awm') || corpus.includes('เมดูซ่า') || corpus.includes('ฟันเฟือง') || corpus.includes('gear head'))) return true;
+          if ((term === '98k' || term === 'kar98') && (corpus.includes('kar98') || corpus.includes('98k') || corpus.includes('จักรวาล'))) return true;
+          if (term === 'หมู' && (corpus.includes('หมูชมพู') || corpus.includes('หมูทองคำ') || corpus.includes('pigsy'))) return true;
+          if (term === 'กระทิง' && (corpus.includes('กระทิงทอง') || corpus.includes('มิโนทอร์'))) return true;
+          if (term === 'มัมมี่' && (corpus.includes('มัมมี่ดำ') || corpus.includes('มัมมี่ขาว') || corpus.includes('ผ้าพันแผล'))) return true;
+          return false;
+        });
+
+        if (!allMatched) return false;
+      }
     }
     return true;
   });
@@ -928,7 +957,7 @@ export default function AdminDashboard({
                     </div>
                     <textarea
                       rows="4"
-                      placeholder='const firebaseConfig = { apiKey: "AIzaSy...", projectId: "sima-shop-pubg", ... };'
+                      placeholder='const firebaseConfig = { apiKey: "AIzaSy...", projectId: "pubg-siam", ... };'
                       value={settingsForm.firebaseConfigSnippet || ""}
                       onChange={(e) => {
                         const snippet = e.target.value;
@@ -959,7 +988,7 @@ export default function AdminDashboard({
                       <label className="block text-slate-300 font-bold">Firebase Project ID:</label>
                       <input
                         type="text"
-                        placeholder="sima-shop-pubg"
+                        placeholder="pubg-siam"
                         value={settingsForm.firebaseProjectId || ""}
                         onChange={(e) => setSettingsForm({ ...settingsForm, firebaseProjectId: e.target.value })}
                         className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono focus:border-amber-500 outline-none text-xs"
@@ -984,7 +1013,7 @@ export default function AdminDashboard({
                     </summary>
                     <div className="pt-2 space-y-1.5 pl-2 text-slate-300 leading-relaxed">
                       <div>1. เข้าเว็บ <a href="https://console.firebase.google.com" target="_blank" rel="noreferrer" className="text-amber-400 underline font-bold">console.firebase.google.com</a> แล้วล็อกอินด้วย Gmail</div>
-                      <div>2. กด <strong>"Add project"</strong> ตั้งชื่อโปรเจกต์ (เช่น sima-shop) แล้วกด Continue จนเสร็จ</div>
+                      <div>2. กด <strong>"Add project"</strong> ตั้งชื่อโปรเจกต์ (เช่น pubg-siam) แล้วกด Continue จนเสร็จ</div>
                       <div>3. เมนูซ้ายมือ เลือก <strong>Build &gt; Firestore Database</strong> &gt; กด <strong>"Create database"</strong> &gt; เลือก Location สิงคโปร์ (asia-southeast1) &gt; เลือก <strong>Start in test mode</strong></div>
                       <div>4. คลิกไอคอนรูปเฟือง ⚙️ (Project settings) &gt; เลื่อนลงมาที่หัวข้อ "Your apps" &gt; กดไอคอน <strong>&lt;/&gt; (Web)</strong> &gt; ก๊อปปี้โค้ด <code>firebaseConfig</code> มาวางในช่องด้านบนได้เลย!</div>
                     </div>
