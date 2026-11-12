@@ -13,7 +13,11 @@ export default function FilterToolbar({
   setSortBy,
   searchInputRef,
   counts,
-  t
+  t,
+  onRefreshStock,
+  isStockRefreshing,
+  lastStockUpdated,
+  totalAccountsCount
 }) {
   const quickTags = [
     { id: 'Progressive', label: t.tagProgressive },
@@ -98,56 +102,85 @@ export default function FilterToolbar({
 
         </div>
 
-        {/* Region Country Filter Pills ⭐ */}
-        <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-800/60 text-xs">
-          <span className="text-slate-400 font-semibold whitespace-nowrap">{t.filterRegionTitle}</span>
-          
-          <button
-            onClick={() => setActiveRegion('all')}
-            className={`px-3 py-1 rounded-lg border transition-all ${
-              activeRegion === 'all'
-                ? 'bg-amber-500 text-black border-amber-500 font-bold shadow'
-                : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
-            }`}
-          >
-            🌐 {t.regionAll}
-          </button>
+        {/* Region Country Filter Pills ⭐ with Live Real-time Stock Sync */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-slate-800/60 text-xs">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-slate-400 font-semibold whitespace-nowrap">{t.filterRegionTitle}</span>
+            
+            <button
+              onClick={() => setActiveRegion('all')}
+              className={`px-3 py-1 rounded-lg border transition-all ${
+                activeRegion === 'all'
+                  ? 'bg-amber-500 text-black border-amber-500 font-bold shadow'
+                  : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
+              }`}
+            >
+              🌐 {t.regionAll}
+            </button>
 
-          <button
-            onClick={() => setActiveRegion('th')}
-            className={`px-3 py-1 rounded-lg border transition-all flex items-center gap-1 ${
-              activeRegion === 'th'
-                ? 'bg-blue-600 text-white border-blue-500 font-bold shadow'
-                : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-blue-500/50 hover:text-blue-300'
-            }`}
-          >
-            <span>🇹🇭</span>
-            <span>{t.regionTH}</span>
-          </button>
+            <button
+              onClick={() => setActiveRegion('th')}
+              className={`px-3 py-1 rounded-lg border transition-all flex items-center gap-1 ${
+                activeRegion === 'th'
+                  ? 'bg-blue-600 text-white border-blue-500 font-bold shadow'
+                  : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-blue-500/50 hover:text-blue-300'
+              }`}
+            >
+              <span>🇹🇭</span>
+              <span>{t.regionTH}</span>
+            </button>
 
-          <button
-            onClick={() => setActiveRegion('cn')}
-            className={`px-3 py-1 rounded-lg border transition-all flex items-center gap-1 ${
-              activeRegion === 'cn'
-                ? 'bg-rose-600 text-white border-rose-500 font-bold shadow'
-                : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-rose-500/50 hover:text-rose-300'
-            }`}
-          >
-            <span>🇨🇳</span>
-            <span>{t.regionCN}</span>
-          </button>
+            <button
+              onClick={() => setActiveRegion('cn')}
+              className={`px-3 py-1 rounded-lg border transition-all flex items-center gap-1 ${
+                activeRegion === 'cn'
+                  ? 'bg-rose-600 text-white border-rose-500 font-bold shadow'
+                  : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-rose-500/50 hover:text-rose-300'
+              }`}
+            >
+              <span>🇨🇳</span>
+              <span>{t.regionCN}</span>
+            </button>
 
-          <button
-            onClick={() => setActiveRegion('vn')}
-            className={`px-3 py-1 rounded-lg border transition-all flex items-center gap-1 ${
-              activeRegion === 'vn'
-                ? 'bg-emerald-600 text-white border-emerald-500 font-bold shadow'
-                : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-emerald-500/50 hover:text-emerald-300'
-            }`}
-          >
-            <span>🇻🇳</span>
-            <span>{t.regionVN}</span>
-          </button>
+            <button
+              onClick={() => setActiveRegion('vn')}
+              className={`px-3 py-1 rounded-lg border transition-all flex items-center gap-1 ${
+                activeRegion === 'vn'
+                  ? 'bg-emerald-600 text-white border-emerald-500 font-bold shadow'
+                  : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-emerald-500/50 hover:text-emerald-300'
+              }`}
+            >
+              <span>🇻🇳</span>
+              <span>{t.regionVN}</span>
+            </button>
+          </div>
+
+          {/* Real-time Live Stock Sync Indicator & Refresh Button */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 text-[11px]">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="font-semibold">{t.liveStock || 'สต็อกสด:'}</span>
+              <span className="font-mono font-bold text-white">{(totalAccountsCount || 0).toLocaleString()}</span>
+              {lastStockUpdated && (
+                <span className="text-[10px] text-emerald-300/80 hidden md:inline font-mono">
+                  • {lastStockUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                </span>
+              )}
+            </div>
+
+            {onRefreshStock && (
+              <button
+                type="button"
+                onClick={onRefreshStock}
+                disabled={isStockRefreshing}
+                className="px-3 py-1 rounded-lg bg-slate-950 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/50 text-slate-300 hover:text-amber-400 text-[11px] font-bold transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                title="คลิกเพื่อรีเฟรชอัปเดตสต็อกไอดีจีนล่าสุดทันที"
+              >
+                <span className={`text-xs ${isStockRefreshing ? 'animate-spin inline-block' : ''}`}>🔄</span>
+                <span>{isStockRefreshing ? (t.refreshing || 'กำลังดึงล่าสุด...') : (t.refreshStock || 'รีเฟรชสต็อก')}</span>
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Quick Tag Filter Pills */}

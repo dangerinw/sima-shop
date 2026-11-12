@@ -38,6 +38,10 @@ export const translations = {
     regionCN: '🇨🇳 ไอดีจีน',
     regionVN: '🇻🇳 ไอดีเวียดนาม',
     specRegion: 'ประเทศ/ภูมิภาคไอดี:',
+    liveStock: 'สต็อกสด:',
+    refreshStock: 'รีเฟรชสต็อก',
+    refreshing: 'กำลังดึงล่าสุด...',
+    updatedAt: 'อัปเดต',
 
     searchPlaceholder: 'ค้นหา: Beryl, M416, BAPE, หรือรหัส #PC-1001...',
     sortNewest: 'อัปเดตล่าสุด',
@@ -135,6 +139,10 @@ export const translations = {
     regionCN: '🇨🇳 China',
     regionVN: '🇻🇳 Vietnam',
     specRegion: 'Account Region:',
+    liveStock: 'Live Stock:',
+    refreshStock: 'Refresh Stock',
+    refreshing: 'Updating...',
+    updatedAt: 'Updated',
 
     searchPlaceholder: 'Search: Beryl, M416, BAPE, or Account #PC-1001...',
     sortNewest: 'Newest Arrivals',

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
 import FilterToolbar from './components/FilterToolbar';
@@ -14,7 +14,6 @@ import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
 import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
 import { dbService } from './services/dbService';
-import { normalizeChinaAccount } from './services/chinaSync/chinaAccountParser';
 
 function App() {
   const [currency, setCurrency] = useState(() => {
@@ -114,52 +113,34 @@ function App() {
     } catch (_) {}
   }, [soldAccountIds]);
 
-  // Seamless Zero-Cost China Inventory Static Sync (public/data/china_stock.json)
-  useEffect(() => {
-    fetch('/data/china_stock.json')
-      .then((res) => {
-        if (res.ok) return res.json();
-        return null;
-      })
-      .then((chinaStock) => {
-        if (Array.isArray(chinaStock) && chinaStock.length > 0) {
-          setAccounts((prev) => {
-            const map = new Map(prev.map((a) => [a.id, a]));
-            chinaStock.forEach((acc) => {
-              // Apply sold status if remembered in soldAccountIds
-              if (soldAccountIds.includes(acc.id)) {
-                acc.isSold = true;
-              }
+  // Live Real-Time Stock Refresh State & Controls
+  const [isStockRefreshing, setIsStockRefreshing] = useState(false);
+  const [lastStockUpdated, setLastStockUpdated] = useState(() => new Date());
 
-              // Dynamically apply tiered markup according to current store settings
-              if (acc.rmbPrice) {
-                const rawThb = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateThb || 5.2);
-                const rawVnd = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateVnd || 3700);
-                let activeMarkup = Number(storeSettings.chinaMarkupPercent || 10);
-                if ((storeSettings.chinaMarkupMode || 'tiered') === 'tiered') {
-                  const threshold = Number(storeSettings.chinaMarkupThreshold || 100000);
-                  activeMarkup = rawThb < threshold
-                    ? Number(storeSettings.chinaMarkupTier1Percent ?? 10)
-                    : Number(storeSettings.chinaMarkupTier2Percent ?? 13);
-                }
-                const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
-                const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
-                acc.priceTHB = priceTHB;
-                acc.priceVND = priceVND;
-                acc.originalPriceTHB = Math.round(priceTHB * 1.15);
-                acc.originalPriceVND = Math.round(priceVND * 1.15);
-                acc.markupAppliedPercent = activeMarkup;
-                acc.profitTHB = Math.round(rawThb * (activeMarkup / 100));
-              }
-              map.set(acc.id, acc);
-            });
-            return Array.from(map.values());
-          });
-        }
-      })
-      .catch((_) => {
-        // Silently continue if static stock file isn't created yet
-      });
+  // Dynamic Tiered Price Markup Calculator for CN accounts
+  const calculateCnPricing = useCallback((acc) => {
+    if (!acc.rmbPrice) return acc;
+    const rawThb = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateThb || 5.2);
+    const rawVnd = Number(acc.rmbPrice) * Number(storeSettings.chinaCnyRateVnd || 3700);
+    let activeMarkup = Number(storeSettings.chinaMarkupPercent || 10);
+    if ((storeSettings.chinaMarkupMode || 'tiered') === 'tiered') {
+      const threshold = Number(storeSettings.chinaMarkupThreshold || 100000);
+      activeMarkup = rawThb < threshold
+        ? Number(storeSettings.chinaMarkupTier1Percent ?? 10)
+        : Number(storeSettings.chinaMarkupTier2Percent ?? 13);
+    }
+    const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
+    const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
+    return {
+      ...acc,
+      priceTHB,
+      priceVND,
+      originalPriceTHB: Math.round(priceTHB * 1.15),
+      originalPriceVND: Math.round(priceVND * 1.15),
+      markupAppliedPercent: activeMarkup,
+      profitTHB: Math.round(rawThb * (activeMarkup / 100)),
+      isSold: soldAccountIds.includes(acc.id)
+    };
   }, [
     storeSettings.chinaMarkupMode,
     storeSettings.chinaMarkupThreshold,
@@ -171,80 +152,82 @@ function App() {
     soldAccountIds
   ]);
 
-  // Live Real-Time China Stock Sync (Direct Browser-to-API Fetch without Firebase)
-  useEffect(() => {
-    let timer = null;
+  // Unified China Stock Sync & Auto-Refresh Function (combines cache-busted static JSON + live API)
+  const refreshChinaStock = useCallback(async (isSilent = true) => {
+    if (!isSilent) setIsStockRefreshing(true);
+    try {
+      // 1. Fetch latest static stock from china_stock.json with cache-busting timestamp
+      const staticPromise = fetch(`/data/china_stock.json?_t=${Date.now()}`)
+        .then((res) => (res.ok ? res.json() : null))
+        .catch(() => null);
 
-    const fetchLiveArrivals = async () => {
-      try {
-        const res = await fetch('https://fzht.xuxug.com/api/api/newShangpinList', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            page: 1,
-            size: 20,
-            datainfo: { zuidijia: '', zuigaojia: '', guanjianci: '', biaoqian: [], paixu: '' }
-          })
-        });
+      // 2. Query Vercel live serverless proxy if available
+      const livePromise = fetch(`/api/china-live-arrivals?pages=2&cnyRateThb=${storeSettings.chinaCnyRateThb || 5.2}&tier1=${storeSettings.chinaMarkupTier1Percent ?? 10}&tier2=${storeSettings.chinaMarkupTier2Percent ?? 13}`)
+        .then((res) => (res.ok ? res.json() : null))
+        .catch(() => null);
 
-        if (!res.ok) return;
-        const data = await res.json();
-        const rawList = data?.data?.data || [];
-        if (!Array.isArray(rawList) || rawList.length === 0) return;
+      const [staticStock, liveResult] = await Promise.all([staticPromise, livePromise]);
 
+      const baseList = Array.isArray(staticStock) && staticStock.length > 0 ? staticStock : [];
+      const liveItems = Array.isArray(liveResult?.items) ? liveResult.items : [];
+
+      if (baseList.length > 0 || liveItems.length > 0) {
         setAccounts((prev) => {
-          const map = new Map(prev.map((a) => [a.id, a]));
-          let hasChange = false;
-          rawList.forEach((raw) => {
-            const normalized = normalizeChinaAccount(raw, {}, {
-              cnyRateThb: Number(storeSettings.chinaCnyRateThb || 5.2),
-              cnyRateVnd: Number(storeSettings.chinaCnyRateVnd || 3700),
-              markupMode: storeSettings.chinaMarkupMode || 'tiered',
-              markupThreshold: Number(storeSettings.chinaMarkupThreshold || 100000),
-              markupTier1Percent: Number(storeSettings.chinaMarkupTier1Percent ?? 10),
-              markupTier2Percent: Number(storeSettings.chinaMarkupTier2Percent ?? 13),
-              markupPercent: Number(storeSettings.chinaMarkupPercent || 10)
-            });
+          const map = new Map();
 
-            if (soldAccountIds.includes(normalized.id)) {
-              normalized.isSold = true;
+          // 1. Preserve local / Thai / VN custom accounts
+          prev.forEach((a) => {
+            if (a.region !== 'cn' || a.isCustomLocal) {
+              map.set(a.id, a);
             }
-
-            if (!map.has(normalized.id)) {
-              hasChange = true;
-            }
-            map.set(normalized.id, normalized);
           });
 
-          return hasChange ? Array.from(map.values()) : prev;
+          // 2. Prepend live arrivals if available
+          liveItems.forEach((acc) => {
+            map.set(acc.id, calculateCnPricing(acc));
+          });
+
+          // 3. Add base stock accounts (10,589+ items)
+          baseList.forEach((acc) => {
+            if (!map.has(acc.id)) {
+              map.set(acc.id, calculateCnPricing(acc));
+            }
+          });
+
+          return Array.from(map.values());
         });
-      } catch (_) {
-        // Silently continue if network fails
+        setLastStockUpdated(new Date());
+      }
+    } catch (err) {
+      console.warn('Auto-refresh stock failed:', err);
+    } finally {
+      setIsStockRefreshing(false);
+    }
+  }, [calculateCnPricing, storeSettings.chinaCnyRateThb, storeSettings.chinaMarkupTier1Percent, storeSettings.chinaMarkupTier2Percent]);
+
+  // Auto-refresh lifecycle: Initial fetch + Interval (every 60s) + Window Focus Resume
+  useEffect(() => {
+    // 1. Initial Load
+    refreshChinaStock(true);
+
+    // 2. Continuous Background Interval (every 60 seconds)
+    const timer = setInterval(() => {
+      refreshChinaStock(true);
+    }, 60 * 1000);
+
+    // 3. Auto-refresh when customer switches back to this browser tab
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        refreshChinaStock(true);
       }
     };
-
-    // Initial live check on load
-    fetchLiveArrivals();
-
-    // Check for newly posted accounts every 60 seconds while customer stays on the website
-    timer = setInterval(fetchLiveArrivals, 60 * 1000);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      if (timer) clearInterval(timer);
+      clearInterval(timer);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [
-    storeSettings.chinaMarkupMode,
-    storeSettings.chinaMarkupThreshold,
-    storeSettings.chinaMarkupTier1Percent,
-    storeSettings.chinaMarkupTier2Percent,
-    storeSettings.chinaMarkupPercent,
-    storeSettings.chinaCnyRateThb,
-    storeSettings.chinaCnyRateVnd,
-    soldAccountIds
-  ]);
+  }, [refreshChinaStock]);
 
   // Admin Authentication State
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
@@ -674,6 +657,10 @@ function App() {
         searchInputRef={searchInputRef}
         counts={categoryCounts}
         t={t}
+        onRefreshStock={() => refreshChinaStock(false)}
+        isStockRefreshing={isStockRefreshing}
+        lastStockUpdated={lastStockUpdated}
+        totalAccountsCount={accounts.filter((a) => !a.isSold && (activeRegion === 'all' || a.region === activeRegion)).length}
       />
 
       {/* Main Account Catalog */}
