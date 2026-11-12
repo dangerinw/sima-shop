@@ -16,7 +16,6 @@ export default function Navbar({
     <>
       {/* Top Banner Announcement */}
       <div className="bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-black text-[11px] sm:text-xs font-bold py-1.5 px-3 sm:px-4 text-center flex items-center justify-center gap-2 shadow-inner overflow-hidden">
-        <span className="inline-block animate-pulse shrink-0">🔥</span>
         <span className="truncate max-w-[90vw] sm:max-w-none">{t.announcement}</span>
       </div>
 
@@ -52,52 +51,16 @@ export default function Navbar({
           {/* RIGHT ACTIONS: Social contact + Language + Currency + Search + Admin + Mobile toggle */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             
-            {/* SUNSNAPPZ BADGE (Trade Manager) */}
-            <div 
-              className="hidden xl:inline-flex items-center gap-2 bg-[#121824] border border-amber-500/30 px-3 py-1.5 rounded-xl shadow-md"
-              title="ผู้ดูแลการซื้อขาย: SunsnappZ"
-            >
-              <img 
-                src="/images/sunsnappz-logo.png" 
-                alt="SunsnappZ" 
-                className="w-7 h-7 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] shrink-0" 
-              />
-              <div className="text-left leading-tight">
-                <div className="flex items-center gap-1">
-                  <span className="text-xs font-black text-white">SunsnappZ</span>
-                  <span className="text-[8px] px-1 py-0.2 rounded bg-amber-500 text-black font-extrabold uppercase">แอดมิน</span>
-                </div>
-                <div className="text-[10px] text-amber-400 font-semibold mt-0.5">ผู้ดูแลการซื้อขาย</div>
-              </div>
-            </div>
-
-            {/* AWESOMEZ SHOP BADGE (Partner Shop) */}
-            <div 
-              className="hidden xl:inline-flex items-center gap-2 bg-[#121824] border border-indigo-500/30 px-3 py-1.5 rounded-xl shadow-md"
-              title="ร้านค้าผู้ดูแล: AWESOMEZ SHOP"
-            >
-              <div className="h-6 flex items-center justify-center">
-                <img 
-                  src="/images/awesomez-shop-logo.png" 
-                  alt="AWESOMEZ SHOP" 
-                  className="h-4 w-auto object-contain brightness-110" 
-                />
-              </div>
-              <div className="text-left leading-tight">
-                <div className="text-[10px] text-indigo-400 font-semibold">ร้านค้าผู้ดูแล</div>
-              </div>
-            </div>
-
             {/* FACEBOOK CONTACT BUTTON */}
             <a 
               href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
               target="_blank" 
               rel="noreferrer" 
-              className="hidden sm:inline-flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-400 px-2.5 py-1.5 rounded-lg border border-blue-500/30 transition-all shadow-sm"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold whitespace-nowrap bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-400 px-2.5 py-1.5 rounded-lg border border-blue-500/30 transition-all shadow-sm"
               title="ติดต่อสั่งซื้อผ่าน Facebook: SunsnappZ"
             >
               <span>📘</span>
-              <span className="hidden md:inline">Facebook</span>
+              <span className="hidden xl:inline">Facebook</span>
             </a>
 
             {/* DISCORD CONTACT BUTTON */}
@@ -105,11 +68,11 @@ export default function Navbar({
               href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'} 
               target="_blank" 
               rel="noreferrer" 
-              className="hidden sm:inline-flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-indigo-500/10 hover:bg-indigo-600 hover:text-white text-indigo-400 px-2.5 py-1.5 rounded-lg border border-indigo-500/30 transition-all shadow-sm"
-              title="ติดต่อสั่งซื้อผ่าน Discord"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold whitespace-nowrap bg-indigo-500/10 hover:bg-indigo-600 hover:text-white text-indigo-400 px-2.5 py-1.5 rounded-lg border border-indigo-500/30 transition-all shadow-sm"
+              title="ติดต่อสั่งซื้อผ่าน Discord: AWESOMEZ SHOP"
             >
               <span>💜</span>
-              <span className="hidden md:inline">Discord</span>
+              <span className="hidden xl:inline">Discord</span>
             </a>
 
             {/* LANGUAGE SWITCHER */}
