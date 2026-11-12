@@ -534,24 +534,23 @@ export default function AccountModal({
               </div>
 
               {/* Official Trade Manager Profile Card (SunsnappZ & AWESOMEZ SHOP) */}
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-amber-950/30 to-slate-900 border border-amber-500/30 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-xl">
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-900/90 via-amber-950/40 to-slate-900/90 border border-amber-500/40 flex flex-col sm:flex-row items-center sm:items-start gap-4 shadow-2xl backdrop-blur-md">
                 <img 
-                  src="/images/sunsnappz-logo.jpg" 
+                  src="/images/sunsnappz-logo.png" 
                   alt="SunsnappZ Manager" 
-                  className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shadow-md shrink-0" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
                 />
-                <div className="flex-1 min-w-0 text-center sm:text-left">
+                <div className="flex-1 min-w-0 text-center sm:text-left space-y-1.5">
                   <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                    <h4 className="text-base font-black text-white">SunsnappZ</h4>
-                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                    <h4 className="text-lg font-black text-white">SunsnappZ</h4>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
                       ✓ ผู้ดูแลการซื้อขายอย่างเป็นทางการ
                     </span>
                   </div>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 mt-1">
-                    <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-4 object-contain brightness-110" />
-                    <span className="text-xs text-amber-400 font-semibold">• AWESOMEZ SHOP</span>
+                  <div>
+                    <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-6 sm:h-7 object-contain drop-shadow-md brightness-110 mx-auto sm:mx-0" />
                   </div>
-                  <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                  <p className="text-xs text-slate-300 mt-1 leading-relaxed">
                     แอดมินดูแลการส่งมอบไอดี PUBG PC โดยตรง รับประกันมือ 1 ปลอดภัย โอนย้าย Steam และส่งมอบอีเมลแรกแท้ 100%
                   </p>
                 </div>

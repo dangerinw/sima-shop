@@ -17,15 +17,15 @@ export default function Footer({ t, storeSettings = {} }) {
 
         {/* Trade Manager Card & Official Contact Badges */}
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-amber-500/30">
+          <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-amber-500/30 shadow-md">
             <img 
-              src="/images/sunsnappz-logo.jpg" 
+              src="/images/sunsnappz-logo.png" 
               alt="SunsnappZ" 
-              className="w-7 h-7 rounded-lg object-cover border border-amber-400" 
+              className="w-8 h-8 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] shrink-0" 
             />
             <div className="text-left leading-tight">
               <span className="text-[10px] text-amber-400 block font-bold">ผู้ดูแลการซื้อขาย: SunsnappZ</span>
-              <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-3 object-contain mt-0.5" />
+              <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-4 object-contain mt-1 drop-shadow-sm brightness-110" />
             </div>
           </div>
 

@@ -81,23 +81,22 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
 
             {/* Official Trade Manager Badge (SunsnappZ & AWESOMEZ SHOP) */}
             <div className="pt-2 max-w-lg mx-auto lg:mx-0">
-              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 border border-amber-500/30 flex items-center justify-between gap-3 shadow-lg">
-                <div className="flex items-center gap-3 min-w-0">
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900/90 via-amber-950/30 to-slate-900/90 border border-amber-500/40 flex items-center justify-between gap-4 shadow-xl backdrop-blur-md">
+                <div className="flex items-center gap-3.5 min-w-0">
                   <img 
-                    src="/images/sunsnappz-logo.jpg" 
+                    src="/images/sunsnappz-logo.png" 
                     alt="SunsnappZ" 
-                    className="w-12 h-12 rounded-xl object-cover border-2 border-amber-400 shrink-0 shadow-md" 
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
                   />
-                  <div className="min-w-0 text-left">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-sm font-black text-white">SunsnappZ</span>
-                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
+                  <div className="min-w-0 text-left space-y-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-base font-black text-white">SunsnappZ</span>
+                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
                         ✓ ดูแลการซื้อขาย
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 mt-0.5">
-                      <img src="/images/awesomez-shop-logo.jpg" alt="AWESOMEZ SHOP" className="h-4 object-contain brightness-110" />
-                      <span className="text-[11px] text-amber-400/90 font-medium hidden sm:inline">• AWESOMEZ SHOP</span>
+                    <div>
+                      <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-6 sm:h-7 object-contain drop-shadow-md brightness-110" />
                     </div>
                   </div>
                 </div>
@@ -107,7 +106,7 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
                     href={storeSettings?.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-2.5 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/30 transition-all text-xs font-bold flex items-center gap-1"
+                    className="px-3 py-2 rounded-xl bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/40 transition-all text-xs font-bold flex items-center gap-1.5 shadow-sm"
                     title="Facebook แอดมิน: SunsnappZ"
                   >
                     <span>📘</span>
@@ -117,7 +116,7 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
                     href={storeSettings?.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-2.5 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/30 transition-all text-xs font-bold flex items-center gap-1"
+                    className="px-3 py-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-500/40 transition-all text-xs font-bold flex items-center gap-1.5 shadow-sm"
                     title="Discord Server"
                   >
                     <span>💜</span>

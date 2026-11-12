@@ -57,20 +57,20 @@ export default function Navbar({
               href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
               target="_blank" 
               rel="noreferrer" 
-              className="hidden lg:inline-flex items-center gap-2 bg-[#121824] hover:bg-slate-800 border border-amber-500/30 hover:border-amber-400 px-2.5 py-1 rounded-xl transition-all shadow-sm group"
+              className="hidden lg:inline-flex items-center gap-2 bg-[#121824] hover:bg-slate-800 border border-amber-500/30 hover:border-amber-400 px-3 py-1.5 rounded-xl transition-all shadow-md group"
               title="ผู้ดูแลการซื้อขาย: SunsnappZ (AWESOMEZ SHOP)"
             >
               <img 
-                src="/images/sunsnappz-logo.jpg" 
+                src="/images/sunsnappz-logo.png" 
                 alt="SunsnappZ" 
-                className="w-7 h-7 rounded-lg object-cover border border-amber-400/60 group-hover:scale-105 transition-transform" 
+                className="w-8 h-8 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] group-hover:scale-110 transition-transform" 
               />
               <div className="text-left leading-tight">
-                <div className="flex items-center gap-1">
-                  <span className="text-[11px] font-black text-white">SunsnappZ</span>
-                  <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500 text-black font-extrabold uppercase">แอดมิน</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-black text-white">SunsnappZ</span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500 text-black font-extrabold uppercase">แอดมิน</span>
                 </div>
-                <div className="text-[9px] text-amber-400/90 font-medium">AWESOMEZ SHOP</div>
+                <div className="text-[10px] text-amber-400 font-bold mt-0.5">AWESOMEZ SHOP</div>
               </div>
             </a>
 
@@ -226,16 +226,18 @@ export default function Navbar({
               {/* Trade Manager Card in Mobile Menu */}
               <div className="p-3 rounded-xl bg-slate-900 border border-amber-500/30 flex items-center gap-3">
                 <img 
-                  src="/images/sunsnappz-logo.jpg" 
+                  src="/images/sunsnappz-logo.png" 
                   alt="SunsnappZ" 
-                  className="w-10 h-10 rounded-xl object-cover border border-amber-400 shrink-0" 
+                  className="w-12 h-12 object-contain drop-shadow-[0_2px_8px_rgba(245,158,11,0.3)] shrink-0" 
                 />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-black text-white">SunsnappZ</span>
+                    <span className="text-sm font-black text-white">SunsnappZ</span>
                     <span className="text-[9px] bg-amber-500 text-black px-1.5 py-0.2 rounded font-extrabold">ผู้ดูแลการซื้อขาย</span>
                   </div>
-                  <span className="text-[10px] text-amber-400 block font-medium">AWESOMEZ SHOP</span>
+                  <div className="mt-1">
+                    <img src="/images/awesomez-shop-logo.png" alt="AWESOMEZ SHOP" className="h-4 object-contain brightness-110 drop-shadow-sm" />
+                  </div>
                 </div>
               </div>
 
