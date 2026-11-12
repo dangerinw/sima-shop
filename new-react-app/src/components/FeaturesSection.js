@@ -72,75 +72,60 @@ export default function FeaturesSection({ t }) {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Card 1: SunsnappZ - Trade Manager */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#111723] via-amber-950/20 to-[#111723] border border-amber-500/40 flex flex-col justify-between gap-5 shadow-2xl hover:border-amber-400/70 transition-all">
-            <div className="flex items-start gap-4">
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0d131f] via-[#141b2b] to-[#0b0e14] border border-amber-500/40 shadow-xl shadow-amber-950/20 flex flex-col justify-between gap-4 hover:border-amber-400/80 transition-all">
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                ผู้ดูแลการซื้อขายอย่างเป็นทางการ
+              </span>
+              <span className="text-[10px] text-slate-500 font-mono font-bold tracking-wider">OFFICIAL ESCROW</span>
+            </div>
+
+            <div className="flex items-center gap-4 my-1">
               <img 
                 src="/images/sunsnappz-logo.png" 
                 alt="SunsnappZ Manager" 
-                className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
+                className="w-18 h-18 sm:w-22 sm:h-22 object-contain drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0 hover:scale-105 transition-transform" 
               />
-              <div className="space-y-1.5 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xl font-black text-white">SunsnappZ</span>
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-bold">
-                    ✓ ผู้ดูแลการซื้อขายอย่างเป็นทางการ
-                  </span>
-                </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  แอดมินคนกลางดูแลการส่งมอบไอดี PUBG PC โดยตรง ตรวจเช็กคลังไอดีจริง โอนย้าย Steam ปลอดภัย 100% มีประกันมือ 1 ไม่ดึงคืน
+              <div className="space-y-1 min-w-0">
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide">
+                  SunsnappZ
+                </h3>
+                <p className="text-xs text-amber-400/90 font-medium">
+                  คนกลางดูแลการส่งมอบไอดี PUBG PC
                 </p>
               </div>
             </div>
-            <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-3">
-              <span className="text-[11px] text-slate-400">ช่องทางติดต่อหลัก Facebook</span>
-              <a
-                href="https://www.facebook.com/profile.php?id=61596307388431"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all shrink-0"
-              >
-                <span>📘</span>
-                <span>Facebook แอดมิน</span>
-                <span>↗</span>
-              </a>
-            </div>
+
+            <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+              แอดมินคนกลางดูแลการส่งมอบไอดี PUBG PC โดยตรง ตรวจเช็กคลังไอดีจริง โอนย้าย Steam ปลอดภัย 100% มีประกันมือ 1 ไม่ดึงคืน
+            </p>
           </div>
 
-          {/* Card 2: AWESOMEZ SHOP - Official Discord Shop & Community */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#111723] via-indigo-950/20 to-[#111723] border border-indigo-500/40 flex flex-col justify-between gap-5 shadow-2xl hover:border-indigo-400/70 transition-all">
-            <div className="flex items-start gap-4">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-950/90 border border-indigo-500/30 flex items-center justify-center p-2 shrink-0">
-                <img 
-                  src="/images/awesomez-shop-logo.png" 
-                  alt="AWESOMEZ SHOP" 
-                  className="w-full h-auto object-contain drop-shadow-md brightness-110" 
-                />
-              </div>
-              <div className="space-y-1.5 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xl font-black text-white">AWESOMEZ SHOP</span>
-                  <span className="text-[10px] bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 px-2 py-0.5 rounded-full font-bold">
-                    💜 Discord Community & Shop
-                  </span>
-                </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  คอมมูนิตี้และร้านค้าทางการ สั่งซื้อไอดี พูดคุยปรึกษาทีมงาน และเปิดตั๋ว Ticket สั่งซื้อปลอดภัยกับทีมงานตลอด 24 ชม.
-                </p>
-              </div>
+          {/* Card 2: AWESOMEZ SHOP - Official Partner Shop */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0d131f] via-[#15172b] to-[#0b0e14] border border-indigo-500/40 shadow-xl shadow-indigo-950/20 flex flex-col justify-between gap-4 hover:border-indigo-400/80 transition-all">
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/40 text-indigo-300 text-xs font-bold">
+                <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                ร้านค้าผู้ดูแล
+              </span>
+              <span className="text-[10px] text-slate-500 font-mono font-bold tracking-wider">OFFICIAL PARTNER</span>
             </div>
-            <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-3">
-              <span className="text-[11px] text-slate-400">คอมมูนิตี้ & เปิดตั๋วสั่งซื้อไอดี</span>
-              <a
-                href="https://discord.gg/p9fHwmMUPd"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all shrink-0"
-              >
-                <span>💜</span>
-                <span>Discord Server</span>
-                <span>↗</span>
-              </a>
+
+            <div className="flex flex-col justify-center my-1 min-h-[72px] sm:min-h-[88px]">
+              <img 
+                src="/images/awesomez-shop-logo.png" 
+                alt="AWESOMEZ SHOP" 
+                className="h-10 sm:h-12 w-auto max-w-[240px] sm:max-w-[280px] object-contain drop-shadow-[0_4px_16px_rgba(99,102,241,0.35)] brightness-110 hover:scale-105 transition-transform origin-left" 
+              />
+              <p className="text-xs text-indigo-400/90 font-medium mt-2">
+                ร้านค้าทางการและคอมมูนิตี้
+              </p>
             </div>
+
+            <p className="text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+              ร้านค้าและคอมมูนิตี้ทางการ คัดสรรไอดีคุณภาพสูง ตรวจสอบประวัติบัญชีขาวสะอาด พร้อมทีมงานดูแลระบบและซัพพอร์ตตลอด 24 ชม.
+            </p>
           </div>
 
         </div>
