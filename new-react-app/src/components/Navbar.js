@@ -22,34 +22,33 @@ export default function Navbar({
 
       {/* Main Navbar */}
       <header className="sticky top-0 z-40 bg-[#0b0f17]/95 backdrop-blur-md border-b border-slate-800/80 transition-all">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 lg:gap-6">
           
           {/* LOGO: PUBG SIAM */}
           <a href="#hero" className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0 group">
-            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-black text-xl sm:text-2xl shadow-lg pubg-glow tracking-tighter shrink-0 transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-black text-xl sm:text-2xl shadow-lg pubg-glow tracking-tighter shrink-0 transition-transform group-hover:scale-105">
               PS
             </div>
             <div className="shrink-0">
-              <div className="text-base sm:text-xl font-extrabold tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
+              <div className="text-base sm:text-lg font-extrabold tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
                 PUBG<span className="text-amber-400"> SIAM</span>
                 <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">PUBG PC</span>
               </div>
-              <p className="hidden md:block text-[11px] text-slate-400 -mt-0.5 font-medium tracking-wide whitespace-nowrap">{t.brandSub}</p>
+              <p className="hidden md:block text-[10px] text-slate-400 -mt-0.5 font-medium tracking-wide whitespace-nowrap">{t.brandSub}</p>
             </div>
           </a>
 
-          {/* DESKTOP NAV LINKS (lg and up) */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium shrink-0">
-            <a href="#hero" className="text-amber-400 font-semibold transition-colors flex items-center gap-1.5 whitespace-nowrap">
+          {/* DESKTOP NAV LINKS (xl and up) */}
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-semibold shrink-0">
+            <a href="#hero" className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 whitespace-nowrap">
               <span>{t.navHome}</span>
             </a>
             <a href="#catalog" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navCatalog}</a>
             <button
               type="button"
               onClick={() => onOpenRules ? onOpenRules('th') : (window.location.hash = '#rules')}
-              className="text-slate-300 hover:text-amber-400 transition-colors whitespace-nowrap flex items-center gap-1.5"
+              className="text-slate-300 hover:text-amber-400 transition-colors whitespace-nowrap flex items-center gap-1"
             >
-              <span>📜</span>
               <span>{t.navRules}</span>
             </button>
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>

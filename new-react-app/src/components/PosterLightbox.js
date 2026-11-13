@@ -88,13 +88,14 @@ export default function PosterLightbox({
 
       {/* Poster Image Container */}
       <div 
-        className="relative max-w-4xl max-h-[85vh] w-auto overflow-y-auto rounded-2xl border border-amber-500/40 shadow-[0_0_50px_rgba(245,158,11,0.25)] bg-black scrollbar-thin scrollbar-thumb-amber-500/50 scrollbar-track-slate-900"
+        className="relative max-h-[85vh] w-auto max-w-[92vw] sm:max-w-md md:max-w-lg overflow-y-auto rounded-2xl border border-amber-500/40 shadow-[0_0_50px_rgba(245,158,11,0.25)] bg-black scrollbar-thin scrollbar-thumb-amber-500/50 scrollbar-track-slate-900"
         onClick={(e) => e.stopPropagation()}
       >
         <img 
           src={posterUrl} 
           alt="Original Rules Poster"
-          className="w-full h-auto max-h-[83vh] object-contain block mx-auto" 
+          className="w-full h-auto object-contain block mx-auto" 
+          style={{ aspectRatio: '682 / 1024' }}
         />
       </div>
 

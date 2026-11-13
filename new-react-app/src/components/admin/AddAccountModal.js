@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { dbService } from '../../services/dbService';
+import filterCategoriesData from '../../data/filterCategories.json';
+
+// Flatten all 240+ Noctis filter items once
+const allFilterItemsList = [];
+filterCategoriesData.forEach((cat) => {
+  cat.items.forEach((it) => {
+    allFilterItemsList.push(it);
+  });
+});
 
 export default function AddAccountModal({ isOpen, onClose, onSave, editingAccount, lang }) {
   // Quick Paste Raw Text
@@ -9,6 +18,9 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
   const [images, setImages] = useState([]);
   const [imageUrlInput, setImageUrlInput] = useState('');
   const [isProcessingImg, setIsProcessingImg] = useState(false);
+
+  // Attached Noctis Skin Items (Auto-connected to all filters)
+  const [attachedSkinItems, setAttachedSkinItems] = useState([]);
 
   const [formData, setFormData] = useState({
     id: '',
@@ -43,6 +55,40 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     accentColor: 'from-slate-900 to-amber-950/40'
   });
 
+  // Auto-detect Noctis skin items from any text
+  const detectSkinItems = (text) => {
+    if (!text) return [];
+    const lower = text.toLowerCase();
+    const matched = [];
+    const seenIds = new Set();
+
+    allFilterItemsList.forEach((it) => {
+      const keywords = [
+        ...(it.keywords || []),
+        it.name,
+        it.thaiName,
+        it.chineseName
+      ].filter(Boolean);
+
+      const hit = keywords.some((kw) => {
+        const kwLower = kw.toLowerCase().trim();
+        if (!kwLower) return false;
+        if (['m4', 'aug', 'mk', 'beryl', 'm762', 'awm', '98k', 'kar98', 'urus', 'bape'].includes(kwLower)) {
+          return lower.includes(kwLower);
+        }
+        if (kwLower.length <= 2) return false;
+        return lower.includes(kwLower);
+      });
+
+      if (hit && !seenIds.has(it.id)) {
+        seenIds.add(it.id);
+        matched.push(it);
+      }
+    });
+
+    return matched;
+  };
+
   useEffect(() => {
     if (editingAccount) {
       setFormData({
@@ -56,6 +102,16 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
         videoUrl: editingAccount.videoUrl || ''
       });
       setImages(editingAccount.images || []);
+
+      if (Array.isArray(editingAccount.skinItems) && editingAccount.skinItems.length > 0) {
+        setAttachedSkinItems(editingAccount.skinItems);
+      } else if (Array.isArray(editingAccount.skinItemIds) && editingAccount.skinItemIds.length > 0) {
+        const list = editingAccount.skinItemIds.map((id) => allFilterItemsList.find((it) => it.id === id)).filter(Boolean);
+        setAttachedSkinItems(list);
+      } else {
+        const combined = [editingAccount.title_th, editingAccount.title, editingAccount.gunLevel_th, editingAccount.details_th].filter(Boolean).join(' ');
+        setAttachedSkinItems(detectSkinItems(combined));
+      }
     } else {
       const randomNum = Math.floor(1000 + Math.random() * 9000);
       setFormData({
@@ -91,6 +147,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
         accentColor: 'from-slate-900 to-amber-950/40'
       });
       setImages([]);
+      setAttachedSkinItems([]);
       setRawPostText('');
     }
   }, [editingAccount, isOpen]);
@@ -264,6 +321,16 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     }));
 
     setRawPostText(text);
+
+    // Auto-detect and attach matching Noctis filter skin items
+    const detected = detectSkinItems(text);
+    if (detected.length > 0) {
+      setAttachedSkinItems((prev) => {
+        const map = new Map(prev.map((it) => [it.id, it]));
+        detected.forEach((it) => map.set(it.id, it));
+        return Array.from(map.values());
+      });
+    }
   };
 
   // Click shortcut: One-click fill the user's real sample
@@ -298,17 +365,34 @@ All banks accepted.`;
       ...formData,
       region: formData.region || 'th',
       images: images,
+      coverImg: images[0] || '',
+      detailImages: images.slice(1),
+      title: formData.title_th || formData.title_en,
       title_th: formData.title_th || formData.title_en,
       title_en: formData.title_en || formData.title_th,
+      subtitle: formData.subtitle_th || formData.subtitle_en,
       subtitle_th: formData.subtitle_th || formData.subtitle_en,
       subtitle_en: formData.subtitle_en || formData.subtitle_th,
+      details: formData.details_th || formData.details_en,
       details_th: formData.details_th || formData.details_en,
       details_en: formData.details_en || formData.details_th,
+      gunLevel: formData.gunLevel_th || formData.gunLevel_en || '',
+      gunLevel_th: formData.gunLevel_th || formData.gunLevel_en || '',
+      gunLevel_en: formData.gunLevel_en || formData.gunLevel_th || '',
       priceVND: Number(formData.priceVND) || 0,
       priceTHB: Number(formData.priceTHB) || 0,
       originalPriceVND: Number(formData.originalPriceVND) || Number(formData.priceVND) * 1.25,
       originalPriceTHB: Number(formData.originalPriceTHB) || Number(formData.priceTHB) * 1.25,
       tags: cleanedTags,
+      skinItemIds: attachedSkinItems.map((it) => it.id),
+      skinItems: attachedSkinItems.map((it) => ({
+        id: it.id,
+        name: it.name,
+        thaiName: it.thaiName,
+        localIcon: it.localIcon
+      })),
+      isCustomLocal: true,
+      updatedAt: new Date().toISOString()
     };
 
     onSave(payload);
@@ -664,9 +748,61 @@ All banks accepted.`;
                 type="text"
                 placeholder="เช่น Aug Lv.10 Max + Chroma | Mini Lv.6 Max | Beryl Lv.2"
                 value={formData.gunLevel_th}
-                onChange={(e) => setFormData({ ...formData, gunLevel_th: e.target.value, gunLevel_en: e.target.value })}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setFormData({ ...formData, gunLevel_th: val, gunLevel_en: val });
+                  const detected = detectSkinItems(formData.title_th + ' ' + val + ' ' + formData.details_th);
+                  if (detected.length > 0) {
+                    setAttachedSkinItems((prev) => {
+                      const map = new Map(prev.map((it) => [it.id, it]));
+                      detected.forEach((it) => map.set(it.id, it));
+                      return Array.from(map.values());
+                    });
+                  }
+                }}
                 className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white focus:border-amber-500 outline-none"
               />
+            </div>
+
+            {/* 🎯 DETECTED NOCTIS SKIN ITEMS (เชื่อมต่อกับตัวกรอง 240+ ไอเทม) */}
+            <div className="p-3.5 rounded-2xl bg-slate-950 border border-amber-500/30 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                  <span>🎯</span>
+                  <span>ไอเทมสกินที่เชื่อมต่อกับตัวกรอง (Noctis Filter):</span>
+                </span>
+                <span className="text-[11px] text-slate-400 font-mono">
+                  {attachedSkinItems.length} ไอเทมที่ตรวจพบ
+                </span>
+              </div>
+
+              {attachedSkinItems.length > 0 ? (
+                <div className="flex flex-wrap gap-1.5">
+                  {attachedSkinItems.map((item) => (
+                    <span
+                      key={item.id}
+                      className="inline-flex items-center gap-1.5 pl-1.5 pr-2 py-1 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold"
+                    >
+                      {item.localIcon && (
+                        <img src={item.localIcon} alt={item.name} className="w-5 h-5 object-contain" />
+                      )}
+                      <span>{item.thaiName || item.name}</span>
+                      <button
+                        type="button"
+                        onClick={() => setAttachedSkinItems((prev) => prev.filter((it) => it.id !== item.id))}
+                        className="w-4 h-4 rounded-full bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white flex items-center justify-center text-[10px] ml-0.5 cursor-pointer"
+                        title="ลบไอเทมนี้"
+                      >
+                        ✕
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-xs text-slate-500 italic">
+                  💡 ระบบจะตรวจจับสกิน ปืน และชุดจากข้อความที่พิมพ์ด้านบนให้อัตโนมัติ (เช่น Aug มิโนทอร์, Beryl เมดูซ่า, Urus, M416 กลาเซีย) และนำไปเชื่อมกับตัวกรองสกิน 240+ ไอเทมทันที
+                </p>
+              )}
             </div>
 
             {/* Row 6: Video Link */}

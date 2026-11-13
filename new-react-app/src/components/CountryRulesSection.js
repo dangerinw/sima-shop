@@ -160,8 +160,8 @@ export default function CountryRulesSection({ lang = 'th', t }) {
 
         {/* POSTER VIEW MODE */}
         {viewMode === 'poster' && posterUrl && (
-          <div className="bg-[#0f131d]/90 border border-amber-500/40 rounded-3xl p-4 sm:p-8 shadow-2xl flex flex-col items-center space-y-4">
-            <div className="flex items-center justify-between w-full max-w-2xl px-2">
+          <div className="bg-[#0f131d]/90 border border-amber-500/40 rounded-3xl p-4 sm:p-6 shadow-2xl flex flex-col items-center space-y-4">
+            <div className="flex items-center justify-between w-full max-w-lg px-2">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">{currentCountry.flag}</span>
                 <span className="text-sm sm:text-base font-black text-white">
@@ -174,18 +174,19 @@ export default function CountryRulesSection({ lang = 'th', t }) {
                 className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-black transition-all flex items-center gap-1 shadow"
               >
                 <span>🔍</span>
-                <span>{isTh ? 'คลิกเพื่อขยายดูเต็มจอ' : 'Click to Fullscreen'}</span>
+                <span>{isTh ? 'ขยายเต็มจอ' : 'Fullscreen'}</span>
               </button>
             </div>
 
             <div 
-              className="w-full max-w-2xl rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-black cursor-zoom-in group"
+              className="w-full max-w-lg rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-black cursor-zoom-in group"
               onClick={() => setIsLightboxOpen(true)}
             >
               <img 
                 src={posterUrl} 
                 alt="Rules Poster" 
                 className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]" 
+                style={{ aspectRatio: '682 / 1024' }}
               />
             </div>
           </div>

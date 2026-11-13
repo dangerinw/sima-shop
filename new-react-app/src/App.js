@@ -369,9 +369,21 @@ function App() {
       const a = accounts[i];
       if (a.isSold) continue;
       all++;
-      if (a.category === 'progressive') progressive++;
-      else if (a.category === 'rank-ready') rankReady++;
-      else if (a.category === 'rare-skins') rareSkins++;
+      const fullText = [
+        a.title,
+        a.title_th,
+        a.title_en,
+        a.gunLevel,
+        a.gunLevel_th,
+        a.gunLevel_en,
+        a.details,
+        a.details_th,
+        (a.tags || []).join(' ')
+      ].filter(Boolean).join(' ').toLowerCase();
+
+      if (a.category === 'progressive' || fullText.includes('progressive') || fullText.includes('lv.') || fullText.includes('max') || fullText.includes('ปืนอัปเกรด')) progressive++;
+      else if (a.category === 'rank-ready' || fullText.includes('rank') || fullText.includes('แรงค์') || fullText.includes('plus')) rankReady++;
+      else if (a.category === 'rare-skins' || fullText.includes('แรร์') || fullText.includes('bape') || fullText.includes('shroud') || fullText.includes('ทรงจีน') || fullText.includes('urus')) rareSkins++;
     }
     return { all, progressive, rankReady, rareSkins };
   }, [accounts]);
@@ -382,71 +394,156 @@ function App() {
       // Hide sold accounts in storefront
       if (item.isSold) return false;
 
-      // Category match
-      if (activeCategory !== 'all' && item.category !== activeCategory) return false;
+      // 1. Country / Region match (all | th | cn | vn)
+      if (activeRegion !== 'all') {
+        const itemReg = String(item.region || 'th').toLowerCase();
+        if (itemReg !== activeRegion.toLowerCase()) return false;
+      }
 
-      // Country / Region match (all | th | cn | vn)
-      if (activeRegion !== 'all' && item.region !== activeRegion) return false;
+      // 2. Category match (supports direct category + tags + keyword heuristics for custom accounts)
+      if (activeCategory !== 'all') {
+        const matchesDirect = item.category === activeCategory;
+        const tagList = Array.isArray(item.tags)
+          ? item.tags.map((t) => String(t).toLowerCase().replace(/[-_\s]/g, ''))
+          : typeof item.tags === 'string'
+          ? item.tags.toLowerCase().replace(/[-_\s]/g, '').split(',')
+          : [];
+        const normActive = activeCategory.toLowerCase().replace(/[-_\s]/g, '');
+        const matchesTag = tagList.includes(normActive);
 
-      // Tag filter
-      if (selectedTag && (!item.tags || !item.tags.includes(selectedTag))) return false;
-
-      // Item image / skin filter ⭐ (Noctis-style filter)
-      if (selectedFilterItems.length > 0) {
-        const itemCorpus = [
-          item.id,
-          item.bianhao,
-          item.rawBianhao,
-          item.rawId,
+        const fullText = [
+          item.title,
           item.title_th,
           item.title_en,
+          item.gunLevel,
           item.gunLevel_th,
           item.gunLevel_en,
+          item.details,
+          item.details_th,
+          item.details_en,
+          item.subtitle,
           item.subtitle_th,
           item.subtitle_en,
-          item.details_th,
-          item.rank,
-          (item.tags || []).join(' ')
+          item.description
         ].filter(Boolean).join(' ').toLowerCase();
 
+        const matchesKeywords = 
+          (activeCategory === 'progressive' && (fullText.includes('progressive') || fullText.includes('lv.') || fullText.includes('max') || fullText.includes('ปืนอัปเกรด') || fullText.includes('เติบโต') || fullText.includes('ปืนโต') || fullText.includes('chroma'))) ||
+          (activeCategory === 'rank-ready' && (fullText.includes('rank') || fullText.includes('แรงค์') || fullText.includes('plus') || fullText.includes('พร้อมแรงค์') || fullText.includes('diamond') || fullText.includes('master'))) ||
+          (activeCategory === 'rare-skins' && (fullText.includes('แรร์') || fullText.includes('bape') || fullText.includes('shroud') || fullText.includes('ชุดแรร์') || fullText.includes('ทรงจีน') || fullText.includes('มัมมี่') || fullText.includes('urus') || fullText.includes('aston') || fullText.includes('cayenne')));
+
+        if (!matchesDirect && !matchesTag && !matchesKeywords) return false;
+      }
+
+      // 3. Quick Tag filter
+      if (selectedTag) {
+        const tagList = Array.isArray(item.tags)
+          ? item.tags.map((t) => String(t).toLowerCase().replace(/[-_\s]/g, ''))
+          : typeof item.tags === 'string'
+          ? item.tags.toLowerCase().replace(/[-_\s]/g, '').split(',')
+          : [];
+        const targetTag = selectedTag.toLowerCase().replace(/[-_\s]/g, '');
+        const matchesTag = tagList.includes(targetTag);
+
+        const fullText = [
+          item.title,
+          item.title_th,
+          item.title_en,
+          item.gunLevel,
+          item.gunLevel_th,
+          item.gunLevel_en,
+          item.warranty,
+          item.warranty_th,
+          item.warranty_en,
+          item.binding,
+          item.binding_th,
+          item.binding_en,
+          item.details,
+          item.details_th,
+          item.details_en
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        const matchesTagHeuristics =
+          (selectedTag === 'Progressive' && (item.category === 'progressive' || fullText.includes('progressive') || fullText.includes('lv.') || fullText.includes('max') || fullText.includes('ปืนอัปเกรด') || fullText.includes('เติบโต'))) ||
+          (selectedTag === 'OriginalMail' && (fullText.includes('มือ 1') || fullText.includes('มือ1') || fullText.includes('ประกัน') || fullText.includes('1st hand') || fullText.includes('warranty'))) ||
+          (selectedTag === 'RankReady' && (item.category === 'rank-ready' || fullText.includes('rank') || fullText.includes('แรงค์') || fullText.includes('plus'))) ||
+          (selectedTag === 'Bape' && (fullText.includes('bape') || fullText.includes('shroud') || fullText.includes('ทรงจีน') || fullText.includes('มัมมี่'))) ||
+          (selectedTag === 'Budget' && ((item.priceTHB && item.priceTHB <= 800) || item.category === 'budget'));
+
+        if (!matchesTag && !matchesTagHeuristics) return false;
+      }
+
+      // 4. Comprehensive Corpus for Item Image Filter & Multi-Keyword Search
+      const fullCorpus = [
+        item.id,
+        item.bianhao,
+        item.rawBianhao,
+        item.rawId,
+        item.title,
+        item.title_th,
+        item.title_en,
+        item.gunLevel,
+        item.gunLevel_th,
+        item.gunLevel_en,
+        item.subtitle,
+        item.subtitle_th,
+        item.subtitle_en,
+        item.details,
+        item.details_th,
+        item.details_en,
+        item.description,
+        item.rank,
+        item.binding,
+        item.binding_th,
+        item.binding_en,
+        item.warranty,
+        item.warranty_th,
+        item.warranty_en,
+        (item.tags || []).join(' '),
+        (item.skinItemIds || []).join(' '),
+        Array.isArray(item.skinItems) ? item.skinItems.map((it) => `${it.id} ${it.name} ${it.thaiName || ''}`).join(' ') : ''
+      ].filter(Boolean).join(' ').toLowerCase();
+
+      // 5. Item image / skin filter ⭐ (Noctis-style filter)
+      if (selectedFilterItems.length > 0) {
         const matchEveryItem = selectedFilterItems.every((selItem) => {
-          return (selItem.keywords || []).some((kw) => itemCorpus.includes(kw.toLowerCase()));
+          // Direct ID match
+          if (Array.isArray(item.skinItemIds) && item.skinItemIds.includes(selItem.id)) return true;
+          if (Array.isArray(item.skinItems) && item.skinItems.some((it) => (it.id === selItem.id || it.name === selItem.name))) return true;
+
+          // Keyword & Name matches
+          const keywords = [
+            ...(selItem.keywords || []),
+            selItem.name,
+            selItem.thaiName,
+            selItem.chineseName
+          ].filter(Boolean);
+
+          return keywords.some((kw) => fullCorpus.includes(kw.toLowerCase()));
         });
         if (!matchEveryItem) return false;
       }
 
-      // Multi-term Search match (supports multiple guns/skins: "AUG M416", "AUG, Beryl", "หมูชมพู กระทิงทอง", "AWM Kar98")
+      // 6. Multi-term Search match (supports multiple guns/skins: "AUG M416", "AUG, Beryl", "หมูชมพู กระทิงทอง", "AWM Kar98")
       if (searchQuery.trim()) {
         const terms = searchQuery.toLowerCase().split(/[\s,+/|]+/).map((t) => t.trim()).filter(Boolean);
         if (terms.length > 0) {
-          const corpus = [
-            item.id,
-            item.bianhao,
-            item.rawBianhao,
-            item.rawId,
-            item.title_th,
-            item.title_en,
-            item.gunLevel_th,
-            item.gunLevel_en,
-            item.subtitle_th,
-            item.subtitle_en,
-            item.details_th,
-            item.rank,
-            (item.tags || []).join(' ')
-          ].filter(Boolean).join(' ').toLowerCase();
-
           const allMatched = terms.every((term) => {
-            if (corpus.includes(term)) return true;
+            if (fullCorpus.includes(term)) return true;
             // Smart Gun & Skin Aliases
-            if ((term === 'm4' || term === 'm416') && (corpus.includes('m416') || corpus.includes('หมูชมพู') || corpus.includes('กลาเซีย') || corpus.includes('ฟักทอง'))) return true;
-            if (term === 'aug' && (corpus.includes('aug') || corpus.includes('มิโนทอร์') || corpus.includes('นีออน') || corpus.includes('กระทิงทอง') || corpus.includes('ระเบิดศึก'))) return true;
-            if ((term === 'beryl' || term === '762' || term === 'm762') && (corpus.includes('beryl') || corpus.includes('m762') || corpus.includes('กิเลนไฟ') || corpus.includes('762'))) return true;
-            if ((term === 'mk12' || term === 'mk') && (corpus.includes('mk12') || corpus.includes('เงามืด') || corpus.includes('shadow lord'))) return true;
-            if (term === 'awm' && (corpus.includes('awm') || corpus.includes('เมดูซ่า') || corpus.includes('ฟันเฟือง') || corpus.includes('gear head'))) return true;
-            if ((term === '98k' || term === 'kar98') && (corpus.includes('kar98') || corpus.includes('98k') || corpus.includes('จักรวาล'))) return true;
-            if (term === 'หมู' && (corpus.includes('หมูชมพู') || corpus.includes('หมูทองคำ') || corpus.includes('pigsy'))) return true;
-            if (term === 'กระทิง' && (corpus.includes('กระทิงทอง') || corpus.includes('มิโนทอร์'))) return true;
-            if (term === 'มัมมี่' && (corpus.includes('มัมมี่ดำ') || corpus.includes('มัมมี่ขาว') || corpus.includes('ผ้าพันแผล'))) return true;
+            if ((term === 'm4' || term === 'm416') && (fullCorpus.includes('m416') || fullCorpus.includes('หมูชมพู') || fullCorpus.includes('กลาเซีย') || fullCorpus.includes('ฟักทอง') || fullCorpus.includes('glacier'))) return true;
+            if (term === 'aug' && (fullCorpus.includes('aug') || fullCorpus.includes('มิโนทอร์') || fullCorpus.includes('นีออน') || fullCorpus.includes('กระทิงทอง') || fullCorpus.includes('ระเบิดศึก') || fullCorpus.includes('minotaur'))) return true;
+            if ((term === 'beryl' || term === '762' || term === 'm762') && (fullCorpus.includes('beryl') || fullCorpus.includes('m762') || fullCorpus.includes('กิเลนไฟ') || fullCorpus.includes('762') || fullCorpus.includes('เมดูซ่า') || fullCorpus.includes('gear head'))) return true;
+            if ((term === 'mk12' || term === 'mk') && (fullCorpus.includes('mk12') || fullCorpus.includes('เงามืด') || fullCorpus.includes('shadow lord') || fullCorpus.includes('โฮคัส'))) return true;
+            if (term === 'awm' && (fullCorpus.includes('awm') || fullCorpus.includes('เมดูซ่า') || fullCorpus.includes('ฟันเฟือง') || fullCorpus.includes('gear head'))) return true;
+            if ((term === '98k' || term === 'kar98') && (fullCorpus.includes('kar98') || fullCorpus.includes('98k') || fullCorpus.includes('จักรวาล'))) return true;
+            if (term === 'หมู' && (fullCorpus.includes('หมูชมพู') || fullCorpus.includes('หมูทองคำ') || fullCorpus.includes('pigsy'))) return true;
+            if (term === 'กระทิง' && (fullCorpus.includes('กระทิงทอง') || fullCorpus.includes('มิโนทอร์') || fullCorpus.includes('minotaur'))) return true;
+            if (term === 'มัมมี่' && (fullCorpus.includes('มัมมี่ดำ') || fullCorpus.includes('มัมมี่ขาว') || fullCorpus.includes('ผ้าพันแผล') || fullCorpus.includes('mummy'))) return true;
+            if ((term === 'รถ' || term === 'car') && (fullCorpus.includes('urus') || fullCorpus.includes('cayenne') || fullCorpus.includes('aston') || fullCorpus.includes('lambo') || fullCorpus.includes('lamborghini') || fullCorpus.includes('porsche') || fullCorpus.includes('รถ'))) return true;
+            if (term === 'ไทย' && (fullCorpus.includes('ไทย') || item.region === 'th')) return true;
+            if (term === 'จีน' && (fullCorpus.includes('จีน') || item.region === 'cn')) return true;
+            if (term === 'เวียดนาม' && (fullCorpus.includes('เวียดนาม') || item.region === 'vn')) return true;
             return false;
           });
 
