@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { countryRulesData } from '../data/countryRulesData';
+import PosterLightbox from './PosterLightbox';
 
 export default function CountryRulesModal({
   isOpen,
@@ -435,58 +436,16 @@ export default function CountryRulesModal({
 
       </div>
 
-      {/* LIGHTBOX FOR ORIGINAL INFOGRAPHIC POSTER */}
-      {showPosterLightbox && posterUrl && (
-        <div 
-          className="fixed inset-0 z-60 bg-black/95 flex flex-col items-center justify-center p-2 sm:p-4 backdrop-blur-xl animate-in fade-in duration-200"
-          onClick={() => setShowPosterLightbox(false)}
-        >
-          {/* Lightbox Toolbar */}
-          <div 
-            className="w-full max-w-4xl flex items-center justify-between p-3 bg-slate-900/90 border border-slate-700 rounded-2xl mb-3 backdrop-blur-md"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center gap-2">
-              <span className="text-lg">{currentCountry.flag}</span>
-              <span className="text-xs sm:text-sm font-bold text-white">
-                {currentCountry.countryName[ruleLang]} - {isTh ? 'รูปโปสเตอร์ต้นฉบับ' : 'Original Poster'}
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              {/* Language Switch inside Lightbox */}
-              <button
-                type="button"
-                onClick={() => setRuleLang(ruleLang === 'th' ? 'en' : 'th')}
-                className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-bold border border-slate-700"
-              >
-                {ruleLang === 'th' ? 'Switch to English' : 'เปลี่ยนเป็นภาษาไทย'}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setShowPosterLightbox(false)}
-                className="w-8 h-8 rounded-full bg-slate-800 hover:bg-rose-600 text-white flex items-center justify-center transition-colors"
-                title="Close"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          {/* Image Container */}
-          <div 
-            className="max-w-4xl max-h-[85vh] overflow-auto rounded-2xl border border-amber-500/40 shadow-2xl bg-black"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img 
-              src={posterUrl} 
-              alt="Original Rules Poster"
-              className="w-full h-auto max-h-[84vh] object-contain select-none" 
-            />
-          </div>
-        </div>
-      )}
+      {/* LIGHTBOX FOR ORIGINAL INFOGRAPHIC POSTER VIA PORTAL (Z-INDEX 99999) */}
+      <PosterLightbox
+        isOpen={showPosterLightbox}
+        posterUrl={posterUrl}
+        countryName={currentCountry.countryName[ruleLang]}
+        flag={currentCountry.flag}
+        lang={ruleLang}
+        onToggleLang={() => setRuleLang(ruleLang === 'th' ? 'en' : 'th')}
+        onClose={() => setShowPosterLightbox(false)}
+      />
 
     </div>
   );
