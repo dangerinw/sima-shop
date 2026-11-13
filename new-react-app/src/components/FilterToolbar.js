@@ -1,4 +1,14 @@
 import React from 'react';
+import filterCategoriesData from '../data/filterCategories.json';
+
+const allFilterItemsMap = new Map();
+filterCategoriesData.forEach((cat) => {
+  cat.items.forEach((it) => {
+    if (!allFilterItemsMap.has(it.id)) {
+      allFilterItemsMap.set(it.id, it);
+    }
+  });
+});
 
 export default function FilterToolbar({
   activeCategory,
@@ -14,18 +24,26 @@ export default function FilterToolbar({
   searchInputRef,
   counts,
   t,
+  lang = 'th',
   onRefreshStock,
   isStockRefreshing,
   lastStockUpdated,
-  totalAccountsCount
+  totalAccountsCount,
+  onOpenItemFilter,
+  selectedItemIds = [],
+  onRemoveSelectedItem,
+  onClearItemFilter
 }) {
   const quickTags = [
     { id: 'Progressive', label: t.tagProgressive },
-    { id: 'OriginalMail', label: t.tagOriginalMail },
     { id: 'RankReady', label: t.tagRankReady },
     { id: 'BAPE', label: t.tagBape },
     { id: 'Budget', label: t.tagBudget },
   ];
+
+  const selectedItems = (selectedItemIds || [])
+    .map((id) => allFilterItemsMap.get(id))
+    .filter(Boolean);
 
   return (
     <section id="catalog" className="py-8 bg-slate-900/60 border-b border-slate-800">
@@ -87,6 +105,30 @@ export default function FilterToolbar({
             )}
           </div>
 
+          {/* Item Image Filter Button ⭐ (Noctis-style filter) */}
+          <button
+            type="button"
+            onClick={onOpenItemFilter}
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center gap-2 border shadow-lg cursor-pointer shrink-0 ${
+              selectedItemIds && selectedItemIds.length > 0
+                ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-black border-amber-400 ring-2 ring-amber-400/50 shadow-amber-500/25 scale-[1.02]'
+                : 'bg-slate-950 hover:bg-slate-850 text-amber-400 border-amber-500/40 hover:border-amber-400'
+            }`}
+            title="เปิดตัวกรองไอเทมและสกินแบบเลือกดูจากรูปภาพ (Progressive, ซูเปอร์คาร์, เสื้อผ้าแรร์)"
+          >
+            <span className="text-base">🎯</span>
+            <span>{lang === 'th' ? 'กรองด้วยรูปไอเทม' : 'Filter by Item'}</span>
+            {selectedItemIds && selectedItemIds.length > 0 ? (
+              <span className="w-5 h-5 rounded-full bg-black text-amber-400 text-xs font-black flex items-center justify-center">
+                {selectedItemIds.length}
+              </span>
+            ) : (
+              <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded font-mono border border-amber-500/30">
+                240+ รูป
+              </span>
+            )}
+          </button>
+
           {/* Sorting Dropdown */}
           <div className="flex items-center gap-2">
             <select 
@@ -101,6 +143,57 @@ export default function FilterToolbar({
           </div>
 
         </div>
+
+        {/* Active Selected Item Chips Row ⭐ */}
+        {selectedItems.length > 0 && (
+          <div className="p-3 rounded-2xl bg-slate-950/95 border border-amber-500/40 flex items-center gap-2 flex-wrap shadow-xl animate-in fade-in">
+            <span className="text-xs font-bold text-amber-400 flex items-center gap-1.5 shrink-0">
+              <span>🎯</span>
+              <span>{lang === 'th' ? 'ไอเทมที่เลือกกรอง:' : 'Selected Items:'}</span>
+            </span>
+
+            {selectedItems.map((it) => (
+              <span
+                key={it.id}
+                className="inline-flex items-center gap-1.5 pl-1.5 pr-2 py-1 rounded-xl bg-amber-500/15 border border-amber-500/50 text-amber-300 text-xs font-bold shadow-sm"
+              >
+                {it.localIcon && (
+                  <img
+                    src={it.localIcon}
+                    alt={it.name}
+                    className="w-5 h-5 object-contain"
+                  />
+                )}
+                <span>{lang === 'th' && it.thaiName ? it.thaiName : it.name}</span>
+                <button
+                  type="button"
+                  onClick={() => onRemoveSelectedItem && onRemoveSelectedItem(it.id)}
+                  className="w-4 h-4 rounded-full bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white flex items-center justify-center text-[10px] transition-colors ml-0.5 cursor-pointer"
+                  title="ลบตัวกรองไอเทมนี้"
+                >
+                  ✕
+                </button>
+              </span>
+            ))}
+
+            <button
+              type="button"
+              onClick={onClearItemFilter}
+              className="text-xs text-rose-400 hover:underline px-2 py-1 font-semibold cursor-pointer"
+            >
+              {lang === 'th' ? 'ล้างทั้งหมด' : 'Clear all'}
+            </button>
+
+            <button
+              type="button"
+              onClick={onOpenItemFilter}
+              className="text-xs text-amber-400 hover:text-amber-300 hover:underline px-2 py-1 font-semibold flex items-center gap-1 cursor-pointer"
+            >
+              <span>+</span>
+              <span>{lang === 'th' ? 'เลือกไอเทมเพิ่ม' : 'Add more items'}</span>
+            </button>
+          </div>
+        )}
 
         {/* Region Country Filter Pills ⭐ with Live Real-time Stock Sync */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-slate-800/60 text-xs">

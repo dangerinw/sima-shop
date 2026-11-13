@@ -1,0 +1,4690 @@
+[
+  {
+    "id": "da94c368-c6c6-4e42-b18e-f9bd05b67c13",
+    "name": "Rifle Weapons",
+    "iconUrl": "/api/public/filter-icon/1788172916626-8107e3a8.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "custom-m416-glacier",
+        "externalId": "glacier-m416",
+        "name": "Glacier - M416",
+        "thaiName": "M416 กลาเซียหิมะ (Glacier)",
+        "chineseName": "冰域M416",
+        "localIcon": "/images/filter/items/5666ff3f-3b4a-4d4b-bf89-01798a58032b.png",
+        "isCrown": true,
+        "isFavorite": true,
+        "keywords": [
+          "glacier",
+          "กลาเซีย",
+          "หิมะ",
+          "冰域",
+          "冰霜",
+          "m416 กลาเซีย"
+        ],
+        "matchCount": 5515
+      },
+      {
+        "id": "d53562bb-2462-4f97-be3c-3b1622dcd3aa",
+        "externalId": "11",
+        "name": "Gear Head - M762",
+        "iconUrl": "/api/public/filter-icon/1788175280141-a2f3f82e.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419291065-d9fc93c1.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "火麒麟",
+        "localIcon": "/images/filter/items/d53562bb-2462-4f97-be3c-3b1622dcd3aa.png",
+        "thaiName": "Beryl M762 เกียร์เฮด (Gear Head)",
+        "keywords": [
+          "火麒麟",
+          "gear head",
+          "เกียร์เฮด",
+          "กิเลนไฟ"
+        ],
+        "matchCount": 3010
+      },
+      {
+        "id": "684c0c30-daf0-42f8-b283-42c228bad2f3",
+        "externalId": "21",
+        "name": "Azure Dragon - M762",
+        "iconUrl": "/api/public/filter-icon/1788175297116-4b24da4e.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419293953-8d783d43.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "青龙762",
+        "localIcon": "/images/filter/items/684c0c30-daf0-42f8-b283-42c228bad2f3.png",
+        "thaiName": "Beryl M762 มังกรฟ้า (Azure Dragon)",
+        "keywords": [
+          "青龙762",
+          "azure dragon",
+          "มังกรฟ้า",
+          "青龙"
+        ],
+        "matchCount": 2779
+      },
+      {
+        "id": "f248f514-b331-46c5-b8f9-8fce5c9c6f58",
+        "externalId": "2435",
+        "name": "Medusa - M762",
+        "iconUrl": "/api/public/filter-icon/1788175304920-56b9eea7.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419456728-f6690ac3.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "美杜莎762",
+        "localIcon": "/images/filter/items/f248f514-b331-46c5-b8f9-8fce5c9c6f58.png",
+        "thaiName": "Beryl M762 เมดูซ่า (Medusa)",
+        "keywords": [
+          "美杜莎762",
+          "medusa",
+          "เมดูซ่า",
+          "美杜莎"
+        ],
+        "matchCount": 11833
+      },
+      {
+        "id": "e7020880-6e17-4bb2-9fbd-dbe75addf0f7",
+        "externalId": "3790",
+        "name": "Ryomen Sukuna - M762",
+        "iconUrl": "/api/public/filter-icon/1789726289214-99ba4fd9.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419297184-e70ff4b8.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "两面宿傩762",
+        "localIcon": "/images/filter/items/e7020880-6e17-4bb2-9fbd-dbe75addf0f7.png",
+        "thaiName": "Beryl M762 สุคุนะ (Sukuna)",
+        "keywords": [
+          "两面宿傩762",
+          "sukuna",
+          "สุคุนะ",
+          "两面宿傩"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "921dae37-c1d8-4f2c-8534-5d15e40ef409",
+        "externalId": "17",
+        "name": "Darkest Depths - M762",
+        "iconUrl": "/api/public/filter-icon/1788175316213-f3e2e90a.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419332019-c251c5ad.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "水麒麟",
+        "localIcon": "/images/filter/items/921dae37-c1d8-4f2c-8534-5d15e40ef409.png",
+        "thaiName": "Darkest Depths - M762",
+        "keywords": [
+          "水麒麟",
+          "darkest depths",
+          "กิเลนน้ำ"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "12b21b57-7184-4ff0-8440-b7a769adb2f6",
+        "externalId": "13",
+        "name": "Trick-or-treat - M416",
+        "iconUrl": "/api/public/filter-icon/1788175322985-9e7278c5.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419334503-f808e76e.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "南瓜M4",
+        "localIcon": "/images/filter/items/12b21b57-7184-4ff0-8440-b7a769adb2f6.png",
+        "thaiName": "M416 ฟักทองฮาโลวีน (The Fool)",
+        "keywords": [
+          "南瓜m4",
+          "trick-or-treat",
+          "the fool",
+          "ฟักทอง",
+          "ฮาโลวีน",
+          "南瓜"
+        ],
+        "matchCount": 2349
+      },
+      {
+        "id": "e6bef4ad-598e-4182-9c6d-1dd763293130",
+        "externalId": "20",
+        "name": "Phoenix - M416",
+        "iconUrl": "/api/public/filter-icon/1788175327569-c2667a98.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419338143-4317ba18.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "朱雀M4",
+        "localIcon": "/images/filter/items/e6bef4ad-598e-4182-9c6d-1dd763293130.png",
+        "thaiName": "Phoenix - M416",
+        "keywords": [
+          "朱雀m4",
+          "phoenix",
+          "ฟีนิกซ์",
+          "หงส์ไฟ",
+          "朱雀"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "5f8299bd-3afd-4e7d-b1e8-8a47faac2a23",
+        "externalId": "2348",
+        "name": "Zhu Bajie - M416",
+        "iconUrl": "/api/public/filter-icon/1788175336624-617a828d.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419342679-28a309f3.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "猪八戒M4",
+        "localIcon": "/images/filter/items/5f8299bd-3afd-4e7d-b1e8-8a47faac2a23.png",
+        "thaiName": "Zhu Bajie - M416",
+        "keywords": [
+          "猪八戒m4",
+          "zhu bajie",
+          "ตือโป๊ยก่าย",
+          "หมูชมพู",
+          "หมูทองคำ",
+          "猪八戒"
+        ],
+        "matchCount": 2459
+      },
+      {
+        "id": "5666ff3f-3b4a-4d4b-bf89-01798a58032b",
+        "externalId": "2388",
+        "name": "No Signal - M416",
+        "iconUrl": "/api/public/filter-icon/1788175342623-ffc4aaea.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419346960-ff9da02c.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "无信号M4",
+        "localIcon": "/images/filter/items/5666ff3f-3b4a-4d4b-bf89-01798a58032b.png",
+        "thaiName": "No Signal - M416",
+        "keywords": [
+          "无信号m4",
+          "no signal",
+          "เทคโน",
+          "ไร้สัญญาณ",
+          "无信号"
+        ],
+        "matchCount": 5514
+      },
+      {
+        "id": "33bc6b71-bb47-4c97-bc3d-5ce175dae9f7",
+        "externalId": "3142",
+        "name": "Time Keeper - M416",
+        "iconUrl": "/api/public/filter-icon/1788175382431-fa6bca97.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419387128-52f525f8.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "时空使者M4",
+        "localIcon": "/images/filter/items/33bc6b71-bb47-4c97-bc3d-5ce175dae9f7.png",
+        "thaiName": "Time Keeper - M416",
+        "keywords": [
+          "时空使者m4",
+          "time keeper",
+          "ผู้พิทักษ์กาลเวลา",
+          "时空使者"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "b66a5570-ae59-4798-82d3-975de4b44bcb",
+        "externalId": "24",
+        "name": "Neon Dream - AUG",
+        "iconUrl": "/api/public/filter-icon/1788175347693-1da69cda.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419352254-cc5f2052.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "霓虹AUG",
+        "localIcon": "/images/filter/items/b66a5570-ae59-4798-82d3-975de4b44bcb.png",
+        "thaiName": "AUG นีออนดรีม (Neon Dream)",
+        "keywords": [
+          "霓虹aug",
+          "neon dream",
+          "นีออน",
+          "霓虹"
+        ],
+        "matchCount": 11956
+      },
+      {
+        "id": "54b2d9e0-bcd5-45f1-99a6-3a5c3fe52dcf",
+        "externalId": "2363",
+        "name": "Bumper Blaster - AUG",
+        "iconUrl": "/api/public/filter-icon/1788175354660-898a595e.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419357045-43f9a087.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "爆裂AUG",
+        "localIcon": "/images/filter/items/54b2d9e0-bcd5-45f1-99a6-3a5c3fe52dcf.png",
+        "thaiName": "Bumper Blaster - AUG",
+        "keywords": [
+          "爆裂aug",
+          "bumper blaster",
+          "บั๊มเปอร์",
+          "爆裂"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "6ead103a-7df9-460d-8fda-32a368c96a78",
+        "externalId": "2436",
+        "name": "Minotaur - AUG",
+        "iconUrl": "/api/public/filter-icon/1788175357905-310f2b1f.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419362473-3c2331af.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "弥诺陶洛斯AUG",
+        "localIcon": "/images/filter/items/6ead103a-7df9-460d-8fda-32a368c96a78.png",
+        "thaiName": "Beryl M762 มิโนทอร์ (Minotaur)",
+        "keywords": [
+          "弥诺陶洛斯aug",
+          "minotaur",
+          "มิโนทอร์",
+          "กระทิงทอง",
+          "弥诺陶洛斯"
+        ],
+        "matchCount": 4849
+      },
+      {
+        "id": "96eb572a-8401-493b-a466-66fa0b92dbf5",
+        "externalId": "2856",
+        "name": "G-DRAGON - AUG",
+        "iconUrl": "/api/public/filter-icon/1788175379438-34446df0.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419380698-272350de.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "GD-AUG",
+        "localIcon": "/images/filter/items/96eb572a-8401-493b-a466-66fa0b92dbf5.png",
+        "thaiName": "G-DRAGON - AUG",
+        "keywords": [
+          "gd-aug",
+          "g-dragon",
+          "จีดราก้อน"
+        ],
+        "matchCount": 1186
+      },
+      {
+        "id": "c2434a76-165a-46db-85b1-0df7e0bfc9a7",
+        "externalId": "19",
+        "name": "Demon Hunter - ACE32",
+        "iconUrl": "/api/public/filter-icon/1788175364016-a907f99a.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419365761-4244d3eb.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "恶魔ACE",
+        "localIcon": "/images/filter/items/c2434a76-165a-46db-85b1-0df7e0bfc9a7.png",
+        "thaiName": "ACE32 เดมอนฮันเตอร์ (Demon Hunter)",
+        "keywords": [
+          "恶魔ace",
+          "demon hunter",
+          "เดมอนฮันเตอร์"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "a23a6b25-fafd-46e0-9b32-1eaa21f8a787",
+        "externalId": "2823",
+        "name": "Demon's Touch - ACE32",
+        "iconUrl": "/api/public/filter-icon/1788175370243-9c1402b1.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419375847-2f2d6bf5.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "妖魔之触ACE",
+        "localIcon": "/images/filter/items/a23a6b25-fafd-46e0-9b32-1eaa21f8a787.png",
+        "thaiName": "Demon's Touch - ACE32",
+        "keywords": [
+          "妖魔之触ace",
+          "demon's touch",
+          "妖魔之触"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "07c22b8e-b1f7-4f9f-b304-447a3cc0632e",
+        "externalId": "2223",
+        "name": "Santa's Helper - AKM",
+        "iconUrl": "/api/public/filter-icon/1788175373174-2de014e6.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419371390-8f8e66b4.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "圣诞AK",
+        "localIcon": "/images/filter/items/07c22b8e-b1f7-4f9f-b304-447a3cc0632e.png",
+        "thaiName": "Santa's Helper - AKM",
+        "keywords": [
+          "圣诞ak",
+          "santa",
+          "ซานต้า"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "c31c0ec0-c680-44d0-840c-669536cde437",
+        "externalId": "3164",
+        "name": "Absolute Zero - Groza",
+        "iconUrl": "/api/public/filter-icon/1788175385845-358aa059.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790419392260-dc119a8b.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "冰域Groza",
+        "localIcon": "/images/filter/items/c31c0ec0-c680-44d0-840c-669536cde437.png",
+        "thaiName": "Absolute Zero - Groza",
+        "keywords": [
+          "冰域groza",
+          "absolute zero",
+          "ไอซ์แลนด์",
+          "冰域"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "ปืนไรเฟิลจู่โจม AR",
+    "localIcon": "/images/filter/rifle_weapons.png",
+    "badge": "🔫"
+  },
+  {
+    "id": "4356aaf5-f66b-46b1-b9c1-aeae0a591035",
+    "name": "Sniper Weapons",
+    "iconUrl": "/api/public/filter-icon/1788173012275-68d0c1e2.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "effedca6-96f3-484d-b100-fae27d55132d",
+        "externalId": "3812",
+        "name": "Megumi Fushiguro - VSS",
+        "iconUrl": "/api/public/filter-icon/1789726459578-4d1e5337.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423824393-1fa64f02.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "伏黑惠VSS",
+        "localIcon": "/images/filter/items/effedca6-96f3-484d-b100-fae27d55132d.png",
+        "thaiName": "Megumi Fushiguro - VSS",
+        "keywords": [
+          "伏黑惠vss",
+          "fushiguro",
+          "ฟุชิงุโระ",
+          "伏黑惠"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "736e7f5d-4514-4df1-acc1-a817563a043a",
+        "externalId": "14",
+        "name": "Yule Sleigh - Mini14",
+        "iconUrl": "/api/public/filter-icon/1788175990558-d9e8a90b.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423827230-69efbecc.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "圣诞mini",
+        "localIcon": "/images/filter/items/736e7f5d-4514-4df1-acc1-a817563a043a.png",
+        "thaiName": "Mini14 คริสต์มาส (Christmas)",
+        "keywords": [
+          "圣诞mini",
+          "yule sleigh",
+          "คริสต์มาส"
+        ],
+        "matchCount": 4265
+      },
+      {
+        "id": "28ce18ab-6027-49bf-9b52-2b631a72e356",
+        "externalId": "2350",
+        "name": "Sha Wujing - Mini14",
+        "iconUrl": "/api/public/filter-icon/1788176000097-3af7b83e.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423832865-f08efd9f.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "沙悟净MINI",
+        "localIcon": "/images/filter/items/28ce18ab-6027-49bf-9b52-2b631a72e356.png",
+        "thaiName": "Sha Wujing - Mini14",
+        "keywords": [
+          "沙悟净mini",
+          "sha wujing",
+          "ซัวเจ๋ง",
+          "沙悟净"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "3d35a065-538b-48b7-9943-4bd64c2cecd0",
+        "externalId": "3842",
+        "name": "Cute Aggression - Mini14",
+        "iconUrl": "/api/public/filter-icon/1794397583204-5ae2f6a3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "萌系暴击Mini",
+        "localIcon": "/images/filter/items/3d35a065-538b-48b7-9943-4bd64c2cecd0.png",
+        "thaiName": "Cute Aggression - Mini14",
+        "keywords": [
+          "萌系暴击mini",
+          "cute aggression"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "15fc5f90-9952-437f-a95f-91aa60940019",
+        "externalId": "3183",
+        "name": "Obscura - Mk12",
+        "iconUrl": "/api/public/filter-icon/1788176016800-61ee8fe9.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423850117-057759db.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "暗影之主Mk12",
+        "localIcon": "/images/filter/items/15fc5f90-9952-437f-a95f-91aa60940019.png",
+        "thaiName": "Obscura - Mk12",
+        "keywords": [
+          "暗影之主mk12",
+          "obscura",
+          "暗影之主"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "66c4c030-95ed-4b2d-bad7-d234b0e16be0",
+        "externalId": "2776",
+        "name": "Hocus Focus - Mk12",
+        "iconUrl": "/api/public/filter-icon/1788176003073-5fba57b7.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423835940-449c7d7d.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "魔咒之力Mk12",
+        "localIcon": "/images/filter/items/66c4c030-95ed-4b2d-bad7-d234b0e16be0.png",
+        "thaiName": "Hocus Focus - Mk12",
+        "keywords": [
+          "魔咒之力mk12",
+          "hocus focus",
+          "魔咒之力",
+          "เวทมนตร์"
+        ],
+        "matchCount": 6071
+      },
+      {
+        "id": "3b1671f1-6a6c-48ef-a7c5-a5daff18b887",
+        "externalId": "16",
+        "name": "Cyber Threat - Mk12",
+        "iconUrl": "/api/public/filter-icon/1788175952511-feea2386.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423881249-10f70d94.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "赛博MK12",
+        "localIcon": "/images/filter/items/3b1671f1-6a6c-48ef-a7c5-a5daff18b887.png",
+        "thaiName": "Cyber Threat - Mk12",
+        "keywords": [
+          "赛博mk12",
+          "cyber threat",
+          "ไซเบอร์",
+          "赛博"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "d9fe39ac-2aa8-49eb-9d61-7bfbc0e867f2",
+        "externalId": "27",
+        "name": "Bunny Patrol - Mk12",
+        "iconUrl": "/api/public/filter-icon/1788175958756-8b64c330.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423886231-9e3b72da.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "小兔MK12",
+        "localIcon": "/images/filter/items/d9fe39ac-2aa8-49eb-9d61-7bfbc0e867f2.png",
+        "thaiName": "เซ็ตกระต่ายบันนี่ (Bunny Academy)",
+        "keywords": [
+          "小兔mk12",
+          "bunny patrol",
+          "กระต่าย"
+        ],
+        "matchCount": 18813
+      },
+      {
+        "id": "8fe9d6af-421c-4a63-9b02-4618c944df7b",
+        "externalId": "2349",
+        "name": "Sun Wukong - M24",
+        "iconUrl": "/api/public/filter-icon/1788175931502-d5820644.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423864688-80e33d70.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "孙悟空M24",
+        "localIcon": "/images/filter/items/8fe9d6af-421c-4a63-9b02-4618c944df7b.png",
+        "thaiName": "M24 ซุนหงอคง (Sun Wukong)",
+        "keywords": [
+          "孙悟空m24",
+          "sun wukong",
+          "ซุนหงอคง",
+          "孙悟空"
+        ],
+        "matchCount": 4858
+      },
+      {
+        "id": "5a5cbf8c-6465-4b6b-ab94-d50799fe7663",
+        "externalId": "3541",
+        "name": "Cosmic Caliber - Kar98k",
+        "iconUrl": "/api/public/filter-icon/1788176022603-a5c6ee34.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423852748-55e36157.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "宇宙之力98k",
+        "localIcon": "/images/filter/items/5a5cbf8c-6465-4b6b-ab94-d50799fe7663.png",
+        "thaiName": "Cosmic Caliber - Kar98k",
+        "keywords": [
+          "宇宙之力98k",
+          "cosmic",
+          "จักรวาล",
+          "พลังจักรวาล",
+          "宇宙之力"
+        ],
+        "matchCount": 8466
+      },
+      {
+        "id": "dc1bd7fb-ccde-4221-861c-7da5631e62f0",
+        "externalId": "2391",
+        "name": "Midnight Menace - Kar98k",
+        "iconUrl": "/api/public/filter-icon/1788175947218-22218aa3.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423879272-2a9d9b48.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "午夜惊魂98K",
+        "localIcon": "/images/filter/items/dc1bd7fb-ccde-4221-861c-7da5631e62f0.png",
+        "thaiName": "Midnight Menace - Kar98k",
+        "keywords": [
+          "午夜惊魂98k",
+          "midnight menace",
+          "午夜惊魂"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "6605cc43-d940-43bc-b019-9b7e422ea814",
+        "externalId": "3801",
+        "name": "Satoru Gojo - M24",
+        "iconUrl": "/api/public/filter-icon/1789726444481-78acf228.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423870707-50fec090.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "五条悟M24",
+        "localIcon": "/images/filter/items/6605cc43-d940-43bc-b019-9b7e422ea814.png",
+        "thaiName": "Satoru Gojo - M24",
+        "keywords": [
+          "五条悟m24",
+          "gojo",
+          "โกโจ",
+          "五条悟"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "07f7af8f-6993-4d4e-a93d-15e6aad15626",
+        "externalId": "2869",
+        "name": "Final Serenade - M24",
+        "iconUrl": "/api/public/filter-icon/1788176009738-782f4585.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423843253-606345d6.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "夜曲M24",
+        "localIcon": "/images/filter/items/07f7af8f-6993-4d4e-a93d-15e6aad15626.png",
+        "thaiName": "Final Serenade - M24",
+        "keywords": [
+          "夜曲m24",
+          "final serenade"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "b045c43b-7df6-4184-8abf-5970a60628ca",
+        "externalId": "15",
+        "name": "Tiger Hunter - Kar98k",
+        "iconUrl": "/api/public/filter-icon/1788175941331-b9ddf54d.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423876688-fc67c5d7.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "猛虎98k",
+        "localIcon": "/images/filter/items/b045c43b-7df6-4184-8abf-5970a60628ca.png",
+        "thaiName": "Tiger Hunter - Kar98k",
+        "keywords": [
+          "猛虎98k",
+          "tiger hunter",
+          "เสือ",
+          "猛虎"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "c27a7cbb-6464-4164-9822-7a05d7380d4d",
+        "externalId": "18",
+        "name": "Over the Rainbow - M24",
+        "iconUrl": "/api/public/filter-icon/1788175938084-587d059d.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423867270-6dcde49c.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "彩虹M24",
+        "localIcon": "/images/filter/items/c27a7cbb-6464-4164-9822-7a05d7380d4d.png",
+        "thaiName": "Over the Rainbow - M24",
+        "keywords": [
+          "彩虹m24",
+          "rainbow",
+          "สายรุ้ง",
+          "彩虹"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "5c95b173-35dd-4292-91b3-552726032ca9",
+        "externalId": "3756",
+        "name": "Pretend Prototype - SLR",
+        "iconUrl": "/api/public/filter-icon/1788176028950-d10b54e4.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423856664-caa7cf34.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "伪装SLR",
+        "localIcon": "/images/filter/items/5c95b173-35dd-4292-91b3-552726032ca9.png",
+        "thaiName": "Pretend Prototype - SLR",
+        "keywords": [
+          "伪装slr",
+          "pretend prototype"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "4da389c8-6870-40f8-869d-0b413dc97e97",
+        "externalId": "2380",
+        "name": "Rest in Pink - Dragunov",
+        "iconUrl": "/api/public/filter-icon/1788175986356-b06ddc00.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423899473-f783a1d5.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "德拉贡",
+        "localIcon": "/images/filter/items/4da389c8-6870-40f8-869d-0b413dc97e97.png",
+        "thaiName": "Dragunov ดรากูนอฟ",
+        "keywords": [
+          "德拉贡",
+          "dragunov",
+          "ดรากูนอฟ"
+        ],
+        "matchCount": 3726
+      },
+      {
+        "id": "3cbee334-6ab9-495b-9729-a825851beeb8",
+        "externalId": "22",
+        "name": "Black Tortoise - SKS",
+        "iconUrl": "/api/public/filter-icon/1788175996127-996aea4c.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423830061-0f435cd9.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "玄武SKS",
+        "localIcon": "/images/filter/items/3cbee334-6ab9-495b-9729-a825851beeb8.png",
+        "thaiName": "Black Tortoise - SKS",
+        "keywords": [
+          "玄武sks",
+          "tortoise",
+          "เต่าดำ",
+          "玄武"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "1545842c-962a-4702-bd41-57daf2a7513a",
+        "externalId": "2780",
+        "name": "Chrono Cannon - SKS",
+        "iconUrl": "/api/public/filter-icon/1788176006427-3c7ec3d2.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423839164-e18f3e9c.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "时光加农SKS",
+        "localIcon": "/images/filter/items/1545842c-962a-4702-bd41-57daf2a7513a.png",
+        "thaiName": "Chrono Cannon - SKS",
+        "keywords": [
+          "时光加农sks",
+          "chrono cannon"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e4dbd786-fe7d-4e58-ae8b-bf9b1a0a0d7a",
+        "externalId": "2920",
+        "name": "Faded Ghost - AWM",
+        "iconUrl": "/api/public/filter-icon/1788176013120-1f5078f9.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423846466-3a2226a4.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "幽影残魂AWM",
+        "localIcon": "/images/filter/items/e4dbd786-fe7d-4e58-ae8b-bf9b1a0a0d7a.png",
+        "thaiName": "Faded Ghost - AWM",
+        "keywords": [
+          "幽影残魂awm",
+          "faded ghost"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "81697455-365b-450c-b8c0-fb26c01336e2",
+        "externalId": "12",
+        "name": "Buzzkill - SLR",
+        "iconUrl": "/api/public/filter-icon/1788175974027-8fd45fb2.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423890753-505c317b.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "齿轮炮",
+        "localIcon": "/images/filter/items/81697455-365b-450c-b8c0-fb26c01336e2.png",
+        "thaiName": "Buzzkill - SLR",
+        "keywords": [
+          "齿轮炮",
+          "buzzkill",
+          "ฟันเฟือง",
+          "齿轮"
+        ],
+        "matchCount": 14
+      },
+      {
+        "id": "5cb88842-18cc-4c2f-8457-4e719b4ee34e",
+        "externalId": "25",
+        "name": "Deadly Dollhouse - SLR",
+        "iconUrl": "/api/public/filter-icon/1788175980435-eeb8a342.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790423893186-c3b0791e.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "玩偶炮",
+        "localIcon": "/images/filter/items/5cb88842-18cc-4c2f-8457-4e719b4ee34e.png",
+        "thaiName": "Deadly Dollhouse - SLR",
+        "keywords": [
+          "玩偶炮",
+          "dollhouse",
+          "ตุ๊กตา",
+          "玩偶"
+        ],
+        "matchCount": 2196
+      }
+    ],
+    "categoryNameTh": "ปืนสไนเปอร์ & DMR",
+    "localIcon": "/images/filter/sniper_weapons.png",
+    "badge": "🎯"
+  },
+  {
+    "id": "b4c10cf8-5f12-4f6f-8df2-4b5a21f6cace",
+    "name": "Other Weapons",
+    "iconUrl": "/api/public/filter-icon/1788173031817-bddee140.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "bf5a7b8f-b75a-4bd8-bfac-270786418259",
+        "externalId": "custom-kw-bolinguo",
+        "name": "Pan of Judgement",
+        "iconUrl": "/api/public/filter-icon/1788784476383-8c6a2ff3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/bf5a7b8f-b75a-4bd8-bfac-270786418259.png",
+        "thaiName": "Pan of Judgement",
+        "keywords": [
+          "pan of judgement"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "601c8920-ac50-47fa-8507-fd8627d43224",
+        "externalId": "23",
+        "name": "White Tiger - Pan",
+        "iconUrl": "/api/public/filter-icon/1788176136286-49c1350d.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "白虎锅",
+        "localIcon": "/images/filter/items/601c8920-ac50-47fa-8507-fd8627d43224.png",
+        "thaiName": "White Tiger - Pan",
+        "keywords": [
+          "白虎锅",
+          "white tiger"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "9ecfa469-e946-4531-ab47-7b1337db115d",
+        "externalId": "2351",
+        "name": "Tang Sanzang - Pan",
+        "iconUrl": "/api/public/filter-icon/1788176139113-e0faf6e5.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425917810-de4065ec.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "唐三藏平底锅",
+        "localIcon": "/images/filter/items/9ecfa469-e946-4531-ab47-7b1337db115d.png",
+        "thaiName": "Tang Sanzang - Pan",
+        "keywords": [
+          "唐三藏平底锅",
+          "tang sanzang"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "2961c23b-384b-47b2-8cbc-e998ad46dd92",
+        "externalId": "2437",
+        "name": "Siren - Pan",
+        "iconUrl": "/api/public/filter-icon/1788176145180-990b56e1.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425919644-99f77175.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "塞壬平底锅",
+        "localIcon": "/images/filter/items/2961c23b-384b-47b2-8cbc-e998ad46dd92.png",
+        "thaiName": "Siren - Pan",
+        "keywords": [
+          "塞壬平底锅",
+          "siren"
+        ],
+        "matchCount": 2515
+      },
+      {
+        "id": "0d7401e8-50dc-4e90-b29a-d711ffb4e3f4",
+        "externalId": "3171",
+        "name": "Void - Pan",
+        "iconUrl": "/api/public/filter-icon/1788176158231-6a01cc7c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "虚空使者",
+        "localIcon": "/images/filter/items/0d7401e8-50dc-4e90-b29a-d711ffb4e3f4.png",
+        "thaiName": "Void - Pan",
+        "keywords": [
+          "虚空使者",
+          "void"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "2c1162c8-967b-47f4-b8d8-ff879e8a9847",
+        "externalId": "2848",
+        "name": "Sun Scorched - S1897",
+        "iconUrl": "/api/public/filter-icon/1788176150485-c781cc79.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425921932-95901622.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "烈日灼烧-S1897",
+        "localIcon": "/images/filter/items/2c1162c8-967b-47f4-b8d8-ff879e8a9847.png",
+        "thaiName": "Sun Scorched - S1897",
+        "keywords": [
+          "烈日灼烧-s1897",
+          "sun scorched"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "01b285e1-420b-4164-af8c-27b11fb884c8",
+        "externalId": "26",
+        "name": "Atlantis - DBS",
+        "iconUrl": "/api/public/filter-icon/1788176114051-c7786b1b.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425908795-e6fbdfa8.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "DBS",
+        "localIcon": "/images/filter/items/01b285e1-420b-4164-af8c-27b11fb884c8.png",
+        "thaiName": "Atlantis - DBS",
+        "keywords": [
+          "dbs",
+          "atlantis"
+        ],
+        "matchCount": 654
+      },
+      {
+        "id": "c3b5a6a4-b4dd-42c6-b4aa-09b708d410cd",
+        "externalId": "2390",
+        "name": "ZERO-G - MP5K",
+        "iconUrl": "/api/public/filter-icon/1788176122193-666badb3.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425911574-7865f11e.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "无重力MP5K",
+        "localIcon": "/images/filter/items/c3b5a6a4-b4dd-42c6-b4aa-09b708d410cd.png",
+        "thaiName": "ZERO-G - MP5K",
+        "keywords": [
+          "无重力mp5k",
+          "zero-g"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "865489bc-cec9-41c6-b1a3-e3684eb69d9e",
+        "externalId": "2888",
+        "name": "Winter Eclipse - MP5K",
+        "iconUrl": "/api/public/filter-icon/1788176154521-c64c9ede.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425923911-c142793b.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "寒蚀MP5K",
+        "localIcon": "/images/filter/items/865489bc-cec9-41c6-b1a3-e3684eb69d9e.png",
+        "thaiName": "Winter Eclipse - MP5K",
+        "keywords": [
+          "寒蚀mp5k",
+          "winter eclipse"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "0d02feba-92fe-4efc-833f-0006c322aad5",
+        "externalId": "2434",
+        "name": "Cerberus - M249",
+        "iconUrl": "/api/public/filter-icon/1788176131363-971fcbbe.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425914418-94f77881.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "刻耳柏洛斯M249",
+        "localIcon": "/images/filter/items/0d02feba-92fe-4efc-833f-0006c322aad5.png",
+        "thaiName": "Cerberus - M249",
+        "keywords": [
+          "刻耳柏洛斯m249",
+          "cerberus"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "87a3ed6c-a09b-4b2e-9baa-d6eed0aedfd2",
+        "externalId": "3696",
+        "name": "Ride or Die - M249",
+        "iconUrl": "/api/public/filter-icon/1788176160372-515459b8.png",
+        "maxLevelIconUrl": "/api/public/filter-icon/1790425928761-5c243c36.png",
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "生死与共-M249",
+        "localIcon": "/images/filter/items/87a3ed6c-a09b-4b2e-9baa-d6eed0aedfd2.png",
+        "thaiName": "Ride or Die - M249",
+        "keywords": [
+          "生死与共-m249",
+          "ride or die"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "อาวุธอื่นๆ & กระทะ Pan",
+    "localIcon": "/images/filter/other_weapons.png",
+    "badge": "🍳"
+  },
+  {
+    "id": "e70e829f-6fd0-44c6-b02e-af026167c290",
+    "name": "Chroma",
+    "iconUrl": "/api/public/filter-icon/1788173036613-76b76b6f.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "da2a5015-3bd2-4f60-9fc5-1b15a771ddeb",
+        "externalId": "2403",
+        "name": "Azure Dragon - M762 (Teal Gold)",
+        "iconUrl": "/api/public/filter-icon/1788176388533-2a1b78c1.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "青龙762（异色）",
+        "localIcon": "/images/filter/items/da2a5015-3bd2-4f60-9fc5-1b15a771ddeb.png",
+        "thaiName": "Beryl M762 มังกรฟ้า (Azure Dragon)",
+        "keywords": [
+          "青龙762（异色）",
+          "azure dragon",
+          "มังกรฟ้า",
+          "青龙"
+        ],
+        "matchCount": 2779
+      },
+      {
+        "id": "aff033d1-76ac-459a-b659-25590daa46b9",
+        "externalId": "3720",
+        "name": "Neon Dream - AUG (White Orange)",
+        "iconUrl": "/api/public/filter-icon/1788176394582-2c24a9cb.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "霓虹AUG（炫白异色）",
+        "localIcon": "/images/filter/items/aff033d1-76ac-459a-b659-25590daa46b9.png",
+        "thaiName": "AUG นีออนดรีม (Neon Dream)",
+        "keywords": [
+          "霓虹aug（炫白异色）",
+          "neon dream",
+          "นีออน",
+          "霓虹"
+        ],
+        "matchCount": 11956
+      },
+      {
+        "id": "64116e69-d04f-481e-bd78-1d0d0047d696",
+        "externalId": "2405",
+        "name": "Neon Dream - AUG (Magenta)",
+        "iconUrl": "/api/public/filter-icon/1788176400078-a7f569ac.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "霓虹AUG（品红异色）",
+        "localIcon": "/images/filter/items/64116e69-d04f-481e-bd78-1d0d0047d696.png",
+        "thaiName": "AUG นีออนดรีม (Neon Dream)",
+        "keywords": [
+          "霓虹aug（品红异色）",
+          "neon dream",
+          "นีออน",
+          "霓虹"
+        ],
+        "matchCount": 11956
+      },
+      {
+        "id": "0c10d8a6-8496-4861-9f4c-184787d8dd5d",
+        "externalId": "2398",
+        "name": "Trick-or-treat - M416 (Green Navy)",
+        "iconUrl": "/api/public/filter-icon/1788176410963-97086eb2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "南瓜M4（异色）",
+        "localIcon": "/images/filter/items/0c10d8a6-8496-4861-9f4c-184787d8dd5d.png",
+        "thaiName": "M416 ฟักทองฮาโลวีน (The Fool)",
+        "keywords": [
+          "南瓜m4（异色）",
+          "trick-or-treat",
+          "the fool",
+          "ฟักทอง",
+          "ฮาโลวีน",
+          "南瓜"
+        ],
+        "matchCount": 2349
+      },
+      {
+        "id": "053c2e48-3438-4a49-b837-f3489b465eeb",
+        "externalId": "2409",
+        "name": "Sun Wukong - M24 (Crimson Gold)",
+        "iconUrl": "/api/public/filter-icon/1788176420216-101782a3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "孙悟空M24（异色）",
+        "localIcon": "/images/filter/items/053c2e48-3438-4a49-b837-f3489b465eeb.png",
+        "thaiName": "M24 ซุนหงอคง (Sun Wukong)",
+        "keywords": [
+          "孙悟空m24（异色）",
+          "sun wukong",
+          "ซุนหงอคง",
+          "孙悟空"
+        ],
+        "matchCount": 4858
+      },
+      {
+        "id": "bd2b94f0-9256-4111-a4ef-aae01caaa4ae",
+        "externalId": "3529",
+        "name": "No Signal - M416 (Yellow Black)",
+        "iconUrl": "/api/public/filter-icon/1788176425535-e9c08edd.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "无信号（黄异色）",
+        "localIcon": "/images/filter/items/bd2b94f0-9256-4111-a4ef-aae01caaa4ae.png",
+        "thaiName": "No Signal - M416 (Yellow Black)",
+        "keywords": [
+          "无信号（黄异色）",
+          "no signal",
+          "เทคโน",
+          "ไร้สัญญาณ",
+          "无信号"
+        ],
+        "matchCount": 5514
+      },
+      {
+        "id": "6b6d1586-006e-4f80-892b-30d8a7483231",
+        "externalId": "2413",
+        "name": "No Signal - M416 (Purple Charcoal)",
+        "iconUrl": "/api/public/filter-icon/1788176446737-417d2ce3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "无信号（紫异色）",
+        "localIcon": "/images/filter/items/6b6d1586-006e-4f80-892b-30d8a7483231.png",
+        "thaiName": "No Signal - M416 (Purple Charcoal)",
+        "keywords": [
+          "无信号（紫异色）",
+          "no signal",
+          "เทคโน",
+          "ไร้สัญญาณ",
+          "无信号"
+        ],
+        "matchCount": 5514
+      },
+      {
+        "id": "e72dfdf9-53be-4094-8517-b939cc17d8a9",
+        "externalId": "2396",
+        "name": "Gear Head - M762 (Gray)",
+        "iconUrl": "/api/public/filter-icon/1788176490338-16b02cb8.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "火麒麟（异色）",
+        "localIcon": "/images/filter/items/e72dfdf9-53be-4094-8517-b939cc17d8a9.png",
+        "thaiName": "Beryl M762 เกียร์เฮด (Gear Head)",
+        "keywords": [
+          "火麒麟（异色）",
+          "gear head",
+          "เกียร์เฮด",
+          "กิเลนไฟ",
+          "火麒麟"
+        ],
+        "matchCount": 3010
+      },
+      {
+        "id": "b1ae5914-58ab-4fed-81e1-c3fc1887180b",
+        "externalId": "2397",
+        "name": "Buzzkill - SLR (Black Gold)",
+        "iconUrl": "/api/public/filter-icon/1788176497656-39bef894.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "齿轮炮（异色）",
+        "localIcon": "/images/filter/items/b1ae5914-58ab-4fed-81e1-c3fc1887180b.png",
+        "thaiName": "Buzzkill - SLR (Black Gold)",
+        "keywords": [
+          "齿轮炮（异色）",
+          "buzzkill",
+          "ฟันเฟือง",
+          "齿轮"
+        ],
+        "matchCount": 14
+      },
+      {
+        "id": "f8d0d012-8f19-48a3-adf6-3524fad66f83",
+        "externalId": "2399",
+        "name": "Cyber Threat - Mk12 (Khaki Burgundy)",
+        "iconUrl": "/api/public/filter-icon/1788176507148-14bc5c3f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "赛博MK12（异色）",
+        "localIcon": "/images/filter/items/f8d0d012-8f19-48a3-adf6-3524fad66f83.png",
+        "thaiName": "Cyber Threat - Mk12 (Khaki Burgundy)",
+        "keywords": [
+          "赛博mk12（异色）",
+          "cyber threat",
+          "ไซเบอร์",
+          "赛博"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "d7aa2ec9-125f-4888-881b-0b52f7b9c428",
+        "externalId": "2400",
+        "name": "Darkest Depths - M762 (Brown Mint)",
+        "iconUrl": "/api/public/filter-icon/1788176520642-1d4c378e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "水麒麟（异色）",
+        "localIcon": "/images/filter/items/d7aa2ec9-125f-4888-881b-0b52f7b9c428.png",
+        "thaiName": "Darkest Depths - M762 (Brown Mint)",
+        "keywords": [
+          "水麒麟（异色）",
+          "darkest depths",
+          "กิเลนน้ำ",
+          "水麒麟"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "095156c9-5cbe-42df-8609-cbb6ad6e772b",
+        "externalId": "2401",
+        "name": "Over the Rainbow - M24 (Blue Black)",
+        "iconUrl": "/api/public/filter-icon/1788176523980-ea7fbd91.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "彩虹M24（异色）",
+        "localIcon": "/images/filter/items/095156c9-5cbe-42df-8609-cbb6ad6e772b.png",
+        "thaiName": "Over the Rainbow - M24 (Blue Black)",
+        "keywords": [
+          "彩虹m24（异色）",
+          "rainbow",
+          "สายรุ้ง",
+          "彩虹"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "66250baa-6268-42f2-b0db-c52a6f2bc4d9",
+        "externalId": "2402",
+        "name": "Demon Hunter - ACE32 (Midnight Black)",
+        "iconUrl": "/api/public/filter-icon/1788176527833-49b67b7b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "恶魔ACE（异色）",
+        "localIcon": "/images/filter/items/66250baa-6268-42f2-b0db-c52a6f2bc4d9.png",
+        "thaiName": "ACE32 เดมอนฮันเตอร์ (Demon Hunter)",
+        "keywords": [
+          "恶魔ace（异色）",
+          "demon hunter",
+          "เดมอนฮันเตอร์",
+          "恶魔ace"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "1635c843-b1d6-4e4e-8781-e0637122365a",
+        "externalId": "2404",
+        "name": "Bunny Patrol - Mk12 (Purple)",
+        "iconUrl": "/api/public/filter-icon/1788176539415-625dab05.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小兔MK12（异色）",
+        "localIcon": "/images/filter/items/1635c843-b1d6-4e4e-8781-e0637122365a.png",
+        "thaiName": "เซ็ตกระต่ายบันนี่ (Bunny Academy)",
+        "keywords": [
+          "小兔mk12（异色）",
+          "bunny patrol",
+          "กระต่าย",
+          "小兔mk12"
+        ],
+        "matchCount": 18813
+      },
+      {
+        "id": "b93b09a0-0c57-4f46-8a17-68acca476d34",
+        "externalId": "2406",
+        "name": "Bumper Blaster - AUG (Purple Pink)",
+        "iconUrl": "/api/public/filter-icon/1788176552154-53a5757f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "爆裂AUG（异色）",
+        "localIcon": "/images/filter/items/b93b09a0-0c57-4f46-8a17-68acca476d34.png",
+        "thaiName": "Bumper Blaster - AUG (Purple Pink)",
+        "keywords": [
+          "爆裂aug（异色）",
+          "bumper blaster",
+          "บั๊มเปอร์",
+          "爆裂"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "c6a625a4-c566-4b8a-8700-67b3dd434a2d",
+        "externalId": "2407",
+        "name": "Santa's Helper - AKM (Red Teal)",
+        "iconUrl": "/api/public/filter-icon/1788176571701-dc4ab304.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "圣诞AK（异色）",
+        "localIcon": "/images/filter/items/c6a625a4-c566-4b8a-8700-67b3dd434a2d.png",
+        "thaiName": "Santa's Helper - AKM (Red Teal)",
+        "keywords": [
+          "圣诞ak（异色）",
+          "santa",
+          "ซานต้า",
+          "圣诞ak"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "cae7a7b0-f51c-4fdd-84d8-b5b775a488a0",
+        "externalId": "3531",
+        "name": "Zhu Bajie - M416 (Teal Orange)",
+        "iconUrl": "/api/public/filter-icon/1788176597138-0dd7de12.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "猪八戒（蓝异色）",
+        "localIcon": "/images/filter/items/cae7a7b0-f51c-4fdd-84d8-b5b775a488a0.png",
+        "thaiName": "Zhu Bajie - M416 (Teal Orange)",
+        "keywords": [
+          "猪八戒（蓝异色）",
+          "zhu bajie",
+          "ตือโป๊ยก่าย",
+          "หมูชมพู",
+          "หมูทองคำ",
+          "猪八戒"
+        ],
+        "matchCount": 2459
+      },
+      {
+        "id": "09a2c760-82e6-4324-aabb-47f7b5c92d4e",
+        "externalId": "2408",
+        "name": "Zhu Bajie - M416 (Magenta Peach)",
+        "iconUrl": "/api/public/filter-icon/1788176605148-be34af58.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "猪八戒（粉异色）",
+        "localIcon": "/images/filter/items/09a2c760-82e6-4324-aabb-47f7b5c92d4e.png",
+        "thaiName": "Zhu Bajie - M416 (Magenta Peach)",
+        "keywords": [
+          "猪八戒（粉异色）",
+          "zhu bajie",
+          "ตือโป๊ยก่าย",
+          "หมูชมพู",
+          "หมูทองคำ",
+          "猪八戒"
+        ],
+        "matchCount": 2459
+      },
+      {
+        "id": "d088e7a9-1636-42fa-8497-75f754ebb97a",
+        "externalId": "2410",
+        "name": "Sha Wujing - Mini14 (Silver)",
+        "iconUrl": "/api/public/filter-icon/1788176608617-8cfcde23.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "沙悟净MINI（异色）",
+        "localIcon": "/images/filter/items/d088e7a9-1636-42fa-8497-75f754ebb97a.png",
+        "thaiName": "Sha Wujing - Mini14 (Silver)",
+        "keywords": [
+          "沙悟净mini（异色）",
+          "sha wujing",
+          "ซัวเจ๋ง",
+          "沙悟净"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "d2f5fce0-c66d-450b-af18-b0af216b0bcf",
+        "externalId": "2411",
+        "name": "Tang Sanzang - Pan (Teal)",
+        "iconUrl": "/api/public/filter-icon/1788176612969-858bcedc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "唐三藏（异色）",
+        "localIcon": "/images/filter/items/d2f5fce0-c66d-450b-af18-b0af216b0bcf.png",
+        "thaiName": "Tang Sanzang - Pan (Teal)",
+        "keywords": [
+          "唐三藏（异色）",
+          "tang sanzang"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "bc52b070-ff81-400c-b096-cbd05d4acdc7",
+        "externalId": "3724",
+        "name": "Rest in Pink - Dragunov (Pink Yellow)",
+        "iconUrl": "/api/public/filter-icon/1788176627303-88074905.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "德拉贡（粉黄异色）",
+        "localIcon": "/images/filter/items/bc52b070-ff81-400c-b096-cbd05d4acdc7.png",
+        "thaiName": "Dragunov ดรากูนอฟ",
+        "keywords": [
+          "德拉贡（粉黄异色）",
+          "dragunov",
+          "ดรากูนอฟ",
+          "德拉贡"
+        ],
+        "matchCount": 3726
+      },
+      {
+        "id": "8c8fb3d8-4f3e-4bc8-a420-72a49c57aa7f",
+        "externalId": "2412",
+        "name": "Rest in Pink - Dragunov (Teal Pink)",
+        "iconUrl": "/api/public/filter-icon/1788176634954-8d0ba01e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "德拉贡（蓝绿异色）",
+        "localIcon": "/images/filter/items/8c8fb3d8-4f3e-4bc8-a420-72a49c57aa7f.png",
+        "thaiName": "Dragunov ดรากูนอฟ",
+        "keywords": [
+          "德拉贡（蓝绿异色）",
+          "dragunov",
+          "ดรากูนอฟ",
+          "德拉贡"
+        ],
+        "matchCount": 3726
+      },
+      {
+        "id": "1e9b7983-0c57-49db-8a1c-6709b449793d",
+        "externalId": "3533",
+        "name": "ZERO-G - MP5K (Crimson Navy)",
+        "iconUrl": "/api/public/filter-icon/1788176642572-23d617a2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "无重力（红异色）",
+        "localIcon": "/images/filter/items/1e9b7983-0c57-49db-8a1c-6709b449793d.png",
+        "thaiName": "ZERO-G - MP5K (Crimson Navy)",
+        "keywords": [
+          "无重力（红异色）",
+          "zero-g"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "645513e3-80ac-425b-bcd5-47ccb7a17132",
+        "externalId": "2414",
+        "name": "ZERO-G - MP5K (Lime Blue)",
+        "iconUrl": "/api/public/filter-icon/1788176651658-f36fbc9b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "无重力（绿异色）",
+        "localIcon": "/images/filter/items/645513e3-80ac-425b-bcd5-47ccb7a17132.png",
+        "thaiName": "ZERO-G - MP5K (Lime Blue)",
+        "keywords": [
+          "无重力（绿异色）",
+          "zero-g"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "65f1e45d-1e88-4db3-a6b2-b433f30a4fe9",
+        "externalId": "3726",
+        "name": "Demon's Touch - ACE32 (Purple Fuchsia)",
+        "iconUrl": "/api/public/filter-icon/1788176662226-139dfda8.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "妖魔之触（紫红异色）",
+        "localIcon": "/images/filter/items/65f1e45d-1e88-4db3-a6b2-b433f30a4fe9.png",
+        "thaiName": "Demon's Touch - ACE32 (Purple Fuchsia)",
+        "keywords": [
+          "妖魔之触（紫红异色）",
+          "demon's touch",
+          "妖魔之触"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "65c8cb2e-4c74-4b18-8ea6-9f95cc6f3424",
+        "externalId": "2834",
+        "name": "Demon's Touch - ACE32 (Yellow Teal)",
+        "iconUrl": "/api/public/filter-icon/1788176676280-8086c026.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "妖魔之触（黄蓝异色）",
+        "localIcon": "/images/filter/items/65c8cb2e-4c74-4b18-8ea6-9f95cc6f3424.png",
+        "thaiName": "Demon's Touch - ACE32 (Yellow Teal)",
+        "keywords": [
+          "妖魔之触（黄蓝异色）",
+          "demon's touch",
+          "妖魔之触"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "10a2d1fb-c51a-4269-97bd-d47a4d67e72a",
+        "externalId": "2415",
+        "name": "Midnight Menace - Kar98k (Purple Black)",
+        "iconUrl": "/api/public/filter-icon/1788176694608-abaa4210.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "午夜惊魂98K（异色）",
+        "localIcon": "/images/filter/items/10a2d1fb-c51a-4269-97bd-d47a4d67e72a.png",
+        "thaiName": "Midnight Menace - Kar98k (Purple Black)",
+        "keywords": [
+          "午夜惊魂98k（异色）",
+          "midnight menace",
+          "午夜惊魂"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "6f5dc832-3c19-4868-a102-6aecb4a322e9",
+        "externalId": "2430",
+        "name": "Cerberus - M249 (Crimson Lime)",
+        "iconUrl": "/api/public/filter-icon/1788176697793-ccd77035.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "M249（异色）",
+        "localIcon": "/images/filter/items/6f5dc832-3c19-4868-a102-6aecb4a322e9.png",
+        "thaiName": "Cerberus - M249 (Crimson Lime)",
+        "keywords": [
+          "m249（异色）",
+          "cerberus"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "9abbe9fc-f875-4bb2-8e61-6d5f6f72fc47",
+        "externalId": "3527",
+        "name": "Medusa - M762 (Gold Charcoal)",
+        "iconUrl": "/api/public/filter-icon/1788176701353-cdb34d53.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "美杜莎（黑异色）",
+        "localIcon": "/images/filter/items/9abbe9fc-f875-4bb2-8e61-6d5f6f72fc47.png",
+        "thaiName": "Beryl M762 เมดูซ่า (Medusa)",
+        "keywords": [
+          "美杜莎（黑异色）",
+          "medusa",
+          "เมดูซ่า",
+          "美杜莎"
+        ],
+        "matchCount": 11833
+      },
+      {
+        "id": "fd57d8a4-44ff-4874-81be-8184e10ecbec",
+        "externalId": "2431",
+        "name": "Medusa - M762 (White)",
+        "iconUrl": "/api/public/filter-icon/1788176704449-c5345b45.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "美杜莎（白异色）",
+        "localIcon": "/images/filter/items/fd57d8a4-44ff-4874-81be-8184e10ecbec.png",
+        "thaiName": "Beryl M762 เมดูซ่า (Medusa)",
+        "keywords": [
+          "美杜莎（白异色）",
+          "medusa",
+          "เมดูซ่า",
+          "美杜莎"
+        ],
+        "matchCount": 11833
+      },
+      {
+        "id": "f894654b-5456-4bec-96f0-b859dbc09edb",
+        "externalId": "2432",
+        "name": "Minotaur - AUG (Gray Tan)",
+        "iconUrl": "/api/public/filter-icon/1788176710229-52ea269b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "弥诺陶洛斯AUG（异色）",
+        "localIcon": "/images/filter/items/f894654b-5456-4bec-96f0-b859dbc09edb.png",
+        "thaiName": "Beryl M762 มิโนทอร์ (Minotaur)",
+        "keywords": [
+          "弥诺陶洛斯aug（异色）",
+          "minotaur",
+          "มิโนทอร์",
+          "กระทิงทอง",
+          "弥诺陶洛斯"
+        ],
+        "matchCount": 4849
+      },
+      {
+        "id": "7dd0877b-bdce-4186-a84c-ddb69d37ee11",
+        "externalId": "2433",
+        "name": "Siren - Pan (Pink)",
+        "iconUrl": "/api/public/filter-icon/1788176713319-5eaa08b3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "塞壬 - 平底锅（异色）",
+        "localIcon": "/images/filter/items/7dd0877b-bdce-4186-a84c-ddb69d37ee11.png",
+        "thaiName": "Siren - Pan (Pink)",
+        "keywords": [
+          "塞壬 - 平底锅（异色）",
+          "siren"
+        ],
+        "matchCount": 2515
+      },
+      {
+        "id": "2ad2bc1d-6f8e-4870-8e9e-9e4e3a6a8e4c",
+        "externalId": "2778",
+        "name": "Hocus Focus - Mk12 (Pink Yellow)",
+        "iconUrl": "/api/public/filter-icon/1788176715962-4a0721d4.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "魔咒Mk12（异色）",
+        "localIcon": "/images/filter/items/2ad2bc1d-6f8e-4870-8e9e-9e4e3a6a8e4c.png",
+        "thaiName": "Hocus Focus - Mk12 (Pink Yellow)",
+        "keywords": [
+          "魔咒mk12（异色）",
+          "hocus focus",
+          "魔咒之力",
+          "เวทมนตร์"
+        ],
+        "matchCount": 6071
+      },
+      {
+        "id": "0c08b430-e094-4e51-a181-f22e1a068bb9",
+        "externalId": "2782",
+        "name": "Chrono Cannon - SKS (Blue Gold)",
+        "iconUrl": "/api/public/filter-icon/1788176720362-138ed7e0.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "时光加农（异色）",
+        "localIcon": "/images/filter/items/0c08b430-e094-4e51-a181-f22e1a068bb9.png",
+        "thaiName": "Chrono Cannon - SKS (Blue Gold)",
+        "keywords": [
+          "时光加农（异色）",
+          "chrono cannon"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "7cc366c0-fd3e-43da-a757-1183b4cf6e60",
+        "externalId": "2836",
+        "name": "Tiger Hunter - Kar98k (Khaki Crimson)",
+        "iconUrl": "/api/public/filter-icon/1788176724106-eade92db.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "猛虎98K（异色）",
+        "localIcon": "/images/filter/items/7cc366c0-fd3e-43da-a757-1183b4cf6e60.png",
+        "thaiName": "Tiger Hunter - Kar98k (Khaki Crimson)",
+        "keywords": [
+          "猛虎98k（异色）",
+          "tiger hunter",
+          "เสือ",
+          "猛虎"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "af82b41a-5d5d-4822-b7c9-c2d9ef8f3977",
+        "externalId": "3853",
+        "name": "Cute Aggression - Mini14 (Pink White)",
+        "iconUrl": "/api/public/filter-icon/1794397975873-be05deb5.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "萌系暴击（异色）",
+        "localIcon": "/images/filter/items/af82b41a-5d5d-4822-b7c9-c2d9ef8f3977.png",
+        "thaiName": "Cute Aggression - Mini14 (Pink White)",
+        "keywords": [
+          "萌系暴击（异色）",
+          "cute aggression"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "c6fd47fd-1c36-4dcc-8f05-4e39b8c2738d",
+        "externalId": "2838",
+        "name": "Deadly Dollhouse - SLR (Blue Orange)",
+        "iconUrl": "/api/public/filter-icon/1788176745319-646e771e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "玩偶炮（异色）",
+        "localIcon": "/images/filter/items/c6fd47fd-1c36-4dcc-8f05-4e39b8c2738d.png",
+        "thaiName": "Deadly Dollhouse - SLR (Blue Orange)",
+        "keywords": [
+          "玩偶炮（异色）",
+          "dollhouse",
+          "ตุ๊กตา",
+          "玩偶"
+        ],
+        "matchCount": 2196
+      },
+      {
+        "id": "e7fcc643-3aeb-4bcb-932b-8efdfbc4b017",
+        "externalId": "2850",
+        "name": "Sun Scorched - S1897 (Yellow Purple)",
+        "iconUrl": "/api/public/filter-icon/1788176757636-42b147ca.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "S1897（异色）",
+        "localIcon": "/images/filter/items/e7fcc643-3aeb-4bcb-932b-8efdfbc4b017.png",
+        "thaiName": "Sun Scorched - S1897 (Yellow Purple)",
+        "keywords": [
+          "s1897（异色）",
+          "sun scorched"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "d871d08b-c465-45ca-a394-bf90405a2a70",
+        "externalId": "2854",
+        "name": "G-DRAGON - AUG (Red)",
+        "iconUrl": "/api/public/filter-icon/1788176761391-a3db4ff7.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "GD-AUG（异色）",
+        "localIcon": "/images/filter/items/d871d08b-c465-45ca-a394-bf90405a2a70.png",
+        "thaiName": "G-DRAGON - AUG (Red)",
+        "keywords": [
+          "gd-aug（异色）",
+          "g-dragon",
+          "gd-aug",
+          "จีดราก้อน"
+        ],
+        "matchCount": 1186
+      },
+      {
+        "id": "8469b5d6-3cf2-4e4a-991f-b12a2e3adb30",
+        "externalId": "2880",
+        "name": "Final Serenade - M24 (Blue Black)",
+        "iconUrl": "/api/public/filter-icon/1788176766958-e333e2c0.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "夜曲M24（异色）",
+        "localIcon": "/images/filter/items/8469b5d6-3cf2-4e4a-991f-b12a2e3adb30.png",
+        "thaiName": "Final Serenade - M24 (Blue Black)",
+        "keywords": [
+          "夜曲m24（异色）",
+          "final serenade"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "1525424e-b3e5-4f1c-b73a-56764f91d49e",
+        "externalId": "2890",
+        "name": "Winter Eclipse - MP5K (Red Purple)",
+        "iconUrl": "/api/public/filter-icon/1788176781541-c5556bbc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "寒蚀MP5K（异色）",
+        "localIcon": "/images/filter/items/1525424e-b3e5-4f1c-b73a-56764f91d49e.png",
+        "thaiName": "Winter Eclipse - MP5K (Red Purple)",
+        "keywords": [
+          "寒蚀mp5k（异色）",
+          "winter eclipse"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "14ebe696-2aca-4b34-afe3-e3de5fccdb92",
+        "externalId": "2928",
+        "name": "Faded Ghost - AWM (Mocha Beige)",
+        "iconUrl": "/api/public/filter-icon/1788176785705-626f8282.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "AWM（异色）",
+        "localIcon": "/images/filter/items/14ebe696-2aca-4b34-afe3-e3de5fccdb92.png",
+        "thaiName": "Faded Ghost - AWM (Mocha Beige)",
+        "keywords": [
+          "awm（异色）",
+          "faded ghost"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "f1abe1d6-c6c8-4426-a765-123351ddde73",
+        "externalId": "3175",
+        "name": "Absolute Zero - Groza (Yellow Coral)",
+        "iconUrl": "/api/public/filter-icon/1788176814428-cfe998c2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "冰域Groza（异色） ",
+        "localIcon": "/images/filter/items/f1abe1d6-c6c8-4426-a765-123351ddde73.png",
+        "thaiName": "Absolute Zero - Groza (Yellow Coral)",
+        "keywords": [
+          "冰域groza（异色） ",
+          "absolute zero",
+          "ไอซ์แลนด์",
+          "冰域"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "1b2524e4-e022-4aac-90fe-d82f785c30cb",
+        "externalId": "3177",
+        "name": "Time Keeper - M416 (Gray Green)",
+        "iconUrl": "/api/public/filter-icon/1788176819453-c921c4e8.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "时空使者M4（异色）  ",
+        "localIcon": "/images/filter/items/1b2524e4-e022-4aac-90fe-d82f785c30cb.png",
+        "thaiName": "Time Keeper - M416 (Gray Green)",
+        "keywords": [
+          "时空使者m4（异色）  ",
+          "time keeper",
+          "ผู้พิทักษ์กาลเวลา",
+          "时空使者"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "63b66b63-3dfe-4257-bed0-068e58edb445",
+        "externalId": "3179",
+        "name": "Obscura - Mk12 (Silver Fuchsia)",
+        "iconUrl": "/api/public/filter-icon/1788176822920-85ca6553.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "暗影之主Mk12（异色）",
+        "localIcon": "/images/filter/items/63b66b63-3dfe-4257-bed0-068e58edb445.png",
+        "thaiName": "Obscura - Mk12 (Silver Fuchsia)",
+        "keywords": [
+          "暗影之主mk12（异色）",
+          "obscura",
+          "暗影之主"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "df82759a-b737-46eb-afcf-2b231e88bb6d",
+        "externalId": "3181",
+        "name": "Void - Pan (Yellow Orange)",
+        "iconUrl": "/api/public/filter-icon/1788176825443-696b4bcc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "虚空使者（异色）",
+        "localIcon": "/images/filter/items/df82759a-b737-46eb-afcf-2b231e88bb6d.png",
+        "thaiName": "Void - Pan (Yellow Orange)",
+        "keywords": [
+          "虚空使者（异色）",
+          "void"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "032d6c9b-9d28-4f93-bd06-78b52f3ccfb5",
+        "externalId": "3543",
+        "name": "Cosmic Caliber - Kar98k (White Yellow)",
+        "iconUrl": "/api/public/filter-icon/1788176828940-7e916bf0.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "宇宙之力98k（异色）",
+        "localIcon": "/images/filter/items/032d6c9b-9d28-4f93-bd06-78b52f3ccfb5.png",
+        "thaiName": "Cosmic Caliber - Kar98k (White Yellow)",
+        "keywords": [
+          "宇宙之力98k（异色）",
+          "cosmic",
+          "จักรวาล",
+          "พลังจักรวาล",
+          "宇宙之力"
+        ],
+        "matchCount": 8466
+      },
+      {
+        "id": "69479e63-e75b-4294-94f7-86f509c3505d",
+        "externalId": "3694",
+        "name": "Ride or Die - M249 (Black Teal)",
+        "iconUrl": "/api/public/filter-icon/1788176833195-cc058226.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "生死与共（异色）",
+        "localIcon": "/images/filter/items/69479e63-e75b-4294-94f7-86f509c3505d.png",
+        "thaiName": "Ride or Die - M249 (Black Teal)",
+        "keywords": [
+          "生死与共（异色）",
+          "ride or die"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "f22093b0-e7ef-4e72-bdbb-00ded52050df",
+        "externalId": "3722",
+        "name": "Yule Sleigh - Mini14 (Gold Blue)",
+        "iconUrl": "/api/public/filter-icon/1788176838353-1e6fefe6.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "铃儿响叮当（异色）",
+        "localIcon": "/images/filter/items/f22093b0-e7ef-4e72-bdbb-00ded52050df.png",
+        "thaiName": "Mini14 คริสต์มาส (Christmas)",
+        "keywords": [
+          "铃儿响叮当（异色）",
+          "yule sleigh",
+          "คริสต์มาส",
+          "圣诞mini"
+        ],
+        "matchCount": 4265
+      },
+      {
+        "id": "b0eb4236-4347-4ed1-b5ea-11865e584db3",
+        "externalId": "3767",
+        "name": "Pretend Prototype - SLR (Navy Red)",
+        "iconUrl": "/api/public/filter-icon/1788176841721-695ff13d.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "伪装SLR（异色）",
+        "localIcon": "/images/filter/items/b0eb4236-4347-4ed1-b5ea-11865e584db3.png",
+        "thaiName": "Pretend Prototype - SLR (Navy Red)",
+        "keywords": [
+          "伪装slr（异色）",
+          "pretend prototype"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "สีพิเศษ Chroma",
+    "localIcon": "/images/filter/chroma.png",
+    "badge": "🌈"
+  },
+  {
+    "id": "c0042902-a264-4ff9-9b3f-96765d381d60",
+    "name": "Character / Hair",
+    "iconUrl": "/api/public/filter-icon/1788173060408-dcb2829e.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "7bd5fedb-f120-411b-a9e8-2a15f0f86357",
+        "externalId": "2882",
+        "name": "Dorian",
+        "iconUrl": "/api/public/filter-icon/1788176929884-dae6e5f9.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "多利安",
+        "localIcon": "/images/filter/items/7bd5fedb-f120-411b-a9e8-2a15f0f86357.png",
+        "thaiName": "Dorian",
+        "keywords": [
+          "多利安",
+          "dorian"
+        ],
+        "matchCount": 4616
+      },
+      {
+        "id": "33f48865-658e-4ecc-b531-a179440c3878",
+        "externalId": "2784",
+        "name": "Hanna",
+        "iconUrl": "/api/public/filter-icon/1788176936265-4ccc5553.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "瀚娜",
+        "localIcon": "/images/filter/items/33f48865-658e-4ecc-b531-a179440c3878.png",
+        "thaiName": "Hanna",
+        "keywords": [
+          "瀚娜",
+          "hanna"
+        ],
+        "matchCount": 5475
+      },
+      {
+        "id": "f39eb62e-7481-4fe5-8f0a-96230ee0b268",
+        "externalId": "3545",
+        "name": "EVE",
+        "iconUrl": "/api/public/filter-icon/1788176942488-da8461fc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "伊芙",
+        "localIcon": "/images/filter/items/f39eb62e-7481-4fe5-8f0a-96230ee0b268.png",
+        "thaiName": "EVE",
+        "keywords": [
+          "伊芙",
+          "eve"
+        ],
+        "matchCount": 15453
+      },
+      {
+        "id": "193ec53b-9825-4309-a3fb-13204f63f3a4",
+        "externalId": "3748",
+        "name": "Glasya",
+        "iconUrl": "/api/public/filter-icon/1788176952426-18eead3e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": true,
+        "chineseName": "格拉西亚",
+        "localIcon": "/images/filter/items/193ec53b-9825-4309-a3fb-13204f63f3a4.png",
+        "thaiName": "Glasya",
+        "keywords": [
+          "格拉西亚",
+          "glasya"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "058630a0-50eb-4375-9b0c-ca6faa4f7f9e",
+        "externalId": "custom-kw-fentou",
+        "name": "Hairstyle PGI.S",
+        "iconUrl": "/api/public/filter-icon/1788784182784-74664d62.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/058630a0-50eb-4375-9b0c-ca6faa4f7f9e.png",
+        "thaiName": "Hairstyle PGI.S",
+        "keywords": [
+          "hairstyle pgi.s"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "14b3d6eb-87a8-4860-82c2-1ed31f9a8124",
+        "externalId": "37",
+        "name": "Joker's Hair",
+        "iconUrl": "/api/public/filter-icon/1788176961310-05c07fcd.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小丑男",
+        "localIcon": "/images/filter/items/14b3d6eb-87a8-4860-82c2-1ed31f9a8124.png",
+        "thaiName": "Joker's Hair",
+        "keywords": [
+          "小丑男",
+          "harley quinn",
+          "ฮาร์ลีย์ ควินน์",
+          "小丑"
+        ],
+        "matchCount": 3889
+      },
+      {
+        "id": "46d5234d-ed2e-4d59-8a8c-93b72a320e0c",
+        "externalId": "36",
+        "name": "Harley Quinn's Hair",
+        "iconUrl": "/api/public/filter-icon/1788176962431-f5b413bf.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小丑女",
+        "localIcon": "/images/filter/items/46d5234d-ed2e-4d59-8a8c-93b72a320e0c.png",
+        "thaiName": "มอเตอร์ไซค์ Harley-Davidson ™",
+        "keywords": [
+          "小丑女",
+          "harley",
+          "ฮาร์เลย์",
+          "哈雷"
+        ],
+        "matchCount": 7505
+      },
+      {
+        "id": "9655f3db-31bb-444a-8059-0f271409b97a",
+        "externalId": "2429",
+        "name": "9S's Hairstyle",
+        "iconUrl": "/api/public/filter-icon/1788176965178-a1cb7721.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "9s发型",
+        "localIcon": "/images/filter/items/9655f3db-31bb-444a-8059-0f271409b97a.png",
+        "thaiName": "9S's Hairstyle",
+        "keywords": [
+          "9s发型",
+          "9s's hairstyle"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "0f7b635d-f0a9-42a9-8d44-dd993bcbbee2",
+        "externalId": "46",
+        "name": "La Catrina Makeup",
+        "iconUrl": "/api/public/filter-icon/1788176991033-b3815555.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "卡崔娜",
+        "localIcon": "/images/filter/items/0f7b635d-f0a9-42a9-8d44-dd993bcbbee2.png",
+        "thaiName": "La Catrina Makeup",
+        "keywords": [
+          "卡崔娜",
+          "la catrina makeup"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "f8e26dc5-bd97-4faf-b487-6981edac3665",
+        "externalId": "2427",
+        "name": "Kansas Headband",
+        "iconUrl": "/api/public/filter-icon/1788177014504-5f61ccf3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "康萨斯",
+        "localIcon": "/images/filter/items/f8e26dc5-bd97-4faf-b487-6981edac3665.png",
+        "thaiName": "Kansas Headband",
+        "keywords": [
+          "康萨斯",
+          "kansas headband"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "2847e314-260f-4cf7-bc70-a975629a3479",
+        "externalId": "custom-kw-chengsefadai",
+        "name": "Bun Bun Ribbon",
+        "iconUrl": "/api/public/filter-icon/1788105676225-1c28cab4.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/2847e314-260f-4cf7-bc70-a975629a3479.png",
+        "thaiName": "Bun Bun Ribbon",
+        "keywords": [
+          "bun bun ribbon"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "56d82f6b-cdf8-4aa5-929f-4826efb370c7",
+        "externalId": "38",
+        "name": "Black skin",
+        "iconUrl": "/api/public/filter-icon/1788176972330-884c9181.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "黑鬼",
+        "localIcon": "/images/filter/items/56d82f6b-cdf8-4aa5-929f-4826efb370c7.png",
+        "thaiName": "Black skin",
+        "keywords": [
+          "黑鬼",
+          "black skin"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "cfe450e9-76fc-416d-ae17-606dff70f30f",
+        "externalId": "40",
+        "name": "Mr. Ma",
+        "iconUrl": "/api/public/filter-icon/1788176976251-ee398f3e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "马东锡",
+        "localIcon": "/images/filter/items/cfe450e9-76fc-416d-ae17-606dff70f30f.png",
+        "thaiName": "Mr. Ma",
+        "keywords": [
+          "马东锡",
+          "mr. ma"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "9e10f76e-c6c8-42c0-8be4-fe53c2bc5ff0",
+        "externalId": "custom-kw-neimaer",
+        "name": "Neymar Jr.",
+        "iconUrl": "/api/public/filter-icon/1788784334032-20c893a4.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/9e10f76e-c6c8-42c0-8be4-fe53c2bc5ff0.png",
+        "thaiName": "Neymar Jr.",
+        "keywords": [
+          "neymar jr."
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "7749b6fd-5261-4142-b472-de15dd0fcaf5",
+        "externalId": "48",
+        "name": "Hairstyle 29",
+        "iconUrl": "/api/public/filter-icon/1788177005205-adb70f31.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小马尾",
+        "localIcon": "/images/filter/items/7749b6fd-5261-4142-b472-de15dd0fcaf5.png",
+        "thaiName": "Hairstyle 29",
+        "keywords": [
+          "小马尾",
+          "hairstyle 29"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "199f964b-83ab-44e9-b6c0-26829cd5d740",
+        "externalId": "47",
+        "name": "Hairstyle 36",
+        "iconUrl": "/api/public/filter-icon/1788177003606-88582393.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小绿头",
+        "localIcon": "/images/filter/items/199f964b-83ab-44e9-b6c0-26829cd5d740.png",
+        "thaiName": "Hairstyle 36",
+        "keywords": [
+          "小绿头",
+          "hairstyle 36"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "3e3f2b46-3c53-471a-b6ec-1e549008b935",
+        "externalId": "43",
+        "name": "Headset Bucket Hat",
+        "iconUrl": "/api/public/filter-icon/1788176984315-8cb2eea6.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "渔夫帽",
+        "localIcon": "/images/filter/items/3e3f2b46-3c53-471a-b6ec-1e549008b935.png",
+        "thaiName": "Headset Bucket Hat",
+        "keywords": [
+          "渔夫帽",
+          "headset bucket hat"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "3ae5d214-20ae-4372-acd2-9c8979fefae0",
+        "externalId": "42",
+        "name": "Golden Mask",
+        "iconUrl": "/api/public/filter-icon/1788176981333-8dddcd07.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "金面",
+        "localIcon": "/images/filter/items/3ae5d214-20ae-4372-acd2-9c8979fefae0.png",
+        "thaiName": "Golden Mask",
+        "keywords": [
+          "金面",
+          "golden mask"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "c9aad7fb-59a6-4453-a287-9927613aea36",
+        "externalId": "45",
+        "name": "Snow Glasses",
+        "iconUrl": "/api/public/filter-icon/1788176988393-bfd7a00b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "滑雪镜",
+        "localIcon": "/images/filter/items/c9aad7fb-59a6-4453-a287-9927613aea36.png",
+        "thaiName": "Snow Glasses",
+        "keywords": [
+          "滑雪镜",
+          "snow glasses"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e6e85f85-086b-41ca-84d2-4b7914a2b0e2",
+        "externalId": "2428",
+        "name": "Demon Biker Horns",
+        "iconUrl": "/api/public/filter-icon/1788177017106-242485e0.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "牛角",
+        "localIcon": "/images/filter/items/e6e85f85-086b-41ca-84d2-4b7914a2b0e2.png",
+        "thaiName": "Demon Biker Horns",
+        "keywords": [
+          "牛角",
+          "demon biker horns"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "ตัวละคร & ทรงผม",
+    "localIcon": "/images/filter/character___hair.png",
+    "badge": "👤"
+  },
+  {
+    "id": "32a9a172-c7e8-46ba-9a34-2bb62e5f2ff7",
+    "name": "Popular Skins",
+    "iconUrl": "/api/public/filter-icon/1788173070796-9436e3e6.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "05e95810-d9cf-4316-ad82-ef3e63920e60",
+        "externalId": "2450",
+        "name": "Berlin Mask",
+        "iconUrl": "/api/public/filter-icon/1788177061870-ea9bdeb1.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "柏林面具",
+        "localIcon": "/images/filter/items/05e95810-d9cf-4316-ad82-ef3e63920e60.png",
+        "thaiName": "หน้ากากเบอร์ลิน (Berlin Mask)",
+        "keywords": [
+          "柏林面具",
+          "berlin",
+          "เบอร์ลิน",
+          "柏林"
+        ],
+        "matchCount": 8746
+      },
+      {
+        "id": "6a9af52a-85ab-47da-a825-d425319637b5",
+        "externalId": "52",
+        "name": "Berlin Pants",
+        "iconUrl": "/api/public/filter-icon/1788177076421-dcbc840a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "柏林裤",
+        "localIcon": "/images/filter/items/6a9af52a-85ab-47da-a825-d425319637b5.png",
+        "thaiName": "กางเกงเบอร์ลิน (Berlin Pants)",
+        "keywords": [
+          "柏林裤",
+          "berlin",
+          "เบอร์ลิน",
+          "柏林"
+        ],
+        "matchCount": 8746
+      },
+      {
+        "id": "969d30bf-cf92-43e2-8d3c-c5e66e02b359",
+        "externalId": "custom-kw-bolinshangyi",
+        "name": "Doomsday Hoodie",
+        "iconUrl": "/api/public/filter-icon/1788105657706-449a4925.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/969d30bf-cf92-43e2-8d3c-c5e66e02b359.png",
+        "thaiName": "Doomsday Hoodie",
+        "keywords": [
+          "doomsday hoodie"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "7f30da78-7864-4f43-8b31-476a350fe089",
+        "externalId": "2806",
+        "name": "PUBG Partner Jacket 2017",
+        "iconUrl": "/api/public/filter-icon/1788177301227-5b0c7fa2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/7f30da78-7864-4f43-8b31-476a350fe089.png",
+        "thaiName": "PUBG Partner Jacket 2017",
+        "keywords": [
+          "pubg partner jacket 2017"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "a4eab577-723e-4258-8066-e93d6aec99e8",
+        "externalId": "72",
+        "name": "K Pants",
+        "iconUrl": "/api/public/filter-icon/1788177085604-b188e54d.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "K裤",
+        "localIcon": "/images/filter/items/a4eab577-723e-4258-8066-e93d6aec99e8.png",
+        "thaiName": "K Pants",
+        "keywords": [
+          "k裤",
+          "k pants"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "8692968d-4a88-4504-8e19-2c6281c27769",
+        "externalId": "53",
+        "name": "Green Stripe",
+        "iconUrl": "/api/public/filter-icon/1788177088422-e2861bbf.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "白运动",
+        "localIcon": "/images/filter/items/8692968d-4a88-4504-8e19-2c6281c27769.png",
+        "thaiName": "Green Stripe",
+        "keywords": [
+          "白运动",
+          "green stripe"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "9ae1c383-ce43-478b-8dea-ead99fe07ca4",
+        "externalId": "54",
+        "name": "PAI Dragon Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177091544-8398e38a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "龙神",
+        "localIcon": "/images/filter/items/9ae1c383-ce43-478b-8dea-ead99fe07ca4.png",
+        "thaiName": "PAI Dragon Jacket",
+        "keywords": [
+          "龙神",
+          "pai dragon jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "742d566b-7470-47ad-92c4-482fdb646df4",
+        "externalId": "55",
+        "name": "J9",
+        "iconUrl": "/api/public/filter-icon/1788177099884-2669407f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "J9",
+        "localIcon": "/images/filter/items/742d566b-7470-47ad-92c4-482fdb646df4.png",
+        "thaiName": "J9",
+        "keywords": [
+          "j9"
+        ],
+        "matchCount": 87
+      },
+      {
+        "id": "4cefbc1d-52fb-46de-8f40-5ae826a4a0cf",
+        "externalId": "56",
+        "name": "Douyu Biker Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177104630-37ff1ba9.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "斗鱼",
+        "localIcon": "/images/filter/items/4cefbc1d-52fb-46de-8f40-5ae826a4a0cf.png",
+        "thaiName": "Douyu Biker Jacket",
+        "keywords": [
+          "斗鱼",
+          "douyu biker jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "b7e3290a-e580-455c-9615-553d60a23092",
+        "externalId": "57",
+        "name": "Wanyoo Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177188055-a632f640.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "网鱼",
+        "localIcon": "/images/filter/items/b7e3290a-e580-455c-9615-553d60a23092.png",
+        "thaiName": "Wanyoo Jacket",
+        "keywords": [
+          "网鱼",
+          "wanyoo jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "151e6ab4-9607-4e78-908d-cc8cc6432b11",
+        "externalId": "58",
+        "name": "Bilibili Biker Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177194110-4b382ddb.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "B站",
+        "localIcon": "/images/filter/items/151e6ab4-9607-4e78-908d-cc8cc6432b11.png",
+        "thaiName": "Bilibili Biker Jacket",
+        "keywords": [
+          "b站",
+          "bilibili biker jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e22306de-5c18-4e9c-a921-b1cf4da1c952",
+        "externalId": "59",
+        "name": "SEA Champ Training Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177196433-fb126931.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "黑东",
+        "localIcon": "/images/filter/items/e22306de-5c18-4e9c-a921-b1cf4da1c952.png",
+        "thaiName": "SEA Champ Training Jacket",
+        "keywords": [
+          "黑东",
+          "sea champ training jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "b753226d-d829-4691-b886-192541cfeb86",
+        "externalId": "60",
+        "name": "PAI 2019 Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177198267-c0836f3b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "红东",
+        "localIcon": "/images/filter/items/b753226d-d829-4691-b886-192541cfeb86.png",
+        "thaiName": "PAI 2019 Jacket",
+        "keywords": [
+          "红东",
+          "pai 2019 jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "26be8b0a-c3c9-40b8-aa6e-02864b3df0db",
+        "externalId": "2815",
+        "name": "Training Jacket (Green)",
+        "iconUrl": "/api/public/filter-icon/1788177201738-4bf57ad0.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "绿东",
+        "localIcon": "/images/filter/items/26be8b0a-c3c9-40b8-aa6e-02864b3df0db.png",
+        "thaiName": "Training Jacket (Green)",
+        "keywords": [
+          "绿东",
+          "training jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "cf775cb2-fd9b-48a7-bb5c-3144d7e9335d",
+        "externalId": "61",
+        "name": "Partner Summer Shirt 2018",
+        "iconUrl": "/api/public/filter-icon/1788177205624-69f0384c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "菠萝T",
+        "localIcon": "/images/filter/items/cf775cb2-fd9b-48a7-bb5c-3144d7e9335d.png",
+        "thaiName": "Partner Summer Shirt 2018",
+        "keywords": [
+          "菠萝t",
+          "partner summer shirt 2018"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "2fb50bab-ecce-41c4-9d23-47525a2b2b66",
+        "externalId": "62",
+        "name": "PandaTV T-Shirt",
+        "iconUrl": "/api/public/filter-icon/1788177207302-b0698b57.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "熊猫T",
+        "localIcon": "/images/filter/items/2fb50bab-ecce-41c4-9d23-47525a2b2b66.png",
+        "thaiName": "PandaTV T-Shirt",
+        "keywords": [
+          "熊猫t",
+          "pandatv t-shirt"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "96d31924-e83b-479a-8b2f-6c9e6b140963",
+        "externalId": "63",
+        "name": "DMM T-Shirt",
+        "iconUrl": "/api/public/filter-icon/1788177209153-d5f837eb.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "武士一代",
+        "localIcon": "/images/filter/items/96d31924-e83b-479a-8b2f-6c9e6b140963.png",
+        "thaiName": "DMM T-Shirt",
+        "keywords": [
+          "武士一代",
+          "dmm t-shirt"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e1429bc6-a75d-413d-b6ba-cb1f0365e789",
+        "externalId": "64",
+        "name": "DMM T-shirt v2",
+        "iconUrl": "/api/public/filter-icon/1788177211092-555ed59e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "武士二代",
+        "localIcon": "/images/filter/items/e1429bc6-a75d-413d-b6ba-cb1f0365e789.png",
+        "thaiName": "DMM T-shirt v2",
+        "keywords": [
+          "武士二代",
+          "dmm t-shirt v2"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "251b950c-30e0-4d3a-bd70-e89a0a1cf8fd",
+        "externalId": "65",
+        "name": "NVIDIA",
+        "iconUrl": "/api/public/filter-icon/1788177213177-ec66a8ce.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "显卡套",
+        "localIcon": "/images/filter/items/251b950c-30e0-4d3a-bd70-e89a0a1cf8fd.png",
+        "thaiName": "NVIDIA",
+        "keywords": [
+          "显卡套",
+          "nvidia"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e5499044-e628-4ec7-a9e1-e2e01e215bf2",
+        "externalId": "66",
+        "name": "Bright Moon Maru Pants",
+        "iconUrl": "/api/public/filter-icon/1788177216025-c9077834.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "明月裤",
+        "localIcon": "/images/filter/items/e5499044-e628-4ec7-a9e1-e2e01e215bf2.png",
+        "thaiName": "Bright Moon Maru Pants",
+        "keywords": [
+          "明月裤",
+          "bright moon maru pants"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e09db5d4-4d07-4b4e-ad1c-81cd934b69ec",
+        "externalId": "custom-kw-baiqun",
+        "name": "School Skirt",
+        "iconUrl": "/api/public/filter-icon/1788784480385-c6d6d7c8.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/e09db5d4-4d07-4b4e-ad1c-81cd934b69ec.png",
+        "thaiName": "School Skirt",
+        "keywords": [
+          "school skirt"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "8802fa16-ae1f-451b-accf-644a34a20a4d",
+        "externalId": "custom-kw-hongmianjin",
+        "name": "PLAYERUNKNOWN SET",
+        "iconUrl": "/api/public/filter-icon/1788105654577-1b7c013b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/8802fa16-ae1f-451b-accf-644a34a20a4d.png",
+        "thaiName": "PLAYERUNKNOWN SET",
+        "keywords": [
+          "playerunknown set"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "27f618f6-e7d2-4edd-b195-4079eacf165c",
+        "externalId": "74",
+        "name": "WackyJacky101's Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177221356-9589e996.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/27f618f6-e7d2-4edd-b195-4079eacf165c.png",
+        "thaiName": "WackyJacky101's Jacket",
+        "keywords": [
+          "wackyjacky101's jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "800deacb-8fe7-4843-99ff-cb2fe6c0dc8e",
+        "externalId": "2425",
+        "name": "RASH BeiXi Xtra",
+        "iconUrl": "/api/public/filter-icon/1788177255931-6471e97c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "粉战神",
+        "localIcon": "/images/filter/items/800deacb-8fe7-4843-99ff-cb2fe6c0dc8e.png",
+        "thaiName": "RASH BeiXi Xtra",
+        "keywords": [
+          "粉战神",
+          "rash beixi xtra"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "b8005ed5-9db8-48df-9f9f-8f2b0ffdd4a3",
+        "externalId": "2416",
+        "name": "Zen Mood Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177264629-b719aae6.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "白战神",
+        "localIcon": "/images/filter/items/b8005ed5-9db8-48df-9f9f-8f2b0ffdd4a3.png",
+        "thaiName": "Zen Mood Jacket",
+        "keywords": [
+          "白战神",
+          "zen mood jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "0db63722-1d4c-48c7-b60f-58c019050e4b",
+        "externalId": "76",
+        "name": "ESCAPE SET",
+        "iconUrl": "/api/public/filter-icon/1788177244648-092a4987.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "橙运动",
+        "localIcon": "/images/filter/items/0db63722-1d4c-48c7-b60f-58c019050e4b.png",
+        "thaiName": "ESCAPE SET",
+        "keywords": [
+          "橙运动",
+          "escape set"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "cb15e5ce-d390-40bd-92f2-599f8f37de10",
+        "externalId": "2426",
+        "name": "Tac-Tech Shirt",
+        "iconUrl": "/api/public/filter-icon/1788177255675-f1ac15b2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "发光手臂",
+        "localIcon": "/images/filter/items/cb15e5ce-d390-40bd-92f2-599f8f37de10.png",
+        "thaiName": "Tac-Tech Shirt",
+        "keywords": [
+          "发光手臂",
+          "tac-tech shirt"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "23af4759-a968-448e-88b9-f48635fcd356",
+        "externalId": "2417",
+        "name": "Work Jacket",
+        "iconUrl": "/api/public/filter-icon/1788177258527-9c72556c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "黄东",
+        "localIcon": "/images/filter/items/23af4759-a968-448e-88b9-f48635fcd356.png",
+        "thaiName": "Work Jacket",
+        "keywords": [
+          "黄东",
+          "work jacket"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "a509d1a8-d1e8-40aa-af47-314f9ab68931",
+        "externalId": "custom-kw-aidezhudage",
+        "name": "Theme Song of Love",
+        "iconUrl": "/api/public/filter-icon/1788105686866-760f28f6.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/a509d1a8-d1e8-40aa-af47-314f9ab68931.png",
+        "thaiName": "Theme Song of Love",
+        "keywords": [
+          "theme song of love"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "สกินยอดฮิต & ลายปืนแรร์",
+    "localIcon": "/images/filter/popular_skins.png",
+    "badge": "🔥"
+  },
+  {
+    "id": "c8aebbc9-0b61-45ab-85a3-cb6ff6565d1b",
+    "name": "Popular Outfits",
+    "iconUrl": "/api/public/filter-icon/1790986809738-5fffe9e3.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "9a145c02-5123-444d-834b-14e3b74504fb",
+        "externalId": "67",
+        "name": "KAKAO FRIENDS",
+        "iconUrl": "/api/public/filter-icon/1788177457394-89016022.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "可可",
+        "localIcon": "/images/filter/items/9a145c02-5123-444d-834b-14e3b74504fb.png",
+        "thaiName": "KAKAO FRIENDS",
+        "keywords": [
+          "可可",
+          "kakao friends"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "ca91a3e4-7bf6-4d55-9e45-abe2bd0a4045",
+        "externalId": "70",
+        "name": "NIER",
+        "iconUrl": "/api/public/filter-icon/1788177468142-08b952dc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "尼尔",
+        "localIcon": "/images/filter/items/ca91a3e4-7bf6-4d55-9e45-abe2bd0a4045.png",
+        "thaiName": "NIER",
+        "keywords": [
+          "尼尔",
+          "nier"
+        ],
+        "matchCount": 4187
+      },
+      {
+        "id": "89c74421-06e4-449c-b06c-c4c937a5fa2d",
+        "externalId": "69",
+        "name": "Blackpink",
+        "iconUrl": "/api/public/filter-icon/1788177462063-7ae2bf6e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "女团",
+        "localIcon": "/images/filter/items/89c74421-06e4-449c-b06c-c4c937a5fa2d.png",
+        "thaiName": "Blackpink",
+        "keywords": [
+          "女团",
+          "blackpink"
+        ],
+        "matchCount": 117
+      },
+      {
+        "id": "bc2713ec-d175-447b-b37d-76397be3e7a6",
+        "externalId": "2384",
+        "name": "Newjeans",
+        "iconUrl": "/api/public/filter-icon/1788177470989-7c01e0ff.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "2024女团",
+        "localIcon": "/images/filter/items/bc2713ec-d175-447b-b37d-76397be3e7a6.png",
+        "thaiName": "Newjeans",
+        "keywords": [
+          "2024女团",
+          "newjeans"
+        ],
+        "matchCount": 217
+      },
+      {
+        "id": "fb1099f3-f0fc-43fc-8486-db512864f329",
+        "externalId": "2846",
+        "name": "Aespa",
+        "iconUrl": "/api/public/filter-icon/1788177517977-4b029023.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "aespa女团",
+        "localIcon": "/images/filter/items/fb1099f3-f0fc-43fc-8486-db512864f329.png",
+        "thaiName": "เซ็ตสาวเกาหลี K-Pop aespa",
+        "keywords": [
+          "aespa女团",
+          "aespa",
+          "เอสป้า"
+        ],
+        "matchCount": 6355
+      },
+      {
+        "id": "5c67e06d-f03a-45ff-99f0-662437ae5d2b",
+        "externalId": "3857",
+        "name": "IVE",
+        "iconUrl": "/api/public/filter-icon/1794397935501-45e31312.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "IVE女团",
+        "localIcon": "/images/filter/items/5c67e06d-f03a-45ff-99f0-662437ae5d2b.png",
+        "thaiName": "IVE",
+        "keywords": [
+          "ive女团",
+          "ive"
+        ],
+        "matchCount": 6883
+      },
+      {
+        "id": "5713f13a-5b2f-4d97-bfdc-3d1300edc0cd",
+        "externalId": "73",
+        "name": "B.DUCK",
+        "iconUrl": "/api/public/filter-icon/1788177474606-a4f9e854.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小黄鸭",
+        "localIcon": "/images/filter/items/5713f13a-5b2f-4d97-bfdc-3d1300edc0cd.png",
+        "thaiName": "B.DUCK",
+        "keywords": [
+          "小黄鸭",
+          "b.duck"
+        ],
+        "matchCount": 2150
+      },
+      {
+        "id": "c5a8a781-ac48-43f6-866a-00c7964fb81a",
+        "externalId": "2466",
+        "name": "STREET FIGHTER",
+        "iconUrl": "/api/public/filter-icon/1788177503409-804aaeda.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "街头霸王",
+        "localIcon": "/images/filter/items/c5a8a781-ac48-43f6-866a-00c7964fb81a.png",
+        "thaiName": "STREET FIGHTER",
+        "keywords": [
+          "街头霸王",
+          "street fighter"
+        ],
+        "matchCount": 1
+      },
+      {
+        "id": "a2fc9d6b-fc3c-41bb-9546-33a326d47c8c",
+        "externalId": "2464",
+        "name": "LFLong's",
+        "iconUrl": "/api/public/filter-icon/1788177501659-358a3c5b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "拉风龙",
+        "localIcon": "/images/filter/items/a2fc9d6b-fc3c-41bb-9546-33a326d47c8c.png",
+        "thaiName": "LFLong's",
+        "keywords": [
+          "拉风龙",
+          "lflong's"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "329c9199-d1e9-4e53-9117-0510106e7d54",
+        "externalId": "2454",
+        "name": "Bunny Academy",
+        "iconUrl": "/api/public/filter-icon/1788177479494-235c077e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小兔学院",
+        "localIcon": "/images/filter/items/329c9199-d1e9-4e53-9117-0510106e7d54.png",
+        "thaiName": "เซ็ตกระต่ายบันนี่ (Bunny Academy)",
+        "keywords": [
+          "小兔学院",
+          "bunny",
+          "กระต่าย",
+          "หมวกกระต่าย",
+          "小兔"
+        ],
+        "matchCount": 18813
+      },
+      {
+        "id": "46852e01-9629-4463-a0cf-eff5073cbe56",
+        "externalId": "68",
+        "name": "LINE FRIENDS",
+        "iconUrl": "/api/public/filter-icon/1788177460002-460c3f85.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "布朗熊",
+        "localIcon": "/images/filter/items/46852e01-9629-4463-a0cf-eff5073cbe56.png",
+        "thaiName": "LINE FRIENDS",
+        "keywords": [
+          "布朗熊",
+          "line friends"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "f3e5a6d7-4d87-4250-959e-d6b1cc244790",
+        "externalId": "2456",
+        "name": "Aixleft's",
+        "iconUrl": "/api/public/filter-icon/1788177484969-0ebcd3a2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小叮当",
+        "localIcon": "/images/filter/items/f3e5a6d7-4d87-4250-959e-d6b1cc244790.png",
+        "thaiName": "Aixleft's",
+        "keywords": [
+          "小叮当",
+          "aixleft's"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e0d0131c-29be-4ba6-80a2-e7af37b6d2e1",
+        "externalId": "2460",
+        "name": "ALI THE FOX",
+        "iconUrl": "/api/public/filter-icon/1788177494194-3a42c7a9.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "阿狸",
+        "localIcon": "/images/filter/items/e0d0131c-29be-4ba6-80a2-e7af37b6d2e1.png",
+        "thaiName": "ALI THE FOX",
+        "keywords": [
+          "阿狸",
+          "ali the fox"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "9144f7d0-b959-49d8-ac10-017c36c60e59",
+        "externalId": "2468",
+        "name": "Beixi",
+        "iconUrl": "/api/public/filter-icon/1788177510029-55218179.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "悲喜",
+        "localIcon": "/images/filter/items/9144f7d0-b959-49d8-ac10-017c36c60e59.png",
+        "thaiName": "Beixi",
+        "keywords": [
+          "悲喜",
+          "beixi"
+        ],
+        "matchCount": 8658
+      }
+    ],
+    "categoryNameTh": "ชุดแฟชั่น & เซ็ตคอสตูมแรร์",
+    "localIcon": "/images/filter/popular_outfits.png",
+    "badge": "👘"
+  },
+  {
+    "id": "09b67648-dc5d-45ef-9d84-6745c6e79696",
+    "name": "Tactical Gloves",
+    "iconUrl": "/api/public/filter-icon/1788173104890-0158fc1c.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "2647b088-9b22-420e-8bfa-35b6198b8eb1",
+        "externalId": "79",
+        "name": "shroud's Tactical Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177565871-451a76c3.png",
+        "maxLevelIconUrl": null,
+        "isCrown": true,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "大魔王",
+        "localIcon": "/images/filter/items/2647b088-9b22-420e-8bfa-35b6198b8eb1.png",
+        "thaiName": "เซ็ตแจ็กเก็ต Shroud",
+        "keywords": [
+          "大魔王",
+          "shroud"
+        ],
+        "matchCount": 2
+      },
+      {
+        "id": "85dcd70b-4e57-48aa-a0f9-68c644224321",
+        "externalId": "80",
+        "name": "Swagger's Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177584696-6ad4e48f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "金手指",
+        "localIcon": "/images/filter/items/85dcd70b-4e57-48aa-a0f9-68c644224321.png",
+        "thaiName": "Swagger's Gloves",
+        "keywords": [
+          "金手指",
+          "swagger's gloves"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "ad5bdd99-3341-42d2-b6f2-a1545d8f0eaa",
+        "externalId": "81",
+        "name": "hambinooo's Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177596536-eb92cc9a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": true,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "迈阿密",
+        "localIcon": "/images/filter/items/ad5bdd99-3341-42d2-b6f2-a1545d8f0eaa.png",
+        "thaiName": "hambinooo's Gloves",
+        "keywords": [
+          "迈阿密",
+          "hambinooo's gloves"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "e5fdd01b-c15b-48a8-a972-da791548ae00",
+        "externalId": "82",
+        "name": "BreaK's Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177602607-6e8a91da.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "金叶手套",
+        "localIcon": "/images/filter/items/e5fdd01b-c15b-48a8-a972-da791548ae00.png",
+        "thaiName": "BreaK's Gloves",
+        "keywords": [
+          "金叶手套",
+          "break's gloves"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "6593244b-d8c5-4562-a5af-1e117cc2018b",
+        "externalId": "83",
+        "name": "spajKK's Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177608697-cf89c49c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "K手套",
+        "localIcon": "/images/filter/items/6593244b-d8c5-4562-a5af-1e117cc2018b.png",
+        "thaiName": "spajKK's Gloves",
+        "keywords": [
+          "k手套",
+          "spajkk's gloves"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "1c30afa5-2211-4d73-9982-70ce5400ab7e",
+        "externalId": "84",
+        "name": "Mazarin1k's Tactical Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177615235-f7287ab2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "蛋黄手套",
+        "localIcon": "/images/filter/items/1c30afa5-2211-4d73-9982-70ce5400ab7e.png",
+        "thaiName": "Mazarin1k's Tactical Gloves",
+        "keywords": [
+          "蛋黄手套",
+          "mazarin1k's tactical gloves"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "6a081a27-fe02-43dd-942a-a3033f7d4db3",
+        "externalId": "85",
+        "name": "Danucd's Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177621704-25206418.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小兔手套",
+        "localIcon": "/images/filter/items/6a081a27-fe02-43dd-942a-a3033f7d4db3.png",
+        "thaiName": "Danucd's Gloves",
+        "keywords": [
+          "小兔手套",
+          "bunny",
+          "กระต่าย",
+          "หมวกกระต่าย",
+          "小兔"
+        ],
+        "matchCount": 18813
+      },
+      {
+        "id": "91f56b8d-6e24-4f0b-b004-3e49e4b2014e",
+        "externalId": "86",
+        "name": "Heybox Gloves",
+        "iconUrl": "/api/public/filter-icon/1788177630386-373d8e59.png",
+        "maxLevelIconUrl": null,
+        "isCrown": true,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "小黑盒",
+        "localIcon": "/images/filter/items/91f56b8d-6e24-4f0b-b004-3e49e4b2014e.png",
+        "thaiName": "Heybox Gloves",
+        "keywords": [
+          "小黑盒",
+          "heybox gloves"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "8e26a9f3-5b04-45d9-9c7f-42e90b5bc9bc",
+        "externalId": "custom-kw-baibengdai",
+        "name": "PGI Title Wraps",
+        "iconUrl": "/api/public/filter-icon/1787976374799-2a645396.png",
+        "maxLevelIconUrl": null,
+        "isCrown": true,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/8e26a9f3-5b04-45d9-9c7f-42e90b5bc9bc.png",
+        "thaiName": "PGI Title Wraps",
+        "keywords": [
+          "pgi title wraps"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "3e6d61f9-7e40-41b7-b172-feb7eedd8488",
+        "externalId": "custom-kw-heibengdai",
+        "name": "Duncan's Infiltrator Handwraps",
+        "iconUrl": "/api/public/filter-icon/1788784524823-7ee3fb05.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/3e6d61f9-7e40-41b7-b172-feb7eedd8488.png",
+        "thaiName": "Duncan's Infiltrator Handwraps",
+        "keywords": [
+          "duncan's infiltrator handwraps"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "ถุงมือยุทธวิธี",
+    "localIcon": "/images/filter/tactical_gloves.png",
+    "badge": "🧤"
+  },
+  {
+    "id": "9055928e-9dea-485d-9399-06775b1c2faf",
+    "name": "Survival Level",
+    "iconUrl": "/api/public/filter-icon/1788173115759-8ea93fe7.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "2ad7d421-c610-4812-928c-248e2d1c3550",
+        "externalId": "95",
+        "name": "Tier 1",
+        "iconUrl": "/api/public/filter-icon/1788173706199-9af06dc4.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "一阶段",
+        "localIcon": "/images/filter/items/2ad7d421-c610-4812-928c-248e2d1c3550.png",
+        "thaiName": "Tier 1",
+        "keywords": [
+          "一阶段",
+          "tier 1"
+        ],
+        "matchCount": 938
+      },
+      {
+        "id": "1bf1b7e1-5517-4d3b-98fc-881d74ac128f",
+        "externalId": "96",
+        "name": "Tier 2",
+        "iconUrl": "/api/public/filter-icon/1788173710050-1ab57413.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "二阶段",
+        "localIcon": "/images/filter/items/1bf1b7e1-5517-4d3b-98fc-881d74ac128f.png",
+        "thaiName": "Tier 2",
+        "keywords": [
+          "二阶段",
+          "tier 2"
+        ],
+        "matchCount": 1088
+      },
+      {
+        "id": "27e1673b-7aef-4850-95e2-7c393dbebd86",
+        "externalId": "97",
+        "name": "Tier 3",
+        "iconUrl": "/api/public/filter-icon/1788173712420-3f48c17b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "三阶段",
+        "localIcon": "/images/filter/items/27e1673b-7aef-4850-95e2-7c393dbebd86.png",
+        "thaiName": "Tier 3",
+        "keywords": [
+          "三阶段",
+          "tier 3"
+        ],
+        "matchCount": 668
+      },
+      {
+        "id": "3b84d6ce-afae-4760-b781-84786d4c154f",
+        "externalId": "98",
+        "name": "Tier 4",
+        "iconUrl": "/api/public/filter-icon/1788173715860-35c1958a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "四阶段",
+        "localIcon": "/images/filter/items/3b84d6ce-afae-4760-b781-84786d4c154f.png",
+        "thaiName": "Tier 4",
+        "keywords": [
+          "四阶段",
+          "tier 4"
+        ],
+        "matchCount": 530
+      },
+      {
+        "id": "279f3915-2524-4fd2-88bb-8beb3f40ab62",
+        "externalId": "99",
+        "name": "Tier 5",
+        "iconUrl": "/api/public/filter-icon/1788173720596-dfdec26e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "五阶段",
+        "localIcon": "/images/filter/items/279f3915-2524-4fd2-88bb-8beb3f40ab62.png",
+        "thaiName": "Tier 5",
+        "keywords": [
+          "五阶段",
+          "tier 5"
+        ],
+        "matchCount": 1261
+      },
+      {
+        "id": "ab453086-c416-4256-8924-06d8723a6e24",
+        "externalId": "2821",
+        "name": "Reaper Gold",
+        "iconUrl": "/api/public/filter-icon/1788173726219-16d97247.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "收割者金标",
+        "localIcon": "/images/filter/items/ab453086-c416-4256-8924-06d8723a6e24.png",
+        "thaiName": "Reaper Gold",
+        "keywords": [
+          "收割者金标",
+          "reaper gold"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "1c145337-848f-4f42-96ea-304384515948",
+        "externalId": "2819",
+        "name": "Predator Gold",
+        "iconUrl": "/api/public/filter-icon/1788173730402-98af1dc4.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "捕食者金标",
+        "localIcon": "/images/filter/items/1c145337-848f-4f42-96ea-304384515948.png",
+        "thaiName": "Predator Gold",
+        "keywords": [
+          "捕食者金标",
+          "predator gold"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "เลเวลเอาชีวิตรอด (Survival)",
+    "localIcon": "/images/filter/survival_level.png",
+    "badge": "🏆"
+  },
+  {
+    "id": "b7dda2fa-2249-434c-9d9b-8c8732283430",
+    "name": "Reputation Level",
+    "iconUrl": "/api/public/filter-icon/1788173122657-999002cc.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "2bd6e8e2-50f5-4c86-9ffb-324eac7c44ef",
+        "externalId": "2420",
+        "name": "Reputation Level 1",
+        "iconUrl": "/api/public/filter-icon/1788173747644-2239d15b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "信誉等级一",
+        "localIcon": "/images/filter/items/2bd6e8e2-50f5-4c86-9ffb-324eac7c44ef.png",
+        "thaiName": "Reputation Level 1",
+        "keywords": [
+          "信誉等级一",
+          "reputation level 1"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "681bc743-cbea-488f-91a9-0a66bcfc6cdc",
+        "externalId": "2421",
+        "name": "Reputation Level 2",
+        "iconUrl": "/api/public/filter-icon/1788173750681-caad5699.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "信誉等级二",
+        "localIcon": "/images/filter/items/681bc743-cbea-488f-91a9-0a66bcfc6cdc.png",
+        "thaiName": "Reputation Level 2",
+        "keywords": [
+          "信誉等级二",
+          "reputation level 2"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "5f657061-4729-48a9-a4f0-b2c323b33984",
+        "externalId": "2422",
+        "name": "Reputation Level 3",
+        "iconUrl": "/api/public/filter-icon/1788173754914-55108570.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "信誉等级三",
+        "localIcon": "/images/filter/items/5f657061-4729-48a9-a4f0-b2c323b33984.png",
+        "thaiName": "Reputation Level 3",
+        "keywords": [
+          "信誉等级三",
+          "reputation level 3"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "64333925-6482-476c-96d9-5c0cad07c4f0",
+        "externalId": "2423",
+        "name": "Reputation Level 4",
+        "iconUrl": "/api/public/filter-icon/1788173758367-c50da9bb.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "信誉等级四",
+        "localIcon": "/images/filter/items/64333925-6482-476c-96d9-5c0cad07c4f0.png",
+        "thaiName": "Reputation Level 4",
+        "keywords": [
+          "信誉等级四",
+          "reputation level 4"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "cd0498f2-327f-49c6-a009-b89c600f5459",
+        "externalId": "2424",
+        "name": "Reputation Level 5",
+        "iconUrl": "/api/public/filter-icon/1788173761641-f810cd37.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "信誉等级五",
+        "localIcon": "/images/filter/items/cd0498f2-327f-49c6-a009-b89c600f5459.png",
+        "thaiName": "Reputation Level 5",
+        "keywords": [
+          "信誉等级五",
+          "reputation level 5"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "เลเวลชื่อเสียง (Reputation)",
+    "localIcon": "/images/filter/reputation_level.png",
+    "badge": "⭐"
+  },
+  {
+    "id": "7b709229-00d9-470f-bee2-046f5b4bde45",
+    "name": "Vehicles",
+    "iconUrl": "/api/public/filter-icon/1788173138392-a5ce6016.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "a2fb5e9f-ed77-4027-a9fe-0473b956bc80",
+        "externalId": "3692",
+        "name": "HARLEY-DAVIDSON",
+        "iconUrl": "/api/public/filter-icon/1788177653662-6d29381d.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "哈雷摩托车",
+        "localIcon": "/images/filter/items/a2fb5e9f-ed77-4027-a9fe-0473b956bc80.png",
+        "thaiName": "มอเตอร์ไซค์ Harley-Davidson ™",
+        "keywords": [
+          "哈雷摩托车",
+          "harley",
+          "ฮาร์เลย์",
+          "哈雷"
+        ],
+        "matchCount": 7505
+      },
+      {
+        "id": "b12ce4a4-0fd6-4612-b40c-0981b605996d",
+        "externalId": "3690",
+        "name": "HARLEY-DAVIDSON LIMITED",
+        "iconUrl": "/api/public/filter-icon/1788177655485-8b11617d.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "哈雷限量版",
+        "localIcon": "/images/filter/items/b12ce4a4-0fd6-4612-b40c-0981b605996d.png",
+        "thaiName": "มอเตอร์ไซค์ Harley-Davidson ™",
+        "keywords": [
+          "哈雷限量版",
+          "harley",
+          "ฮาร์เลย์",
+          "哈雷"
+        ],
+        "matchCount": 7505
+      },
+      {
+        "id": "29578d1d-d0c4-4da5-8b4d-025e28aa26a1",
+        "externalId": "2894",
+        "name": "Panamera Sedan",
+        "iconUrl": "/api/public/filter-icon/1788177657558-11b582cc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "帕拉梅拉",
+        "localIcon": "/images/filter/items/29578d1d-d0c4-4da5-8b4d-025e28aa26a1.png",
+        "thaiName": "ซูเปอร์คาร์ ปอร์เช่ (Porsche)",
+        "keywords": [
+          "帕拉梅拉",
+          "porsche",
+          "panamera",
+          "911",
+          "cayenne",
+          "ปอร์เช่",
+          "保时捷"
+        ],
+        "matchCount": 6131
+      },
+      {
+        "id": "058d475d-08d0-4e36-aa60-91910ef5083e",
+        "externalId": "2893",
+        "name": "911 Carrera GTS",
+        "iconUrl": "/api/public/filter-icon/1788177659329-55d82839.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "保时捷911",
+        "localIcon": "/images/filter/items/058d475d-08d0-4e36-aa60-91910ef5083e.png",
+        "thaiName": "ซูเปอร์คาร์ ปอร์เช่ (Porsche)",
+        "keywords": [
+          "保时捷911",
+          "porsche",
+          "panamera",
+          "911",
+          "cayenne",
+          "ปอร์เช่",
+          "保时捷"
+        ],
+        "matchCount": 6131
+      },
+      {
+        "id": "aef90e46-84e3-4a83-8aff-69c8dbdb698d",
+        "externalId": "2892",
+        "name": "Cayenne Turbo GT",
+        "iconUrl": "/api/public/filter-icon/1788177663568-c2dd4588.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "保时捷卡宴",
+        "localIcon": "/images/filter/items/aef90e46-84e3-4a83-8aff-69c8dbdb698d.png",
+        "thaiName": "ซูเปอร์คาร์ ปอร์เช่ (Porsche)",
+        "keywords": [
+          "保时捷卡宴",
+          "porsche",
+          "panamera",
+          "911",
+          "cayenne",
+          "ปอร์เช่",
+          "保时捷"
+        ],
+        "matchCount": 6131
+      },
+      {
+        "id": "5fa0b65a-539e-4bc5-b120-792504cb5bc2",
+        "externalId": "2853",
+        "name": "Chiron Bugatti Limited",
+        "iconUrl": "/api/public/filter-icon/1788177666717-4a4a02a2.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "布加迪奢华版跑车",
+        "localIcon": "/images/filter/items/5fa0b65a-539e-4bc5-b120-792504cb5bc2.png",
+        "thaiName": "ซูเปอร์คาร์ บูแกตติ (Bugatti)",
+        "keywords": [
+          "布加迪奢华版跑车",
+          "bugatti",
+          "chiron",
+          "บูแกตติ",
+          "ชิรอน",
+          "布加迪"
+        ],
+        "matchCount": 4402
+      },
+      {
+        "id": "848a2ef7-72ff-4d70-ab14-eb3e79d79ebd",
+        "externalId": "2852",
+        "name": "Chiron Bugatti",
+        "iconUrl": "/api/public/filter-icon/1788177668513-f520d538.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "布加迪跑车",
+        "localIcon": "/images/filter/items/848a2ef7-72ff-4d70-ab14-eb3e79d79ebd.png",
+        "thaiName": "ซูเปอร์คาร์ บูแกตติ (Bugatti)",
+        "keywords": [
+          "布加迪跑车",
+          "bugatti",
+          "chiron",
+          "บูแกตติ",
+          "ชิรอน",
+          "布加迪"
+        ],
+        "matchCount": 4402
+      },
+      {
+        "id": "c7e7fd5c-736e-4258-ae0b-ca56c68fe071",
+        "externalId": "2470",
+        "name": "LAMBORGHINI",
+        "iconUrl": "/api/public/filter-icon/1788177670770-0f592b7c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "兰博基尼跑车",
+        "localIcon": "/images/filter/items/c7e7fd5c-736e-4258-ae0b-ca56c68fe071.png",
+        "thaiName": "ซูเปอร์คาร์ ลัมโบร์กินี (Lamborghini)",
+        "keywords": [
+          "兰博基尼跑车",
+          "lamborghini",
+          "urus",
+          "ลัมโบร์กินี",
+          "兰博"
+        ],
+        "matchCount": 3579
+      },
+      {
+        "id": "473af30e-e6d9-4469-b0b6-3ce5ae9abb6b",
+        "externalId": "2476",
+        "name": "Urus S Lusso",
+        "iconUrl": "/api/public/filter-icon/1788177673380-ae395922.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "兰博基尼奢华版",
+        "localIcon": "/images/filter/items/473af30e-e6d9-4469-b0b6-3ce5ae9abb6b.png",
+        "thaiName": "Urus S Lusso",
+        "keywords": [
+          "兰博基尼奢华版",
+          "lamborghini",
+          "urus",
+          "ลัมโบร์กินี",
+          "兰博"
+        ],
+        "matchCount": 3579
+      },
+      {
+        "id": "d5d7f3cf-69fc-4034-80f6-0198c4c4b79f",
+        "externalId": "2477",
+        "name": "Urus S",
+        "iconUrl": "/api/public/filter-icon/1788177676304-c6d28226.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "兰博基尼SUV",
+        "localIcon": "/images/filter/items/d5d7f3cf-69fc-4034-80f6-0198c4c4b79f.png",
+        "thaiName": "Urus S",
+        "keywords": [
+          "兰博基尼suv",
+          "lamborghini",
+          "urus",
+          "ลัมโบร์กินี",
+          "兰博"
+        ],
+        "matchCount": 3579
+      },
+      {
+        "id": "a412dc12-d07f-412d-b64c-05ae5603129e",
+        "externalId": "2472",
+        "name": "ASTON MARTIN",
+        "iconUrl": "/api/public/filter-icon/1788177706492-9628bac0.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "马丁跑车",
+        "localIcon": "/images/filter/items/a412dc12-d07f-412d-b64c-05ae5603129e.png",
+        "thaiName": "ซูเปอร์คาร์ แอสตัน มาร์ติน (Aston Martin)",
+        "keywords": [
+          "马丁跑车",
+          "aston martin",
+          "แอสตัน มาร์ติน",
+          "马丁"
+        ],
+        "matchCount": 6867
+      },
+      {
+        "id": "4a5a5d4d-f50e-4e13-9aaa-0ac96a8103c5",
+        "externalId": "2471",
+        "name": "ASTON MARTIN Luxe",
+        "iconUrl": "/api/public/filter-icon/1788177707624-bbfaf1ad.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "马丁敞篷跑车",
+        "localIcon": "/images/filter/items/4a5a5d4d-f50e-4e13-9aaa-0ac96a8103c5.png",
+        "thaiName": "ซูเปอร์คาร์ แอสตัน มาร์ติน (Aston Martin)",
+        "keywords": [
+          "马丁敞篷跑车",
+          "aston martin",
+          "แอสตัน มาร์ติน",
+          "马丁"
+        ],
+        "matchCount": 6867
+      },
+      {
+        "id": "e65ace1e-07bf-44a2-a6db-41df67534630",
+        "externalId": "2478",
+        "name": "ASTON MARTIN SUV",
+        "iconUrl": "/api/public/filter-icon/1788177710384-6bf7ebdd.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "马丁SUV",
+        "localIcon": "/images/filter/items/e65ace1e-07bf-44a2-a6db-41df67534630.png",
+        "thaiName": "ซูเปอร์คาร์ แอสตัน มาร์ติน (Aston Martin)",
+        "keywords": [
+          "马丁suv",
+          "aston martin",
+          "แอสตัน มาร์ติน",
+          "马丁"
+        ],
+        "matchCount": 6867
+      },
+      {
+        "id": "73449ba4-6e1c-43bf-8a02-2292dfb29d9b",
+        "externalId": "2473",
+        "name": "McLaren GT Elite",
+        "iconUrl": "/api/public/filter-icon/1788177733421-412dae90.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "迈凯伦精英版",
+        "localIcon": "/images/filter/items/73449ba4-6e1c-43bf-8a02-2292dfb29d9b.png",
+        "thaiName": "ซูเปอร์คาร์ แมคลาเรน (McLaren)",
+        "keywords": [
+          "迈凯伦精英版",
+          "mclaren",
+          "แมคลาเรน",
+          "迈凯伦"
+        ],
+        "matchCount": 2300
+      },
+      {
+        "id": "d8365f7c-4ca7-4e6b-9aa0-a155282ffd83",
+        "externalId": "2474",
+        "name": "McLaren GT Black",
+        "iconUrl": "/api/public/filter-icon/1788177734921-843306bf.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "迈凯伦玛瑙黑版",
+        "localIcon": "/images/filter/items/d8365f7c-4ca7-4e6b-9aa0-a155282ffd83.png",
+        "thaiName": "ซูเปอร์คาร์ แมคลาเรน (McLaren)",
+        "keywords": [
+          "迈凯伦玛瑙黑版",
+          "mclaren",
+          "แมคลาเรน",
+          "迈凯伦"
+        ],
+        "matchCount": 2300
+      },
+      {
+        "id": "c18eac99-53fc-423e-b071-8f042e1ce456",
+        "externalId": "2475",
+        "name": "McLaren GT White",
+        "iconUrl": "/api/public/filter-icon/1788177736550-575c7a80.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "迈凯伦硅质白版",
+        "localIcon": "/images/filter/items/c18eac99-53fc-423e-b071-8f042e1ce456.png",
+        "thaiName": "ซูเปอร์คาร์ แมคลาเรน (McLaren)",
+        "keywords": [
+          "迈凯伦硅质白版",
+          "mclaren",
+          "แมคลาเรน",
+          "迈凯伦"
+        ],
+        "matchCount": 2300
+      },
+      {
+        "id": "16374b33-295d-4966-af66-178f19da1717",
+        "externalId": "3834",
+        "name": "\\\"Flying Spur Mulliner\\\" Sedan",
+        "iconUrl": "/api/public/filter-icon/1794398077674-3f4c3063.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "宾利飞驰",
+        "localIcon": "/images/filter/items/16374b33-295d-4966-af66-178f19da1717.png",
+        "thaiName": "\\\"Flying Spur Mulliner\\\" Sedan",
+        "keywords": [
+          "宾利飞驰",
+          "bentley",
+          "เบนท์ลีย์",
+          "宾利",
+          "飞驰"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "9b5f0045-46ef-4ee0-9234-925e6a85c266",
+        "externalId": "3836",
+        "name": "\\\"Flying Spur Mulliner (Luxe)\\\" Sedan",
+        "iconUrl": "/api/public/filter-icon/1794398083438-91877d71.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "飞驰奢华版",
+        "localIcon": "/images/filter/items/9b5f0045-46ef-4ee0-9234-925e6a85c266.png",
+        "thaiName": "\\\"Flying Spur Mulliner (Luxe)\\\" Sedan",
+        "keywords": [
+          "飞驰奢华版",
+          "bentley",
+          "เบนท์ลีย์",
+          "宾利",
+          "飞驰"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "b4714e54-0c58-460c-8230-bb013d1becb3",
+        "externalId": "3832",
+        "name": "\\\"Continental GTC Mulliner\\\" Sports Car",
+        "iconUrl": "/api/public/filter-icon/1794398092376-1897d08f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "欧陆GT敞篷",
+        "localIcon": "/images/filter/items/b4714e54-0c58-460c-8230-bb013d1becb3.png",
+        "thaiName": "\\\"Continental GTC Mulliner\\\" Sports Car",
+        "keywords": [
+          "欧陆gt敞篷",
+          "bentley",
+          "เบนท์ลีย์",
+          "宾利",
+          "飞驰"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "c55b4337-9bc5-44a3-9037-0d6a492a560b",
+        "externalId": "2479",
+        "name": "Ducati Gold",
+        "iconUrl": "/api/public/filter-icon/1788177739323-e3fbc723.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "杜卡迪极速金",
+        "localIcon": "/images/filter/items/c55b4337-9bc5-44a3-9037-0d6a492a560b.png",
+        "thaiName": "Ducati Gold",
+        "keywords": [
+          "杜卡迪极速金",
+          "ducati",
+          "ดูคาติ",
+          "杜卡迪"
+        ],
+        "matchCount": 2582
+      },
+      {
+        "id": "8a446f19-0c1d-4196-97b9-1556be239e6f",
+        "externalId": "2480",
+        "name": "Ducati Twilight Torque",
+        "iconUrl": "/api/public/filter-icon/1788177741621-65a1523d.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "杜卡迪暮光粉",
+        "localIcon": "/images/filter/items/8a446f19-0c1d-4196-97b9-1556be239e6f.png",
+        "thaiName": "Ducati Twilight Torque",
+        "keywords": [
+          "杜卡迪暮光粉",
+          "ducati",
+          "ดูคาติ",
+          "杜卡迪"
+        ],
+        "matchCount": 2582
+      },
+      {
+        "id": "8bc70115-0797-47b1-9ddc-c47d77521f85",
+        "externalId": "2481",
+        "name": "Ducati Renegade Rose",
+        "iconUrl": "/api/public/filter-icon/1788177743324-75f86224.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "杜卡迪叛逆玫瑰",
+        "localIcon": "/images/filter/items/8bc70115-0797-47b1-9ddc-c47d77521f85.png",
+        "thaiName": "Ducati Renegade Rose",
+        "keywords": [
+          "杜卡迪叛逆玫瑰",
+          "ducati",
+          "ดูคาติ",
+          "杜卡迪"
+        ],
+        "matchCount": 2582
+      },
+      {
+        "id": "d216f4f2-27a7-4b0b-8064-37063f511b87",
+        "externalId": "2482",
+        "name": "Ducati Jaded Green",
+        "iconUrl": "/api/public/filter-icon/1788177745235-45d05b4a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "杜卡迪翡翠绿",
+        "localIcon": "/images/filter/items/d216f4f2-27a7-4b0b-8064-37063f511b87.png",
+        "thaiName": "Ducati Jaded Green",
+        "keywords": [
+          "杜卡迪翡翠绿",
+          "ducati",
+          "ดูคาติ",
+          "杜卡迪"
+        ],
+        "matchCount": 2582
+      },
+      {
+        "id": "e1b376d1-221e-4f7f-b4d4-489332f09cc1",
+        "externalId": "2483",
+        "name": "Ducati Black",
+        "iconUrl": "/api/public/filter-icon/1788177747419-6b31fe9a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "杜卡迪纯净黑",
+        "localIcon": "/images/filter/items/e1b376d1-221e-4f7f-b4d4-489332f09cc1.png",
+        "thaiName": "Ducati Black",
+        "keywords": [
+          "杜卡迪纯净黑",
+          "ducati",
+          "ดูคาติ",
+          "杜卡迪"
+        ],
+        "matchCount": 2582
+      },
+      {
+        "id": "aa489de1-4f6d-4652-aa8e-f9dc93cc439a",
+        "externalId": "2484",
+        "name": "Ducati Red",
+        "iconUrl": "/api/public/filter-icon/1788177749144-ffe66c34.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "杜卡迪红",
+        "localIcon": "/images/filter/items/aa489de1-4f6d-4652-aa8e-f9dc93cc439a.png",
+        "thaiName": "Ducati Red",
+        "keywords": [
+          "杜卡迪红",
+          "ducati",
+          "ดูคาติ",
+          "杜卡迪"
+        ],
+        "matchCount": 2582
+      }
+    ],
+    "categoryNameTh": "ซูเปอร์คาร์ & พาหนะ",
+    "localIcon": "/images/filter/vehicles.png",
+    "badge": "🏎️"
+  },
+  {
+    "id": "f83cd68c-d36a-4365-af78-ec5ecee13288",
+    "name": "Smoke",
+    "iconUrl": "/api/public/filter-icon/1788173145402-b69edea9.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "a8d6298f-f035-446a-820a-0c9e32b58d0f",
+        "externalId": "2772",
+        "name": "Magenta Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177772902-a956829a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "品红色烟雾弹",
+        "localIcon": "/images/filter/items/a8d6298f-f035-446a-820a-0c9e32b58d0f.png",
+        "thaiName": "สโมกชมพู (Magenta Smoke)",
+        "keywords": [
+          "品红色烟雾弹",
+          "สโมกชมพู",
+          "品红"
+        ],
+        "matchCount": 7665
+      },
+      {
+        "id": "44e38833-481b-4286-a4d6-99178de2f105",
+        "externalId": "2771",
+        "name": "Emerald Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177775723-8a8bdbba.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "翡翠色烟雾弹",
+        "localIcon": "/images/filter/items/44e38833-481b-4286-a4d6-99178de2f105.png",
+        "thaiName": "สโมกเขียวมรกต (Emerald Smoke)",
+        "keywords": [
+          "翡翠色烟雾弹",
+          "สโมกเขียว",
+          "翡翠"
+        ],
+        "matchCount": 4173
+      },
+      {
+        "id": "8fadb095-cfaa-40a4-a44c-e66262aa53ea",
+        "externalId": "2485",
+        "name": "Azure Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177782148-5dbb942c.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "天蓝色烟雾弹",
+        "localIcon": "/images/filter/items/8fadb095-cfaa-40a4-a44c-e66262aa53ea.png",
+        "thaiName": "สโมกฟ้า (Azure Smoke)",
+        "keywords": [
+          "天蓝色烟雾弹",
+          "สโมกฟ้า",
+          "天蓝"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "ce75347c-21fb-43d3-a0c1-5b5963bc01b0",
+        "externalId": "2489",
+        "name": "Coral Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177787783-dba431e7.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "珊瑚色烟雾弹",
+        "localIcon": "/images/filter/items/ce75347c-21fb-43d3-a0c1-5b5963bc01b0.png",
+        "thaiName": "Coral Smoke",
+        "keywords": [
+          "珊瑚色烟雾弹",
+          "สโมก",
+          "ควัน",
+          "烟雾"
+        ],
+        "matchCount": 19570
+      },
+      {
+        "id": "a4dbf527-0d1b-40d4-91bd-ebc3ded25d72",
+        "externalId": "2486",
+        "name": "Blue Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177794005-1403c877.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "蓝色烟雾弹",
+        "localIcon": "/images/filter/items/a4dbf527-0d1b-40d4-91bd-ebc3ded25d72.png",
+        "thaiName": "Blue Smoke",
+        "keywords": [
+          "蓝色烟雾弹",
+          "สโมก",
+          "ควัน",
+          "烟雾"
+        ],
+        "matchCount": 19570
+      },
+      {
+        "id": "b3c791b8-5305-43c7-b4fb-6a588dbd585c",
+        "externalId": "2487",
+        "name": "Purple Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177799568-79975b3a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "紫色烟雾弹",
+        "localIcon": "/images/filter/items/b3c791b8-5305-43c7-b4fb-6a588dbd585c.png",
+        "thaiName": "สโมกม่วง (Purple Smoke)",
+        "keywords": [
+          "紫色烟雾弹",
+          "สโมกม่วง",
+          "紫"
+        ],
+        "matchCount": 2794
+      },
+      {
+        "id": "148d002e-5245-4b7a-9015-37b204fc328b",
+        "externalId": "2488",
+        "name": "Teal Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177805681-ceaf8a36.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "青色烟雾弹",
+        "localIcon": "/images/filter/items/148d002e-5245-4b7a-9015-37b204fc328b.png",
+        "thaiName": "Teal Smoke",
+        "keywords": [
+          "青色烟雾弹",
+          "สโมก",
+          "ควัน",
+          "烟雾"
+        ],
+        "matchCount": 19570
+      },
+      {
+        "id": "5b0ef4bd-95ee-4eee-ab87-80de9a96dbda",
+        "externalId": "2490",
+        "name": "Orange Smoke",
+        "iconUrl": "/api/public/filter-icon/1788177810869-1294f972.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "橘色烟雾弹",
+        "localIcon": "/images/filter/items/5b0ef4bd-95ee-4eee-ab87-80de9a96dbda.png",
+        "thaiName": "สโมกส้ม (Orange Smoke)",
+        "keywords": [
+          "橘色烟雾弹",
+          "สโมกส้ม",
+          "橘",
+          "橙"
+        ],
+        "matchCount": 2612
+      },
+      {
+        "id": "f6ac8a48-7315-4823-847f-d00358e19f6c",
+        "externalId": "2491",
+        "name": "Yellow Fog of Fury - M79",
+        "iconUrl": "/api/public/filter-icon/1788177816237-1da8543f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "黄色狂怒之雾-M79",
+        "localIcon": "/images/filter/items/f6ac8a48-7315-4823-847f-d00358e19f6c.png",
+        "thaiName": "Yellow Fog of Fury - M79",
+        "keywords": [
+          "黄色狂怒之雾-m79",
+          "yellow fog of fury - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "2c292ed7-9650-499d-b13b-b38c9c4337a8",
+        "externalId": "2492",
+        "name": "Orange Fog of Fury - M79",
+        "iconUrl": "/api/public/filter-icon/1788177823004-29a80495.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "橙色狂怒之雾-M79",
+        "localIcon": "/images/filter/items/2c292ed7-9650-499d-b13b-b38c9c4337a8.png",
+        "thaiName": "Orange Fog of Fury - M79",
+        "keywords": [
+          "橙色狂怒之雾-m79",
+          "orange fog of fury - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "4064341b-ca8f-471d-941c-eba9195f3814",
+        "externalId": "2493",
+        "name": "Ivory Fog of Fury - M79",
+        "iconUrl": "/api/public/filter-icon/1788177829378-32d4025e.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "乳白狂怒之雾-M79",
+        "localIcon": "/images/filter/items/4064341b-ca8f-471d-941c-eba9195f3814.png",
+        "thaiName": "Ivory Fog of Fury - M79",
+        "keywords": [
+          "乳白狂怒之雾-m79",
+          "ivory fog of fury - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "23fe706e-5f0c-496c-8dae-e702638e06e3",
+        "externalId": "2844",
+        "name": "Purple Magical Mist - M79",
+        "iconUrl": "/api/public/filter-icon/1788177836956-03b7271f.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "紫色魔法迷雾-M79",
+        "localIcon": "/images/filter/items/23fe706e-5f0c-496c-8dae-e702638e06e3.png",
+        "thaiName": "Purple Magical Mist - M79",
+        "keywords": [
+          "紫色魔法迷雾-m79",
+          "purple magical mist - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "6d7e255f-6b00-4a32-8558-9a9bb2d7679a",
+        "externalId": "2494",
+        "name": "Crimson Fog of Fury - M79",
+        "iconUrl": "/api/public/filter-icon/1788177842641-900e81dc.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "深红狂怒之雾-M79",
+        "localIcon": "/images/filter/items/6d7e255f-6b00-4a32-8558-9a9bb2d7679a.png",
+        "thaiName": "Crimson Fog of Fury - M79",
+        "keywords": [
+          "深红狂怒之雾-m79",
+          "crimson fog of fury - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "afc2ba9e-0673-4c80-8c6b-1864d7f8745d",
+        "externalId": "2845",
+        "name": "Blue Magical Mist - M79",
+        "iconUrl": "/api/public/filter-icon/1788177849436-98ba3efa.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "蓝色魔法迷雾-M79",
+        "localIcon": "/images/filter/items/afc2ba9e-0673-4c80-8c6b-1864d7f8745d.png",
+        "thaiName": "Blue Magical Mist - M79",
+        "keywords": [
+          "蓝色魔法迷雾-m79",
+          "blue magical mist - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "362e8d23-f6c0-4904-bfe0-3365834a8fea",
+        "externalId": "2495",
+        "name": "Blue Fog of Fury - M79",
+        "iconUrl": "/api/public/filter-icon/1788177857523-bc25a5d8.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "湛蓝狂怒之雾-M79",
+        "localIcon": "/images/filter/items/362e8d23-f6c0-4904-bfe0-3365834a8fea.png",
+        "thaiName": "Blue Fog of Fury - M79",
+        "keywords": [
+          "湛蓝狂怒之雾-m79",
+          "blue fog of fury - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "2467ef08-5bed-4dbf-81cd-3ffc59700327",
+        "externalId": "3782",
+        "name": "Pink Flamingo Fling - M79",
+        "iconUrl": "/api/public/filter-icon/1788177892219-51573a90.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "粉红火烈鸟-M79",
+        "localIcon": "/images/filter/items/2467ef08-5bed-4dbf-81cd-3ffc59700327.png",
+        "thaiName": "Pink Flamingo Fling - M79",
+        "keywords": [
+          "粉红火烈鸟-m79",
+          "pink flamingo fling - m79"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "bc6680c0-eb82-41ce-89e2-ba4454025e80",
+        "externalId": "3784",
+        "name": "Blue Flamingo Fling - M79",
+        "iconUrl": "/api/public/filter-icon/1788177917159-e77ae3b8.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "蓝色火烈鸟-M79",
+        "localIcon": "/images/filter/items/bc6680c0-eb82-41ce-89e2-ba4454025e80.png",
+        "thaiName": "Blue Flamingo Fling - M79",
+        "keywords": [
+          "蓝色火烈鸟-m79",
+          "blue flamingo fling - m79"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "สโมกควันสี (Colored Smoke)",
+    "localIcon": "/images/filter/smoke.png",
+    "badge": "💨"
+  },
+  {
+    "id": "a4b03fc0-7763-45ec-a5d7-b037c919bbd9",
+    "name": "Lobby",
+    "iconUrl": "/api/public/filter-icon/1788173157911-dff956f8.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "items": [
+      {
+        "id": "2f63e4c6-2ae9-41e3-9d8f-73c96ecc4fa7",
+        "externalId": "3769",
+        "name": "Fashion Exhibit",
+        "iconUrl": "/api/public/filter-icon/1788177955679-dbb80253.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "",
+        "localIcon": "/images/filter/items/2f63e4c6-2ae9-41e3-9d8f-73c96ecc4fa7.png",
+        "thaiName": "Fashion Exhibit",
+        "keywords": [
+          "fashion exhibit"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "4ea372a6-b3cc-48aa-af50-7d4403258410",
+        "externalId": "2895",
+        "name": "Backstreet Garage",
+        "iconUrl": "/api/public/filter-icon/1788177959671-215631ca.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "后街车库",
+        "localIcon": "/images/filter/items/4ea372a6-b3cc-48aa-af50-7d4403258410.png",
+        "thaiName": "Backstreet Garage",
+        "keywords": [
+          "后街车库",
+          "backstreet garage"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "a2f027e8-cc48-4ef5-bb2b-6d132654d274",
+        "externalId": "2842",
+        "name": "aespa",
+        "iconUrl": "/api/public/filter-icon/1788177961869-dba9625b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "aespa",
+        "localIcon": "/images/filter/items/a2f027e8-cc48-4ef5-bb2b-6d132654d274.png",
+        "thaiName": "เซ็ตสาวเกาหลี K-Pop aespa",
+        "keywords": [
+          "aespa",
+          "เอสป้า"
+        ],
+        "matchCount": 6355
+      },
+      {
+        "id": "929e101d-7dbf-4217-a1ec-b83a35761501",
+        "externalId": "2809",
+        "name": "NewJeans Stage",
+        "iconUrl": "/api/public/filter-icon/1788177963588-babb282a.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "女团大厅",
+        "localIcon": "/images/filter/items/929e101d-7dbf-4217-a1ec-b83a35761501.png",
+        "thaiName": "NewJeans Stage",
+        "keywords": [
+          "女团大厅",
+          "newjeans stage"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "caf008d1-3d3b-401d-be02-2883c4a88396",
+        "externalId": "2810",
+        "name": "Chamber of Triumph",
+        "iconUrl": "/api/public/filter-icon/1788177965803-e06cd13b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "胜利密室",
+        "localIcon": "/images/filter/items/caf008d1-3d3b-401d-be02-2883c4a88396.png",
+        "thaiName": "Chamber of Triumph",
+        "keywords": [
+          "胜利密室",
+          "chamber of triumph"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "18c58c88-2a37-4c5c-bb61-e479a82c4164",
+        "externalId": "2811",
+        "name": "Secret Showroom",
+        "iconUrl": "/api/public/filter-icon/1788177968284-1b495476.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "兰博大厅",
+        "localIcon": "/images/filter/items/18c58c88-2a37-4c5c-bb61-e479a82c4164.png",
+        "thaiName": "Secret Showroom",
+        "keywords": [
+          "兰博大厅",
+          "secret showroom"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "d9a7f005-6cb8-4fb2-87de-87d652d7fac2",
+        "externalId": "2812",
+        "name": "Weapons Shrine",
+        "iconUrl": "/api/public/filter-icon/1788177981246-e1c2de61.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "武器神龛",
+        "localIcon": "/images/filter/items/d9a7f005-6cb8-4fb2-87de-87d652d7fac2.png",
+        "thaiName": "Weapons Shrine",
+        "keywords": [
+          "武器神龛",
+          "weapons shrine"
+        ],
+        "matchCount": 0
+      },
+      {
+        "id": "08efb887-b584-42ed-b1e4-6b1e4f27a083",
+        "externalId": "2813",
+        "name": "Showroom",
+        "iconUrl": "/api/public/filter-icon/1788177982777-5fa5d142.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "陈列室",
+        "localIcon": "/images/filter/items/08efb887-b584-42ed-b1e4-6b1e4f27a083.png",
+        "thaiName": "Showroom",
+        "keywords": [
+          "陈列室",
+          "showroom"
+        ],
+        "matchCount": 2941
+      },
+      {
+        "id": "614f6820-5ade-4016-8675-3bc5d7ccb49e",
+        "externalId": "2814",
+        "name": "Winter Hideout",
+        "iconUrl": "/api/public/filter-icon/1788177984962-eae73941.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "冬季藏匿处",
+        "localIcon": "/images/filter/items/614f6820-5ade-4016-8675-3bc5d7ccb49e.png",
+        "thaiName": "Winter Hideout",
+        "keywords": [
+          "冬季藏匿处",
+          "winter hideout"
+        ],
+        "matchCount": 3221
+      },
+      {
+        "id": "3daee532-a899-4919-a9dc-a79fd0a4bd3b",
+        "externalId": "3855",
+        "name": "IVE Stage",
+        "iconUrl": "/api/public/filter-icon/1794397960631-68744c7b.png",
+        "maxLevelIconUrl": null,
+        "isCrown": false,
+        "isFavorite": false,
+        "hasChildren": false,
+        "chineseName": "IVE舞台",
+        "localIcon": "/images/filter/items/3daee532-a899-4919-a9dc-a79fd0a4bd3b.png",
+        "thaiName": "IVE Stage",
+        "keywords": [
+          "ive舞台",
+          "ive stage"
+        ],
+        "matchCount": 0
+      }
+    ],
+    "categoryNameTh": "ห้องล็อบบี้ & แท่นโชว์ Hideout",
+    "localIcon": "/images/filter/lobby.png",
+    "badge": "🏛️"
+  }
+]

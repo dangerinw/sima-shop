@@ -1,0 +1,106 @@
+[
+  {
+    "id": "da94c368-c6c6-4e42-b18e-f9bd05b67c13",
+    "name": "Rifle Weapons",
+    "iconUrl": "/api/public/filter-icon/1788172916626-8107e3a8.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/rifle_weapons.png"
+  },
+  {
+    "id": "4356aaf5-f66b-46b1-b9c1-aeae0a591035",
+    "name": "Sniper Weapons",
+    "iconUrl": "/api/public/filter-icon/1788173012275-68d0c1e2.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/sniper_weapons.png"
+  },
+  {
+    "id": "b4c10cf8-5f12-4f6f-8df2-4b5a21f6cace",
+    "name": "Other Weapons",
+    "iconUrl": "/api/public/filter-icon/1788173031817-bddee140.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/other_weapons.png"
+  },
+  {
+    "id": "e70e829f-6fd0-44c6-b02e-af026167c290",
+    "name": "Chroma",
+    "iconUrl": "/api/public/filter-icon/1788173036613-76b76b6f.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/chroma.png"
+  },
+  {
+    "id": "c0042902-a264-4ff9-9b3f-96765d381d60",
+    "name": "Character / Hair",
+    "iconUrl": "/api/public/filter-icon/1788173060408-dcb2829e.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/character___hair.png"
+  },
+  {
+    "id": "32a9a172-c7e8-46ba-9a34-2bb62e5f2ff7",
+    "name": "Popular Skins",
+    "iconUrl": "/api/public/filter-icon/1788173070796-9436e3e6.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/popular_skins.png"
+  },
+  {
+    "id": "c8aebbc9-0b61-45ab-85a3-cb6ff6565d1b",
+    "name": "Popular Outfits",
+    "iconUrl": "/api/public/filter-icon/1790986809738-5fffe9e3.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/popular_outfits.png"
+  },
+  {
+    "id": "09b67648-dc5d-45ef-9d84-6745c6e79696",
+    "name": "Tactical Gloves",
+    "iconUrl": "/api/public/filter-icon/1788173104890-0158fc1c.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/tactical_gloves.png"
+  },
+  {
+    "id": "9055928e-9dea-485d-9399-06775b1c2faf",
+    "name": "Survival Level",
+    "iconUrl": "/api/public/filter-icon/1788173115759-8ea93fe7.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/survival_level.png"
+  },
+  {
+    "id": "b7dda2fa-2249-434c-9d9b-8c8732283430",
+    "name": "Reputation Level",
+    "iconUrl": "/api/public/filter-icon/1788173122657-999002cc.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/reputation_level.png"
+  },
+  {
+    "id": "7b709229-00d9-470f-bee2-046f5b4bde45",
+    "name": "Vehicles",
+    "iconUrl": "/api/public/filter-icon/1788173138392-a5ce6016.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/vehicles.png"
+  },
+  {
+    "id": "f83cd68c-d36a-4365-af78-ec5ecee13288",
+    "name": "Smoke",
+    "iconUrl": "/api/public/filter-icon/1788173145402-b69edea9.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/smoke.png"
+  },
+  {
+    "id": "a4b03fc0-7763-45ec-a5d7-b037c919bbd9",
+    "name": "Lobby",
+    "iconUrl": "/api/public/filter-icon/1788173157911-dff956f8.png",
+    "isCrown": false,
+    "isFavorite": false,
+    "localIcon": "/images/filter/lobby.png"
+  }
+]

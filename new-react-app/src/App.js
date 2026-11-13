@@ -4,6 +4,8 @@ import HeroBanner from './components/HeroBanner';
 import FilterToolbar from './components/FilterToolbar';
 import AccountCard from './components/AccountCard';
 import AccountModal from './components/AccountModal';
+import ItemFilterModal from './components/ItemFilterModal';
+import filterCategoriesData from './data/filterCategories.json';
 import FeaturesSection from './components/FeaturesSection';
 import Footer from './components/Footer';
 import Pagination from './components/Pagination';
@@ -53,6 +55,24 @@ function App() {
   const [selectedTag, setSelectedTag] = useState('');
   const [sortBy, setSortBy] = useState('newest');
   const [selectedAccount, setSelectedAccount] = useState(null);
+
+  // Item Image Filter States ⭐ (Noctis-style filter)
+  const [selectedItemIds, setSelectedItemIds] = useState([]);
+  const [isItemFilterOpen, setIsItemFilterOpen] = useState(false);
+
+  const allFilterItemsMap = useMemo(() => {
+    const map = new Map();
+    filterCategoriesData.forEach((cat) => {
+      cat.items.forEach((it) => {
+        if (!map.has(it.id)) map.set(it.id, it);
+      });
+    });
+    return map;
+  }, []);
+
+  const selectedFilterItems = useMemo(() => {
+    return selectedItemIds.map((id) => allFilterItemsMap.get(id)).filter(Boolean);
+  }, [selectedItemIds, allFilterItemsMap]);
 
   // Store Settings (PromptPay, VietQR, Cloud DB, Announcement)
   const [storeSettings, setStoreSettings] = useState(() => getStoredSettings());
@@ -360,6 +380,30 @@ function App() {
       // Tag filter
       if (selectedTag && (!item.tags || !item.tags.includes(selectedTag))) return false;
 
+      // Item image / skin filter ⭐ (Noctis-style filter)
+      if (selectedFilterItems.length > 0) {
+        const itemCorpus = [
+          item.id,
+          item.bianhao,
+          item.rawBianhao,
+          item.rawId,
+          item.title_th,
+          item.title_en,
+          item.gunLevel_th,
+          item.gunLevel_en,
+          item.subtitle_th,
+          item.subtitle_en,
+          item.details_th,
+          item.rank,
+          (item.tags || []).join(' ')
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        const matchEveryItem = selectedFilterItems.every((selItem) => {
+          return (selItem.keywords || []).some((kw) => itemCorpus.includes(kw.toLowerCase()));
+        });
+        if (!matchEveryItem) return false;
+      }
+
       // Multi-term Search match (supports multiple guns/skins: "AUG M416", "AUG, Beryl", "หมูชมพู กระทิงทอง", "AWM Kar98")
       if (searchQuery.trim()) {
         const terms = searchQuery.toLowerCase().split(/[\s,+/|]+/).map((t) => t.trim()).filter(Boolean);
@@ -412,7 +456,7 @@ function App() {
       }
       return a.id === b.id ? 0 : (b.id > a.id ? 1 : -1);
     });
-  }, [accounts, activeCategory, activeRegion, selectedTag, searchQuery, sortBy, currency]);
+  }, [accounts, activeCategory, activeRegion, selectedTag, searchQuery, sortBy, currency, selectedFilterItems]);
 
   // Storefront Pagination Calculations
   const totalPages = Math.max(1, Math.ceil(filteredAccounts.length / pageSize));
@@ -448,6 +492,7 @@ function App() {
     setSelectedTag('');
     setSearchQuery('');
     setSortBy('newest');
+    setSelectedItemIds([]);
   };
 
   // Inventory Management Handlers
@@ -658,10 +703,15 @@ function App() {
         searchInputRef={searchInputRef}
         counts={categoryCounts}
         t={t}
+        lang={lang}
         onRefreshStock={() => refreshChinaStock(false)}
         isStockRefreshing={isStockRefreshing}
         lastStockUpdated={lastStockUpdated}
         totalAccountsCount={accounts.filter((a) => !a.isSold && (activeRegion === 'all' || a.region === activeRegion)).length}
+        onOpenItemFilter={() => setIsItemFilterOpen(true)}
+        selectedItemIds={selectedItemIds}
+        onRemoveSelectedItem={(id) => setSelectedItemIds((prev) => prev.filter((i) => i !== id))}
+        onClearItemFilter={() => setSelectedItemIds([])}
       />
 
       {/* Main Account Catalog */}
@@ -745,6 +795,19 @@ function App() {
         onClose={() => setSelectedAccount(null)}
         onBuySuccess={handleBuySuccess}
         storeSettings={storeSettings}
+      />
+
+      {/* Item Image Filter Modal ⭐ (Noctis-style filter) */}
+      <ItemFilterModal
+        isOpen={isItemFilterOpen}
+        onClose={() => setIsItemFilterOpen(false)}
+        selectedItemIds={selectedItemIds}
+        onApplyFilter={(ids) => {
+          setSelectedItemIds(ids);
+          setCurrentPage(1);
+        }}
+        accounts={accounts}
+        lang={lang}
       />
 
       {/* Admin Login Modal */}
