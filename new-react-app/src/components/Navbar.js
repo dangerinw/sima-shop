@@ -8,6 +8,7 @@ export default function Navbar({
   t, 
   onSearchFocus, 
   onOpenAdmin,
+  onOpenRules,
   storeSettings = {}
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -43,6 +44,14 @@ export default function Navbar({
               <span>{t.navHome}</span>
             </a>
             <a href="#catalog" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navCatalog}</a>
+            <button
+              type="button"
+              onClick={() => onOpenRules ? onOpenRules('th') : (window.location.hash = '#rules')}
+              className="text-slate-300 hover:text-amber-400 transition-colors whitespace-nowrap flex items-center gap-1.5"
+            >
+              <span>📜</span>
+              <span>{t.navRules}</span>
+            </button>
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
             <a href="#faq" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navFaq}</a>
@@ -175,6 +184,18 @@ export default function Navbar({
                 <span>🎮</span>
                 <span>{t.navCatalog}</span>
               </a>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (onOpenRules) onOpenRules('th');
+                  else window.location.hash = '#rules';
+                }}
+                className="px-3.5 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800/60 hover:text-white flex items-center gap-2.5 transition-colors text-left"
+              >
+                <span>📜</span>
+                <span>{t.navRules}</span>
+              </button>
               <a 
                 href="#features" 
                 onClick={() => setMobileMenuOpen(false)}

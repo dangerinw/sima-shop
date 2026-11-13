@@ -45,6 +45,8 @@ export default function AccountModal({
   lang, 
   t, 
   onClose, 
+  onBuySuccess,
+  onOpenRules,
   storeSettings = {}
 }) {
   const [step, setStep] = useState('details'); // 'details' | 'contact'
@@ -444,6 +446,39 @@ export default function AccountModal({
                 )}
               </div>
 
+              {/* COUNTRY TRADING RULES & WARRANTY CALLOUT */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-purple-950/40 via-slate-950 to-amber-950/30 border border-purple-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl shrink-0">
+                    {account.region === 'cn' ? '🇨🇳' : account.region === 'vn' ? '🇻🇳' : '🇹🇭'}
+                  </span>
+                  <div>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-xs font-black text-white">
+                        {lang === 'th' ? 'กฎการซื้อขาย & การรับประกัน' : 'Trading Rules & Guarantee'}
+                      </span>
+                      <span className="text-[10px] bg-purple-500/20 text-purple-300 border border-purple-500/40 px-2 py-0.2 rounded-full font-bold">
+                        {getRegionText(account.region)}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-300 mt-0.5">
+                      {lang === 'th'
+                        ? 'อ่านกฎระเบียบ 13 ข้อ และเงื่อนไขรับประกันของประเทศนี้ (มีเวอร์ชั่นไทยและ ENG)'
+                        : 'Read 13 rules & warranty terms for this country (Thai & English versions)'}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => onOpenRules && onOpenRules(account.region || 'th')}
+                  className="px-4 py-2 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 hover:text-white border border-purple-500/40 text-xs font-black transition-all shrink-0 flex items-center gap-1.5 shadow"
+                >
+                  <span>📜</span>
+                  <span>{lang === 'th' ? 'เปิดอ่านกฎการซื้อขาย' : 'Read Trading Rules'}</span>
+                </button>
+              </div>
+
               {/* PRICING & CONTACT ADMIN ACTION */}
               <div className="pt-4 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
@@ -673,10 +708,20 @@ export default function AccountModal({
 
               {/* Safety & Service Guarantee Badges */}
               <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs text-slate-400 space-y-2.5">
-                <span className="font-bold text-slate-200 flex items-center gap-1.5">
-                  <span>🛡️</span>
-                  <span>การันตีความปลอดภัยและบริการส่งมอบของ PUBG SIAM:</span>
-                </span>
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="font-bold text-slate-200 flex items-center gap-1.5">
+                    <span>🛡️</span>
+                    <span>การันตีความปลอดภัยและบริการส่งมอบของ PUBG SIAM:</span>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => onOpenRules && onOpenRules(account.region || 'th')}
+                    className="text-amber-400 hover:text-amber-300 font-bold underline flex items-center gap-1 text-[11px]"
+                  >
+                    <span>📜</span>
+                    <span>{lang === 'th' ? `ดูกฎบัญชี${getRegionText(account.region)} (TH / EN)` : `View Rules (${getRegionText(account.region)})`}</span>
+                  </button>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px] text-slate-300">
                   <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
                     <span className="text-emerald-400 font-bold text-sm">✓</span>

@@ -7,6 +7,8 @@ import AccountModal from './components/AccountModal';
 import ItemFilterModal from './components/ItemFilterModal';
 import filterCategoriesData from './data/filterCategories.json';
 import FeaturesSection from './components/FeaturesSection';
+import CountryRulesSection from './components/CountryRulesSection';
+import CountryRulesModal from './components/CountryRulesModal';
 import Footer from './components/Footer';
 import Pagination from './components/Pagination';
 import AdminDashboard from './components/admin/AdminDashboard';
@@ -59,6 +61,15 @@ function App() {
   // Item Image Filter States ⭐ (Noctis-style filter)
   const [selectedItemIds, setSelectedItemIds] = useState([]);
   const [isItemFilterOpen, setIsItemFilterOpen] = useState(false);
+
+  // Country Trading Rules Modal States ⭐ (China, Thailand, Vietnam)
+  const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
+  const [rulesCountry, setRulesCountry] = useState('th');
+
+  const handleOpenRules = useCallback((country = 'th') => {
+    setRulesCountry(country);
+    setIsRulesModalOpen(true);
+  }, []);
 
   const allFilterItemsMap = useMemo(() => {
     const map = new Map();
@@ -674,6 +685,7 @@ function App() {
         t={t}
         onSearchFocus={handleSearchFocus}
         onOpenAdmin={handleOpenAdmin}
+        onOpenRules={handleOpenRules}
         storeSettings={storeSettings}
       />
 
@@ -686,6 +698,7 @@ function App() {
         hotAccount={hotAccount} 
         deliveredCount={realDeliveredCount}
         storeSettings={storeSettings}
+        onOpenRules={handleOpenRules}
       />
 
       {/* Interactive Filter Toolbar with Region & Category Filter */}
@@ -779,11 +792,14 @@ function App() {
         )}
       </main>
 
+      {/* Country Rules & Regulations Section (China, Thailand, Vietnam in TH & EN) */}
+      <CountryRulesSection lang={lang} t={t} />
+
       {/* Trust & Guarantee Section */}
       <FeaturesSection t={t} />
 
       {/* Footer */}
-      <Footer t={t} storeSettings={storeSettings} />
+      <Footer t={t} storeSettings={storeSettings} onOpenRules={handleOpenRules} lang={lang} />
 
       {/* Quick View Account Modal (Contact Admin to Purchase via Facebook/Discord) */}
       <AccountModal
@@ -794,7 +810,16 @@ function App() {
         t={t}
         onClose={() => setSelectedAccount(null)}
         onBuySuccess={handleBuySuccess}
+        onOpenRules={handleOpenRules}
         storeSettings={storeSettings}
+      />
+
+      {/* Country Trading Rules Modal ⭐ (China, Thailand, Vietnam in TH & EN) */}
+      <CountryRulesModal
+        isOpen={isRulesModalOpen}
+        onClose={() => setIsRulesModalOpen(false)}
+        initialCountry={rulesCountry}
+        lang={lang}
       />
 
       {/* Item Image Filter Modal ⭐ (Noctis-style filter) */}
