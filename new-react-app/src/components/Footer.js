@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Footer({ t, storeSettings = {}, onOpenRules, lang = 'th' }) {
+export default function Footer({ t, storeSettings = {}, onOpenRules, onOpenWarranty, lang = 'th' }) {
   const isTh = lang === 'th';
   return (
     <footer className="bg-slate-950 border-t border-slate-800/80 py-10 text-xs text-slate-500">
@@ -89,8 +89,21 @@ export default function Footer({ t, storeSettings = {}, onOpenRules, lang = 'th'
             </div>
           </div>
 
-          <div className="text-slate-600">
-            Play Safe with PUBG SIAM • Guaranteed & Escrow Protected
+          <div className="flex items-center gap-3">
+            {onOpenWarranty && (
+              <button
+                type="button"
+                onClick={onOpenWarranty}
+                className="text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1"
+              >
+                <span>🛡️</span>
+                <span>{isTh ? 'ระบบสร้างใบรับประกัน (A4)' : 'A4 Warranty Generator'}</span>
+              </button>
+            )}
+            <span className="text-slate-700 hidden sm:inline">•</span>
+            <div className="text-slate-600 hidden sm:block">
+              Play Safe with PUBG SIAM • Guaranteed & Escrow Protected
+            </div>
           </div>
         </div>
 

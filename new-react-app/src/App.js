@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Pagination from './components/Pagination';
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminLoginModal from './components/admin/AdminLoginModal';
+import WarrantyForm from './components/WarrantyForm';
 import { mockAccounts } from './data/mockAccounts';
 import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
@@ -65,6 +66,14 @@ function App() {
   // Country Trading Rules Modal States ⭐ (China, Thailand, Vietnam)
   const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
   const [rulesCountry, setRulesCountry] = useState('th');
+
+  // Warranty Form State ⭐ (A4 Guarantee Certificate)
+  const [warrantyAccount, setWarrantyAccount] = useState(null);
+
+  const handleOpenWarranty = useCallback((acc = null) => {
+    setWarrantyAccount(acc);
+    setViewMode('warranty');
+  }, []);
 
   const handleOpenRules = useCallback((country = 'th') => {
     setRulesCountry(country);
@@ -763,9 +772,24 @@ function App() {
         lang={lang}
         onSwitchToStore={() => setViewMode('store')}
         onLogout={handleAdminLogout}
+        onOpenWarranty={handleOpenWarranty}
         storeSettings={storeSettings}
         onUpdateStoreSettings={handleUpdateStoreSettings}
         onRestoreBackup={handleRestoreBackup}
+      />
+    );
+  }
+
+  // IF WARRANTY VIEW MODE (A4 Document Generator)
+  if (viewMode === 'warranty') {
+    return (
+      <WarrantyForm
+        initialAccount={warrantyAccount}
+        storeSettings={storeSettings}
+        onBack={() => {
+          setWarrantyAccount(null);
+          setViewMode(isAdminLoggedIn ? 'admin' : 'store');
+        }}
       />
     );
   }
@@ -783,6 +807,7 @@ function App() {
         onSearchFocus={handleSearchFocus}
         onOpenAdmin={handleOpenAdmin}
         onOpenRules={handleOpenRules}
+        onOpenWarranty={handleOpenWarranty}
         storeSettings={storeSettings}
       />
 
@@ -896,7 +921,13 @@ function App() {
       <FeaturesSection t={t} />
 
       {/* Footer */}
-      <Footer t={t} storeSettings={storeSettings} onOpenRules={handleOpenRules} lang={lang} />
+      <Footer 
+        t={t} 
+        storeSettings={storeSettings} 
+        onOpenRules={handleOpenRules} 
+        onOpenWarranty={handleOpenWarranty} 
+        lang={lang} 
+      />
 
       {/* Quick View Account Modal (Contact Admin to Purchase via Facebook/Discord) */}
       <AccountModal
@@ -908,6 +939,7 @@ function App() {
         onClose={() => setSelectedAccount(null)}
         onBuySuccess={handleBuySuccess}
         onOpenRules={handleOpenRules}
+        onOpenWarranty={handleOpenWarranty}
         storeSettings={storeSettings}
       />
 

@@ -9,6 +9,7 @@ export default function Navbar({
   onSearchFocus, 
   onOpenAdmin,
   onOpenRules,
+  onOpenWarranty,
   storeSettings = {}
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,6 +51,15 @@ export default function Navbar({
               className="text-slate-300 hover:text-amber-400 transition-colors whitespace-nowrap flex items-center gap-1"
             >
               <span>{t.navRules}</span>
+            </button>
+            <button
+              type="button"
+              onClick={onOpenWarranty}
+              className="text-amber-400 hover:text-amber-300 font-bold transition-all whitespace-nowrap flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 shadow-sm"
+              title="เปิดระบบสร้างใบรับประกันการซื้อขายไอดี A4"
+            >
+              <span>🛡️</span>
+              <span>ใบรับประกัน</span>
             </button>
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
@@ -194,6 +204,17 @@ export default function Navbar({
               >
                 <span>📜</span>
                 <span>{t.navRules}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (onOpenWarranty) onOpenWarranty();
+                }}
+                className="px-3.5 py-2.5 rounded-xl bg-amber-500/15 text-amber-400 font-bold flex items-center gap-2.5 border border-amber-500/30 text-left transition-colors"
+              >
+                <span>🛡️</span>
+                <span>สร้างใบรับประกันไอดี (A4)</span>
               </button>
               <a 
                 href="#features" 

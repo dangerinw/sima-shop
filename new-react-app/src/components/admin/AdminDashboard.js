@@ -22,6 +22,7 @@ export default function AdminDashboard({
   lang,
   onSwitchToStore,
   onLogout,
+  onOpenWarranty,
   storeSettings = defaultStoreSettings,
   onUpdateStoreSettings,
   onRestoreBackup
@@ -366,6 +367,17 @@ export default function AdminDashboard({
           </div>
 
           <div className="flex items-center gap-3">
+            {onOpenWarranty && (
+              <button
+                onClick={() => onOpenWarranty()}
+                className="px-3.5 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-xs border border-amber-500/40 transition-colors flex items-center gap-1.5 shadow"
+                title="เปิดระบบสร้างใบรับประกันการซื้อขายไอดี A4"
+              >
+                <span>🛡️</span>
+                <span>ออกใบรับประกัน A4</span>
+              </button>
+            )}
+
             <button
               onClick={onSwitchToStore}
               className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700 transition-colors flex items-center gap-1.5 shadow"

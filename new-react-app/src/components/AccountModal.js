@@ -47,6 +47,7 @@ export default function AccountModal({
   onClose, 
   onBuySuccess,
   onOpenRules,
+  onOpenWarranty,
   storeSettings = {}
 }) {
   const [step, setStep] = useState('details'); // 'details' | 'contact'
@@ -530,6 +531,21 @@ export default function AccountModal({
                     <span>สั่งซื้อทาง Discord</span>
                   </a>
                 </div>
+
+                {/* Create Warranty Certificate Button */}
+                {onOpenWarranty && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      onOpenWarranty(account);
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg pubg-glow active:scale-98"
+                  >
+                    <span>🛡️</span>
+                    <span>สร้างใบรับประกันสำหรับไอดีนี้ (A4 Guarantee)</span>
+                  </button>
+                )}
               </div>
 
             </div>
@@ -704,6 +720,21 @@ export default function AccountModal({
                     </span>
                   </a>
                 </div>
+
+                {/* Create Warranty Certificate Button */}
+                {onOpenWarranty && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      onOpenWarranty(account);
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg pubg-glow active:scale-98"
+                  >
+                    <span>🛡️</span>
+                    <span>สร้างใบรับประกันสำหรับไอดีนี้ (A4 Guarantee)</span>
+                  </button>
+                )}
               </div>
 
               {/* Safety & Service Guarantee Badges */}
