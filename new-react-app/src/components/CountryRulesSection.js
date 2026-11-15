@@ -92,6 +92,19 @@ export default function CountryRulesSection({ lang = 'th', t }) {
                 <span>🇻🇳</span>
                 <span>{isTh ? 'ไอดีเวียดนาม' : 'Vietnam'}</span>
               </button>
+
+              <button
+                type="button"
+                onClick={() => setSelectedCountry('installment')}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center gap-2 ${
+                  selectedCountry === 'installment'
+                    ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/25 scale-[1.02]'
+                    : 'text-purple-300 hover:text-white hover:bg-purple-950/60'
+                }`}
+              >
+                <span>⚡</span>
+                <span>{isTh ? 'กฎการผ่อนไอดี' : 'Installment Rules'}</span>
+              </button>
             </div>
 
             {/* Language Switcher */}

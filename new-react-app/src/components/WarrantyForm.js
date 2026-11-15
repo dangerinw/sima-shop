@@ -3,11 +3,14 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 const CANVAS_WIDTH = 1240;
 const CANVAS_HEIGHT = 1754;
 
-export default function WarrantyForm({ onBack, initialAccount = null, storeSettings = {} }) {
+export default function WarrantyForm({ onBack, initialAccount = null, initialDocType = 'cash', storeSettings = {} }) {
+  // Document Type: 'cash' (สัญญาซื้อขายสด) | 'installment' (สัญญาผ่อนชำระไอดี)
+  const [docType, setDocType] = useState(initialDocType);
+
   // Mobile Tab state ('form' | 'preview')
   const [mobileTab, setMobileTab] = useState('form');
 
-  // Form State
+  // Common Form States
   const [guarantorName, setGuarantorName] = useState('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
   const [contractDate, setContractDate] = useState(() => {
     const today = new Date();
@@ -21,12 +24,19 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
   const [sellerName, setSellerName] = useState('');
   const [sellerPhone, setSellerPhone] = useState('');
   const [buyerName, setBuyerName] = useState('');
+  const [buyerPhone, setBuyerPhone] = useState('');
   const [idType, setIdType] = useState('thai'); // 'thai' | 'foreign'
   const [tradePrice, setTradePrice] = useState('');
   const [bankAccount, setBankAccount] = useState('');
   const [bankName, setBankName] = useState('');
   const [username, setUsername] = useState('');
   const [twoFactorCode, setTwoFactorCode] = useState('');
+
+  // Installment Specific States
+  const [downPayment, setDownPayment] = useState('');
+  const [installmentCount, setInstallmentCount] = useState('3');
+  const [perInstallment, setPerInstallment] = useState('');
+  const [paymentDueDate, setPaymentDueDate] = useState('ทุกวันที่ 1 ของทุกเดือน');
 
   const [middleAdminName, setMiddleAdminName] = useState('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
   const [isWatermarkOn, setIsWatermarkOn] = useState(true);
@@ -74,7 +84,18 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
   useEffect(() => {
     if (initialAccount) {
       if (initialAccount.id) setUsername(initialAccount.id);
-      if (initialAccount.priceTHB) setTradePrice(Number(initialAccount.priceTHB).toLocaleString());
+      if (initialAccount.priceTHB) {
+        setTradePrice(Number(initialAccount.priceTHB).toLocaleString());
+        // Auto estimate installment if applicable (30% down payment)
+        const priceNum = Number(initialAccount.priceTHB);
+        if (priceNum > 0) {
+          const down = Math.round(priceNum * 0.3);
+          const remain = priceNum - down;
+          const per = Math.round(remain / 3);
+          setDownPayment(down.toLocaleString());
+          setPerInstallment(per.toLocaleString());
+        }
+      }
       if (initialAccount.region) {
         setIdType(initialAccount.region === 'th' ? 'thai' : 'foreign');
       }
@@ -235,14 +256,10 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     }
   };
 
-  // Main Document Render Function
-  const renderDocumentCanvas = useCallback(() => {
-    const canvas = docCanvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const W = CANVAS_WIDTH;
-    const H = CANVAS_HEIGHT;
-
+  // =========================================================================
+  // RENDER ENGINE 1: สัญญาซื้อขายสด (Full Payment Warranty Certificate)
+  // =========================================================================
+  const renderCashCanvas = (ctx, W, H) => {
     // 1. Background White
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, W, H);
@@ -268,9 +285,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     ctx.fill();
     ctx.restore();
 
-    // ==========================================
-    // 2. HEADER: Title & Subheader
-    // ==========================================
+    // HEADER: Title & Subheader
     const headerY = 50;
     const titleText = 'ใบรับประกันการซื้อขายไอดี PUBG PC';
     ctx.font = 'bold 32px "Prompt", "Sarabun", sans-serif';
@@ -319,7 +334,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     ctx.textBaseline = 'middle';
     ctx.fillText(titleText, startX + shieldW + iconGap, shieldY + (shieldH / 2) + 2);
 
-    // Subheader: ผู้รับประกัน & วันที่ทำสัญญา (ตรงตามแบบฟอร์ม 2 บรรทัดจัดกึ่งกลาง)
+    // Subheader: ผู้รับประกัน & วันที่ทำสัญญา
     const guarantorVal = guarantorName.trim() || '...................................................';
     const contractDateVal = contractDate.trim() || '...... / ...... / ............';
 
@@ -332,9 +347,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     const sub2Y = sub1Y + 36;
     drawFieldRow(ctx, 'วันที่ทำสัญญา :', contractDateVal, subStartX, sub2Y, subRowW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0f172a');
 
-    // ==========================================
-    // 3. SECTION: 📌 รายละเอียดการซื้อขาย
-    // ==========================================
+    // SECTION 1: 📌 รายละเอียดการซื้อขาย
     const sec1Y = sub2Y + 20;
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 20px "Prompt", "Sarabun", sans-serif';
@@ -355,15 +368,12 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     let rowY = box1Y + 36;
     const gapY = 38;
 
-    // Row 1: ชื่อผู้ขาย + เบอร์ติดต่อ
     drawFieldRow(ctx, '1. ชื่อผู้ขาย :', sellerName, 85, rowY, 600, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#1e40af');
     drawFieldRow(ctx, '(เบอร์ติดต่อ) :', sellerPhone, 710, rowY, box1W - 665, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#1e40af');
 
-    // Row 2: ชื่อผู้ซื้อ
     rowY += gapY;
     drawFieldRow(ctx, '2. ชื่อผู้ซื้อ :', buyerName, 85, rowY, box1W - 40, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#065f46');
 
-    // Row 3: ประเภทไอดี: [ ] ไอดีไทย   [ ] ไอดีนอก
     rowY += gapY;
     ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
     ctx.fillStyle = '#1e293b';
@@ -394,24 +404,19 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     ctx.fillStyle = '#0f172a';
     ctx.fillText('ไอดีนอก', cb2X + 26, rowY);
 
-    // Row 4: ราคาไอดี + เลขที่บัญชี + ธนาคาร
     rowY += gapY;
     drawFieldRow(ctx, '4. ราคาไอดี :', tradePrice, 85, rowY, 260, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#b45309', 'บาท');
     drawFieldRow(ctx, 'เลขที่บัญชี :', bankAccount, 375, rowY, 320, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0f172a');
     drawFieldRow(ctx, 'ธนาคาร :', bankName, 725, rowY, box1W - 680, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0f172a');
 
-    // Row 5: USERNAME + รหัส 2 ชั้นในเกม
     rowY += gapY;
     drawFieldRow(ctx, '5. USERNAME (ไอดีที่ใช้เข้าเกม) :', username, 85, rowY, 570, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0f172a');
     drawFieldRow(ctx, '(รหัส 2 ชั้นในเกม) :', twoFactorCode || '-', 680, rowY, box1W - 635, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0f172a');
 
-    // Row 6: ระยะเวลารับประกัน
     rowY += gapY;
     drawFieldRow(ctx, '6. ระยะเวลารับประกัน :', warrantyPeriod, 85, rowY, box1W - 40, 'bold 17px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0284c7');
 
-    // ==========================================
-    // 4. SECTION: 🪪 สำเนาบัตรประชาชนผู้ขาย (ตัวจริง)
-    // ==========================================
+    // SECTION 2: 🪪 สำเนาบัตรประชาชนผู้ขาย
     const sec2Y = box1Y + box1H + 16;
     const idBoxW = box1W;
     const idBoxH = 345;
@@ -475,7 +480,6 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
         ctx.fillText('ใช้สำหรับรับประกันการซื้อขายไอดี PUBG PC ผ่านแอดซันเท่านั้น', 0, 0);
         ctx.restore();
       }
-
       ctx.restore();
 
       ctx.strokeStyle = '#94a3b8';
@@ -525,9 +529,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
       ctx.fillText('(ถ่ายชัดเจน เห็นข้อมูลครบ)', innerIdX + (innerIdW / 2), iconBoxY + iconBoxH + 72);
     }
 
-    // ==========================================
-    // 5. SECTION: 📝 เงื่อนไขการรับประกัน
-    // ==========================================
+    // SECTION 3: 📝 เงื่อนไขการรับประกัน
     const sec3Y = sec2Y + idBoxH + 16;
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 20px "Prompt", "Sarabun", sans-serif';
@@ -537,7 +539,6 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     let termY = sec3Y + 38;
     const textW = box1W;
 
-    // ข้อ 1
     ctx.font = 'bold 16.5px "Prompt", "Sarabun", sans-serif';
     ctx.fillStyle = '#0f172a';
     ctx.fillText('ข้อ 1.  การรับประกันไอดี', 65, termY);
@@ -548,7 +549,6 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     const term1Text = 'ผู้ขาย / ผู้รับประกัน ขอรับรองว่าได้ขายไอดี PUBG PC ตามรายละเอียดข้างต้นให้แก่ผู้ซื้อจริง และยินดีรับผิดชอบตามเงื่อนไขที่กำหนดไว้ หากเกิดปัญหาไอดีถูกดึงคืน ถูกยึดคืนโดยเจ้าของเดิม หรือผู้ซื้อไม่สามารถเข้าใช้งานได้ เนื่องจากการกระทำของผู้ขายหรือบุคคลที่เกี่ยวข้องกับการขาย';
     termY = wrapText(ctx, term1Text, 95, termY, textW - 40, 20) + 26;
 
-    // ข้อ 2
     ctx.font = 'bold 16.5px "Prompt", "Sarabun", sans-serif';
     ctx.fillStyle = '#0f172a';
     ctx.fillText('ข้อ 2.  การชดใช้ค่าเสียหาย', 65, termY);
@@ -601,7 +601,6 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     ctx.fillText('บาท', 590, termY);
     termY += 26;
 
-    // ข้อ 3
     ctx.font = 'bold 16.5px "Prompt", "Sarabun", sans-serif';
     ctx.fillStyle = '#0f172a';
     ctx.fillText('ข้อ 3.  กำหนดระยะเวลาชำระเงิน', 65, termY);
@@ -612,7 +611,6 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     const term3Text = 'ผู้ขาย / ผู้รับประกันตกลงชำระเงินชดใช้ภายใน 3 วัน นับจากวันที่ได้รับแจ้งและมีหลักฐานยืนยันความรับผิดชอบ';
     termY = wrapText(ctx, term3Text, 95, termY, textW - 40, 20) + 26;
 
-    // ข้อ 4
     ctx.font = 'bold 16.5px "Prompt", "Sarabun", sans-serif';
     ctx.fillStyle = '#0f172a';
     ctx.fillText('ข้อ 4.  กรณีไม่ชำระเงินตามกำหนด', 65, termY);
@@ -623,9 +621,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     const term4Text = 'หากผู้ขาย / ผู้รับประกันไม่ชำระเงินภายในกำหนด ผู้ซื้อมีสิทธิดำเนินการตามกฎหมาย รวมถึงรวบรวมหลักฐาน เพื่อร้องเรียนต่อหน่วยงานที่เกี่ยวข้อง และเปิดเผยข้อเท็จจริงพร้อมหลักฐานตามความเหมาะสมและภายใต้กฎหมาย';
     termY = wrapText(ctx, term4Text, 95, termY, textW - 40, 20) + 16;
 
-    // ==========================================
-    // 6. SIGNATURE TABLE: 2 COLUMNS
-    // ==========================================
+    // SECTION 4: ช่องลงชื่อ
     const sigBoxY = Math.max(termY, 1375);
     const sigBoxW = box1W;
     const sigBoxH = 185;
@@ -748,9 +744,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     const cleanBName = buyerName ? buyerName : '...................................................';
     ctx.fillText(`( ${cleanBName} )`, rightColCenterX, sigLineY + 32);
 
-    // ==========================================
-    // 7. FOOTER NOTE & ADMIN STAMP
-    // ==========================================
+    // FOOTER: แอดมินคนกลาง
     const footerY = sigBoxY + sigBoxH + 42;
     const middleAdminVal = middleAdminName.trim() || 'กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)';
 
@@ -794,10 +788,566 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     ctx.font = '12px "Prompt", "Sarabun", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`[ ${contractRefText} ] • เอกสารใบรับประกันการซื้อขายไอดี PUBG PC มีผลผูกพันทางกฎหมาย`, W / 2, H - 44);
+  };
+
+  // =========================================================================
+  // RENDER ENGINE 2: สัญญาการผ่อนชำระและรับประกันไอดี (Installment Contract)
+  // =========================================================================
+  const renderInstallmentCanvas = (ctx, W, H) => {
+    // 1. Background White
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, W, H);
+
+    // Outer Dark Border
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 3.5;
+    roundRect(ctx, 30, 30, W - 60, H - 60, 16);
+    ctx.stroke();
+
+    // Inner Light Border
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 1.5;
+    roundRect(ctx, 38, 38, W - 76, H - 76, 12);
+    ctx.stroke();
+
+    // Subtle Watermark Emblem
+    ctx.save();
+    ctx.globalAlpha = 0.03;
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.arc(W / 2, H / 2, 340, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // HEADER: Title & Subtitle (Centered)
+    const headerY = 50;
+    ctx.fillStyle = '#090d16';
+    ctx.font = 'bold 34px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('ใบประกันการผ่อน ID PUBG', W / 2, headerY + 36);
+
+    ctx.font = 'bold 22px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#1e293b';
+    ctx.fillText('สัญญาการผ่อนชำระและรับประกันไอดีเกม', W / 2, headerY + 76);
+
+    // Separator line
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(65, headerY + 98);
+    ctx.lineTo(W - 65, headerY + 98);
+    ctx.stroke();
+
+    // Date on right
+    const contractDateVal = contractDate.trim() || '....................................';
+    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.textAlign = 'right';
+    ctx.fillText(`วันที่ทำสัญญา : ${contractDateVal}`, W - 70, headerY + 128);
+
+    // SECTION 1: 1. สำเนาบัตรประชาชนผู้ผ่อน
+    const sec1Y = headerY + 145;
+    const box1W = W - 130;
+    const box1H = 260;
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('1. สำเนาบัตรประชาชนผู้ผ่อน', 65, sec1Y + 18);
+
+    const box1Top = sec1Y + 28;
+    ctx.fillStyle = '#ffffff';
+    roundRect(ctx, 65, box1Top, box1W, box1H, 12);
+    ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.8;
+    ctx.stroke();
+
+    const midX = 65 + (box1W * 0.52);
+    ctx.beginPath();
+    ctx.moveTo(midX, box1Top);
+    ctx.lineTo(midX, box1Top + box1H);
+    ctx.stroke();
+
+    // Left side: ผู้ขาย & ผู้ผ่อน details
+    const leftColX = 85;
+    const leftColW = midX - leftColX - 20;
+    let rY = box1Top + 45;
+    const gap = 52;
+
+    drawFieldRow(ctx, 'ผู้ขาย :', sellerName, leftColX, rY, leftColW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#0f172a', '#1e40af');
+    rY += gap;
+    drawFieldRow(ctx, 'เบอร์ติดต่อ :', sellerPhone, leftColX, rY, leftColW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#0f172a', '#1e40af');
+    rY += gap;
+    drawFieldRow(ctx, 'ผู้ผ่อน (ผู้ซื้อ) :', buyerName, leftColX, rY, leftColW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#0f172a', '#065f46');
+    rY += gap;
+    drawFieldRow(ctx, 'เบอร์ติดต่อ :', buyerPhone, leftColX, rY, leftColW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#0f172a', '#065f46');
+
+    // Right side: สำเนาบัตรประชาชนผู้ผ่อน
+    const rightColX = midX + 20;
+    const rightColW = (65 + box1W) - rightColX - 20;
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('สำเนาบัตรประชาชนผู้ผ่อน', rightColX + (rightColW / 2), box1Top + 28);
+
+    const innerCardX = rightColX;
+    const innerCardY = box1Top + 40;
+    const innerCardW = rightColW;
+    const innerCardH = box1H - 55;
+
+    if (uploadedIdImg) {
+      ctx.save();
+      roundRect(ctx, innerCardX, innerCardY, innerCardW, innerCardH, 10);
+      ctx.clip();
+
+      const imgRatio = uploadedIdImg.width / uploadedIdImg.height;
+      const boxRatio = innerCardW / innerCardH;
+      let drawW, drawH, drawX, drawY;
+
+      if (imgRatio > boxRatio) {
+        drawW = innerCardW;
+        drawH = drawW / imgRatio;
+        drawX = innerCardX;
+        drawY = innerCardY + ((innerCardH - drawH) / 2);
+      } else {
+        drawH = innerCardH;
+        drawW = drawH * imgRatio;
+        drawX = innerCardX + ((innerCardW - drawW) / 2);
+        drawY = innerCardY;
+      }
+
+      ctx.drawImage(uploadedIdImg, drawX, drawY, drawW, drawH);
+
+      if (isWatermarkOn) {
+        ctx.save();
+        ctx.translate(innerCardX + (innerCardW / 2), innerCardY + (innerCardH / 2));
+        ctx.rotate(-14 * Math.PI / 180);
+
+        ctx.fillStyle = 'rgba(220, 38, 38, 0.48)';
+        ctx.fillRect(-220, -18, 440, 36);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 15px "Prompt", "Sarabun", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('ใช้สำหรับทำสัญญาผ่อนชำระไอดี PUBG เท่านั้น', 0, 0);
+        ctx.restore();
+      }
+      ctx.restore();
+
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1.4;
+      roundRect(ctx, innerCardX, innerCardY, innerCardW, innerCardH, 10);
+      ctx.stroke();
+    } else {
+      ctx.fillStyle = '#f1f5f9';
+      roundRect(ctx, innerCardX, innerCardY, innerCardW, innerCardH, 10);
+      ctx.fill();
+
+      ctx.save();
+      ctx.setLineDash([5, 5]);
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1.5;
+      roundRect(ctx, innerCardX, innerCardY, innerCardW, innerCardH, 10);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.fillStyle = '#334155';
+      ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('วางสำเนาบัตรประชาชน', innerCardX + (innerCardW / 2), innerCardY + 70);
+
+      ctx.font = '15px "Sarabun", "Prompt", sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('(ปิดเลข 13 หลัก)', innerCardX + (innerCardW / 2), innerCardY + 102);
+      ctx.fillText('พร้อมรับรองสำเนาถูกต้อง', innerCardX + (innerCardW / 2), innerCardY + 130);
+    }
+
+    // SECTION 2: 2. รายละเอียดไอดีและการรับประกัน
+    const sec2Y = box1Top + box1H + 20;
+    const box2W = box1W;
+    const box2H = 220;
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('2. รายละเอียดไอดีและการรับประกัน', 65, sec2Y + 18);
+
+    const box2Top = sec2Y + 28;
+    ctx.fillStyle = '#ffffff';
+    roundRect(ctx, 65, box2Top, box2W, box2H, 12);
+    ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.8;
+    ctx.stroke();
+
+    const pId = username.trim() || '...........................................';
+    const rawP = parseFloat(String(tradePrice).replace(/,/g, '')) || 0;
+    const pVal = rawP > 0 ? rawP.toLocaleString('th-TH') + ' บาท' : (tradePrice.trim() ? tradePrice.trim() + ' บาท' : '...........................................');
+
+    let row2Y = box2Top + 34;
+    ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.textAlign = 'left';
+    ctx.fillText('ชื่อไอดี PUBG :', 85, row2Y);
+    ctx.font = 'bold 18px "Sarabun", "Prompt", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText(pId, 215, row2Y);
+
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(600, box2Top + 10);
+    ctx.lineTo(600, row2Y + 12);
+    ctx.stroke();
+
+    ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText('มูลค่าไอดี :', 630, row2Y);
+    ctx.font = 'bold 18px "Sarabun", "Prompt", sans-serif';
+    ctx.fillStyle = '#b45309';
+    ctx.fillText(pVal, 735, row2Y);
+
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(85, row2Y + 14);
+    ctx.lineTo(65 + box2W - 20, row2Y + 14);
+    ctx.stroke();
+
+    // 3 Bullet Points
+    let bulletY = row2Y + 44;
+    ctx.font = '15.5px "Sarabun", "Prompt", sans-serif';
+    ctx.fillStyle = '#1e293b';
+
+    const tIdClean = username.trim() || '.......................';
+    const bullet1Text = `• หากไอดี ${tIdClean} ถูกแบนจากการใช้โปรแกรมช่วยเล่นหรือเกิดความเสียหาย ผู้ขายยินดีรับผิดชอบชดใช้ 10 เท่าของราคาไอดี ตามเงื่อนไขที่ตกลงกัน`;
+    bulletY = wrapText(ctx, bullet1Text, 85, bulletY, box2W - 40, 24) + 28;
+
+    const bullet2Text = '• หากผู้ซื้อหรือผู้ขายหนีหาย ไม่ตอบข้อความ สามารถดำเนินการตามกฎหมายได้';
+    bulletY = wrapText(ctx, bullet2Text, 85, bulletY, box2W - 40, 24) + 28;
+
+    const bullet3Text = '• หากชำระเงินเกินกำหนด การปรับเงินขึ้นอยู่กับดุลพินิจของผู้ขาย';
+    wrapText(ctx, bullet3Text, 85, bulletY, box2W - 40, 24);
+
+    // SECTION 3: 3. เงื่อนไขการผ่อนชำระ
+    const sec3Y = box2Top + box2H + 20;
+    const box3W = box1W;
+    const box3H = 210;
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('3. เงื่อนไขการผ่อนชำระ', 65, sec3Y + 18);
+
+    const box3Top = sec3Y + 28;
+    ctx.fillStyle = '#ffffff';
+    roundRect(ctx, 65, box3Top, box3W, box3H, 12);
+    ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.8;
+    ctx.stroke();
+
+    // Left Side Table (4 Rows)
+    const tblX = 85;
+    const tblY = box3Top + 20;
+    const tblW = 500;
+    const tblH = box3H - 40;
+    const rowH = tblH / 4;
+
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.5;
+    roundRect(ctx, tblX, tblY, tblW, tblH, 8);
+    ctx.stroke();
+
+    const col1W = 160;
+    ctx.beginPath();
+    ctx.moveTo(tblX + col1W, tblY);
+    ctx.lineTo(tblX + col1W, tblY + tblH);
+    ctx.stroke();
+
+    for (let i = 1; i < 4; i++) {
+      ctx.beginPath();
+      ctx.moveTo(tblX, tblY + (rowH * i));
+      ctx.lineTo(tblX + tblW, tblY + (rowH * i));
+      ctx.stroke();
+    }
+
+    const downVal = downPayment.trim() ? (isNaN(parseFloat(downPayment.replace(/,/g, ''))) ? downPayment : parseFloat(downPayment.replace(/,/g, '')).toLocaleString('th-TH') + ' บาท') : '...................................................';
+    const countVal = installmentCount.trim() ? (installmentCount + ' งวด') : '...................................................';
+    const perVal = perInstallment.trim() ? (isNaN(parseFloat(perInstallment.replace(/,/g, ''))) ? perInstallment : parseFloat(perInstallment.replace(/,/g, '')).toLocaleString('th-TH') + ' บาท') : '...................................................';
+    const dueVal = paymentDueDate.trim() || '...................................................';
+
+    const rowLabels = ['เงินดาวน์ :', 'จำนวนงวด :', 'งวดละ :', 'วันกำหนดชำระ :'];
+    const rowVals = [downVal, countVal, perVal, dueVal];
+
+    ctx.font = 'bold 16.5px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+
+    for (let i = 0; i < 4; i++) {
+      const curY = tblY + (rowH * i) + (rowH / 2);
+      ctx.fillStyle = '#0f172a';
+      ctx.fillText(rowLabels[i], tblX + 16, curY);
+
+      ctx.fillStyle = (i === 0 || i === 2) ? '#b45309' : '#0f172a';
+      ctx.fillText(rowVals[i], tblX + col1W + 16, curY);
+    }
+
+    // Right Side: Warning condition box
+    const rightWarnX = tblX + tblW + 25;
+    const rightWarnW = (65 + box3W) - rightWarnX - 20;
+
+    ctx.fillStyle = '#fff7ed';
+    roundRect(ctx, rightWarnX, tblY, rightWarnW, tblH, 10);
+    ctx.fill();
+    ctx.strokeStyle = '#fdba74';
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    ctx.fillStyle = '#9a3412';
+    ctx.font = 'bold 16px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+
+    const warnText = '• หากผู้ซื้อชำระเงินเกินกำหนด ผู้ขายมีสิทธิ์ยึดไอดีและริบเงินมัดจำ ตามข้อตกลงที่ผู้ซื้อยอมรับไว้';
+    wrapText(ctx, warnText, rightWarnX + 16, tblY + 35, rightWarnW - 32, 26);
+
+    // SECTION 4: 4. ผู้ลงนามในสัญญา
+    const sec4Y = box3Top + box3H + 20;
+    const box4W = box1W;
+    const box4H = 200;
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText('4. ผู้ลงนามในสัญญา', 65, sec4Y + 18);
+
+    const box4Top = sec4Y + 28;
+    ctx.fillStyle = '#ffffff';
+    roundRect(ctx, 65, box4Top, box4W, box4H, 12);
+    ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.8;
+    ctx.stroke();
+
+    const midSigX = 65 + (box4W / 2);
+    ctx.beginPath();
+    ctx.moveTo(midSigX, box4Top);
+    ctx.lineTo(midSigX, box4Top + box4H);
+    ctx.stroke();
+
+    // LEFT: ผู้ผ่อน (ผู้ซื้อ)
+    const leftSigCenterX = 65 + (box4W / 4);
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 19px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('ผู้ผ่อน (ผู้ซื้อ)', leftSigCenterX, box4Top + 32);
+
+    const sigLineY1 = box4Top + 115;
+    ctx.font = '16px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#334155';
+    ctx.textAlign = 'left';
+    ctx.fillText('ลงชื่อ :', leftSigCenterX - 180, sigLineY1);
+
+    ctx.save();
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(leftSigCenterX - 120, sigLineY1);
+    ctx.lineTo(leftSigCenterX + 180, sigLineY1);
+    ctx.stroke();
+    ctx.restore();
+
+    if (buyerStrokes.length > 0) {
+      ctx.save();
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth = 2.6;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      const bTargetX = leftSigCenterX - 100;
+      const bTargetY = sigLineY1 - 60;
+      const bTargetW = 240;
+      const bTargetH = 55;
+
+      buyerStrokes.forEach((stroke) => {
+        if (stroke.length < 2) return;
+        ctx.beginPath();
+        ctx.moveTo(bTargetX + (stroke[0].x * bTargetW), bTargetY + (stroke[0].y * bTargetH));
+        for (let i = 1; i < stroke.length; i++) {
+          ctx.lineTo(bTargetX + (stroke[i].x * bTargetW), bTargetY + (stroke[i].y * bTargetH));
+        }
+        ctx.stroke();
+      });
+      ctx.restore();
+    }
+
+    // Date under signature
+    ctx.font = '16px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#334155';
+    ctx.fillText('วันที่ :', leftSigCenterX - 180, sigLineY1 + 42);
+
+    ctx.save();
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(leftSigCenterX - 120, sigLineY1 + 42);
+    ctx.lineTo(leftSigCenterX + 180, sigLineY1 + 42);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.font = 'bold 16px "Sarabun", "Prompt", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText(contractDateVal, leftSigCenterX - 100, sigLineY1 + 40);
+
+    // RIGHT: ผู้ขาย
+    const rightSigCenterX = midSigX + (box4W / 4);
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 19px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('ผู้ขาย', rightSigCenterX, box4Top + 32);
+
+    ctx.font = '16px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#334155';
+    ctx.textAlign = 'left';
+    ctx.fillText('ลงชื่อ :', rightSigCenterX - 180, sigLineY1);
+
+    ctx.save();
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(rightSigCenterX - 120, sigLineY1);
+    ctx.lineTo(rightSigCenterX + 180, sigLineY1);
+    ctx.stroke();
+    ctx.restore();
+
+    if (sellerStrokes.length > 0) {
+      ctx.save();
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth = 2.6;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      const sTargetX = rightSigCenterX - 100;
+      const sTargetY = sigLineY1 - 60;
+      const sTargetW = 240;
+      const sTargetH = 55;
+
+      sellerStrokes.forEach((stroke) => {
+        if (stroke.length < 2) return;
+        ctx.beginPath();
+        ctx.moveTo(sTargetX + (stroke[0].x * sTargetW), sTargetY + (stroke[0].y * sTargetH));
+        for (let i = 1; i < stroke.length; i++) {
+          ctx.lineTo(sTargetX + (stroke[i].x * sTargetW), sTargetY + (stroke[i].y * sTargetH));
+        }
+        ctx.stroke();
+      });
+      ctx.restore();
+    }
+
+    // Date under signature
+    ctx.font = '16px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#334155';
+    ctx.fillText('วันที่ :', rightSigCenterX - 180, sigLineY1 + 42);
+
+    ctx.save();
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(rightSigCenterX - 120, sigLineY1 + 42);
+    ctx.lineTo(rightSigCenterX + 180, sigLineY1 + 42);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.font = 'bold 16px "Sarabun", "Prompt", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText(contractDateVal, rightSigCenterX - 100, sigLineY1 + 40);
+
+    // FOOTER: คนกลาง & คำรับรอง
+    const footerY = box4Top + box4H + 40;
+    const middleAdminVal = middleAdminName.trim() || 'นายกิตติศักดิ์ ตันโพธิ์ธรรม (แอดมินซัน)';
+
+    ctx.font = 'bold 20px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.textAlign = 'center';
+    ctx.fillText(`คนกลาง : ${middleAdminVal}`, W / 2, footerY);
+
+    if (isStampOn) {
+      ctx.save();
+      ctx.translate(W - 165, footerY - 5);
+      ctx.rotate(-7 * Math.PI / 180);
+
+      ctx.strokeStyle = '#dc2626';
+      ctx.lineWidth = 3.2;
+      ctx.beginPath();
+      ctx.arc(0, 0, 48, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.arc(0, 0, 42, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.fillStyle = '#dc2626';
+      ctx.font = '900 10px "Prompt", "Sarabun", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('PUBG PC VERIFIED', 0, -22);
+
+      ctx.font = '900 15px "Prompt", "Sarabun", sans-serif';
+      ctx.fillText('แอดซัน', 0, 2);
+
+      ctx.font = 'bold 9.5px "Prompt", "Sarabun", sans-serif';
+      ctx.fillText('กลางปลอดภัย 100%', 0, 18);
+      ctx.fillText('GUARANTEED', 0, 29);
+
+      ctx.restore();
+    }
+
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(65, footerY + 20);
+    ctx.lineTo(W - 65, footerY + 20);
+    ctx.stroke();
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('ผู้ทำสัญญาทั้งสองฝ่ายได้อ่านและยอมรับเงื่อนไขทั้งหมดก่อนลงนาม', W / 2, footerY + 48);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '12px "Prompt", "Sarabun", sans-serif';
+    ctx.fillText(`[ ${contractRefText} ] • เอกสารใบประกันการผ่อน ID PUBG มีผลผูกพันทางกฎหมาย`, W / 2, H - 42);
+  };
+
+  // Main Document Render Function
+  const renderDocumentCanvas = useCallback(() => {
+    const canvas = docCanvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = CANVAS_WIDTH;
+    const H = CANVAS_HEIGHT;
+
+    if (docType === 'installment') {
+      renderInstallmentCanvas(ctx, W, H);
+    } else {
+      renderCashCanvas(ctx, W, H);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    guarantorName, contractDate, warrantyPeriod,
-    sellerName, sellerPhone, buyerName, idType,
+    docType, guarantorName, contractDate, warrantyPeriod,
+    sellerName, sellerPhone, buyerName, buyerPhone, idType,
     tradePrice, bankAccount, bankName, username, twoFactorCode,
+    downPayment, installmentCount, perInstallment, paymentDueDate,
     middleAdminName, isWatermarkOn, isStampOn,
     uploadedIdImg, sellerStrokes, buyerStrokes, contractRefText
   ]);
@@ -925,18 +1475,33 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
 
   // Fill Sample Data
   const handleFillSample = () => {
-    setGuarantorName('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
-    setSellerName('นายอัครเดช มงคลศิลป์');
-    setSellerPhone('089-765-4321');
-    setBuyerName('คุณวรัญญู รัตนโชติ');
-    setIdType('thai');
-    setTradePrice('4,500');
-    setBankAccount('082-1-49281-9');
-    setBankName('กสิกรไทย (KBANK)');
-    setUsername('pubg_god_legend99');
-    setTwoFactorCode('849201');
-    setWarrantyPeriod('ตลอดชีพ');
-    setMiddleAdminName('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
+    if (docType === 'installment') {
+      setSellerName('นายอัครเดช มงคลศิลป์');
+      setSellerPhone('089-765-4321');
+      setBuyerName('คุณวรัญญู รัตนโชติ');
+      setBuyerPhone('081-234-5678');
+      setUsername('pubg_god_legend99');
+      setTradePrice('4,500');
+      setDownPayment('1,500');
+      setInstallmentCount('3');
+      setPerInstallment('1,000');
+      setPaymentDueDate('ทุกวันที่ 1 ของทุกเดือน');
+      setMiddleAdminName('นายกิตติศักดิ์ ตันโพธิ์ธรรม (แอดมินซัน)');
+    } else {
+      setGuarantorName('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
+      setSellerName('นายอัครเดช มงคลศิลป์');
+      setSellerPhone('089-765-4321');
+      setBuyerName('คุณวรัญญู รัตนโชติ');
+      setBuyerPhone('081-234-5678');
+      setIdType('thai');
+      setTradePrice('4,500');
+      setBankAccount('082-1-49281-9');
+      setBankName('กสิกรไทย (KBANK)');
+      setUsername('pubg_god_legend99');
+      setTwoFactorCode('849201');
+      setWarrantyPeriod('ตลอดชีพ');
+      setMiddleAdminName('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
+    }
 
     setSellerStrokes([
       [
@@ -954,7 +1519,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
         { x: 0.85, y: 0.55 }
       ]
     ]);
-    showToast('กรอกข้อมูลตัวอย่างเรียบร้อย');
+    showToast(`กรอกตัวอย่าง${docType === 'installment' ? 'สัญญาผ่อนไอดี' : 'สัญญาซื้อขายสด'}เรียบร้อย`);
   };
 
   // Reset Form
@@ -962,12 +1527,17 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     setSellerName('');
     setSellerPhone('');
     setBuyerName('');
+    setBuyerPhone('');
     setIdType('thai');
     setTradePrice('');
     setBankAccount('');
     setBankName('');
     setUsername('');
     setTwoFactorCode('');
+    setDownPayment('');
+    setInstallmentCount('3');
+    setPerInstallment('');
+    setPaymentDueDate('ทุกวันที่ 1 ของทุกเดือน');
     setUploadedIdImg(null);
     setIdCardFileName('');
     setSellerStrokes([]);
@@ -1008,8 +1578,9 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
       const canvas = docCanvasRef.current;
       if (!canvas) return;
 
-      const cleanSeller = (sellerName.trim() || 'ผู้ขาย').replace(/[\s/\\:*?"<>|]/g, '_');
-      const filename = `ใบรับประกัน_PUBG_PC_${cleanSeller}.png`;
+      const prefix = docType === 'installment' ? 'ใบประกันการผ่อน_PUBG' : 'ใบรับประกัน_PUBG_PC';
+      const cleanTarget = (buyerName.trim() || sellerName.trim() || 'PUBG').replace(/[\s/\\:*?"<>|]/g, '_');
+      const filename = `${prefix}_${cleanTarget}.png`;
       savedFilenameRef.current = filename;
 
       canvas.toBlob((blob) => {
@@ -1066,8 +1637,9 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
 
       pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
 
-      const cleanSeller = (sellerName.trim() || 'ผู้ขาย').replace(/[\s/\\:*?"<>|]/g, '_');
-      const pdfFilename = `ใบรับประกัน_PUBG_PC_${cleanSeller}.pdf`;
+      const prefix = docType === 'installment' ? 'ใบประกันการผ่อน_PUBG' : 'ใบรับประกัน_PUBG_PC';
+      const cleanTarget = (buyerName.trim() || sellerName.trim() || 'PUBG').replace(/[\s/\\:*?"<>|]/g, '_');
+      const pdfFilename = `${prefix}_${cleanTarget}.pdf`;
 
       pdf.save(pdfFilename);
       showToast('ดาวน์โหลด PDF ขนาด A4 สำเร็จ!');
@@ -1091,7 +1663,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
       <!DOCTYPE html>
       <html>
         <head>
-          <title>พิมพ์ใบรับประกันไอดี PUBG PC</title>
+          <title>${docType === 'installment' ? 'ใบประกันการผ่อน ID PUBG' : 'ใบรับประกันการซื้อขายไอดี PUBG PC'}</title>
           <style>
             @page { size: A4 portrait; margin: 0; }
             body { margin: 0; display: flex; justify-content: center; align-items: center; }
@@ -1106,7 +1678,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     printWindow.document.close();
   };
 
-  // 10x penalty display
+  // 10x penalty calculation for cash contract
   const rawNum = parseFloat(String(tradePrice).replace(/,/g, '')) || 0;
   const tenTimesPenaltyDisplay = rawNum > 0 ? (rawNum * 10).toLocaleString('th-TH') + ' บาท' : '0 บาท';
 
@@ -1122,13 +1694,13 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
               className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-bold transition border border-slate-700 shadow"
             >
               <span>←</span>
-              <span>ย้อนกลับ</span>
+              <span>ย้อนกลับหน้าร้าน</span>
             </button>
           )}
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/40 rounded-full text-xs sm:text-sm font-semibold">
             <span>🛡️</span>
-            <span>PUBG PC • ระบบทำสัญญาซื้อขายและออกใบรับประกันไอดี</span>
+            <span>PUBG SIAM • ระบบทำสัญญาซื้อขายและรับประกันไอดี (A4)</span>
           </div>
 
           <a 
@@ -1143,11 +1715,42 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
           </a>
         </div>
 
+        {/* CONTRACT TYPE SELECTOR TABS */}
+        <div className="max-w-md mx-auto my-3 bg-slate-900 border border-slate-800 rounded-2xl p-1.5 flex items-center gap-2 shadow-xl">
+          <button
+            type="button"
+            onClick={() => setDocType('cash')}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 ${
+              docType === 'cash'
+                ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20 scale-[1.02]'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <span>🛡️</span>
+            <span>สัญญาซื้อขายสด</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setDocType('installment')}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 ${
+              docType === 'installment'
+                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-[1.02]'
+                : 'text-purple-300 hover:text-white hover:bg-purple-950/40'
+            }`}
+          >
+            <span>⚡</span>
+            <span>สัญญาผ่อนชำระไอดี</span>
+          </button>
+        </div>
+
         <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white mb-1.5 flex items-center justify-center gap-2">
-          <span>ใบรับประกันการซื้อขายไอดี PUBG PC</span>
+          <span>{docType === 'installment' ? 'ใบประกันการผ่อน ID PUBG' : 'ใบรับประกันการซื้อขายไอดี PUBG PC'}</span>
         </h1>
         <p className="text-[11px] sm:text-sm text-slate-400 max-w-2xl mx-auto">
-          ระบบอัตโนมัติ บันทึกภาพตรงกันเป๊ะทั้งบนมือถือและคอมพิวเตอร์ คมชัดสูงมาตรฐาน A4 พิมพ์หรือดาวน์โหลด PDF ได้ทันที
+          {docType === 'installment' 
+            ? 'สัญญาการผ่อนชำระและรับประกันไอดีเกม ระบุเงินดาวน์ ค่างวด กำหนดชำระ และเงื่อนไขการยึดไอดี'
+            : 'สัญญาซื้อขายไอดีสด พร้อมเงื่อนไขการรับผิดชอบ 10 เท่าหากถูกดึงคืน มีผลผูกพันทางกฎหมาย'}
         </p>
 
         {/* Mobile View Switcher */}
@@ -1185,7 +1788,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 className="text-xs sm:text-sm font-bold text-amber-400 flex items-center gap-1.5">
               <span>⚙️</span>
-              <span>กรอกข้อมูลสัญญา (อัปเดตแบบเรียลไทม์)</span>
+              <span>กรอกข้อมูลสัญญา ({docType === 'installment' ? 'สัญญาผ่อน' : 'สัญญาซื้อสด'})</span>
             </h2>
             <div className="flex items-center gap-1.5">
               <button 
@@ -1209,56 +1812,33 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
 
           <form className="space-y-4 text-xs" onSubmit={(e) => e.preventDefault()}>
             
-            {/* SECTION 1: หัวสัญญา & ผู้รับประกัน */}
+            {/* COMMON: วันที่ทำสัญญา */}
             <div className="space-y-2.5 bg-slate-950/60 p-3 sm:p-3.5 rounded-xl border border-slate-800">
               <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                <span>🛡️</span>
-                <span>1. ข้อมูลหัวสัญญา & ผู้รับประกัน</span>
+                <span>📅</span>
+                <span>วันที่ทำสัญญา</span>
               </label>
               <div>
-                <label className="block text-slate-400 mb-1">ผู้รับประกัน *</label>
                 <input 
                   type="text" 
-                  value={guarantorName} 
-                  onChange={(e) => setGuarantorName(e.target.value)} 
-                  placeholder="เช่น กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)" 
+                  value={contractDate} 
+                  onChange={(e) => setContractDate(e.target.value)} 
+                  placeholder="เช่น 15/11/2569" 
                   className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
                 />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <div>
-                  <label className="block text-slate-400 mb-1">วันที่ทำสัญญา *</label>
-                  <input 
-                    type="text" 
-                    value={contractDate} 
-                    onChange={(e) => setContractDate(e.target.value)} 
-                    placeholder="เช่น 15/11/2569" 
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
-                  />
-                </div>
-                <div>
-                  <label className="block text-slate-400 mb-1">ระยะเวลารับประกัน *</label>
-                  <input 
-                    type="text" 
-                    value={warrantyPeriod} 
-                    onChange={(e) => setWarrantyPeriod(e.target.value)} 
-                    placeholder="เช่น ตลอดชีพ / 30 วัน / 1 ปี" 
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
-                  />
-                </div>
-              </div>
             </div>
 
-            {/* SECTION 2: รายละเอียดการซื้อขาย */}
+            {/* SECTION: ข้อมูลคู่สัญญา (ผู้ขาย & ผู้ซื้อ/ผู้ผ่อน) */}
             <div className="space-y-2.5 bg-slate-950/60 p-3 sm:p-3.5 rounded-xl border border-slate-800">
               <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                <span>📌</span>
-                <span>2. รายละเอียดผู้ขาย & ผู้ซื้อ</span>
+                <span>👥</span>
+                <span>{docType === 'installment' ? '1. ข้อมูลผู้ขาย และ ผู้ผ่อนชำระ' : '1. ข้อมูลผู้ขาย และ ผู้ซื้อ'}</span>
               </label>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-slate-400 mb-1">1. ชื่อผู้ขาย *</label>
+                  <label className="block text-slate-400 mb-1">ชื่อผู้ขาย *</label>
                   <input 
                     type="text" 
                     value={sellerName} 
@@ -1279,85 +1859,40 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
                 </div>
               </div>
 
-              <div>
-                <label className="block text-slate-400 mb-1">2. ชื่อผู้ซื้อ *</label>
-                <input 
-                  type="text" 
-                  value={buyerName} 
-                  onChange={(e) => setBuyerName(e.target.value)} 
-                  placeholder="เช่น คุณวรัญญู รัตนโชติ" 
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-slate-400 mb-1">3. ประเภทไอดี *</label>
-                <div className="grid grid-cols-2 gap-2">
-                  <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
-                    idType === 'thai' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
-                  }`}>
-                    <input 
-                      type="radio" 
-                      name="reactIdType" 
-                      value="thai" 
-                      checked={idType === 'thai'} 
-                      onChange={() => setIdType('thai')} 
-                      className="text-amber-500 focus:ring-amber-500 shrink-0"
-                    />
-                    <span className="font-semibold text-xs">🇹🇭 ไอดีไทย</span>
-                  </label>
-                  <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
-                    idType === 'foreign' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
-                  }`}>
-                    <input 
-                      type="radio" 
-                      name="reactIdType" 
-                      value="foreign" 
-                      checked={idType === 'foreign'} 
-                      onChange={() => setIdType('foreign')} 
-                      className="text-amber-500 focus:ring-amber-500 shrink-0"
-                    />
-                    <span className="font-semibold text-xs">🌐 ไอดีนอก</span>
-                  </label>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-slate-400 mb-1">4. ราคาไอดี (บาท) *</label>
+                  <label className="block text-slate-400 mb-1">{docType === 'installment' ? 'ชื่อผู้ผ่อน (ผู้ซื้อ) *' : 'ชื่อผู้ซื้อ *'}</label>
                   <input 
                     type="text" 
-                    value={tradePrice} 
-                    onChange={(e) => setTradePrice(e.target.value)} 
-                    placeholder="เช่น 4,500" 
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-amber-400 font-bold focus:outline-none focus:border-amber-500 transition"
+                    value={buyerName} 
+                    onChange={(e) => setBuyerName(e.target.value)} 
+                    placeholder="เช่น คุณวรัญญู รัตนโชติ" 
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">เลขที่บัญชีรับเงิน *</label>
+                  <label className="block text-slate-400 mb-1">{docType === 'installment' ? 'เบอร์ติดต่อผู้ผ่อน *' : 'เบอร์ติดต่อผู้ซื้อ'}</label>
                   <input 
-                    type="text" 
-                    value={bankAccount} 
-                    onChange={(e) => setBankAccount(e.target.value)} 
-                    placeholder="เช่น 123-4-56789-0" 
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition font-mono"
-                  />
-                </div>
-                <div>
-                  <label className="block text-slate-400 mb-1">ธนาคาร *</label>
-                  <input 
-                    type="text" 
-                    value={bankName} 
-                    onChange={(e) => setBankName(e.target.value)} 
-                    placeholder="เช่น กสิกรไทย / พร้อมเพย์" 
+                    type="tel" 
+                    value={buyerPhone} 
+                    onChange={(e) => setBuyerPhone(e.target.value)} 
+                    placeholder="เช่น 081-234-5678" 
                     className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
                   />
                 </div>
               </div>
+            </div>
+
+            {/* SECTION: รายละเอียดไอดี */}
+            <div className="space-y-2.5 bg-slate-950/60 p-3 sm:p-3.5 rounded-xl border border-slate-800">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                <span>🎮</span>
+                <span>2. รายละเอียดไอดีเกม</span>
+              </label>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-slate-400 mb-1">5. USERNAME (ไอดีเข้าเกม) *</label>
+                  <label className="block text-slate-400 mb-1">ชื่อไอดี PUBG (USERNAME เข้าเกม) *</label>
                   <input 
                     type="text" 
                     value={username} 
@@ -1367,29 +1902,171 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">รหัส 2 ชั้นในเกม (ถ้ามี)</label>
+                  <label className="block text-slate-400 mb-1">{docType === 'installment' ? 'มูลค่าไอดี (บาท) *' : 'ราคาไอดี (บาท) *'}</label>
                   <input 
                     type="text" 
-                    value={twoFactorCode} 
-                    onChange={(e) => setTwoFactorCode(e.target.value)} 
-                    placeholder="ระบุหากมีรหัสสำรอง / 2FA" 
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition font-mono"
+                    value={tradePrice} 
+                    onChange={(e) => setTradePrice(e.target.value)} 
+                    placeholder="เช่น 4,500" 
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-amber-400 font-bold focus:outline-none focus:border-amber-500 transition"
                   />
                 </div>
               </div>
 
-              <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-lg flex items-center justify-between text-xs">
-                <span className="text-slate-300 font-medium">ค่าเสียหายกรณีไม่ชำระใน 3 วัน (10 เท่า):</span>
-                <span className="text-amber-400 font-extrabold font-mono">{tenTimesPenaltyDisplay}</span>
-              </div>
+              {docType === 'cash' && (
+                <>
+                  <div>
+                    <label className="block text-slate-400 mb-1">ประเภทไอดี *</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
+                        idType === 'thai' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
+                      }`}>
+                        <input 
+                          type="radio" 
+                          name="reactIdType" 
+                          value="thai" 
+                          checked={idType === 'thai'} 
+                          onChange={() => setIdType('thai')} 
+                          className="text-amber-500 focus:ring-amber-500 shrink-0"
+                        />
+                        <span className="font-semibold text-xs">🇹🇭 ไอดีไทย</span>
+                      </label>
+                      <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
+                        idType === 'foreign' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
+                      }`}>
+                        <input 
+                          type="radio" 
+                          name="reactIdType" 
+                          value="foreign" 
+                          checked={idType === 'foreign'} 
+                          onChange={() => setIdType('foreign')} 
+                          className="text-amber-500 focus:ring-amber-500 shrink-0"
+                        />
+                        <span className="font-semibold text-xs">🌐 ไอดีนอก</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div>
+                      <label className="block text-slate-400 mb-1">เลขที่บัญชีรับเงิน *</label>
+                      <input 
+                        type="text" 
+                        value={bankAccount} 
+                        onChange={(e) => setBankAccount(e.target.value)} 
+                        placeholder="เช่น 123-4-56789-0" 
+                        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-400 mb-1">ธนาคาร *</label>
+                      <input 
+                        type="text" 
+                        value={bankName} 
+                        onChange={(e) => setBankName(e.target.value)} 
+                        placeholder="เช่น กสิกรไทย / พร้อมเพย์" 
+                        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div>
+                      <label className="block text-slate-400 mb-1">รหัส 2 ชั้นในเกม (ถ้ามี)</label>
+                      <input 
+                        type="text" 
+                        value={twoFactorCode} 
+                        onChange={(e) => setTwoFactorCode(e.target.value)} 
+                        placeholder="ระบุหากมีรหัสสำรอง / 2FA" 
+                        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-400 mb-1">ระยะเวลารับประกัน</label>
+                      <input 
+                        type="text" 
+                        value={warrantyPeriod} 
+                        onChange={(e) => setWarrantyPeriod(e.target.value)} 
+                        placeholder="เช่น ตลอดชีพ" 
+                        className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-lg flex items-center justify-between text-xs">
+                    <span className="text-slate-300 font-medium">ค่าเสียหายกรณีไม่ชำระใน 3 วัน (10 เท่า):</span>
+                    <span className="text-amber-400 font-extrabold font-mono">{tenTimesPenaltyDisplay}</span>
+                  </div>
+                </>
+              )}
             </div>
 
-            {/* SECTION 3: แนบรูปบัตรประชาชน */}
+            {/* INSTALLMENT ONLY: เงื่อนไขการผ่อนชำระ */}
+            {docType === 'installment' && (
+              <div className="space-y-2.5 bg-purple-950/30 p-3 sm:p-3.5 rounded-xl border border-purple-800/60">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
+                  <span>⚡</span>
+                  <span>3. เงื่อนไขการผ่อนชำระไอดี</span>
+                </label>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-slate-300 mb-1">เงินดาวน์ (บาท) *</label>
+                    <input 
+                      type="text" 
+                      value={downPayment} 
+                      onChange={(e) => setDownPayment(e.target.value)} 
+                      placeholder="เช่น 1,500" 
+                      className="w-full bg-slate-800 border border-purple-700/60 rounded-lg px-3 py-2 text-amber-300 font-bold focus:outline-none focus:border-purple-400 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-300 mb-1">จำนวนงวด (งวด) *</label>
+                    <input 
+                      type="text" 
+                      value={installmentCount} 
+                      onChange={(e) => setInstallmentCount(e.target.value)} 
+                      placeholder="เช่น 3" 
+                      className="w-full bg-slate-800 border border-purple-700/60 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-purple-400 transition"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-slate-300 mb-1">งวดละ (บาท) *</label>
+                    <input 
+                      type="text" 
+                      value={perInstallment} 
+                      onChange={(e) => setPerInstallment(e.target.value)} 
+                      placeholder="เช่น 1,000" 
+                      className="w-full bg-slate-800 border border-purple-700/60 rounded-lg px-3 py-2 text-amber-300 font-bold focus:outline-none focus:border-purple-400 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-300 mb-1">วันกำหนดชำระ *</label>
+                    <input 
+                      type="text" 
+                      value={paymentDueDate} 
+                      onChange={(e) => setPaymentDueDate(e.target.value)} 
+                      placeholder="เช่น ทุกวันที่ 1 ของทุกเดือน" 
+                      className="w-full bg-slate-800 border border-purple-700/60 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-purple-400 transition"
+                    />
+                  </div>
+                </div>
+
+                <div className="p-2.5 bg-red-950/40 border border-red-500/30 rounded-lg text-xs text-red-200">
+                  ⚠️ <b>ข้อกำหนด:</b> หากผู้ซื้อชำระเงินเกินกำหนด ผู้ขายมีสิทธิ์ยึดไอดีและริบเงินมัดจำตามข้อตกลงที่ยอมรับไว้
+                </div>
+              </div>
+            )}
+
+            {/* SECTION: แนบรูปบัตรประชาชน */}
             <div className="space-y-3 bg-slate-950/60 p-3 sm:p-3.5 rounded-xl border border-slate-800">
               <div className="flex items-center justify-between">
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                   <span>🪪</span>
-                  <span>3. สำเนาบัตรประชาชนผู้ขาย (ตัวจริง)</span>
+                  <span>{docType === 'installment' ? 'สำเนาบัตรประชาชนผู้ผ่อน (ปิดเลข 13 หลัก)' : 'สำเนาบัตรประชาชนผู้ขาย (ตัวจริง)'}</span>
                 </label>
                 <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-amber-400 font-medium select-none">
                   <input 
@@ -1421,11 +2098,11 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
               </div>
             </div>
 
-            {/* SECTION 4: แอดมินคนกลาง & ตราประทับ */}
+            {/* SECTION: แอดมินคนกลาง & ตราประทับ */}
             <div className="space-y-2.5 bg-slate-950/60 p-3 sm:p-3.5 rounded-xl border border-slate-800">
               <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                 <span>⭐</span>
-                <span>4. แอดมินคนกลาง & ตราประทับ</span>
+                <span>แอดมินคนกลาง & ตราประทับ</span>
               </label>
               <div>
                 <label className="block text-slate-400 mb-1">ชื่อแอดมินคนกลางใต้สัญญา</label>
@@ -1448,16 +2125,16 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
               </label>
             </div>
 
-            {/* SECTION 5: ลายเซ็นดิจิทัล */}
+            {/* SECTION: ลายเซ็นดิจิทัล */}
             <div className="space-y-3 bg-slate-950/60 p-3 sm:p-3.5 rounded-xl border border-slate-800">
               <label className="block text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                 <span>✍️</span>
-                <span>5. เซ็นชื่อผู้ขาย / ผู้รับประกัน</span>
+                <span>เซ็นลายมือชื่อผู้ซื้อและผู้ขาย</span>
               </label>
 
               <div>
                 <div className="flex justify-between items-center mb-1.5">
-                  <label className="text-slate-400">ใช้นิ้วมือหรือเมาส์เซ็นลายมือชื่อผู้ขาย</label>
+                  <label className="text-slate-400">ลายมือชื่อผู้ขาย</label>
                   <button 
                     type="button" 
                     onClick={() => { setSellerStrokes([]); showToast('ล้างลายเซ็นผู้ขายเรียบร้อย'); }} 
@@ -1487,7 +2164,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
 
               <div className="pt-2 border-t border-slate-800">
                 <div className="flex justify-between items-center mb-1.5">
-                  <label className="text-slate-400">ลายมือชื่อผู้ซื้อ (ถ้ามี หรือเว้นว่างให้ผู้ซื้อเซ็น)</label>
+                  <label className="text-slate-400">{docType === 'installment' ? 'ลายมือชื่อผู้ผ่อน (ผู้ซื้อ)' : 'ลายมือชื่อผู้ซื้อ'}</label>
                   <button 
                     type="button" 
                     onClick={() => { setBuyerStrokes([]); showToast('ล้างลายเซ็นผู้ซื้อเรียบร้อย'); }} 
@@ -1509,7 +2186,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
                   />
                   {buyerStrokes.length === 0 && (
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none text-slate-400 text-xs font-medium">
-                      เซ็นลายมือชื่อผู้ซื้อที่นี่ (ไม่บังคับ)
+                      เซ็นลายมือชื่อผู้ผ่อน/ผู้ซื้อที่นี่
                     </div>
                   )}
                 </div>
@@ -1527,9 +2204,13 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
           {/* Top Canvas Controls Toolbar */}
           <div className="bg-slate-900/90 border border-slate-800 p-3 sm:p-3.5 rounded-2xl flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 shadow-xl">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/30 rounded-lg text-xs font-semibold">
-                <span>🖥️</span>
-                <span>Live A4 Document</span>
+              <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold ${
+                docType === 'installment'
+                  ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40'
+                  : 'bg-amber-500/10 text-amber-400 border border-amber-500/30'
+              }`}>
+                <span>{docType === 'installment' ? '⚡' : '🛡️'}</span>
+                <span>{docType === 'installment' ? 'Live A4 สัญญาผ่อนไอดี' : 'Live A4 สัญญาซื้อขายสด'}</span>
               </span>
               <span className="text-xs font-mono text-slate-400">{contractRefText}</span>
             </div>
@@ -1544,7 +2225,11 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
               </button>
               <button 
                 onClick={handleDownloadPNG} 
-                className="flex-1 sm:flex-initial px-3.5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black flex items-center justify-center gap-1.5 transition shadow-md active:scale-95"
+                className={`flex-1 sm:flex-initial px-3.5 py-2 rounded-lg text-xs font-black flex items-center justify-center gap-1.5 transition shadow-md active:scale-95 ${
+                  docType === 'installment'
+                    ? 'bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-400 hover:to-indigo-400 text-white'
+                    : 'bg-amber-500 hover:bg-amber-400 text-slate-950'
+                }`}
               >
                 <span>💾</span>
                 <span>บันทึกภาพ A4 (PNG)</span>
@@ -1576,11 +2261,19 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
 
           {/* Live Notification / Quick Tips Box */}
           <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl text-xs text-slate-400 flex items-start gap-3">
-            <span className="text-amber-400 text-lg flex-shrink-0 mt-0.5">🛡️</span>
+            <span className="text-amber-400 text-lg flex-shrink-0 mt-0.5">
+              {docType === 'installment' ? '⚡' : '🛡️'}
+            </span>
             <div className="space-y-1">
-              <p className="text-slate-200 font-semibold">ใบรับประกันมาตรฐานถูกต้อง 100% ตามแบบฟอร์มการซื้อขายไอดี PUBG PC</p>
+              <p className="text-slate-200 font-semibold">
+                {docType === 'installment' 
+                  ? 'เอกสารใบประกันการผ่อน ID PUBG มาตรฐานถูกต้อง 100% ครบทุกข้อตามแบบสัญญาผ่อนชำระ'
+                  : 'เอกสารใบรับประกันการซื้อขายไอดี PUBG PC มาตรฐานถูกต้อง 100% ครบถ้วนตามแบบฟอร์ม'}
+              </p>
               <p>
-                อิงตามแบบฟอร์มทางการ มีรายละเอียดครบ 6 ข้อ, ช่องแนบรูปบัตรประชาชนพร้อมระบบปั๊มลายน้ำ, เงื่อนไขความรับผิดชอบ 4 ข้อ (ปรับ 10 เท่าหากไม่ชำระใน 3 วัน), ช่องลงชื่อ 2 ฝ่าย และข้อความรับรองกลางโดย แอดมิน {middleAdminName}
+                {docType === 'installment'
+                  ? 'ประกอบด้วย 4 ส่วนสำคัญ: 1. สำเนาบัตรประชาชนผู้ผ่อน 2. รายละเอียดไอดีและรับประกัน 10 เท่า 3. เงื่อนไขเงินดาวน์และงวดผ่อนชำระ 4. ผู้ลงนาม 2 ฝ่าย และรับรองคนกลางโดย แอดมิน ' + middleAdminName
+                  : 'ประกอบด้วยรายละเอียดการซื้อขาย 6 ข้อ, ช่องแนบรูปบัตรประชาชน, เงื่อนไขความรับผิดชอบ 4 ข้อ (ปรับ 10 เท่า), ช่องลงชื่อ 2 ฝ่าย และรับรองคนกลางโดย แอดมิน ' + middleAdminName}
               </p>
             </div>
           </div>
@@ -1599,7 +2292,9 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
         </button>
         <button 
           onClick={handleDownloadPNG} 
-          className="flex-1 py-2.5 px-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black flex items-center justify-center gap-1.5 transition shadow-lg active:scale-95"
+          className={`flex-1 py-2.5 px-2 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition shadow-lg active:scale-95 ${
+            docType === 'installment' ? 'bg-purple-600 text-white' : 'bg-amber-500 text-slate-950'
+          }`}
         >
           <span>💾 บันทึกรูป PNG</span>
         </button>

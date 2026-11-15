@@ -182,6 +182,25 @@ export default function CountryRulesModal({
                 VN
               </span>
             </button>
+
+            {/* Installment Rules Tab */}
+            <button
+              type="button"
+              onClick={() => setSelectedCountry('installment')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border ${
+                selectedCountry === 'installment'
+                  ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-purple-400 shadow-md shadow-purple-500/25'
+                  : 'bg-purple-950/40 text-purple-300 border-purple-800/60 hover:bg-purple-900/60 hover:text-white'
+              }`}
+            >
+              <span>⚡</span>
+              <span>{isTh ? 'กฎการผ่อนไอดี' : 'Installment Rules'}</span>
+              <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
+                selectedCountry === 'installment' ? 'bg-black/30 text-white' : 'bg-purple-900 text-purple-200'
+              }`}>
+                7 ข้อ
+              </span>
+            </button>
           </div>
 
           {/* View Full Graphic Poster Button */}

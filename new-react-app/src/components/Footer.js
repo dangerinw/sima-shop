@@ -86,6 +86,15 @@ export default function Footer({ t, storeSettings = {}, onOpenRules, onOpenWarra
                 <span>🇻🇳</span>
                 <span>{isTh ? 'กฎบัญชีเวียดนาม' : 'Vietnam Rules'}</span>
               </button>
+              <span className="text-slate-700">•</span>
+              <button
+                type="button"
+                onClick={() => onOpenRules ? onOpenRules('installment') : (window.location.hash = '#rules')}
+                className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1 font-semibold"
+              >
+                <span>⚡</span>
+                <span>{isTh ? 'กฎผ่อนไอดี (7 ข้อ)' : 'Installment Rules'}</span>
+              </button>
             </div>
           </div>
 
@@ -97,7 +106,7 @@ export default function Footer({ t, storeSettings = {}, onOpenRules, onOpenWarra
                 className="text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1"
               >
                 <span>🛡️</span>
-                <span>{isTh ? 'ระบบสร้างใบรับประกัน (A4)' : 'A4 Warranty Generator'}</span>
+                <span>{isTh ? 'ใบรับประกัน & สัญญาผ่อนไอดี (A4)' : 'A4 Warranty & Installment Contract'}</span>
               </button>
             )}
             <span className="text-slate-700 hidden sm:inline">•</span>

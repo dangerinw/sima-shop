@@ -532,19 +532,34 @@ export default function AccountModal({
                   </a>
                 </div>
 
-                {/* Create Warranty Certificate Button */}
+                {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onClose();
-                      onOpenWarranty(account);
-                    }}
-                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg pubg-glow active:scale-98"
-                  >
-                    <span>🛡️</span>
-                    <span>สร้างใบรับประกันสำหรับไอดีนี้ (A4 Guarantee)</span>
-                  </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        onOpenWarranty(account, 'cash');
+                      }}
+                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
+                      title="สร้างใบรับประกันการซื้อขายสด A4"
+                    >
+                      <span>🛡️</span>
+                      <span>ใบรับประกันซื้อขาย (A4)</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        onOpenWarranty(account, 'installment');
+                      }}
+                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg active:scale-98 border border-purple-400/30"
+                      title="สร้างสัญญาการผ่อนชำระและรับประกันไอดี A4"
+                    >
+                      <span>⚡</span>
+                      <span>สัญญาผ่อนไอดี (Installment)</span>
+                    </button>
+                  </div>
                 )}
               </div>
 
@@ -721,19 +736,34 @@ export default function AccountModal({
                   </a>
                 </div>
 
-                {/* Create Warranty Certificate Button */}
+                {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onClose();
-                      onOpenWarranty(account);
-                    }}
-                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg pubg-glow active:scale-98"
-                  >
-                    <span>🛡️</span>
-                    <span>สร้างใบรับประกันสำหรับไอดีนี้ (A4 Guarantee)</span>
-                  </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        onOpenWarranty(account, 'cash');
+                      }}
+                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
+                      title="สร้างใบรับประกันการซื้อขายสด A4"
+                    >
+                      <span>🛡️</span>
+                      <span>ใบรับประกันซื้อขาย (A4)</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        onOpenWarranty(account, 'installment');
+                      }}
+                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg active:scale-98 border border-purple-400/30"
+                      title="สร้างสัญญาการผ่อนชำระและรับประกันไอดี A4"
+                    >
+                      <span>⚡</span>
+                      <span>สัญญาผ่อนไอดี (Installment)</span>
+                    </button>
+                  </div>
                 )}
               </div>
 

@@ -54,12 +54,21 @@ export default function Navbar({
             </button>
             <button
               type="button"
+              onClick={() => onOpenRules ? onOpenRules('installment') : (window.location.hash = '#rules')}
+              className="text-purple-300 hover:text-purple-200 font-semibold transition-all whitespace-nowrap flex items-center gap-1 px-2.5 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-xs shadow-sm"
+              title="ดูกฎการผ่อนไอดี 7 ข้อของทางร้าน Sunsnappz"
+            >
+              <span>⚡</span>
+              <span>กฎผ่อนไอดี</span>
+            </button>
+            <button
+              type="button"
               onClick={onOpenWarranty}
               className="text-amber-400 hover:text-amber-300 font-bold transition-all whitespace-nowrap flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 shadow-sm"
-              title="เปิดระบบสร้างใบรับประกันการซื้อขายไอดี A4"
+              title="เปิดระบบสร้างใบรับประกันการซื้อขายสด / สัญญาผ่อนชำระไอดี A4"
             >
               <span>🛡️</span>
-              <span>ใบรับประกัน</span>
+              <span>ใบรับประกัน / สัญญาผ่อน</span>
             </button>
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
@@ -209,12 +218,24 @@ export default function Navbar({
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
+                  if (onOpenRules) onOpenRules('installment');
+                  else window.location.hash = '#rules';
+                }}
+                className="px-3.5 py-2.5 rounded-xl bg-purple-500/15 text-purple-300 font-bold flex items-center gap-2.5 border border-purple-500/30 text-left transition-colors"
+              >
+                <span>⚡</span>
+                <span>กฎการผ่อนไอดี Sunsnappz (7 ข้อ)</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
                   if (onOpenWarranty) onOpenWarranty();
                 }}
                 className="px-3.5 py-2.5 rounded-xl bg-amber-500/15 text-amber-400 font-bold flex items-center gap-2.5 border border-amber-500/30 text-left transition-colors"
               >
                 <span>🛡️</span>
-                <span>สร้างใบรับประกันไอดี (A4)</span>
+                <span>สร้างใบรับประกัน / สัญญาผ่อนไอดี (A4)</span>
               </button>
               <a 
                 href="#features" 

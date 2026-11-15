@@ -67,11 +67,13 @@ function App() {
   const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
   const [rulesCountry, setRulesCountry] = useState('th');
 
-  // Warranty Form State ⭐ (A4 Guarantee Certificate)
+  // Warranty Form State ⭐ (A4 Guarantee Certificate & Installment Contract)
   const [warrantyAccount, setWarrantyAccount] = useState(null);
+  const [warrantyDocType, setWarrantyDocType] = useState('cash');
 
-  const handleOpenWarranty = useCallback((acc = null) => {
+  const handleOpenWarranty = useCallback((acc = null, docType = 'cash') => {
     setWarrantyAccount(acc);
+    setWarrantyDocType(docType);
     setViewMode('warranty');
   }, []);
 
@@ -79,6 +81,23 @@ function App() {
     setRulesCountry(country);
     setIsRulesModalOpen(true);
   }, []);
+
+  // Hash route listener for direct deep-linking (#installment, #warranty, #rules-installment)
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash === '#installment') {
+        handleOpenWarranty(null, 'installment');
+      } else if (hash === '#warranty') {
+        handleOpenWarranty(null, 'cash');
+      } else if (hash === '#rules-installment') {
+        handleOpenRules('installment');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [handleOpenWarranty, handleOpenRules]);
 
   const allFilterItemsMap = useMemo(() => {
     const map = new Map();
@@ -785,6 +804,7 @@ function App() {
     return (
       <WarrantyForm
         initialAccount={warrantyAccount}
+        initialDocType={warrantyDocType}
         storeSettings={storeSettings}
         onBack={() => {
           setWarrantyAccount(null);

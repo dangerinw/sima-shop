@@ -723,5 +723,132 @@ export const countryRulesData = {
         en: 'Reselling, changing credentials or renting terminates warranty immediately. Please avoid dismantling weapons to preserve account valuation for future buyback.'
       }
     ]
+  },
+
+  installment: {
+    countryName: {
+      th: '⚡ กฎการผ่อนไอดี Sunsnappz (Installment Rules)',
+      en: '⚡ Sunsnappz Account Installment Rules'
+    },
+    shortName: {
+      th: 'กฎการผ่อนไอดี',
+      en: 'Installment Rules'
+    },
+    flag: '⚡',
+    badge: {
+      th: 'Sunsnappz • กฎการผ่อนไอดี 7 ข้อสำคัญ',
+      en: 'Sunsnappz • 7 Official Installment Rules'
+    },
+    posterImg: {
+      th: '/images/sunsnappz-installment-rules.jpg',
+      en: '/images/sunsnappz-installment-rules.jpg'
+    },
+    bannerNotice: {
+      th: 'ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด เพื่อความปลอดภัยและรักษาสิทธิ์ของท่าน',
+      en: 'All installment buyers must strictly follow these 7 rules to protect the account and your warranty rights.'
+    },
+    bannerType: 'warning',
+    rules: [
+      {
+        id: 1,
+        icon: '🛡️🚫',
+        highlight: true,
+        title: {
+          th: '1. ถ้าหากไอดีโดนแบน ต้องรับผิดชอบทุกกรณี',
+          en: '1. If the account gets banned, you must take full responsibility in all cases.'
+        },
+        desc: {
+          th: 'ผู้ผ่อนชำระต้องรับผิดชอบความเสียหายทั้งหมดเต็มจำนวนหากเกิดการถูกแบนในระหว่างการผ่อนชำระ',
+          en: 'The buyer is fully responsible for any ban that occurs during the installment period.'
+        }
+      },
+      {
+        id: 2,
+        icon: '🔗🚫',
+        title: {
+          th: '2. ในระหว่างการผ่อน ห้ามนำไอดีไปเชื่อมกับโปรแกรมอื่นๆ ทุกกรณี',
+          en: '2. During installment, do not link the account to any third-party programs.'
+        },
+        desc: {
+          th: 'ห้ามนำบัญชีไปผูกกับโปรแกรมเสริม เว็บไซต์ หรือบริการภายนอกใดๆ ทั้งสิ้นโดยไม่ได้รับอนุญาต',
+          en: 'Strictly prohibited from connecting the account to external apps, platforms, or tools.'
+        }
+      },
+      {
+        id: 3,
+        icon: '🎯🚫',
+        highlight: true,
+        title: {
+          th: '3. ห้ามใช้มาโครทุกชนิด และสคริปต์ยิงทุกชนิด สำหรับเกม PUBG',
+          en: '3. Strictly prohibited from using any macros or shooting scripts in PUBG.'
+        },
+        desc: {
+          th: 'ห้ามใช้โปรแกรมช่วยเล็ง สคริปต์ลดแรงดีด มาโครเมาส์ หรือโปรแกรมช่วยเล่นใดๆ เด็ดขาด',
+          en: 'Never use recoil macros, auto-clickers, aim-assist scripts, or any cheating software.'
+        }
+      },
+      {
+        id: 4,
+        icon: '📱🚫',
+        title: {
+          th: '4. ห้ามเชื่อมเบอร์ในสตรีม กับ สตรีมการ์ด ทุกกรณี',
+          en: '4. Do not link personal phone or Steam Guard during installment.'
+        },
+        desc: {
+          th: 'เพื่อความปลอดภัยของบัญชีและการติดตามค่างวด ห้ามแก้ไขเบอร์หรือผูก Steam Guard เองก่อนผ่อนชำระครบ',
+          en: 'For security and payment tracking, do not attach personal phone or Steam Guard until fully paid.'
+        }
+      },
+      {
+        id: 5,
+        icon: '💸🚫',
+        highlight: true,
+        title: {
+          th: '5. ถ้าหากยกเลิกผ่อน ไม่มีการคืนเงินใดๆ ทั้งสิ้น',
+          en: '5. No refunds of any kind if the installment is cancelled.'
+        },
+        desc: {
+          th: 'เงินดาวน์และค่างวดที่ชำระไปแล้วจะไม่สามารถขอคืนได้ในทุกกรณีเมื่อขอยกเลิกสัญญา',
+          en: 'Down payment and installments already paid are non-refundable if you forfeit the agreement.'
+        }
+      },
+      {
+        id: 6,
+        icon: '📅⏰',
+        highlight: true,
+        title: {
+          th: '6. ถ้าหากขาดจ่ายยอดเกิน 3 วัน และไม่มีการแจ้งล่วงหน้า แอดมินจะทำการเปลี่ยนข้อมูลทันที',
+          en: '6. Overdue over 3 days without prior notice leads to immediate account reclamation.'
+        },
+        desc: {
+          th: 'ถ้าไม่ติดต่อแอดมินขอทำการยึดทันที (กรณีโดนยึดแล้วจะมาต่อยอดผ่อน จะต้องจ่ายเพิ่ม 200 บาททุกกรณี)',
+          en: 'Admin will reclaim the account. If you wish to resume after reclamation, a 200 THB late fee applies.'
+        }
+      },
+      {
+        id: 7,
+        icon: '🎧⚡',
+        title: {
+          th: '7. หากมีข้อสงสัยหรือติดปัญหาใด แจ้งแอดมินได้ตลอด 24 ชั่วโมง',
+          en: '7. If you have any questions or issues, contact admin 24/7.'
+        },
+        desc: {
+          th: 'แอดมินพร้อมให้คำแนะนำและช่วยเหลือดูแลการผ่อนชำระตลอด 24 ชั่วโมง ผ่านทาง Facebook และ Discord',
+          en: 'Our admin team is available 24/7 to support and assist your installment journey via Facebook & Discord.'
+        }
+      }
+    ],
+    footerNotes: [
+      {
+        icon: '⚡',
+        th: 'สัญญาการผ่อนชำระมีผลบังคับใช้ทันทีเมื่อผู้ผ่อนชำระเงินดาวน์งวดแรก',
+        en: 'The installment agreement takes effect immediately once the first down payment is made.'
+      },
+      {
+        icon: '🛡️',
+        th: 'เมื่อผ่อนชำระครบตามจำนวนงวด แอดมินจะดำเนินการส่งมอบสิทธิ์ขาดและโอนย้ายข้อมูลทั้งหมดให้ผู้ซื้อ 100%',
+        en: 'Once all installments are completed, admin will transfer full ownership and credentials to the buyer 100%.'
+      }
+    ]
   }
 };
