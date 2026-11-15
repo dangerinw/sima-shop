@@ -935,7 +935,7 @@ function App() {
       </main>
 
       {/* Country Rules & Regulations Section (China, Thailand, Vietnam in TH & EN) */}
-      <CountryRulesSection lang={lang} t={t} />
+      <CountryRulesSection lang={lang} t={t} onOpenWarranty={handleOpenWarranty} />
 
       {/* Trust & Guarantee Section */}
       <FeaturesSection t={t} />
@@ -969,6 +969,7 @@ function App() {
         onClose={() => setIsRulesModalOpen(false)}
         initialCountry={rulesCountry}
         lang={lang}
+        onOpenWarranty={handleOpenWarranty}
       />
 
       {/* Item Image Filter Modal ⭐ (Noctis-style filter) */}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { countryRulesData } from '../data/countryRulesData';
 import PosterLightbox from './PosterLightbox';
+import InstallmentRulesCard from './InstallmentRulesCard';
+import installmentPosterImg from '../assets/sunsnappz-installment-rules.jpg';
 
-export default function CountryRulesSection({ lang = 'th', t }) {
+export default function CountryRulesSection({ lang = 'th', t, onOpenWarranty }) {
   const [selectedCountry, setSelectedCountry] = useState('th');
   const [sectionLang, setSectionLang] = useState(lang);
   const [viewMode, setViewMode] = useState('cards'); // 'cards' | 'poster'
@@ -15,7 +17,9 @@ export default function CountryRulesSection({ lang = 'th', t }) {
 
   const currentCountry = countryRulesData[selectedCountry] || countryRulesData.th;
   const isTh = sectionLang === 'th';
-  const posterUrl = currentCountry.posterImg?.[sectionLang] || currentCountry.posterImg?.th;
+  const posterUrl = selectedCountry === 'installment' 
+    ? installmentPosterImg 
+    : (currentCountry.posterImg?.[sectionLang] || currentCountry.posterImg?.th);
 
   const toggleLang = () => {
     setSectionLang((prev) => (prev === 'th' ? 'en' : 'th'));
@@ -199,7 +203,12 @@ export default function CountryRulesSection({ lang = 'th', t }) {
                 src={posterUrl} 
                 alt="Rules Poster" 
                 className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]" 
-                style={{ aspectRatio: '682 / 1024' }}
+                onError={(e) => {
+                  if (selectedCountry === 'installment') {
+                    e.target.onerror = null;
+                    e.target.src = '/images/sunsnappz-installment-rules.jpg';
+                  }
+                }}
               />
             </div>
           </div>
@@ -207,6 +216,9 @@ export default function CountryRulesSection({ lang = 'th', t }) {
 
         {/* CARDS VIEW MODE */}
         {viewMode === 'cards' && (
+          selectedCountry === 'installment' ? (
+            <InstallmentRulesCard onOpenWarranty={onOpenWarranty} lang={sectionLang} standalone={true} />
+          ) : (
           <div className="bg-[#0f131d]/90 border border-slate-800/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl space-y-7 relative">
             
             {/* TOP COUNTRY BADGE & NOTICE */}
@@ -402,6 +414,11 @@ export default function CountryRulesSection({ lang = 'th', t }) {
               ))}
             </div>
 
+            {/* INTEGRATED INSTALLMENT RULES IN TRADING RULES (รวมกฎการผ่อนไอดีไว้ในกฎการซื้อขาย) */}
+            <div className="pt-2">
+              <InstallmentRulesCard onOpenWarranty={onOpenWarranty} lang={sectionLang} />
+            </div>
+
             {/* SAFE BRANDING FOOTER STRIP */}
             <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-purple-950/60 via-slate-950 to-amber-950/60 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-center sm:text-left">
@@ -429,6 +446,7 @@ export default function CountryRulesSection({ lang = 'th', t }) {
             </div>
 
           </div>
+          )
         )}
 
       </div>

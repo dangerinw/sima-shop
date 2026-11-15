@@ -849,6 +849,49 @@ export const countryRulesData = {
         th: 'เมื่อผ่อนชำระครบตามจำนวนงวด แอดมินจะดำเนินการส่งมอบสิทธิ์ขาดและโอนย้ายข้อมูลทั้งหมดให้ผู้ซื้อ 100%',
         en: 'Once all installments are completed, admin will transfer full ownership and credentials to the buyer 100%.'
       }
-    ]
+    ],
+    itemVerification: {
+      title: {
+        th: 'การตรวจสอบสถานะไอดีระหว่างผ่อนชำระ',
+        en: 'Account status verification during installment'
+      },
+      items: [
+        { th: 'ห้ามเชื่อมเบอร์ส่วนตัว', en: 'Do not link personal phone' },
+        { th: 'ห้ามเปิด Steam Guard', en: 'Do not enable Steam Guard' },
+        { th: 'ห้ามใช้โปรแกรมช่วยเล่น/มาโคร', en: 'No cheats / recoil macros' },
+        { th: 'ห้ามยกเลิกกลางคัน (ไม่คืนเงิน)', en: 'No refunds on cancellation' }
+      ],
+      warning: {
+        th: 'หากผิดเงื่อนไขข้อใดข้อหนึ่ง แอดมินขอสงวนสิทธิ์ยึดไอดีคืนและริบเงินมัดจำทันทีตามกฎของทางร้าน',
+        en: 'Violating any rule gives admin the full right to reclaim the account and void all deposits immediately.'
+      }
+    },
+    buybackPolicy: {
+      percent: '100%',
+      title: {
+        th: 'รับประกันการส่งมอบสิทธิ์ขาดเมื่อผ่อนครบ',
+        en: 'Guaranteed 100% Full Ownership Upon Completion'
+      },
+      period: {
+        th: 'โอนย้ายข้อมูลและเปลี่ยนเป็นเมลลูกค้าทันทีที่ผ่อนครบงวดสุดท้าย',
+        en: 'Immediate full credential transfer once final installment is settled.'
+      }
+    },
+    recoveryCompensation: {
+      title: {
+        th: 'การันตีความปลอดภัยและสัญญาผ่อน',
+        en: 'Installment Safety & Escrow Guarantee'
+      },
+      amount: {
+        th: 'ดูแลการผ่อนชำระโดย แอดมินซัน กิตติศักดิ์ ตันโพธิ์ธรรม',
+        en: 'Escrow managed directly by Admin Sun (Kittisak Tanphothitam)'
+      },
+      deadline: {
+        th: 'มีปัญหาหรือข้อสงสัย ติดต่อแอดมินได้ตลอด 24 ชั่วโมง',
+        en: 'Contact Admin 24/7 if you have any questions or issues.'
+      }
+    }
   }
 };
+
+export const sunsnappzInstallmentRules = countryRulesData.installment;

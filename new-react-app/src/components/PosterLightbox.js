@@ -94,8 +94,13 @@ export default function PosterLightbox({
         <img 
           src={posterUrl} 
           alt="Original Rules Poster"
-          className="w-full h-auto object-contain block mx-auto" 
-          style={{ aspectRatio: '682 / 1024' }}
+          className="w-full h-auto object-contain block mx-auto max-h-[80vh]" 
+          onError={(e) => {
+            if (String(posterUrl).includes('installment')) {
+              e.target.onerror = null;
+              e.target.src = '/images/sunsnappz-installment-rules.jpg';
+            }
+          }}
         />
       </div>
 
