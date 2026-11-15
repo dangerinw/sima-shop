@@ -271,22 +271,32 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     // ==========================================
     // 2. HEADER: Title & Subheader
     // ==========================================
-    const headerY = 52;
+    const headerY = 50;
+    const titleText = 'ใบรับประกันการซื้อขายไอดี PUBG PC';
+    ctx.font = 'bold 32px "Prompt", "Sarabun", sans-serif';
+    const titleWidth = ctx.measureText(titleText).width;
+
+    const shieldW = 32;
+    const shieldH = 38;
+    const iconGap = 14;
+    const totalHeaderWidth = shieldW + iconGap + titleWidth;
+    const startX = (W - totalHeaderWidth) / 2;
 
     // Shield Icon
+    const shieldX = startX;
+    const shieldY = headerY;
+
     ctx.save();
-    const shieldX = (W / 2) - 260;
-    const shieldY = headerY + 16;
     ctx.fillStyle = '#f59e0b';
     ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(shieldX, shieldY);
-    ctx.lineTo(shieldX + 18, shieldY - 4);
-    ctx.lineTo(shieldX + 36, shieldY);
-    ctx.lineTo(shieldX + 36, shieldY + 22);
-    ctx.quadraticCurveTo(shieldX + 36, shieldY + 44, shieldX + 18, shieldY + 50);
-    ctx.quadraticCurveTo(shieldX, shieldY + 44, shieldX, shieldY + 22);
+    ctx.lineTo(shieldX + (shieldW / 2), shieldY - 4);
+    ctx.lineTo(shieldX + shieldW, shieldY);
+    ctx.lineTo(shieldX + shieldW, shieldY + (shieldH * 0.45));
+    ctx.quadraticCurveTo(shieldX + shieldW, shieldY + (shieldH * 0.9), shieldX + (shieldW / 2), shieldY + shieldH);
+    ctx.quadraticCurveTo(shieldX, shieldY + (shieldH * 0.9), shieldX, shieldY + (shieldH * 0.45));
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
@@ -296,71 +306,42 @@ export default function WarrantyForm({ onBack, initialAccount = null, storeSetti
     ctx.lineWidth = 3.5;
     ctx.lineCap = 'round';
     ctx.beginPath();
-    ctx.moveTo(shieldX + 11, shieldY + 22);
-    ctx.lineTo(shieldX + 16, shieldY + 28);
-    ctx.lineTo(shieldX + 27, shieldY + 14);
+    ctx.moveTo(shieldX + 9, shieldY + 18);
+    ctx.lineTo(shieldX + 14, shieldY + 24);
+    ctx.lineTo(shieldX + 23, shieldY + 12);
     ctx.stroke();
     ctx.restore();
 
     // Main Title
     ctx.fillStyle = '#090d16';
     ctx.font = 'bold 32px "Prompt", "Sarabun", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('ใบรับประกันการซื้อขายไอดี PUBG PC', (W / 2) + 20, headerY + 45);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(titleText, startX + shieldW + iconGap, shieldY + (shieldH / 2) + 2);
 
-    // Subheader: ผู้รับประกัน & วันที่ทำสัญญา
+    // Subheader: ผู้รับประกัน & วันที่ทำสัญญา (ตรงตามแบบฟอร์ม 2 บรรทัดจัดกึ่งกลาง)
     const guarantorVal = guarantorName.trim() || '...................................................';
     const contractDateVal = contractDate.trim() || '...... / ...... / ............';
 
-    const subY = headerY + 84;
-    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
-    ctx.fillStyle = '#1e293b';
-    ctx.textAlign = 'left';
-    ctx.fillText('ผู้รับประกัน :', 70, subY);
+    const subRowW = 560;
+    const subStartX = (W - subRowW) / 2;
 
-    ctx.font = 'bold 19px "Sarabun", "Prompt", sans-serif';
-    ctx.fillStyle = '#0284c7';
-    ctx.fillText(guarantorVal, 185, subY);
+    const sub1Y = headerY + 68;
+    drawFieldRow(ctx, 'ผู้รับประกัน :', guarantorVal, subStartX, sub1Y, subRowW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0284c7');
 
-    // Dotted underline
-    ctx.save();
-    ctx.setLineDash([3, 4]);
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineWidth = 1.2;
-    ctx.beginPath();
-    ctx.moveTo(180, subY + 3);
-    ctx.lineTo(680, subY + 3);
-    ctx.stroke();
-    ctx.restore();
-
-    ctx.font = 'bold 18px "Prompt", "Sarabun", sans-serif';
-    ctx.fillStyle = '#1e293b';
-    ctx.fillText('วันที่ทำสัญญา :', 730, subY);
-
-    ctx.font = 'bold 19px "Sarabun", "Prompt", sans-serif';
-    ctx.fillStyle = '#0f172a';
-    ctx.fillText(contractDateVal, 865, subY);
-
-    ctx.save();
-    ctx.setLineDash([3, 4]);
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineWidth = 1.2;
-    ctx.beginPath();
-    ctx.moveTo(855, subY + 3);
-    ctx.lineTo(W - 70, subY + 3);
-    ctx.stroke();
-    ctx.restore();
+    const sub2Y = sub1Y + 36;
+    drawFieldRow(ctx, 'วันที่ทำสัญญา :', contractDateVal, subStartX, sub2Y, subRowW, 'bold 18px "Prompt", "Sarabun", sans-serif', '#1e293b', '#0f172a');
 
     // ==========================================
     // 3. SECTION: 📌 รายละเอียดการซื้อขาย
     // ==========================================
-    const sec1Y = subY + 24;
+    const sec1Y = sub2Y + 20;
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 20px "Prompt", "Sarabun", sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('📌 รายละเอียดการซื้อขาย', 65, sec1Y + 20);
 
-    const box1Y = sec1Y + 32;
+    const box1Y = sec1Y + 30;
     const box1W = W - 130;
     const box1H = 250;
 
