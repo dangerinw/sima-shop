@@ -66,14 +66,25 @@ export default function InstallmentRulesCard({ onOpenWarranty, lang = 'th', stan
           </div>
         </div>
 
-        {/* Warning Callout Notice */}
-        <div className="my-4 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs sm:text-sm font-bold flex items-center gap-2.5 relative z-10">
-          <span className="text-lg shrink-0">⚠️</span>
-          <span className="leading-relaxed">
-            {isTh
-              ? 'ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด เพื่อความปลอดภัยและรักษาสิทธิ์ของท่าน'
-              : 'All installment buyers must strictly follow these 7 rules to protect the account and warranty rights.'}
-          </span>
+        {/* Warning Callout Notice & Thai ID Restriction */}
+        <div className="my-4 space-y-2 relative z-10">
+          <div className="p-3.5 rounded-2xl bg-gradient-to-r from-purple-950/60 to-indigo-950/60 border border-purple-500/40 text-purple-200 text-xs sm:text-sm font-bold flex items-center gap-2.5">
+            <span className="text-xl shrink-0">🇹🇭</span>
+            <span className="leading-relaxed">
+              {isTh
+                ? 'สัญญาผ่อนชำระไอดีสงวนสิทธิ์เฉพาะ "ไอดีไทย" เท่านั้น สำหรับไอดีต่างประเทศ (จีน / เวียดนาม) จำหน่ายแบบชำระสดเต็มจำนวน'
+                : 'Installment contracts are strictly reserved for "Thailand Accounts" only. Foreign accounts (China / Vietnam) are cash purchase only.'}
+            </span>
+          </div>
+
+          <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs sm:text-sm font-bold flex items-center gap-2.5">
+            <span className="text-lg shrink-0">⚠️</span>
+            <span className="leading-relaxed">
+              {isTh
+                ? 'ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด เพื่อความปลอดภัยและรักษาสิทธิ์ของท่าน'
+                : 'All installment buyers must strictly follow these 7 rules to protect the account and warranty rights.'}
+            </span>
+          </div>
         </div>
 
         {/* MAIN BODY: Infographic Poster (Left) + 7 Rule Cards (Right) */}

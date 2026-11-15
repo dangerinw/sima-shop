@@ -87,6 +87,9 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
     return `REF: PUBG-2026-${num}`;
   });
 
+  // Check if current account is Foreign (China, Vietnam, etc.)
+  const isInitialForeign = Boolean(initialAccount && (initialAccount.region === 'cn' || initialAccount.region === 'vn' || (initialAccount.region && initialAccount.region !== 'th')));
+
   // Pre-fill initial account if provided
   useEffect(() => {
     if (initialAccount) {
@@ -104,7 +107,12 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
         }
       }
       if (initialAccount.region) {
-        setIdType(initialAccount.region === 'th' ? 'thai' : 'foreign');
+        const isTh = initialAccount.region === 'th';
+        setIdType(isTh ? 'thai' : 'foreign');
+        // Foreign accounts are strictly cash purchase only (no installments)
+        if (!isTh) {
+          setDocType('cash');
+        }
       }
       if (initialAccount.sellerName) setSellerName(initialAccount.sellerName);
       if (initialAccount.warranty) setWarrantyPeriod(initialAccount.warranty);
@@ -1742,19 +1750,43 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
             <span>สัญญาซื้อขายสด</span>
           </button>
 
-          <button
-            type="button"
-            onClick={() => setDocType('installment')}
-            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 ${
-              docType === 'installment'
-                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-[1.02]'
-                : 'text-purple-300 hover:text-white hover:bg-purple-950/40'
-            }`}
-          >
-            <span>⚡</span>
-            <span>สัญญาผ่อนชำระไอดี</span>
-          </button>
+          {isInitialForeign ? (
+            <div
+              className="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-slate-500 bg-slate-950/60 border border-slate-800/80 flex items-center justify-center gap-1.5 cursor-not-allowed opacity-60"
+              title="ไอดีต่างประเทศไม่สามารถผ่อนชำระได้ (ซื้อสดเท่านั้น)"
+              onClick={() => showToast('⚠️ ไอดีต่างประเทศสงวนสิทธิ์ซื้อสดเต็มจำนวนเท่านั้น (ไม่มีระบบผ่อน)', true)}
+            >
+              <span>🔒</span>
+              <span>ผ่อนชำระ (เฉพาะไอดีไทย)</span>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                if (idType === 'foreign') {
+                  showToast('⚠️ ไอดีต่างประเทศไม่สามารถผ่อนชำระได้ ระบบผ่อนสงวนสิทธิ์เฉพาะไอดีไทยเท่านั้น', true);
+                  return;
+                }
+                setDocType('installment');
+              }}
+              className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 ${
+                docType === 'installment'
+                  ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-[1.02]'
+                  : 'text-purple-300 hover:text-white hover:bg-purple-950/40'
+              }`}
+            >
+              <span>⚡</span>
+              <span>สัญญาผ่อนชำระไอดี</span>
+            </button>
+          )}
         </div>
+
+        {isInitialForeign && (
+          <div className="max-w-xl mx-auto my-2 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm">
+            <span>ℹ️</span>
+            <span>ไอดีนี้เป็นไอดีต่างประเทศ ({initialAccount.region === 'cn' ? 'จีน 🇨🇳' : initialAccount.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) จำหน่ายแบบซื้อสดเต็มจำนวนเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+          </div>
+        )}
 
         <h1 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white mb-1.5 flex items-center justify-center gap-2">
           <span>{docType === 'installment' ? 'ใบประกันการผ่อน ID PUBG' : 'ใบรับประกันการซื้อขายไอดี PUBG PC'}</span>

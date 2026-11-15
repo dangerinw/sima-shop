@@ -107,7 +107,7 @@ export default function CountryRulesSection({ lang = 'th', t, onOpenWarranty }) 
                 }`}
               >
                 <span>⚡</span>
-                <span>{isTh ? 'กฎการผ่อนไอดี' : 'Installment Rules'}</span>
+                <span>{isTh ? 'กฎการผ่อนไอดี (เฉพาะไอดีไทย)' : 'Installment Rules (Thai ID)'}</span>
               </button>
             </div>
 

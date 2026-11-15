@@ -72,8 +72,11 @@ function App() {
   const [warrantyDocType, setWarrantyDocType] = useState('cash');
 
   const handleOpenWarranty = useCallback((acc = null, docType = 'cash') => {
+    // If foreign account (China, Vietnam, etc.), strictly enforce cash purchase only (no installment)
+    const isForeign = acc && ((acc.region && acc.region !== 'th') || (acc.country && acc.country !== 'th'));
+    const safeDocType = isForeign ? 'cash' : docType;
     setWarrantyAccount(acc);
-    setWarrantyDocType(docType);
+    setWarrantyDocType(safeDocType);
     setViewMode('warranty');
   }, []);
 

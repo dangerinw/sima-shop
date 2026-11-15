@@ -89,6 +89,19 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
               <span>{regionInfo.flag}</span>
               <span>{regionInfo.label}</span>
             </span>
+
+            {/* Installment / Cash-Only Badge ⭐ */}
+            {account.region === 'th' ? (
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-black border flex items-center gap-1 shadow-sm backdrop-blur-md bg-purple-600/30 text-purple-200 border-purple-400/50">
+                <span>⚡</span>
+                <span>ผ่อนได้</span>
+              </span>
+            ) : (
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-bold border flex items-center gap-1 shadow-sm backdrop-blur-md bg-slate-900/80 text-slate-300 border-slate-700/80">
+                <span>💵</span>
+                <span>สดเท่านั้น</span>
+              </span>
+            )}
           </div>
 
           {/* Account Code Display */}

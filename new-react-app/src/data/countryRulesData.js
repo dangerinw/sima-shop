@@ -262,8 +262,8 @@ export const countryRulesData = {
       en: '/images/rules/rules-cn-en.jpg'
     },
     bannerNotice: {
-      th: 'กฎระเบียบ อ่านให้เข้าใจก่อนซื้อขาย ✅ บัญชีจีนสต็อกตรงจาก XueGaokk Studio',
-      en: 'China Account Terms & Conditions — Please read and understand before buying or selling'
+      th: 'จำหน่ายแบบซื้อสดเต็มจำนวนเท่านั้น (ไม่มีระบบผ่อนชำระ) • กฎระเบียบ อ่านให้เข้าใจก่อนซื้อขาย ✅ บัญชีจีนสต็อกตรงจาก XueGaokk Studio',
+      en: 'Cash purchase only (No installment plan available) • China Account Terms & Conditions — Please read and understand before buying'
     },
     bannerType: 'warning',
     rules: [
@@ -503,8 +503,8 @@ export const countryRulesData = {
       en: '/images/rules/rules-vn-en.jpg'
     },
     bannerNotice: {
-      th: 'ลูกค้าสามารถขอเมลแรกที่สมัครไอดีได้ แต่ประกันทั้งหมดจะถูกยกเลิกทันที',
-      en: 'You can request the first registered email, but all warranty will be void immediately.'
+      th: 'จำหน่ายแบบซื้อสดเต็มจำนวนเท่านั้น (ไม่มีระบบผ่อนชำระ) • ลูกค้าสามารถขอเมลแรกที่สมัครไอดีได้ แต่ประกันทั้งหมดจะถูกยกเลิกทันที',
+      en: 'Cash purchase only (No installment plan available) • You can request the first registered email, but all warranty will be void immediately.'
     },
     bannerType: 'danger',
     rules: [
@@ -744,8 +744,8 @@ export const countryRulesData = {
       en: '/images/sunsnappz-installment-rules.jpg'
     },
     bannerNotice: {
-      th: 'ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด เพื่อความปลอดภัยและรักษาสิทธิ์ของท่าน',
-      en: 'All installment buyers must strictly follow these 7 rules to protect the account and your warranty rights.'
+      th: '⚡ สัญญาผ่อนชำระสงวนสิทธิ์เฉพาะ "ไอดีไทย" เท่านั้น (ไอดีต่างประเทศ จำหน่ายแบบซื้อสดเต็มจำนวนเท่านั้น) • ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด',
+      en: '⚡ Installment agreements are strictly reserved for "Thailand Accounts" (Foreign accounts are cash-only). All installment buyers must strictly follow these 7 rules.'
     },
     bannerType: 'warning',
     rules: [

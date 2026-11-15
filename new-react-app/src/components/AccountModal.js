@@ -59,6 +59,11 @@ export default function AccountModal({
   const [detailImages, setDetailImages] = useState([]);
   const [coverImg, setCoverImg] = useState('');
 
+  // Check if account is Foreign (China/Vietnam/etc.) or Thai
+  // Note: Installments are strictly reserved for Thai accounts only
+  const isForeignAccount = Boolean(account && (account.region === 'cn' || account.region === 'vn' || (account.region && account.region !== 'th')));
+  const isThaiAccount = !isForeignAccount;
+
   // Reset and fetch high-res in-game screenshots for Chinese accounts
   useEffect(() => {
     if (!account) return;
@@ -534,31 +539,54 @@ export default function AccountModal({
 
                 {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        onOpenWarranty(account, 'cash');
-                      }}
-                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
-                      title="สร้างใบรับประกันการซื้อขายสด A4"
-                    >
-                      <span>🛡️</span>
-                      <span>ใบรับประกันซื้อขาย (A4)</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        onOpenWarranty(account, 'installment');
-                      }}
-                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg active:scale-98 border border-purple-400/30"
-                      title="สร้างสัญญาการผ่อนชำระและรับประกันไอดี A4"
-                    >
-                      <span>⚡</span>
-                      <span>สัญญาผ่อนไอดี (Installment)</span>
-                    </button>
+                  <div className="space-y-2">
+                    {isThaiAccount ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onOpenWarranty(account, 'cash');
+                          }}
+                          className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
+                          title="สร้างใบรับประกันการซื้อขายสด A4"
+                        >
+                          <span>🛡️</span>
+                          <span>ใบรับประกันซื้อขาย (A4)</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onOpenWarranty(account, 'installment');
+                          }}
+                          className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg active:scale-98 border border-purple-400/30"
+                          title="สร้างสัญญาการผ่อนชำระและรับประกันไอดี A4"
+                        >
+                          <span>⚡</span>
+                          <span>สัญญาผ่อนไอดี (Installment)</span>
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="space-y-1.5">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onOpenWarranty(account, 'cash');
+                          }}
+                          className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
+                          title="สร้างใบรับประกันการซื้อขายสด A4"
+                        >
+                          <span>🛡️</span>
+                          <span>ใบรับประกันซื้อขายสด (A4)</span>
+                        </button>
+                        <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-amber-300 bg-amber-950/40 border border-amber-800/50 rounded-xl py-2 px-3 text-center font-bold">
+                          <span>ℹ️</span>
+                          <span>ไอดีต่างประเทศ ({account?.region === 'cn' ? 'จีน 🇨🇳' : account?.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -738,31 +766,54 @@ export default function AccountModal({
 
                 {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        onOpenWarranty(account, 'cash');
-                      }}
-                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
-                      title="สร้างใบรับประกันการซื้อขายสด A4"
-                    >
-                      <span>🛡️</span>
-                      <span>ใบรับประกันซื้อขาย (A4)</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        onOpenWarranty(account, 'installment');
-                      }}
-                      className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg active:scale-98 border border-purple-400/30"
-                      title="สร้างสัญญาการผ่อนชำระและรับประกันไอดี A4"
-                    >
-                      <span>⚡</span>
-                      <span>สัญญาผ่อนไอดี (Installment)</span>
-                    </button>
+                  <div className="space-y-2">
+                    {isThaiAccount ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onOpenWarranty(account, 'cash');
+                          }}
+                          className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
+                          title="สร้างใบรับประกันการซื้อขายสด A4"
+                        >
+                          <span>🛡️</span>
+                          <span>ใบรับประกันซื้อขาย (A4)</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onOpenWarranty(account, 'installment');
+                          }}
+                          className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg active:scale-98 border border-purple-400/30"
+                          title="สร้างสัญญาการผ่อนชำระและรับประกันไอดี A4"
+                        >
+                          <span>⚡</span>
+                          <span>สัญญาผ่อนไอดี (Installment)</span>
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="space-y-1.5">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onOpenWarranty(account, 'cash');
+                          }}
+                          className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shadow-lg pubg-glow active:scale-98"
+                          title="สร้างใบรับประกันการซื้อขายสด A4"
+                        >
+                          <span>🛡️</span>
+                          <span>ใบรับประกันซื้อขายสด (A4)</span>
+                        </button>
+                        <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-amber-300 bg-amber-950/40 border border-amber-800/50 rounded-xl py-2 px-3 text-center font-bold">
+                          <span>ℹ️</span>
+                          <span>ไอดีต่างประเทศ ({account?.region === 'cn' ? 'จีน 🇨🇳' : account?.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
