@@ -102,6 +102,14 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
                 <span>สดเท่านั้น</span>
               </span>
             )}
+
+            {/* Video Review Badge ⭐ */}
+            {(account.videoUrl || account.video_url) && (
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-black border flex items-center gap-1 shadow-sm backdrop-blur-md bg-rose-500/20 text-rose-300 border-rose-500/40">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+                <span>🎬 มีคลิป</span>
+              </span>
+            )}
           </div>
 
           {/* Account Code Display */}

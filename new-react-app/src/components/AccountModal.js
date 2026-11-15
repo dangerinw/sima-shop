@@ -38,6 +38,66 @@ export const getSourceUrl = (acc) => {
   return '';
 };
 
+// Helper to parse and format video embeds (YouTube, Direct MP4, TikTok, Bilibili, Facebook, etc.)
+export const getVideoEmbedInfo = (url) => {
+  if (!url || typeof url !== 'string') return null;
+  const cleanUrl = url.trim();
+  if (!cleanUrl) return null;
+
+  // Direct MP4 / WebM / OGG / MOV
+  if (/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(cleanUrl)) {
+    return {
+      type: 'direct',
+      src: cleanUrl,
+      title: 'Direct Video Clip'
+    };
+  }
+
+  // YouTube (watch?v=..., youtu.be/..., shorts/..., embed/...)
+  const ytMatch = cleanUrl.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/i);
+  if (ytMatch && ytMatch[1]) {
+    return {
+      type: 'youtube',
+      src: `https://www.youtube-nocookie.com/embed/${ytMatch[1]}?autoplay=1&rel=0`,
+      id: ytMatch[1],
+      originalUrl: cleanUrl,
+      title: 'YouTube Video'
+    };
+  }
+
+  // TikTok
+  const tiktokMatch = cleanUrl.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/i);
+  if (tiktokMatch && tiktokMatch[1]) {
+    return {
+      type: 'tiktok',
+      src: `https://www.tiktok.com/embed/v2/${tiktokMatch[1]}`,
+      id: tiktokMatch[1],
+      originalUrl: cleanUrl,
+      title: 'TikTok Video'
+    };
+  }
+
+  // Bilibili
+  const biliMatch = cleanUrl.match(/bilibili\.com\/video\/(BV[a-zA-Z0-9]+)/i);
+  if (biliMatch && biliMatch[1]) {
+    return {
+      type: 'bilibili',
+      src: `https://player.bilibili.com/player.html?bvid=${biliMatch[1]}&autoplay=1`,
+      id: biliMatch[1],
+      originalUrl: cleanUrl,
+      title: 'Bilibili Video'
+    };
+  }
+
+  // External Video link (Facebook, Drive, other)
+  return {
+    type: 'external',
+    src: cleanUrl,
+    originalUrl: cleanUrl,
+    title: 'External Video'
+  };
+};
+
 export default function AccountModal({ 
   account, 
   isOpen, 
@@ -192,7 +252,11 @@ export default function AccountModal({
     setTimeout(() => setCopiedText(false), 2500);
   };
 
-  // Determine current active preview image
+  // Determine current active preview image and video info
+  const videoUrl = (account.videoUrl || account.video_url || '').trim();
+  const videoEmbedInfo = getVideoEmbedInfo(videoUrl);
+  const hasVideo = Boolean(videoUrl && videoEmbedInfo);
+
   const currentDetailImg = detailImages[0] || '';
   const activeImageUrl = activeTab === 'detail' && currentDetailImg 
     ? currentDetailImg 
@@ -243,7 +307,7 @@ export default function AccountModal({
               
               {/* IMAGE SHOWCASE WITH LARGE ASPECT RATIO & TAB SWITCHER ⭐ */}
               <div className="space-y-3">
-                {/* Dual Image Tabs (รูปหน้าคลังหลัก 1 VS รูปรายละเอียด 2) */}
+                {/* Dual Image & Video Tabs (รูปหน้าคลังหลัก 1 VS รูปรายละเอียด 2 VS วิดีโอ 3) */}
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <div className="flex items-center gap-2 flex-wrap">
                     {/* Tab 2: Detail Screenshot (In-game Stats & Loadout) */}
@@ -276,10 +340,32 @@ export default function AccountModal({
                       <span>🖼️</span>
                       <span>รูปหน้าคลังหลัก (สกิน 20 ช่อง)</span>
                     </button>
+
+                    {/* Tab 3: Video Window (🎬 วิดีโอรายละเอียดไอเทม) ⭐ */}
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('video')}
+                      className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 border shadow-sm ${
+                        activeTab === 'video'
+                          ? 'bg-gradient-to-r from-rose-500 to-rose-600 text-white border-rose-400 shadow-lg shadow-rose-900/30 scale-[1.02]'
+                          : 'bg-slate-900 hover:bg-slate-800 text-rose-300 border-slate-700 hover:border-rose-500/50'
+                      }`}
+                    >
+                      <span>🎬</span>
+                      <span>วิดีโอรายละเอียดไอเทม</span>
+                      {hasVideo ? (
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                        </span>
+                      ) : (
+                        <span className="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">ขอคลิปได้</span>
+                      )}
+                    </button>
                   </div>
 
-                  {/* 1-Click Fullscreen Lightbox Button */}
-                  {activeImageUrl && (
+                  {/* 1-Click Fullscreen Lightbox Button OR Video Link Button */}
+                  {activeTab !== 'video' && activeImageUrl && (
                     <button
                       type="button"
                       onClick={() => setIsLightboxOpen(true)}
@@ -290,10 +376,149 @@ export default function AccountModal({
                       <span>ขยายดูขนาดเต็มจอ (Full Zoom)</span>
                     </button>
                   )}
+
+                  {activeTab === 'video' && hasVideo && (
+                    <a
+                      href={videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 text-white text-xs font-black border border-rose-400 flex items-center gap-1.5 transition-all shadow-lg"
+                      title="เปิดดูวิดีโอต้นฉบับในแท็บใหม่"
+                    >
+                      <span>↗️</span>
+                      <span>เปิดคลิปต้นฉบับ</span>
+                    </a>
+                  )}
                 </div>
 
-                {/* LARGE ASPECT RATIO IMAGE DISPLAY CONTAINER ⭐ */}
-                {activeTab === 'detail' ? (
+                {/* SHOWCASE MEDIA CONTAINER (VIDEO OR DETAIL PANORAMA OR COVER 20-SLOT) ⭐ */}
+                {activeTab === 'video' ? (
+                  /* Dedicated Video Review Window ⭐ */
+                  <div className="relative w-full rounded-2xl overflow-hidden bg-black border border-rose-500/40 shadow-2xl min-h-[460px] sm:min-h-[560px] lg:min-h-[620px] flex flex-col justify-between group">
+                    {/* Header bar inside video window */}
+                    <div className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-850 z-10 gap-2 flex-wrap">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+                        <span className="text-xs sm:text-sm font-black text-white flex items-center gap-1.5">
+                          <span>🎬</span>
+                          <span>วิดีโอคลิปรายละเอียด & รีวิวไอเทมในเกม</span>
+                        </span>
+                        {hasVideo && (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 uppercase">
+                            {videoEmbedInfo.type}
+                          </span>
+                        )}
+                      </div>
+                      
+                      {hasVideo && (
+                        <a 
+                          href={videoUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-[11px] font-bold px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white flex items-center gap-1.5 border border-slate-750 transition-all shadow"
+                        >
+                          <span>↗️</span>
+                          <span>เปิดดูแบบเต็มจอ</span>
+                        </a>
+                      )}
+                    </div>
+
+                    {/* Video Player Display Area */}
+                    <div className="flex-1 w-full bg-black flex items-center justify-center relative min-h-[380px] sm:min-h-[480px]">
+                      {hasVideo ? (
+                        videoEmbedInfo.type === 'youtube' ? (
+                          <iframe
+                            src={videoEmbedInfo.src}
+                            title={`PUBG Account #${displayCode} Video Review`}
+                            className="w-full h-full min-h-[380px] sm:min-h-[480px] border-0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          />
+                        ) : videoEmbedInfo.type === 'direct' ? (
+                          <video
+                            src={videoEmbedInfo.src}
+                            controls
+                            autoPlay
+                            className="w-full h-full max-h-[70vh] object-contain bg-black"
+                          >
+                            เบราว์เซอร์ของคุณไม่รองรับการเล่นแท็กวิดีโอ HTML5
+                          </video>
+                        ) : videoEmbedInfo.type === 'bilibili' ? (
+                          <iframe
+                            src={videoEmbedInfo.src}
+                            title={`PUBG Account #${displayCode} Bilibili Review`}
+                            className="w-full h-full min-h-[380px] sm:min-h-[480px] border-0"
+                            scrolling="no"
+                            frameBorder="no"
+                            allowFullScreen
+                          />
+                        ) : videoEmbedInfo.type === 'tiktok' ? (
+                          <iframe
+                            src={videoEmbedInfo.src}
+                            title={`PUBG Account #${displayCode} TikTok Review`}
+                            className="w-full h-full min-h-[480px] border-0"
+                            allowFullScreen
+                          />
+                        ) : (
+                          /* External Video Link Fallback Card */
+                          <div className="p-8 text-center max-w-md mx-auto flex flex-col items-center">
+                            <div className="w-16 h-16 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-3xl mb-4 text-rose-400 animate-pulse">
+                              ▶️
+                            </div>
+                            <h4 className="text-base font-black text-white mb-2">
+                              วิดีโอคลิปรีวิวไอดี #{displayCode}
+                            </h4>
+                            <p className="text-xs text-slate-400 mb-5 leading-relaxed">
+                              คลิกปุ่มด้านล่างเพื่อเปิดรับชมคลิปวิดีโอรีวิวคลังสกินและอาวุธทั้งหมดของไอดีนี้
+                            </p>
+                            <a
+                              href={videoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 text-white font-black text-sm flex items-center justify-center gap-2 shadow-xl shadow-rose-900/30 transition-all border border-rose-400"
+                            >
+                              <span>▶️</span>
+                              <span>เปิดดูคลิปวิดีโอ (คลิกที่นี่)</span>
+                              <span>↗</span>
+                            </a>
+                          </div>
+                        )
+                      ) : (
+                        /* Fallback when no video is uploaded yet */
+                        <div className="p-8 text-center max-w-md mx-auto flex flex-col items-center">
+                          <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl mb-4 text-slate-400">
+                            🎬
+                          </div>
+                          <h4 className="text-base font-black text-white mb-2">
+                            ยังไม่มีคลิปวิดีโอแนบไว้สำหรับไอดีนี้
+                          </h4>
+                          <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                            ต้องการดูรีวิวคลังไอเทมสดในเกม? คุณสามารถทักแชทบอกแอดมิน ให้บันทึกวิดีโอส่งให้ดูโดยตรงได้ทันทีครับ
+                          </p>
+                          <button
+                            type="button"
+                            onClick={() => setStep('contact')}
+                            className="py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-900/20 transition-all border border-amber-400"
+                          >
+                            <span>💬</span>
+                            <span>ทักแชทขอคลิปวิดีโอกับแอดมิน</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Bottom Info Banner */}
+                    <div className="px-4 py-2.5 bg-slate-950 border-t border-slate-850 flex items-center justify-between text-[11px] text-slate-400 flex-wrap gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-amber-400">💡 คำแนะนำ:</span>
+                        <span>ดูคลิปเพื่อเช็กรายละเอียดสกิน ปืน เลเวล และอนิเมชันก่อนตัดสินใจซื้อ</span>
+                      </div>
+                      {hasVideo && (
+                        <span className="text-slate-500 font-mono truncate max-w-xs">{videoUrl}</span>
+                      )}
+                    </div>
+                  </div>
+                ) : activeTab === 'detail' ? (
                   /* Vertical Scrollable Container for Long Panoramic Detail Image (2160x20000+ px) */
                   <div className="relative w-full rounded-2xl overflow-y-auto overflow-x-hidden bg-black border border-slate-700/80 shadow-2xl h-[560px] sm:h-[680px] lg:h-[750px] scrollbar-thin scrollbar-thumb-amber-500/60 scrollbar-track-slate-900 group">
                     {activeImageUrl ? (
@@ -412,6 +637,25 @@ export default function AccountModal({
                       </span>
                     </button>
                   )}
+
+                  {/* Thumbnail 3: Video Tab Button ⭐ */}
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab('video')}
+                    className={`relative w-28 h-16 rounded-xl overflow-hidden border-2 transition-all shrink-0 flex flex-col items-center justify-center ${
+                      activeTab === 'video'
+                        ? 'border-rose-500 bg-rose-950/40 scale-105 shadow-md shadow-rose-900/30'
+                        : 'border-slate-800 bg-slate-900/80 opacity-70 hover:opacity-100 hover:border-rose-500/50'
+                    }`}
+                  >
+                    <span className="text-xl">🎬</span>
+                    <span className="text-[10px] text-rose-300 font-bold mt-1">
+                      {hasVideo ? 'คลิปวิดีโอ' : 'ขอคลิปวิดีโอ'}
+                    </span>
+                    {hasVideo && (
+                      <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+                    )}
+                  </button>
                 </div>
               </div>
 

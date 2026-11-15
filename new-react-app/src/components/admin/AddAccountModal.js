@@ -1,14 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { dbService } from '../../services/dbService';
 import filterCategoriesData from '../../data/filterCategories.json';
 
-// Flatten all 240+ Noctis filter items once
+// Flatten all 240+ Noctis filter items once with category tag
 const allFilterItemsList = [];
 filterCategoriesData.forEach((cat) => {
   cat.items.forEach((it) => {
-    allFilterItemsList.push(it);
+    allFilterItemsList.push({
+      ...it,
+      categoryName: cat.name
+    });
   });
 });
+
+const skinCategoryTabs = [
+  { id: 'all', label: 'ทั้งหมด (239)' },
+  { id: 'Rifle Weapons', label: '🔫 ไรเฟิล AR' },
+  { id: 'Sniper Weapons', label: '🎯 สไนเปอร์ SR/DMR' },
+  { id: 'Vehicles', label: '🏎️ ซุปเปอร์คาร์' },
+  { id: 'Popular Outfits', label: '👗 ชุดแฟชั่น' },
+  { id: 'Popular Skins', label: '⭐ สกินยอดนิยม' },
+  { id: 'Chroma', label: '🌈 โครม่า Chroma' },
+  { id: 'Character / Hair', label: '🧑 ตัวละคร & ผม' },
+  { id: 'Tactical Gloves', label: '🧤 ถุงมือ' },
+  { id: 'Smoke', label: '💨 สโมคสี' },
+  { id: 'Other Weapons', label: '🗡️ อาวุธอื่น ๆ' }
+];
 
 export default function AddAccountModal({ isOpen, onClose, onSave, editingAccount, lang }) {
   // Quick Paste Raw Text
@@ -22,6 +39,75 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
 
   // Attached Noctis Skin Items (Auto-connected to all filters)
   const [attachedSkinItems, setAttachedSkinItems] = useState([]);
+
+  // Noctis & Custom Skin Picker State
+  const [isSkinPickerOpen, setIsSkinPickerOpen] = useState(false);
+  const [skinSearchQuery, setSkinSearchQuery] = useState('');
+  const [selectedSkinCategory, setSelectedSkinCategory] = useState('all');
+  const [customSkinInput, setCustomSkinInput] = useState('');
+
+  // Filtered Noctis 239 Items for Interactive Picker
+  const filteredNoctisSkins = useMemo(() => {
+    const q = skinSearchQuery.trim().toLowerCase();
+    return allFilterItemsList.filter((item) => {
+      if (selectedSkinCategory !== 'all' && item.categoryName !== selectedSkinCategory) {
+        return false;
+      }
+      if (q) {
+        const text = [
+          item.name,
+          item.thaiName,
+          item.chineseName,
+          ...(item.keywords || [])
+        ].filter(Boolean).join(' ').toLowerCase();
+        if (!text.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [skinSearchQuery, selectedSkinCategory]);
+
+  const handleToggleSkinItem = (item) => {
+    setAttachedSkinItems((prev) => {
+      const exists = prev.some((it) => it.id === item.id);
+      if (exists) {
+        return prev.filter((it) => it.id !== item.id);
+      } else {
+        return [
+          ...prev,
+          {
+            id: item.id,
+            name: item.name,
+            thaiName: item.thaiName,
+            localIcon: item.localIcon,
+            keywords: item.keywords
+          }
+        ];
+      }
+    });
+  };
+
+  const handleAddCustomSkin = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const name = customSkinInput.trim();
+    if (!name) return;
+
+    const customId = `custom-${Date.now()}`;
+    const newCustomItem = {
+      id: customId,
+      name: name,
+      thaiName: name,
+      isCustom: true
+    };
+
+    setAttachedSkinItems((prev) => {
+      if (prev.some((it) => (it.thaiName || it.name).toLowerCase() === name.toLowerCase())) {
+        return prev;
+      }
+      return [...prev, newCustomItem];
+    });
+
+    setCustomSkinInput('');
+  };
 
   const [formData, setFormData] = useState({
     id: '',
@@ -499,13 +585,17 @@ All banks accepted.`;
       priceTHB: Number(formData.priceTHB) || 0,
       originalPriceVND: Number(formData.originalPriceVND) || Number(formData.priceVND) * 1.25,
       originalPriceTHB: Number(formData.originalPriceTHB) || Number(formData.priceTHB) * 1.25,
-      tags: cleanedTags,
+      tags: [
+        ...cleanedTags,
+        ...attachedSkinItems.map((it) => it.thaiName || it.name).filter(Boolean)
+      ],
       skinItemIds: attachedSkinItems.map((it) => it.id),
       skinItems: attachedSkinItems.map((it) => ({
         id: it.id,
         name: it.name,
-        thaiName: it.thaiName,
-        localIcon: it.localIcon
+        thaiName: it.thaiName || it.name,
+        localIcon: it.localIcon || null,
+        isCustom: !!it.isCustom
       })),
       isCustomLocal: true,
       updatedAt: new Date().toISOString()
@@ -890,34 +980,72 @@ All banks accepted.`;
               />
             </div>
 
-            {/* 🎯 DETECTED NOCTIS SKIN ITEMS (เชื่อมต่อกับตัวกรอง 240+ ไอเทม) */}
-            <div className="p-3.5 rounded-2xl bg-slate-950 border border-amber-500/30 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-amber-300 flex items-center gap-1.5">
-                  <span>🎯</span>
-                  <span>ไอเทมสกินที่เชื่อมต่อกับตัวกรอง (Noctis Filter):</span>
-                </span>
-                <span className="text-[11px] text-slate-400 font-mono">
-                  {attachedSkinItems.length} ไอเทมที่ตรวจพบ
-                </span>
+            {/* 🎯 DETECTED & CUSTOM NOCTIS SKIN ITEMS (เชื่อมต่อกับตัวกรอง 240+ ไอเทม) */}
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-950 border border-amber-500/40 space-y-3 shadow-lg">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">🎯</span>
+                  <div>
+                    <span className="text-xs sm:text-sm font-black text-amber-300">
+                      ไอเทมสกินที่เชื่อมต่อกับตัวกรอง (Noctis Filter)
+                    </span>
+                    <span className="text-[11px] text-slate-400 font-mono ml-2">
+                      ({attachedSkinItems.length} ไอเทม)
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {attachedSkinItems.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => setAttachedSkinItems([])}
+                      className="px-2.5 py-1 text-[11px] font-bold text-slate-400 hover:text-rose-400 bg-slate-900 hover:bg-slate-800 rounded-lg border border-slate-800 transition"
+                      title="ล้างสกินที่เลือกทั้งหมด"
+                    >
+                      ล้างทั้งหมด
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setIsSkinPickerOpen(!isSkinPickerOpen)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border shadow ${
+                      isSkinPickerOpen
+                        ? 'bg-amber-500 text-black border-amber-400 shadow-amber-500/20'
+                        : 'bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 border-amber-400/60'
+                    }`}
+                  >
+                    <span>{isSkinPickerOpen ? '▲ ปิดหน้าต่างเลือกสกิน' : '➕ เลือก / ค้นหาสกินเพิ่ม (239+ สกิน)'}</span>
+                  </button>
+                </div>
               </div>
 
+              {/* Attached Skin Badges List */}
               {attachedSkinItems.length > 0 ? (
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 p-2 bg-slate-900/60 rounded-xl border border-slate-800/80 max-h-36 overflow-y-auto scrollbar-thin scrollbar-thumb-amber-500/40">
                   {attachedSkinItems.map((item) => (
                     <span
                       key={item.id}
-                      className="inline-flex items-center gap-1.5 pl-1.5 pr-2 py-1 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold"
+                      className={`inline-flex items-center gap-1.5 pl-1.5 pr-2 py-1 rounded-xl text-xs font-bold border transition ${
+                        item.isCustom
+                          ? 'bg-purple-950/50 border-purple-500/50 text-purple-200'
+                          : 'bg-amber-500/15 border-amber-500/40 text-amber-300'
+                      }`}
                     >
-                      {item.localIcon && (
+                      {item.localIcon ? (
                         <img src={item.localIcon} alt={item.name} className="w-5 h-5 object-contain" />
+                      ) : (
+                        <span>{item.isCustom ? '🏷️' : '🎯'}</span>
                       )}
                       <span>{item.thaiName || item.name}</span>
+                      {item.isCustom && (
+                        <span className="text-[9px] bg-purple-500/30 text-purple-200 px-1 rounded">กำหนดเอง</span>
+                      )}
                       <button
                         type="button"
                         onClick={() => setAttachedSkinItems((prev) => prev.filter((it) => it.id !== item.id))}
-                        className="w-4 h-4 rounded-full bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white flex items-center justify-center text-[10px] ml-0.5 cursor-pointer"
-                        title="ลบไอเทมนี้"
+                        className="w-4 h-4 rounded-full bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white flex items-center justify-center text-[10px] ml-0.5 cursor-pointer transition"
+                        title="ลบสกินนี้"
                       >
                         ✕
                       </button>
@@ -925,9 +1053,135 @@ All banks accepted.`;
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-slate-500 italic">
-                  💡 ระบบจะตรวจจับสกิน ปืน และชุดจากข้อความที่พิมพ์ด้านบนให้อัตโนมัติ (เช่น Aug มิโนทอร์, Beryl เมดูซ่า, Urus, M416 กลาเซีย) และนำไปเชื่อมกับตัวกรองสกิน 240+ ไอเทมทันที
+                <p className="text-xs text-slate-400 italic bg-slate-900/40 p-2.5 rounded-xl border border-slate-800/60">
+                  💡 ระบบจะตรวจจับสกิน ปืน และชุดจากข้อความที่พิมพ์ด้านบนให้อัตโนมัติ หรือกดปุ่ม <b>"➕ เลือก / ค้นหาสกินเพิ่ม"</b> ด้านบนเพื่อเลือกสกินจาก 239 รายการ หรือพิมพ์ชื่อสกินกำหนดเองได้เลยครับ
                 </p>
+              )}
+
+              {/* Expandable Interactive Noctis & Custom Skin Picker Panel */}
+              {isSkinPickerOpen && (
+                <div className="p-3 sm:p-4 rounded-2xl bg-[#0c101a] border border-amber-500/40 space-y-3 animate-in fade-in slide-in-from-top-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-amber-400 flex items-center gap-1">
+                      <span>🔍</span>
+                      <span>ค้นหาและเลือกสกินที่ต้องการเชื่อมต่อกับตัวกรองหน้าร้าน</span>
+                    </span>
+                    <span className="text-[11px] text-slate-500">
+                      แสดง {filteredNoctisSkins.length} รายการ
+                    </span>
+                  </div>
+
+                  {/* Search Bar & Custom Skin Input Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+                    {/* Search Noctis 239 Items */}
+                    <div className="sm:col-span-7 relative">
+                      <input
+                        type="text"
+                        placeholder="🔍 ค้นหาสกินในระบบ (เช่น Aug, Urus, Beryl, กลาเซีย, มัมมี่, ฉลาม...)"
+                        value={skinSearchQuery}
+                        onChange={(e) => setSkinSearchQuery(e.target.value)}
+                        className="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white outline-none pl-8"
+                      />
+                      <span className="absolute left-2.5 top-2.5 text-xs text-slate-400 pointer-events-none">🔍</span>
+                      {skinSearchQuery && (
+                        <button
+                          type="button"
+                          onClick={() => setSkinSearchQuery('')}
+                          className="absolute right-2.5 top-2 text-xs text-slate-400 hover:text-white"
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Custom Skin Input (กรณีไม่มีในระบบ 240+ สกิน) */}
+                    <div className="sm:col-span-5 flex gap-1.5">
+                      <input
+                        type="text"
+                        placeholder="พิมพ์ชื่อสกินกำหนดเอง..."
+                        value={customSkinInput}
+                        onChange={(e) => setCustomSkinInput(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleAddCustomSkin();
+                          }
+                        }}
+                        className="flex-1 bg-slate-950 border border-purple-500/40 focus:border-purple-400 rounded-xl px-2.5 py-2 text-xs text-purple-200 outline-none"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleAddCustomSkin}
+                        className="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs whitespace-nowrap transition active:scale-95 shadow"
+                        title="เพิ่มสกินที่กำหนดเองลงในตัวกรอง"
+                      >
+                        + เพิ่มเอง
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Category Filter Tabs */}
+                  <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-slate-800 text-[11px]">
+                    {skinCategoryTabs.map((cat) => (
+                      <button
+                        key={cat.id}
+                        type="button"
+                        onClick={() => setSelectedSkinCategory(cat.id)}
+                        className={`px-2.5 py-1 rounded-lg font-bold shrink-0 transition ${
+                          selectedSkinCategory === cat.id
+                            ? 'bg-amber-500 text-slate-950 shadow'
+                            : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800'
+                        }`}
+                      >
+                        {cat.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* 239 Items Grid (Click to toggle) */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-56 overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-slate-700 bg-slate-950/60 rounded-xl border border-slate-900">
+                    {filteredNoctisSkins.length > 0 ? (
+                      filteredNoctisSkins.map((it) => {
+                        const isAttached = attachedSkinItems.some((s) => s.id === it.id);
+                        return (
+                          <button
+                            key={it.id}
+                            type="button"
+                            onClick={() => handleToggleSkinItem(it)}
+                            className={`p-2 rounded-xl border flex items-center gap-2 text-left transition-all ${
+                              isAttached
+                                ? 'bg-amber-500/20 border-amber-400 text-white shadow-sm ring-1 ring-amber-400/50'
+                                : 'bg-slate-900/80 hover:bg-slate-800 border-slate-800 text-slate-300 hover:border-slate-700'
+                            }`}
+                          >
+                            {it.localIcon ? (
+                              <img src={it.localIcon} alt={it.name} className="w-7 h-7 object-contain shrink-0" />
+                            ) : (
+                              <span className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-xs shrink-0">
+                                🎯
+                              </span>
+                            )}
+                            <div className="min-w-0 flex-1">
+                              <p className="text-[11px] font-bold truncate leading-tight">
+                                {it.thaiName || it.name}
+                              </p>
+                              <span className="text-[9px] text-slate-500 truncate block">
+                                {it.name}
+                              </span>
+                            </div>
+                            {isAttached && (
+                              <span className="text-amber-400 font-black text-xs shrink-0">✓</span>
+                            )}
+                          </button>
+                        );
+                      })
+                    ) : (
+                      <div className="col-span-full py-6 text-center text-xs text-slate-500">
+                        ไม่พบสกินที่ตรงกับคำค้นหา "{skinSearchQuery}" — ท่านสามารถพิมพ์ชื่อในช่อง "พิมพ์ชื่อสกินกำหนดเอง" ด้านบนแล้วกดปุ่ม [+ เพิ่มเอง] ได้เลยครับ
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
             </div>
 
