@@ -135,54 +135,58 @@ export class DbService {
   async uploadImage(fileOrBlobOrDataUrl, folder = 'accounts') {
     if (!this.useCloudDb) return null;
 
-    if (this.provider === 'firebase' && firebaseService.isInitialized) {
-      const fbUrl = await firebaseService.uploadImage(fileOrBlobOrDataUrl, folder);
-      if (fbUrl) return fbUrl;
-    }
-
-    // Fallback: Supabase Storage
-    if (this.supabaseUrl && this.supabaseAnonKey) {
-      try {
-        let blob;
-        let contentType = 'image/jpeg';
-
-        if (typeof fileOrBlobOrDataUrl === 'string' && fileOrBlobOrDataUrl.startsWith('data:')) {
-          const parts = fileOrBlobOrDataUrl.split(';base64,');
-          contentType = parts[0].split(':')[1] || 'image/jpeg';
-          const raw = window.atob(parts[1]);
-          const rawLength = raw.length;
-          const uInt8Array = new Uint8Array(rawLength);
-          for (let i = 0; i < rawLength; ++i) {
-            uInt8Array[i] = raw.charCodeAt(i);
-          }
-          blob = new Blob([uInt8Array], { type: contentType });
-        } else if (fileOrBlobOrDataUrl instanceof Blob || fileOrBlobOrDataUrl instanceof File) {
-          blob = fileOrBlobOrDataUrl;
-          contentType = blob.type || 'image/jpeg';
-        } else {
-          return null;
-        }
-
-        const ext = contentType.includes('png') ? 'png' : contentType.includes('webp') ? 'webp' : 'jpg';
-        const fileName = `${folder}/${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${ext}`;
-
-        const res = await fetch(`${this.supabaseUrl}/storage/v1/object/sima-assets/${fileName}`, {
-          method: 'POST',
-          headers: {
-            'apikey': this.supabaseAnonKey,
-            'Authorization': `Bearer ${this.supabaseAnonKey}`,
-            'Content-Type': contentType,
-            'x-upsert': 'true'
-          },
-          body: blob
-        });
-
-        if (res.ok) {
-          return `${this.supabaseUrl}/storage/v1/object/public/sima-assets/${fileName}`;
-        }
-      } catch (e) {
-        console.warn('Cloud storage upload error', e);
+    try {
+      if (this.provider === 'firebase' && firebaseService.isInitialized) {
+        const fbUrl = await firebaseService.uploadImage(fileOrBlobOrDataUrl, folder);
+        if (fbUrl) return fbUrl;
       }
+
+      // Fallback: Supabase Storage
+      if (this.supabaseUrl && this.supabaseAnonKey) {
+        try {
+          let blob;
+          let contentType = 'image/jpeg';
+
+          if (typeof fileOrBlobOrDataUrl === 'string' && fileOrBlobOrDataUrl.startsWith('data:')) {
+            const parts = fileOrBlobOrDataUrl.split(';base64,');
+            contentType = parts[0].split(':')[1] || 'image/jpeg';
+            const raw = window.atob(parts[1]);
+            const rawLength = raw.length;
+            const uInt8Array = new Uint8Array(rawLength);
+            for (let i = 0; i < rawLength; ++i) {
+              uInt8Array[i] = raw.charCodeAt(i);
+            }
+            blob = new Blob([uInt8Array], { type: contentType });
+          } else if (fileOrBlobOrDataUrl instanceof Blob || fileOrBlobOrDataUrl instanceof File) {
+            blob = fileOrBlobOrDataUrl;
+            contentType = blob.type || 'image/jpeg';
+          } else {
+            return null;
+          }
+
+          const ext = contentType.includes('png') ? 'png' : contentType.includes('webp') ? 'webp' : 'jpg';
+          const fileName = `${folder}/${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${ext}`;
+
+          const res = await fetch(`${this.supabaseUrl}/storage/v1/object/sima-assets/${fileName}`, {
+            method: 'POST',
+            headers: {
+              'apikey': this.supabaseAnonKey,
+              'Authorization': `Bearer ${this.supabaseAnonKey}`,
+              'Content-Type': contentType,
+              'x-upsert': 'true'
+            },
+            body: blob
+          });
+
+          if (res.ok) {
+            return `${this.supabaseUrl}/storage/v1/object/public/sima-assets/${fileName}`;
+          }
+        } catch (e) {
+          console.warn('Cloud storage upload error', e);
+        }
+      }
+    } catch (outerErr) {
+      console.warn('[dbService] uploadImage outer error:', outerErr);
     }
 
     return null;

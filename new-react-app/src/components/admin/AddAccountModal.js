@@ -18,6 +18,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
   const [images, setImages] = useState([]);
   const [imageUrlInput, setImageUrlInput] = useState('');
   const [isProcessingImg, setIsProcessingImg] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Attached Noctis Skin Items (Auto-connected to all filters)
   const [attachedSkinItems, setAttachedSkinItems] = useState([]);
@@ -152,41 +153,99 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     }
   }, [editingAccount, isOpen]);
 
+  // Helper: check if file is an image
+  const isImageFile = (f) => {
+    if (!f) return false;
+    if (f.type && f.type.startsWith('image/')) return true;
+    return /\.(jpe?g|png|webp|jfif|gif|bmp|svg)$/i.test(f.name || '');
+  };
+
   // IMAGE OPTIMIZER & CLOUD STORAGE UPLOADER
   const processImageFile = (file) => {
     return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = new Image();
-        img.onload = () => {
-          const maxWidth = 1200;
-          let width = img.width;
-          let height = img.height;
-          if (width > maxWidth) {
-            height = Math.round((height * maxWidth) / width);
-            width = maxWidth;
-          }
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
+      if (!file) {
+        resolve(null);
+        return;
+      }
 
-          // Upload to Supabase Cloud Storage if enabled
-          canvas.toBlob(async (blob) => {
-            if (blob && dbService.useCloudDb) {
-              const cloudUrl = await dbService.uploadImage(blob, 'accounts');
-              if (cloudUrl) {
-                resolve(cloudUrl);
-                return;
+      const reader = new FileReader();
+      reader.onerror = () => {
+        console.warn('[AddAccountModal] FileReader error');
+        resolve(null);
+      };
+
+      reader.onload = (e) => {
+        const rawDataUrl = e.target.result;
+        if (!rawDataUrl) {
+          resolve(null);
+          return;
+        }
+
+        const img = new Image();
+        img.onerror = () => {
+          console.warn('[AddAccountModal] Image element decode error');
+          resolve(rawDataUrl); // Fallback to raw data url if decode fails
+        };
+
+        img.onload = async () => {
+          try {
+            // Optimized max dimension: 960px (Ultra-crisp & lightweight ~50-80KB per image)
+            const maxWidth = 960;
+            const maxHeight = 960;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height) {
+              if (width > maxWidth) {
+                height = Math.round((height * maxWidth) / width);
+                width = maxWidth;
+              }
+            } else {
+              if (height > maxHeight) {
+                width = Math.round((width * maxHeight) / height);
+                height = maxHeight;
               }
             }
-            // Fallback to optimized Base64
-            resolve(canvas.toDataURL('image/jpeg', 0.85));
-          }, 'image/jpeg', 0.85);
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // 1. Try Cloud Storage if configured, guarded with strict 2500ms timeout
+            if (dbService.useCloudDb) {
+              try {
+                const cloudPromise = new Promise((resBlob) => {
+                  canvas.toBlob((blob) => resBlob(blob), 'image/jpeg', 0.80);
+                }).then(async (blob) => {
+                  if (blob) {
+                    return await dbService.uploadImage(blob, 'accounts');
+                  }
+                  return null;
+                });
+
+                const timeoutPromise = new Promise((resTimeout) => setTimeout(() => resTimeout(null), 2500));
+                const cloudUrl = await Promise.race([cloudPromise, timeoutPromise]);
+                if (cloudUrl) {
+                  resolve(cloudUrl);
+                  return;
+                }
+              } catch (_) {}
+            }
+
+            // 2. High-performance fallback: Compressed Base64 JPEG (quality 0.75, fits under Firestore 1MB quota)
+            const base64Data = canvas.toDataURL('image/jpeg', 0.75);
+            resolve(base64Data);
+          } catch (err) {
+            console.warn('[AddAccountModal] Canvas optimization error, using fallback:', err);
+            resolve(rawDataUrl);
+          }
         };
-        img.src = e.target.result;
+
+        img.src = rawDataUrl;
       };
+
       reader.readAsDataURL(file);
     });
   };
@@ -196,29 +255,86 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     if (files.length === 0) return;
 
     setIsProcessingImg(true);
-    const newImages = [];
-    for (const file of files) {
-      if (file.type.startsWith('image/')) {
-        const compressed = await processImageFile(file);
-        newImages.push(compressed);
+    try {
+      const imageFiles = files.filter(isImageFile);
+      if (imageFiles.length === 0) {
+        alert('กรุณาเลือกไฟล์รูปภาพ (เช่น .jpg, .png, .webp)');
+        return;
       }
+      // Process all images in parallel for blazing speed
+      const processed = await Promise.all(imageFiles.map((file) => processImageFile(file)));
+      const validImages = processed.filter(Boolean);
+      if (validImages.length > 0) {
+        setImages((prev) => [...prev, ...validImages]);
+      }
+    } catch (err) {
+      console.error('[AddAccountModal] File upload error:', err);
+    } finally {
+      setIsProcessingImg(false);
+      if (e.target) e.target.value = '';
     }
-    setImages((prev) => [...prev, ...newImages]);
-    setIsProcessingImg(false);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDropFiles = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const droppedFiles = Array.from(e.dataTransfer?.files || []);
+    if (droppedFiles.length === 0) return;
+
+    setIsProcessingImg(true);
+    try {
+      const imageFiles = droppedFiles.filter(isImageFile);
+      if (imageFiles.length > 0) {
+        const processed = await Promise.all(imageFiles.map((file) => processImageFile(file)));
+        const validImages = processed.filter(Boolean);
+        if (validImages.length > 0) {
+          setImages((prev) => [...prev, ...validImages]);
+        }
+      }
+    } catch (err) {
+      console.error('[AddAccountModal] Drop files error:', err);
+    } finally {
+      setIsProcessingImg(false);
+    }
   };
 
   const handlePasteImage = async (e) => {
     const clipboardItems = e.clipboardData?.items || [];
+    const imageFiles = [];
     for (const item of clipboardItems) {
-      if (item.type.indexOf('image') !== -1) {
-        e.preventDefault();
+      if (item.type && item.type.indexOf('image') !== -1) {
         const file = item.getAsFile();
-        if (file) {
-          setIsProcessingImg(true);
-          const compressed = await processImageFile(file);
-          setImages((prev) => [...prev, compressed]);
-          setIsProcessingImg(false);
+        if (file) imageFiles.push(file);
+      }
+    }
+
+    if (imageFiles.length > 0) {
+      e.preventDefault();
+      setIsProcessingImg(true);
+      try {
+        const processed = await Promise.all(imageFiles.map((file) => processImageFile(file)));
+        const validImages = processed.filter(Boolean);
+        if (validImages.length > 0) {
+          setImages((prev) => [...prev, ...validImages]);
         }
+      } catch (err) {
+        console.error('[AddAccountModal] Paste image error:', err);
+      } finally {
+        setIsProcessingImg(false);
       }
     }
   };
@@ -494,21 +610,31 @@ All banks accepted.`;
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {/* File Upload Button */}
-              <label className="border-2 border-dashed border-slate-700 hover:border-amber-500/80 rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer bg-slate-900/50 hover:bg-slate-900 transition-all text-center group">
+              {/* File Upload & Dropzone Button */}
+              <label 
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDropFiles}
+                className={`border-2 border-dashed rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer transition-all text-center group ${
+                  isDragging
+                    ? 'border-amber-400 bg-amber-500/20 scale-[1.01] shadow-lg shadow-amber-500/20'
+                    : 'border-slate-700 hover:border-amber-500/80 bg-slate-900/50 hover:bg-slate-900'
+                }`}
+              >
                 <input
                   type="file"
                   multiple
                   accept="image/*"
+                  onClick={(e) => { e.target.value = ''; }}
                   onChange={handleFileUpload}
                   className="hidden"
                 />
                 <span className="text-2xl mb-1 group-hover:scale-110 transition-transform">📁</span>
                 <span className="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">
-                  คลิกเลือกรูปจากเครื่อง หรือลากไฟล์มาวาง
+                  {isDragging ? '⚡ ปล่อยรูปภาพที่นี่เลย!' : 'คลิกเลือกรูปจากเครื่อง หรือลากไฟล์มาวาง'}
                 </span>
                 <span className="text-[10px] text-slate-500 mt-0.5">
-                  รองรับ JPG, PNG, WebP (เลือกหลายรูปได้)
+                  รองรับ JPG, PNG, WebP (เลือกหลายรูปได้ / กด Ctrl + V แปะรูปได้)
                 </span>
               </label>
 

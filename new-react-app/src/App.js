@@ -340,7 +340,18 @@ function App() {
     try {
       const localOnly = accounts.filter((a) => a.region !== 'cn' || a.isCustomLocal);
       localStorage.setItem('sima_accounts', JSON.stringify(localOnly));
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[LocalStorage] Quota exceeded, applying safe image fallback for local persistence:', e);
+      try {
+        const lightOnly = accounts
+          .filter((a) => a.region !== 'cn' || a.isCustomLocal)
+          .map((acc) => ({
+            ...acc,
+            images: (acc.images || []).slice(0, 1)
+          }));
+        localStorage.setItem('sima_accounts', JSON.stringify(lightOnly));
+      } catch (_) {}
+    }
   }, [accounts]);
 
   useEffect(() => {

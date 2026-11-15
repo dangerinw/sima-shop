@@ -380,8 +380,14 @@ export class FirebaseService {
       const fileName = `${folder}/${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${ext}`;
       const storageRef = ref(this.storage, fileName);
 
-      const snapshot = await uploadBytes(storageRef, blob, { contentType });
-      return await getDownloadURL(snapshot.ref);
+      // Strict 2500ms timeout guard so failed/uninitialized Storage never freezes the UI
+      const uploadPromise = (async () => {
+        const snapshot = await uploadBytes(storageRef, blob, { contentType });
+        return await getDownloadURL(snapshot.ref);
+      })();
+
+      const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve(null), 2500));
+      return await Promise.race([uploadPromise, timeoutPromise]);
     } catch (err) {
       console.warn('[Firebase] Storage upload error:', err);
       return null;
