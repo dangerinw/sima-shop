@@ -506,6 +506,11 @@
     // ID Card Image Cache
     let uploadedIdImage = null;
 
+    // Official SunsnappZ Stamp Image
+    const officialStampImg = new Image();
+    officialStampImg.src = '/images/sunsnappz-official-stamp.png';
+    officialStampImg.onload = () => { if (typeof renderDocumentCanvas === 'function') renderDocumentCanvas(); };
+
     // Saved Blob reference
     let currentSavedBlob = null;
     let currentSavedFilename = '';
@@ -1412,36 +1417,29 @@
       ctx.textAlign = 'center';
       ctx.fillText(`กลางโดยแอดมิน ${middleAdminVal}`, W / 2, footerY);
 
-      // Verified Admin Seal Stamp (Optional toggle)
+      // Verified SunsnappZ Official Stamp
       const showStamp = document.getElementById('stampToggle').checked;
       if (showStamp) {
         ctx.save();
-        ctx.translate(W - 165, footerY - 5);
-        ctx.rotate(-7 * Math.PI / 180);
+        const stampSize = 145;
+        ctx.translate(W - 170, footerY - 5);
+        ctx.rotate(-5 * Math.PI / 180);
 
-        ctx.strokeStyle = '#dc2626';
-        ctx.lineWidth = 3.2;
-        ctx.beginPath();
-        ctx.arc(0, 0, 48, 0, Math.PI * 2);
-        ctx.stroke();
-
-        ctx.lineWidth = 1.4;
-        ctx.beginPath();
-        ctx.arc(0, 0, 42, 0, Math.PI * 2);
-        ctx.stroke();
-
-        ctx.fillStyle = '#dc2626';
-        ctx.font = '900 10px "Prompt", "Sarabun", sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('PUBG PC VERIFIED', 0, -22);
-
-        ctx.font = '900 15px "Prompt", "Sarabun", sans-serif';
-        ctx.fillText('แอดซัน', 0, 2);
-
-        ctx.font = 'bold 9.5px "Prompt", "Sarabun", sans-serif';
-        ctx.fillText('กลางปลอดภัย 100%', 0, 18);
-        ctx.fillText('GUARANTEED', 0, 29);
-
+        if (officialStampImg && officialStampImg.complete && officialStampImg.naturalWidth > 0) {
+          ctx.drawImage(officialStampImg, -stampSize / 2, -stampSize / 2, stampSize, stampSize);
+        } else {
+          ctx.strokeStyle = '#dc2626';
+          ctx.lineWidth = 3.2;
+          ctx.beginPath();
+          ctx.arc(0, 0, 48, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.fillStyle = '#dc2626';
+          ctx.font = 'bold 13px "Prompt", "Sarabun", sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('แอดมินซัน', 0, -5);
+          ctx.font = '10px "Prompt", "Sarabun", sans-serif';
+          ctx.fillText('ปลอดภัย 100%', 0, 15);
+        }
         ctx.restore();
       }
 

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import officialStampImgSrc from '../assets/sunsnappz-official-stamp.png';
+import officialStampRedSrc from '../assets/sunsnappz-official-stamp-red.png';
 
 const CANVAS_WIDTH = 1240;
 const CANVAS_HEIGHT = 1754;
@@ -41,6 +43,11 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
   const [middleAdminName, setMiddleAdminName] = useState('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
   const [isWatermarkOn, setIsWatermarkOn] = useState(true);
   const [isStampOn, setIsStampOn] = useState(true);
+  const [stampStyle, setStampStyle] = useState('original'); // 'original' | 'red'
+
+  // Preload official stamp images
+  const stampOriginalImgRef = useRef(null);
+  const stampRedImgRef = useRef(null);
 
   // References & Canvases
   const docCanvasRef = useRef(null);
@@ -755,32 +762,26 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
 
     if (isStampOn) {
       ctx.save();
-      ctx.translate(W - 165, footerY - 5);
-      ctx.rotate(-7 * Math.PI / 180);
+      const stampImg = (stampStyle === 'red' ? stampRedImgRef.current : stampOriginalImgRef.current) || stampOriginalImgRef.current;
+      const stampSize = 145;
+      ctx.translate(W - 170, footerY - 5);
+      ctx.rotate(-5 * Math.PI / 180);
 
-      ctx.strokeStyle = '#dc2626';
-      ctx.lineWidth = 3.2;
-      ctx.beginPath();
-      ctx.arc(0, 0, 48, 0, Math.PI * 2);
-      ctx.stroke();
-
-      ctx.lineWidth = 1.4;
-      ctx.beginPath();
-      ctx.arc(0, 0, 42, 0, Math.PI * 2);
-      ctx.stroke();
-
-      ctx.fillStyle = '#dc2626';
-      ctx.font = '900 10px "Prompt", "Sarabun", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('PUBG PC VERIFIED', 0, -22);
-
-      ctx.font = '900 15px "Prompt", "Sarabun", sans-serif';
-      ctx.fillText('แอดซัน', 0, 2);
-
-      ctx.font = 'bold 9.5px "Prompt", "Sarabun", sans-serif';
-      ctx.fillText('กลางปลอดภัย 100%', 0, 18);
-      ctx.fillText('GUARANTEED', 0, 29);
-
+      if (stampImg && stampImg.complete && stampImg.naturalWidth > 0) {
+        ctx.drawImage(stampImg, -stampSize / 2, -stampSize / 2, stampSize, stampSize);
+      } else {
+        ctx.strokeStyle = '#dc2626';
+        ctx.lineWidth = 3.2;
+        ctx.beginPath();
+        ctx.arc(0, 0, 48, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = '#dc2626';
+        ctx.font = 'bold 13px "Prompt", "Sarabun", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('แอดมินซัน', 0, -5);
+        ctx.font = '10px "Prompt", "Sarabun", sans-serif';
+        ctx.fillText('ปลอดภัย 100%', 0, 15);
+      }
       ctx.restore();
     }
 
@@ -1283,32 +1284,26 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
 
     if (isStampOn) {
       ctx.save();
-      ctx.translate(W - 165, footerY - 5);
-      ctx.rotate(-7 * Math.PI / 180);
+      const stampImg = (stampStyle === 'red' ? stampRedImgRef.current : stampOriginalImgRef.current) || stampOriginalImgRef.current;
+      const stampSize = 145;
+      ctx.translate(W - 170, footerY - 5);
+      ctx.rotate(-5 * Math.PI / 180);
 
-      ctx.strokeStyle = '#dc2626';
-      ctx.lineWidth = 3.2;
-      ctx.beginPath();
-      ctx.arc(0, 0, 48, 0, Math.PI * 2);
-      ctx.stroke();
-
-      ctx.lineWidth = 1.4;
-      ctx.beginPath();
-      ctx.arc(0, 0, 42, 0, Math.PI * 2);
-      ctx.stroke();
-
-      ctx.fillStyle = '#dc2626';
-      ctx.font = '900 10px "Prompt", "Sarabun", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('PUBG PC VERIFIED', 0, -22);
-
-      ctx.font = '900 15px "Prompt", "Sarabun", sans-serif';
-      ctx.fillText('แอดซัน', 0, 2);
-
-      ctx.font = 'bold 9.5px "Prompt", "Sarabun", sans-serif';
-      ctx.fillText('กลางปลอดภัย 100%', 0, 18);
-      ctx.fillText('GUARANTEED', 0, 29);
-
+      if (stampImg && stampImg.complete && stampImg.naturalWidth > 0) {
+        ctx.drawImage(stampImg, -stampSize / 2, -stampSize / 2, stampSize, stampSize);
+      } else {
+        ctx.strokeStyle = '#dc2626';
+        ctx.lineWidth = 3.2;
+        ctx.beginPath();
+        ctx.arc(0, 0, 48, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = '#dc2626';
+        ctx.font = 'bold 13px "Prompt", "Sarabun", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('แอดมินซัน', 0, -5);
+        ctx.font = '10px "Prompt", "Sarabun", sans-serif';
+        ctx.fillText('ปลอดภัย 100%', 0, 15);
+      }
       ctx.restore();
     }
 
@@ -1348,9 +1343,26 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
     sellerName, sellerPhone, buyerName, buyerPhone, idType,
     tradePrice, bankAccount, bankName, username, twoFactorCode,
     downPayment, installmentCount, perInstallment, paymentDueDate,
-    middleAdminName, isWatermarkOn, isStampOn,
+    middleAdminName, isWatermarkOn, isStampOn, stampStyle,
     uploadedIdImg, sellerStrokes, buyerStrokes, contractRefText
   ]);
+
+  // Preload official Sunsnappz stamp images
+  useEffect(() => {
+    const orig = new Image();
+    orig.onload = () => {
+      stampOriginalImgRef.current = orig;
+      renderDocumentCanvas();
+    };
+    orig.src = officialStampImgSrc;
+
+    const red = new Image();
+    red.onload = () => {
+      stampRedImgRef.current = red;
+      renderDocumentCanvas();
+    };
+    red.src = officialStampRedSrc;
+  }, [renderDocumentCanvas]);
 
   // Redraw canvas whenever dependencies change
   useEffect(() => {
@@ -2114,15 +2126,38 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
                   className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition"
                 />
               </div>
-              <label className="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300">
-                <input 
-                  type="checkbox" 
-                  checked={isStampOn} 
-                  onChange={(e) => setIsStampOn(e.target.checked)} 
-                  className="rounded bg-slate-800 border-slate-700 text-amber-500"
-                />
-                <span>แสดงตราประทับรับรองกลาง (Verified Admin Seal)</span>
-              </label>
+              <div className="flex items-center justify-between flex-wrap gap-2 pt-1">
+                <label className="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300">
+                  <input 
+                    type="checkbox" 
+                    checked={isStampOn} 
+                    onChange={(e) => setIsStampOn(e.target.checked)} 
+                    className="rounded bg-slate-800 border-slate-700 text-amber-500"
+                  />
+                  <span>แสดงตราประทับรับรอง SunsnappZ แอดมินซัน</span>
+                </label>
+
+                {isStampOn && (
+                  <div className="flex items-center bg-slate-900 border border-slate-700 rounded-lg p-0.5 text-[11px] font-bold">
+                    <button
+                      type="button"
+                      onClick={() => setStampStyle('original')}
+                      className={`px-2 py-0.5 rounded-md transition ${stampStyle === 'original' ? 'bg-amber-500 text-black shadow' : 'text-slate-400 hover:text-white'}`}
+                      title="ตราประทับสีตามรูปต้นฉบับ (SunsnappZ Official)"
+                    >
+                      สีแท้ตามรูป
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setStampStyle('red')}
+                      className={`px-2 py-0.5 rounded-md transition ${stampStyle === 'red' ? 'bg-red-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}
+                      title="ตราประทับสีหมึกแดง (Official Red Stamp)"
+                    >
+                      สีหมึกแดง
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* SECTION: ลายเซ็นดิจิทัล */}
