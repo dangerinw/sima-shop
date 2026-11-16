@@ -134,6 +134,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     details_th: '',
     details_en: '',
     videoUrl: '',
+    allowInstallment: true,
     steamUser: '',
     steamPass: '',
     steamEmail: '',
@@ -181,6 +182,9 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
       setFormData({
         ...editingAccount,
         region: editingAccount.region || 'th',
+        allowInstallment: editingAccount.allowInstallment !== undefined 
+          ? Boolean(editingAccount.allowInstallment) 
+          : (editingAccount.region === 'th'),
         tags: Array.isArray(editingAccount.tags) ? editingAccount.tags.join(',') : editingAccount.tags,
         priceVND: editingAccount.priceVND || '',
         priceTHB: editingAccount.priceTHB || '',
@@ -226,6 +230,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
         details_th: '',
         details_en: '',
         videoUrl: '',
+        allowInstallment: true,
         steamUser: '',
         steamPass: '',
         steamEmail: '',
@@ -462,7 +467,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     }
     const detectedPriceVND = detectedPriceTHB ? Math.round((detectedPriceTHB * 720) / 10000) * 10000 : 0;
 
-    // 2. Detect Region
+    // 2. Detect Region & Installment
     let detectedRegion = 'th';
     if (/id steam ไทย|ไอดีไทย|ไทยแท้/i.test(text)) {
       detectedRegion = 'th';
@@ -470,6 +475,14 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
       detectedRegion = 'cn';
     } else if (/เวียดนาม|vietnam/i.test(text)) {
       detectedRegion = 'vn';
+    }
+
+    let detectedAllowInstallment = detectedRegion === 'th';
+    const lowerText = text.toLowerCase();
+    if (lowerText.includes('ผ่อนได้') || lowerText.includes('รับผ่อน') || lowerText.includes('เปิดผ่อน')) {
+      detectedAllowInstallment = true;
+    } else if (lowerText.includes('สดเท่านั้น') || lowerText.includes('ไม่รับผ่อน') || lowerText.includes('ไม่ผ่อน') || lowerText.includes('สดเท่า่นั้น')) {
+      detectedAllowInstallment = false;
     }
 
     // 3. Extract Gun list (bullets 🟢 or contains LV / Max)
@@ -512,6 +525,7 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
       originalPriceTHB: detectedPriceTHB ? Math.round(detectedPriceTHB * 1.2) : 19000,
       originalPriceVND: detectedPriceVND ? Math.round(detectedPriceVND * 1.2) : 13800000,
       region: detectedRegion,
+      allowInstallment: detectedAllowInstallment,
       category,
       gunLevel_th: gunSummary,
       gunLevel_en: gunSummary,
@@ -566,6 +580,7 @@ All banks accepted.`;
     const payload = {
       ...formData,
       region: formData.region || 'th',
+      allowInstallment: Boolean(formData.allowInstallment),
       images: images,
       coverImg: images[0] || '',
       detailImages: images.slice(1),
@@ -802,8 +817,8 @@ All banks accepted.`;
           {/* 📝 3. FORM FIELDS */}
           <form id="account-form" onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
             
-            {/* Row 1: ID, Region, Category, Hot Deal */}
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+            {/* Row 1: ID, Region, Category, Installment, Hot Deal */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
               <div>
                 <label className="block text-slate-400 mb-1 font-semibold">รหัสไอดี (ID)</label>
                 <input
@@ -819,7 +834,14 @@ All banks accepted.`;
                 <label className="block text-slate-400 mb-1 font-semibold">ประเทศของไอดี 🌍</label>
                 <select
                   value={formData.region}
-                  onChange={(e) => setFormData({ ...formData, region: e.target.value })}
+                  onChange={(e) => {
+                    const newRegion = e.target.value;
+                    setFormData((prev) => ({ 
+                      ...prev, 
+                      region: newRegion,
+                      allowInstallment: newRegion === 'th'
+                    }));
+                  }}
                   className="w-full bg-slate-950 border border-amber-500/50 rounded-xl px-3 py-2 text-amber-300 font-bold focus:border-amber-500 outline-none"
                 >
                   <option value="th">🇹🇭 ไอดีไทย (Thailand)</option>
@@ -843,15 +865,38 @@ All banks accepted.`;
               </div>
 
               <div>
+                <label className="block text-slate-400 mb-1 font-semibold">ระบบผ่อนชำระ ⚡</label>
+                <label className={`flex items-center gap-2 px-3 py-2 rounded-xl border cursor-pointer transition-all select-none ${
+                  formData.allowInstallment 
+                    ? 'bg-purple-950/50 border-purple-500/60 text-purple-200 shadow-sm' 
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
+                }`}>
+                  <input
+                    type="checkbox"
+                    checked={formData.allowInstallment}
+                    onChange={(e) => setFormData({ ...formData, allowInstallment: e.target.checked })}
+                    className="w-4 h-4 rounded text-purple-600 focus:ring-purple-400 bg-slate-900 border-slate-700"
+                  />
+                  <span className="font-bold text-xs truncate">
+                    {formData.allowInstallment ? '⚡ ผ่อนได้' : '💵 สดเท่านั้น'}
+                  </span>
+                </label>
+              </div>
+
+              <div>
                 <label className="block text-slate-400 mb-1 font-semibold">ดีลเด่น (Spotlight)</label>
-                <label className="flex items-center gap-2 mt-2 cursor-pointer">
+                <label className={`flex items-center gap-2 px-3 py-2 rounded-xl border cursor-pointer transition-all select-none ${
+                  formData.isHot 
+                    ? 'bg-amber-950/50 border-amber-500/60 text-amber-300 shadow-sm' 
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
+                }`}>
                   <input
                     type="checkbox"
                     checked={formData.isHot}
                     onChange={(e) => setFormData({ ...formData, isHot: e.target.checked })}
                     className="w-4 h-4 rounded text-amber-500 focus:ring-amber-400 bg-slate-950 border-slate-800"
                   />
-                  <span className="text-amber-400 font-bold">⚡ Hot Deal</span>
+                  <span className="font-bold text-xs">🔥 Hot Deal</span>
                 </label>
               </div>
             </div>

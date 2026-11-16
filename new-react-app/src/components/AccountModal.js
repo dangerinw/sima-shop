@@ -120,9 +120,13 @@ export default function AccountModal({
   const [coverImg, setCoverImg] = useState('');
 
   // Check if account is Foreign (China/Vietnam/etc.) or Thai
-  // Note: Installments are strictly reserved for Thai accounts only
   const isForeignAccount = Boolean(account && (account.region === 'cn' || account.region === 'vn' || (account.region && account.region !== 'th')));
   const isThaiAccount = !isForeignAccount;
+
+  // Check if account allows installment (explicit flag or default to Thai account)
+  const canInstallment = account?.allowInstallment !== undefined 
+    ? Boolean(account.allowInstallment) 
+    : isThaiAccount;
 
   // Reset and fetch high-res in-game screenshots for Chinese accounts
   useEffect(() => {
@@ -784,7 +788,7 @@ export default function AccountModal({
                 {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (
                   <div className="space-y-2">
-                    {isThaiAccount ? (
+                    {canInstallment ? (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <button
                           type="button"
@@ -827,7 +831,7 @@ export default function AccountModal({
                         </button>
                         <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-amber-300 bg-amber-950/40 border border-amber-800/50 rounded-xl py-2 px-3 text-center font-bold">
                           <span>ℹ️</span>
-                          <span>ไอดีต่างประเทศ ({account?.region === 'cn' ? 'จีน 🇨🇳' : account?.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+                          <span>ไอดีนี้จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
                         </div>
                       </div>
                     )}
@@ -1011,7 +1015,7 @@ export default function AccountModal({
                 {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (
                   <div className="space-y-2">
-                    {isThaiAccount ? (
+                    {canInstallment ? (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <button
                           type="button"
@@ -1054,7 +1058,7 @@ export default function AccountModal({
                         </button>
                         <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-amber-300 bg-amber-950/40 border border-amber-800/50 rounded-xl py-2 px-3 text-center font-bold">
                           <span>ℹ️</span>
-                          <span>ไอดีต่างประเทศ ({account?.region === 'cn' ? 'จีน 🇨🇳' : account?.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+                          <span>ไอดีนี้จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
                         </div>
                       </div>
                     )}

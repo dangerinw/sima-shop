@@ -168,8 +168,8 @@
             1. ข้อมูลหัวสัญญา & ผู้รับประกัน
           </label>
           <div>
-            <label class="block text-slate-400 mb-1">ผู้รับประกัน *</label>
-            <input type="text" id="guarantorName" value="กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)" placeholder="เช่น กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)" 
+            <label class="block text-slate-400 mb-1">ผู้รับประกัน (ดึงจากชื่อผู้ขายตามสัญญา)</label>
+            <input type="text" id="guarantorName" value="" placeholder="ดึงจากชื่อผู้ขายอัตโนมัติ หรือพิมพ์ระบุเอง" 
               class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500 transition">
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -947,7 +947,8 @@
       ctx.fillText(titleText, startX + shieldW + iconGap, shieldY + (shieldH / 2) + 2);
 
       // Subheader: ผู้รับประกัน & วันที่ทำสัญญา (ตรงตามแบบฟอร์ม 2 บรรทัดจัดกึ่งกลาง)
-      const guarantorVal = document.getElementById('guarantorName').value.trim() || '...................................................';
+      const sellerNameVal = document.getElementById('sellerName') ? document.getElementById('sellerName').value.trim() : '';
+      const guarantorVal = document.getElementById('guarantorName').value.trim() || sellerNameVal || '...................................................';
       const contractDateVal = document.getElementById('contractDate').value.trim() || '...... / ...... / ............';
 
       const subRowW = 560;

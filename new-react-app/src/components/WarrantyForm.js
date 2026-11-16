@@ -13,7 +13,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
   const [mobileTab, setMobileTab] = useState('form');
 
   // Common Form States
-  const [guarantorName, setGuarantorName] = useState('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
+  const [guarantorName, setGuarantorName] = useState('');
   const [contractDate, setContractDate] = useState(() => {
     const today = new Date();
     const d = String(today.getDate()).padStart(2, '0');
@@ -349,8 +349,8 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
     ctx.textBaseline = 'middle';
     ctx.fillText(titleText, startX + shieldW + iconGap, shieldY + (shieldH / 2) + 2);
 
-    // Subheader: ผู้รับประกัน & วันที่ทำสัญญา
-    const guarantorVal = guarantorName.trim() || '...................................................';
+    // Subheader: ผู้รับประกัน (ใช้ชื่อผู้ขายตามสัญญา) & วันที่ทำสัญญา
+    const guarantorVal = sellerName.trim() || guarantorName.trim() || '...................................................';
     const contractDateVal = contractDate.trim() || '...... / ...... / ............';
 
     const subRowW = 560;
@@ -1508,7 +1508,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
       setPaymentDueDate('ทุกวันที่ 1 ของทุกเดือน');
       setMiddleAdminName('นายกิตติศักดิ์ ตันโพธิ์ธรรม (แอดมินซัน)');
     } else {
-      setGuarantorName('กิตติศักดิ์ ตันโพธิ์ธรรม (แอดซัน)');
+      setGuarantorName('');
       setSellerName('นายอัครเดช มงคลศิลป์');
       setSellerPhone('089-765-4321');
       setBuyerName('คุณวรัญญู รัตนโชติ');
