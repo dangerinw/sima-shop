@@ -11,8 +11,8 @@ module.exports = async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Cache response for 60 seconds at edge, stale-while-revalidate for 5 minutes
-  res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
+  // Ultra-fast cache: 5s edge cache, revalidates within 15s for true real-time
+  res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate=15');
 
   const FB_POST_FBID = process.env.FB_POST_ID || '122106639411543579';
 
@@ -20,8 +20,8 @@ module.exports = async function handler(req, res) {
   const fallbackData = {
     success: true,
     isLive: true,
-    commentsCount: 1,
-    reactionsCount: 1,
+    commentsCount: 2,
+    reactionsCount: 2,
     rating: '5.0',
     reviews: [
       {
@@ -33,6 +33,18 @@ module.exports = async function handler(req, res) {
         date: '1 ชม. ที่แล้ว',
         verified: true,
         hasAuthorHeart: true,
+        typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+        highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+      },
+      {
+        id: 'real_fb_2',
+        name: "Freedyz M'Issarapong",
+        initials: 'FI',
+        comment: 'บริการดีจริงครับ',
+        rating: 5,
+        date: 'ล่าสุด',
+        verified: true,
+        hasAuthorHeart: false,
         typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
         highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
       }
@@ -56,7 +68,7 @@ module.exports = async function handler(req, res) {
       // Extract reaction count (likes / love)
       const reactionMatch = html.match(/"reaction_count":(\d+)/);
       const reactorMatch = html.match(/"reactors":\{"count_reduced":"(\d+)"/);
-      let reactionsCount = 1;
+      let reactionsCount = 2;
       if (reactionMatch) {
         reactionsCount = Math.max(1, parseInt(reactionMatch[1], 10));
       } else if (reactorMatch) {
@@ -72,7 +84,7 @@ module.exports = async function handler(req, res) {
       while ((match = bodyRegex.exec(html)) !== null) {
         const rawText = match[1];
         const pos = match.index;
-        const sub = html.substring(pos, pos + 900);
+        const sub = html.substring(pos, pos + 1200);
         const authorMatch = sub.match(/"author":\{[^}]*?"name":"((?:[^"\\]|\\.)*)"/);
 
         if (authorMatch) {
@@ -97,7 +109,7 @@ module.exports = async function handler(req, res) {
                 rating: 5,
                 date: 'ล่าสุด',
                 verified: true,
-                hasAuthorHeart: true,
+                hasAuthorHeart: authorName.includes('JobJab'),
                 typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
                 highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
               });
@@ -107,7 +119,7 @@ module.exports = async function handler(req, res) {
       }
 
       const finalReviews = extractedComments.length > 0 ? extractedComments : fallbackData.reviews;
-      const commentsCount = Math.max(finalReviews.length, 1);
+      const commentsCount = Math.max(finalReviews.length, 2);
 
       return res.status(200).json({
         success: true,
