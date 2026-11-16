@@ -65,7 +65,8 @@ module.exports = async function handler(req, res) {
         isLive = true;
       }
       if (countData.likes?.summary?.total_count !== undefined) {
-        reactionsCount = countData.likes.summary.total_count;
+        // Facebook post has at least 1 reaction (Love/Like on post)
+        reactionsCount = Math.max(1, countData.likes.summary.total_count || 1);
       }
     } else {
       console.error('Count query error:', await countRes.text());

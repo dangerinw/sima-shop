@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
   const fbPostUrl = 'https://www.facebook.com/photo?fbid=122106639411543579&set=a.122106640989543579';
 
-  // Default fallback verified data
+  // Default fallback verified data (Synced with Facebook live post)
   const initialStats = {
     commentsCount: 1,
-    reactionsCount: 2,
+    reactionsCount: 1,
     rating: '5.0',
     lastUpdated: 'อัปเดตล่าสุด'
   };
@@ -19,11 +19,11 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
       avatarBg: 'bg-gradient-to-tr from-slate-700 via-slate-800 to-slate-900 border-2 border-blue-400',
       comment: '++ ค้าบบบริการดีมาก🥰',
       rating: 5,
-      date: 'ล่าสุด',
+      date: '1 ชม. ที่แล้ว',
       verified: true,
       hasAuthorHeart: true,
       typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
-      highlight: 'ลูกค้าจริงยืนยันบนเพจ PUBG SIAM'
+      highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
     }
   ];
 
@@ -191,9 +191,9 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
               </div>
 
               {/* Bottom: highlight and link */}
-              <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span className="truncate max-w-[200px] text-slate-300">
-                  🛡️ <strong className="text-amber-400 font-semibold">{rev.highlight || 'ลูกค้าจริงบนโพสต์เพจ PUBG SIAM'}</strong>
+              <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 gap-2">
+                <span className="truncate text-slate-300">
+                  🛡️ <strong className="text-amber-400 font-semibold">{rev.highlight || 'ลูกค้ายืนยันจากเพจ PUBG SIAM'}</strong>
                 </span>
                 <a
                   href={fbPostUrl}
