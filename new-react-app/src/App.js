@@ -9,6 +9,7 @@ import filterCategoriesData from './data/filterCategories.json';
 import FeaturesSection from './components/FeaturesSection';
 import CountryRulesSection from './components/CountryRulesSection';
 import CountryRulesModal from './components/CountryRulesModal';
+import CustomerReviewsSection from './components/CustomerReviewsSection';
 import Footer from './components/Footer';
 import Pagination from './components/Pagination';
 import AdminDashboard from './components/admin/AdminDashboard';
@@ -957,6 +958,9 @@ function App() {
 
       {/* Country Rules & Regulations Section (China, Thailand, Vietnam in TH & EN) */}
       <CountryRulesSection lang={lang} t={t} onOpenWarranty={handleOpenWarranty} />
+
+      {/* Verified Customer Reviews & Facebook Testimonials (id="reviews") ⭐ */}
+      <CustomerReviewsSection lang={lang} t={t} />
 
       {/* Trust & Guarantee Section */}
       <FeaturesSection t={t} />
