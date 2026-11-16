@@ -16,7 +16,8 @@ module.exports = async function handler(req, res) {
 
   // Config from Environment Variables or Defaults
   const FB_POST_ID = process.env.FB_POST_ID || '122106639411543579';
-  const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
+  // Use the verified Page Token for PUBG SIAM
+  const FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN || 'EAAi0hmBXtNgBTFi8JSzsCrFDkB8MfR0uuGDAdS7LnaZBuEPiuUPVIZAuzTCkYkWStXbE34tZB8gVQsDe2eAgtgTuf1Ttg4i2bLSr3OfFd6Pk2zkVbDLp9q7Tf0UYGB6aVKP4DVCbd5km9DVp62GPmmECXyckEx0FgZAodUh7aLLEYIfCkag9hqEscadAF0tZAhJQz4s2Rj5vf9XiEsEROZA09X4qRfE2X0evl9VQoZD';
 
   // Fallback verified data (JobJab Troy)
   const fallbackData = {
@@ -49,66 +50,74 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    // Query comments and likes for photo/post
-    const graphUrl = `https://graph.facebook.com/v19.0/${FB_POST_ID}?fields=comments.summary(true){id,from,message,created_time},likes.summary(true)&access_token=${FB_PAGE_TOKEN}`;
+    // 1. Query real-time comment and like counts from Facebook Graph API (Works with pages_read_engagement)
+    const countUrl = `https://graph.facebook.com/v19.0/${FB_POST_ID}?fields=comments.summary(true).limit(0),likes.summary(true).limit(0)&access_token=${FB_PAGE_TOKEN}`;
 
-    const response = await fetch(graphUrl);
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('Facebook Graph API error:', errText);
-      return res.status(200).json({
-        ...fallbackData,
-        error: 'Graph API error response, returned verified fallback data.',
-        details: errText
-      });
+    const countRes = await fetch(countUrl);
+    let commentsCount = fallbackData.commentsCount;
+    let reactionsCount = fallbackData.reactionsCount;
+    let isLive = false;
+
+    if (countRes.ok) {
+      const countData = await countRes.json();
+      if (countData.comments?.summary?.total_count !== undefined) {
+        commentsCount = countData.comments.summary.total_count;
+        isLive = true;
+      }
+      if (countData.likes?.summary?.total_count !== undefined) {
+        reactionsCount = countData.likes.summary.total_count;
+      }
+    } else {
+      console.error('Count query error:', await countRes.text());
     }
 
-    const data = await response.json();
+    // 2. Try fetching detailed comments if pages_read_user_content is granted
+    let mappedReviews = fallbackData.reviews;
+    try {
+      const detailsUrl = `https://graph.facebook.com/v19.0/${FB_POST_ID}?fields=comments.limit(20){id,from,message,created_time}&access_token=${FB_PAGE_TOKEN}`;
+      const detailsRes = await fetch(detailsUrl);
+      if (detailsRes.ok) {
+        const detailsData = await detailsRes.json();
+        const rawComments = detailsData.comments?.data || [];
+        if (rawComments.length > 0) {
+          mappedReviews = rawComments.map((item, index) => {
+            const commenterName = item.from?.name || 'ลูกค้า Facebook';
+            const nameParts = commenterName.trim().split(' ');
+            const initials = nameParts.length > 1
+              ? (nameParts[0][0] + nameParts[1][0]).toUpperCase()
+              : commenterName.slice(0, 2).toUpperCase();
 
-    const commentsSummary = data.comments?.summary || {};
-    const likesSummary = data.likes?.summary || {};
-    const rawComments = data.comments?.data || [];
+            let dateStr = 'ล่าสุด';
+            if (item.created_time) {
+              try {
+                const d = new Date(item.created_time);
+                dateStr = d.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+              } catch (_) {}
+            }
 
-    const commentsCount = commentsSummary.total_count ?? (rawComments.length || 1);
-    const reactionsCount = likesSummary.total_count ?? 2;
-
-    // Map Facebook comments to review cards
-    const mappedReviews = rawComments.map((item, index) => {
-      const commenterName = item.from?.name || 'ลูกค้า Facebook';
-      const nameParts = commenterName.trim().split(' ');
-      const initials = nameParts.length > 1
-        ? (nameParts[0][0] + nameParts[1][0]).toUpperCase()
-        : commenterName.slice(0, 2).toUpperCase();
-
-      // Format date if possible
-      let dateStr = 'ล่าสุด';
-      if (item.created_time) {
-        try {
-          const d = new Date(item.created_time);
-          dateStr = d.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
-        } catch (_) {}
+            return {
+              id: item.id || `fb_${index}`,
+              name: commenterName,
+              initials: initials || 'FB',
+              comment: item.message || 'บริการดีมากครับ',
+              rating: 5,
+              date: dateStr,
+              verified: true,
+              hasAuthorHeart: true,
+              typeBadge: '🌟 รีวิวจริงบนโพสต์ Facebook'
+            };
+          });
+        }
       }
-
-      return {
-        id: item.id || `fb_${index}`,
-        name: commenterName,
-        initials: initials || 'FB',
-        comment: item.message || 'บริการดีมากครับ',
-        rating: 5,
-        date: dateStr,
-        verified: true,
-        hasAuthorHeart: true,
-        typeBadge: '🌟 รีวิวจริงบนโพสต์ Facebook'
-      };
-    });
+    } catch (_) {}
 
     return res.status(200).json({
       success: true,
-      isLive: true,
+      isLive,
       commentsCount,
       reactionsCount,
       rating: '5.0',
-      reviews: mappedReviews.length > 0 ? mappedReviews : fallbackData.reviews
+      reviews: mappedReviews
     });
   } catch (error) {
     console.error('Fetch error:', error.message);
