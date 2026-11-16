@@ -598,6 +598,8 @@ async function syncCycle() {
 
           const rmbPrice = Number(item.shoujia || 0);
           const priceInfo = calculateTieredPrice(rmbPrice);
+          // Exclude Chinese accounts under 500 THB
+          if (priceInfo.priceTHB < 500) return;
           const rawTitle = item.title || 'PUBG PC Steam Account';
 
           let rankTierTh = 'แรงค์ Tier 3 (Rank Ready Plus)';

@@ -150,7 +150,7 @@ export class ChinaSyncService {
                   markupAppliedPercent: activeMarkup,
                   profitTHB: Math.round(rawThb * (activeMarkup / 100))
                 };
-              });
+              }).filter((acc) => !(acc.region === 'cn' && Number(acc.priceTHB) < 500));
 
               this.isSyncing = false;
               return {

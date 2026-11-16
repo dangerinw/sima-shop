@@ -67,6 +67,8 @@ module.exports = async function handler(req, res) {
         const rawVnd = rmb * cnyRateVnd;
         const activeMarkup = rawThb < threshold ? markupTier1 : markupTier2;
         const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
+        // Exclude Chinese accounts under 500 THB
+        if (priceTHB < 500) return;
         const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
 
         fetchedItems.push({

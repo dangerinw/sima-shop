@@ -244,15 +244,21 @@ function App() {
             }
           });
 
-          // 2. Prepend live arrivals if available
+          // 2. Prepend live arrivals if available (exclude China accounts < 500 THB)
           liveItems.forEach((acc) => {
-            map.set(acc.id, calculateCnPricing(acc));
+            const priced = calculateCnPricing(acc);
+            if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
+              map.set(acc.id, priced);
+            }
           });
 
-          // 3. Add base stock accounts (10,589+ items)
+          // 3. Add base stock accounts (exclude China accounts < 500 THB)
           baseList.forEach((acc) => {
             if (!map.has(acc.id)) {
-              map.set(acc.id, calculateCnPricing(acc));
+              const priced = calculateCnPricing(acc);
+              if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
+                map.set(acc.id, priced);
+              }
             }
           });
 
@@ -435,6 +441,9 @@ function App() {
     let result = accounts.filter((item) => {
       // Hide sold accounts in storefront
       if (item.isSold) return false;
+
+      // Exclude Chinese accounts under 500 THB
+      if (item.region === 'cn' && Number(item.priceTHB) < 500) return false;
 
       // 1. Country / Region match (all | th | cn | vn)
       if (activeRegion !== 'all') {

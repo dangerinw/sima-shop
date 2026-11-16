@@ -222,6 +222,8 @@ export default function AdminDashboard({
 
   // Filter inventory
   const filteredInventory = accounts.filter((item) => {
+    // Exclude Chinese accounts under 500 THB
+    if (item.region === 'cn' && Number(item.priceTHB) < 500) return false;
     if (categoryFilter !== 'all' && item.category !== categoryFilter) return false;
     if (regionFilter !== 'all' && item.region !== regionFilter) return false;
     if (searchQuery.trim()) {
