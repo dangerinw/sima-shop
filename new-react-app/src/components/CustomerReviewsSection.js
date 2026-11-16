@@ -8,6 +8,20 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
   const reviewsData = [
     {
       id: 1,
+      name: 'JobJab Troy',
+      avatarBg: 'bg-gradient-to-tr from-slate-700 to-slate-900 border border-slate-600',
+      initials: 'JT',
+      type: 'thai-cash',
+      typeBadge: '🌟 รีวิวจริงบนโพสต์ Facebook',
+      rating: 5,
+      date: 'ล่าสุด (Verified)',
+      verified: true,
+      isRealFbComment: true,
+      comment: '++ ค้าบบบริการดีมาก🥰',
+      accountHighlight: 'ลูกค้าจริงยืนยันบนโพสต์เพจ PUBG SIAM'
+    },
+    {
+      id: 2,
       name: 'Tanawat P. (ธนวัฒน์)',
       avatarBg: 'bg-emerald-600',
       initials: 'TW',
@@ -20,7 +34,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
       accountHighlight: 'AUG มิโนทอร์ Lv.10 Max + รถ Urus S'
     },
     {
-      id: 2,
+      id: 3,
       name: 'Kittipong S. (กิตติพงษ์)',
       avatarBg: 'bg-purple-600',
       initials: 'KP',
@@ -33,7 +47,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
       accountHighlight: 'M416 ฟักทองฮาโลวีน Lv.6 + Beryl มังกร'
     },
     {
-      id: 3,
+      id: 4,
       name: 'Phanuwat K. (ภานุวัฒน์)',
       avatarBg: 'bg-rose-600',
       initials: 'PN',
@@ -46,7 +60,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
       accountHighlight: 'AUG มิโนทอร์ + รถ Cayenne Turbo GT'
     },
     {
-      id: 4,
+      id: 5,
       name: 'Nattapong M. (ณัฐพงษ์)',
       avatarBg: 'bg-blue-600',
       initials: 'NP',
@@ -57,19 +71,6 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
       verified: true,
       comment: 'ตอนแรกแอบกังวลเพราะยอดเยอะเกือบสองหมื่น แต่ทางร้านมีใบรับประกันการซื้อขาย มีบัตรประชาชนพร้อมตราประทับออกใบสัญญา A4 ให้ชัดเจน โปร่งใสสุดๆ ครับ เล่นแรงค์ได้สบายใจ ไม่ต้องกลัวโดนดึงคืน',
       accountHighlight: 'Aug มิโนทอร์ Max + M4 โจ๊กเกอร์ + Urus'
-    },
-    {
-      id: 5,
-      name: 'Chaiwat R. (ชัยวัฒน์)',
-      avatarBg: 'bg-amber-600',
-      initials: 'CW',
-      type: 'thai-cash',
-      typeBadge: '🇹🇭 ลูกค้าประจำ (ซื้อไอดีที่ 2)',
-      rating: 5,
-      date: '3 สัปดาห์ที่แล้ว',
-      verified: true,
-      comment: 'ไอดีที่สองแล้วครับกับร้านนี้ บริการไวเหมือนเดิม แอดมินตอบแชทเร็วมาก สกินสวยราคาคุ้มกว่าสุ่มเองเยอะมาก ใครหาไอดี PUBG ปลอดภัยแนะนำร้านนี้เลยครับ สบายใจได้ 100%',
-      accountHighlight: 'Beryl เกียร์เฮด + Mini คริสต์มาส'
     },
     {
       id: 6,
@@ -119,10 +120,13 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
 
           {/* Overall Rating & Live Facebook Link Badge */}
           <div className="pt-2 flex items-center justify-center gap-3 flex-wrap">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-900 border border-slate-800 shadow">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-900 border border-blue-500/40 shadow">
               <span className="text-amber-400 text-sm">⭐⭐⭐⭐⭐</span>
-              <span className="text-white text-xs font-black">4.98 / 5.0</span>
-              <span className="text-slate-400 text-[11px]">(500+ รีวิว)</span>
+              <span className="text-white text-xs font-black">โพสต์เครดิตหลักเพจร้าน</span>
+              <span className="text-emerald-400 text-[11px] font-bold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Verified FB Post</span>
+              </span>
             </div>
 
             {/* DIRECT FACEBOOK POST LINK BUTTON ⭐ */}
@@ -199,7 +203,11 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
           {filteredReviews.map((rev) => (
             <div
               key={rev.id}
-              className="p-5 sm:p-6 rounded-2xl bg-[#111724] border border-slate-800/90 hover:border-slate-700 transition-all flex flex-col justify-between shadow-xl group hover:shadow-2xl hover:shadow-blue-950/20"
+              className={`p-5 sm:p-6 rounded-2xl transition-all flex flex-col justify-between shadow-xl group hover:shadow-2xl ${
+                rev.isRealFbComment
+                  ? 'bg-gradient-to-b from-[#141e33] to-[#0f172a] border-2 border-blue-500/60 shadow-blue-900/30 hover:border-blue-400'
+                  : 'bg-[#111724] border border-slate-800/90 hover:border-slate-700 hover:shadow-blue-950/20'
+              }`}
             >
               <div className="space-y-3.5">
                 {/* Header: User avatar + name + verified badge */}
@@ -209,9 +217,17 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                       {rev.initials}
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-black text-white line-clamp-1">
-                        {rev.name}
-                      </h4>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <h4 className="text-xs sm:text-sm font-black text-white line-clamp-1">
+                          {rev.name}
+                        </h4>
+                        {rev.isRealFbComment && (
+                          <span className="px-1.5 py-0.5 rounded text-[9px] font-black bg-pink-500/20 text-pink-400 border border-pink-500/30 flex items-center gap-0.5">
+                            <span>💖</span>
+                            <span>โดยผู้เขียน</span>
+                          </span>
+                        )}
+                      </div>
                       <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
                         <span>{rev.date}</span>
                         <span>•</span>
@@ -230,7 +246,11 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
 
                 {/* Account Type Badge */}
                 <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-900 text-slate-300 border border-slate-800">
+                  <span className={`inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold border ${
+                    rev.isRealFbComment
+                      ? 'bg-blue-950/60 text-blue-300 border-blue-500/40'
+                      : 'bg-slate-900 text-slate-300 border border-slate-800'
+                  }`}>
                     {rev.typeBadge}
                   </span>
                 </div>
@@ -245,7 +265,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
               {rev.accountHighlight && (
                 <div className="mt-4 pt-3 border-t border-slate-850 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="truncate max-w-[200px]">
-                    🎮 สกิน: <strong className="text-amber-300 font-semibold">{rev.accountHighlight}</strong>
+                    🎮 <strong className="text-amber-300 font-semibold">{rev.accountHighlight}</strong>
                   </span>
                   <a
                     href={fbPostUrl}
@@ -253,12 +273,40 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:text-blue-300 font-bold hover:underline shrink-0"
                   >
-                    ดูโพสต์ ↗
+                    ดูคอมเมนต์จริง ↗
                   </a>
                 </div>
               )}
             </div>
           ))}
+
+          {/* INVITATION CARD FOR NEW BUYERS TO LEAVE FB REVIEW */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-950/20 via-slate-900/50 to-indigo-950/20 border-2 border-dashed border-blue-500/40 flex flex-col justify-between shadow-xl">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-full bg-blue-600/20 border border-blue-500/40 text-blue-400 font-bold flex items-center justify-center text-lg">
+                ✍️
+              </div>
+              <div>
+                <h4 className="text-sm font-black text-white">
+                  เคยใช้บริการกับ PUBG SIAM แล้ว?
+                </h4>
+                <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                  ร่วมแชร์ความประทับใจ ให้คะแนน และคอมเมนต์เครดิตใต้โพสต์ Facebook ของร้านได้เลย ทุกเสียงของลูกค้ามีความหมายมากครับ
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={fbPostUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-95"
+            >
+              <span>💬</span>
+              <span>คลิกไปเขียนรีวิวบน Facebook</span>
+              <span>↗</span>
+            </a>
+          </div>
         </div>
 
         {/* BOTTOM CALLOUT BANNER */}
@@ -280,8 +328,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
             className="px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center gap-2 shadow-xl shadow-blue-950/50 transition-all border border-blue-400/50 shrink-0 scale-[1.02] active:scale-98"
           >
             <span>💬</span>
-            <span>ดูรีวิวทั้งหมดบน Facebook ({reviewsData.length}+ รีวิว)</span>
-            <span>↗</span>
+            <span>ดูโพสต์และรีวิวทั้งหมดบน Facebook ↗</span>
           </a>
         </div>
 
