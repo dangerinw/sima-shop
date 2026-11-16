@@ -19,6 +19,7 @@ import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
 import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
 import { dbService } from './services/dbService';
+import { isSkinMatchingAccount } from './utils/pubgSkinMatcher';
 
 function App() {
   const [currency, setCurrency] = useState(() => {
@@ -555,22 +556,10 @@ function App() {
         Array.isArray(item.skinItems) ? item.skinItems.map((it) => `${it.id} ${it.name} ${it.thaiName || ''}`).join(' ') : ''
       ].filter(Boolean).join(' ').toLowerCase();
 
-      // 5. Item image / skin filter ⭐ (Noctis-style filter)
+      // 5. Item image / skin filter ⭐ (Noctis-style filter with Smart Fuzzy Alias Matcher)
       if (selectedFilterItems.length > 0) {
         const matchEveryItem = selectedFilterItems.every((selItem) => {
-          // Direct ID match
-          if (Array.isArray(item.skinItemIds) && item.skinItemIds.includes(selItem.id)) return true;
-          if (Array.isArray(item.skinItems) && item.skinItems.some((it) => (it.id === selItem.id || it.name === selItem.name))) return true;
-
-          // Keyword & Name matches
-          const keywords = [
-            ...(selItem.keywords || []),
-            selItem.name,
-            selItem.thaiName,
-            selItem.chineseName
-          ].filter(Boolean);
-
-          return keywords.some((kw) => fullCorpus.includes(kw.toLowerCase()));
+          return isSkinMatchingAccount(selItem, item);
         });
         if (!matchEveryItem) return false;
       }
@@ -658,6 +647,14 @@ function App() {
   const handleAddAccount = (newAccount) => {
     setAccounts([newAccount, ...accounts]);
     dbService.saveAccount(newAccount);
+  };
+
+  const handleAddBatchAccounts = async (newAccountsList) => {
+    if (!Array.isArray(newAccountsList) || newAccountsList.length === 0) return;
+    setAccounts((prev) => [...newAccountsList, ...prev]);
+    for (const acc of newAccountsList) {
+      await dbService.saveAccount(acc);
+    }
   };
 
   const handleUpdateAccount = (updatedAccount) => {
@@ -801,6 +798,7 @@ function App() {
       <AdminDashboard
         accounts={accounts}
         onAddAccount={handleAddAccount}
+        onAddBatchAccounts={handleAddBatchAccounts}
         onUpdateAccount={handleUpdateAccount}
         onDeleteAccount={handleDeleteAccount}
         onToggleSold={handleToggleSold}

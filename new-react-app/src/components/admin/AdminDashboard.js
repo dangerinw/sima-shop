@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { chinaSyncService } from '../../services/chinaSync/chinaSyncService';
 import AddAccountModal from './AddAccountModal';
+import BatchAddAccountsModal from './BatchAddAccountsModal';
 import Pagination from '../Pagination';
 import { getSourceUrl } from '../AccountModal';
 import { dbService } from '../../services/dbService';
@@ -9,6 +10,7 @@ import { defaultStoreSettings } from '../../data/defaultSettings';
 export default function AdminDashboard({
   accounts,
   onAddAccount,
+  onAddBatchAccounts,
   onUpdateAccount,
   onDeleteAccount,
   onToggleSold,
@@ -32,6 +34,7 @@ export default function AdminDashboard({
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [regionFilter, setRegionFilter] = useState('all'); // all | th | cn | vn
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
   const [editingAccount, setEditingAccount] = useState(null);
   const [inspectOrder, setInspectOrder] = useState(null);
 
@@ -296,13 +299,23 @@ export default function AdminDashboard({
     setIsModalOpen(true);
   };
 
-  const handleSaveAccount = (accountData) => {
+  const handleSaveAccount = (accountData, keepOpen = false) => {
     if (editingAccount) {
       onUpdateAccount(accountData);
     } else {
       onAddAccount(accountData);
     }
-    setIsModalOpen(false);
+    if (!keepOpen) {
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleSaveBatchAccounts = async (accountsList) => {
+    if (onAddBatchAccounts) {
+      await onAddBatchAccounts(accountsList);
+    } else {
+      accountsList.forEach(onAddAccount);
+    }
   };
 
   // Handle Save Settings
@@ -489,13 +502,26 @@ export default function AdminDashboard({
           </div>
 
           {activeTab === 'inventory' && (
-            <button
-              onClick={handleOpenAdd}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-xs sm:text-sm transition-all shadow pubg-glow flex items-center gap-1.5"
-            >
-              <span>➕</span>
-              <span>ลงขายไอดีใหม่ (Auto-Fill)</span>
-            </button>
+            <div className="flex items-center gap-2 flex-wrap">
+              <button
+                type="button"
+                onClick={() => setIsBatchModalOpen(true)}
+                className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm transition-all shadow-lg shadow-purple-950/40 flex items-center gap-1.5"
+                title="ลงขายหลายไอดีพร้อมกันในหน้าเดียว"
+              >
+                <span>📦</span>
+                <span>ลงไอดีแบบชุด (Batch Add)</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleOpenAdd}
+                className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-xs sm:text-sm transition-all shadow pubg-glow flex items-center gap-1.5"
+              >
+                <span>➕</span>
+                <span>ลงขายไอดีเดี่ยว (Auto-Fill)</span>
+              </button>
+            </div>
           )}
         </div>
 
@@ -1785,6 +1811,15 @@ export default function AdminDashboard({
         onClose={() => setIsModalOpen(false)}
         onSave={handleSaveAccount}
         editingAccount={editingAccount}
+        lang={lang}
+      />
+
+      {/* Batch / Multi-Account Listing Modal ⭐ */}
+      <BatchAddAccountsModal
+        isOpen={isBatchModalOpen}
+        onClose={() => setIsBatchModalOpen(false)}
+        onSaveBatch={handleSaveBatchAccounts}
+        currency={currency}
         lang={lang}
       />
 

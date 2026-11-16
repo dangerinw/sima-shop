@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { dbService } from '../../services/dbService';
 import filterCategoriesData from '../../data/filterCategories.json';
+import { matchSkinsFromText } from '../../utils/pubgSkinMatcher';
 
 // Flatten all 240+ Noctis filter items once with category tag
 const allFilterItemsList = [];
@@ -109,6 +110,8 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     setCustomSkinInput('');
   };
 
+  const [keepOpenForNext, setKeepOpenForNext] = useState(false);
+
   const [formData, setFormData] = useState({
     id: '',
     region: 'th',
@@ -143,38 +146,9 @@ export default function AddAccountModal({ isOpen, onClose, onSave, editingAccoun
     accentColor: 'from-slate-900 to-amber-950/40'
   });
 
-  // Auto-detect Noctis skin items from any text
+  // Auto-detect Noctis skin items from any text using fuzzy slang & synonym matcher
   const detectSkinItems = (text) => {
-    if (!text) return [];
-    const lower = text.toLowerCase();
-    const matched = [];
-    const seenIds = new Set();
-
-    allFilterItemsList.forEach((it) => {
-      const keywords = [
-        ...(it.keywords || []),
-        it.name,
-        it.thaiName,
-        it.chineseName
-      ].filter(Boolean);
-
-      const hit = keywords.some((kw) => {
-        const kwLower = kw.toLowerCase().trim();
-        if (!kwLower) return false;
-        if (['m4', 'aug', 'mk', 'beryl', 'm762', 'awm', '98k', 'kar98', 'urus', 'bape'].includes(kwLower)) {
-          return lower.includes(kwLower);
-        }
-        if (kwLower.length <= 2) return false;
-        return lower.includes(kwLower);
-      });
-
-      if (hit && !seenIds.has(it.id)) {
-        seenIds.add(it.id);
-        matched.push(it);
-      }
-    });
-
-    return matched;
+    return matchSkinsFromText(text, allFilterItemsList);
   };
 
   useEffect(() => {
@@ -616,7 +590,48 @@ All banks accepted.`;
       updatedAt: new Date().toISOString()
     };
 
-    onSave(payload);
+    onSave(payload, keepOpenForNext);
+
+    if (keepOpenForNext && !editingAccount) {
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      setFormData({
+        id: `PC-${randomNum}`,
+        region: 'th',
+        category: 'progressive',
+        title_th: '',
+        title_en: '',
+        subtitle_th: '',
+        subtitle_en: '',
+        priceVND: '',
+        priceTHB: '',
+        originalPriceVND: '',
+        originalPriceTHB: '',
+        tags: 'Progressive,OriginalMail',
+        binding_th: 'id steam ไทย มีประกันมือ 1',
+        binding_en: 'Clean Steam ID with 1st-hand warranty',
+        rank: 'Master (Diamond+)',
+        playtime_th: '1,500 ชม.',
+        playtime_en: '1,500 hrs',
+        gunLevel_th: '',
+        gunLevel_en: '',
+        warranty_th: 'มีประกันมือ 1 แท้ (ปลอดภัย 100%)',
+        warranty_en: '1st Hand Owner Warranty (100% Secure)',
+        details_th: '',
+        details_en: '',
+        videoUrl: '',
+        allowInstallment: true,
+        steamUser: '',
+        steamPass: '',
+        steamEmail: '',
+        isInstant: true,
+        isHot: true,
+        accentColor: 'from-slate-900 to-amber-950/40'
+      });
+      setImages([]);
+      setAttachedSkinItems([]);
+      setRawPostText('');
+      alert('✅ บันทึกไอดีเข้าสู่ระบบสำเร็จ! ฟอร์มพร้อมสำหรับลงไอดีถัดไปทันที');
+    }
   };
 
   return (
@@ -1288,10 +1303,25 @@ All banks accepted.`;
         </div>
 
         {/* Sticky Footer Actions */}
-        <div className="flex items-center justify-between border-t border-slate-800 p-4 sm:p-5 bg-[#0f1522] sticky bottom-0 z-20">
-          <span className="text-xs text-slate-400">
-            {images.length > 0 ? `📸 มีรูปภาพแนบ ${images.length} รูป` : '⚠️ ยังไม่ได้แนบรูปภาพ (แนบหรือไม่ก็ได้)'}
-          </span>
+        <div className="flex items-center justify-between border-t border-slate-800 p-4 sm:p-5 bg-[#0f1522] sticky bottom-0 z-20 flex-wrap gap-2">
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-slate-400">
+              {images.length > 0 ? `📸 มีรูปภาพแนบ ${images.length} รูป` : '⚠️ ยังไม่ได้แนบรูปภาพ'}
+            </span>
+            {!editingAccount && (
+              <label className="flex items-center gap-1.5 cursor-pointer text-xs select-none bg-slate-900 border border-slate-750 px-2.5 py-1 rounded-xl">
+                <input
+                  type="checkbox"
+                  checked={keepOpenForNext}
+                  onChange={(e) => setKeepOpenForNext(e.target.checked)}
+                  className="w-4 h-4 rounded text-amber-500 focus:ring-amber-400 bg-slate-950 border-slate-700"
+                />
+                <span className={keepOpenForNext ? "text-amber-300 font-black" : "text-slate-400 font-semibold"}>
+                  ⚡ บันทึกแล้วลงไอดีถัดไปทันที (ลงต่อเนื่อง)
+                </span>
+              </label>
+            )}
+          </div>
           <div className="flex items-center gap-3">
             <button
               type="button"
