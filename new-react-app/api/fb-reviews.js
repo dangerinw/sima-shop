@@ -49,7 +49,8 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const graphUrl = `https://graph.facebook.com/v19.0/${FB_POST_ID}?fields=comments.summary(true){id,from,message,created_time},reactions.summary(true)&access_token=${FB_PAGE_TOKEN}`;
+    // Query comments and likes for photo/post
+    const graphUrl = `https://graph.facebook.com/v19.0/${FB_POST_ID}?fields=comments.summary(true){id,from,message,created_time},likes.summary(true)&access_token=${FB_PAGE_TOKEN}`;
 
     const response = await fetch(graphUrl);
     if (!response.ok) {
@@ -57,18 +58,19 @@ module.exports = async function handler(req, res) {
       console.error('Facebook Graph API error:', errText);
       return res.status(200).json({
         ...fallbackData,
-        error: 'Graph API error response, returned verified fallback data.'
+        error: 'Graph API error response, returned verified fallback data.',
+        details: errText
       });
     }
 
     const data = await response.json();
 
     const commentsSummary = data.comments?.summary || {};
-    const reactionsSummary = data.reactions?.summary || {};
+    const likesSummary = data.likes?.summary || {};
     const rawComments = data.comments?.data || [];
 
     const commentsCount = commentsSummary.total_count ?? (rawComments.length || 1);
-    const reactionsCount = reactionsSummary.total_count ?? 2;
+    const reactionsCount = likesSummary.total_count ?? 2;
 
     // Map Facebook comments to review cards
     const mappedReviews = rawComments.map((item, index) => {
