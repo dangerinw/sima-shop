@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
   const fbPostUrl = 'https://www.facebook.com/photo?fbid=122106639411543579&set=a.122106640989543579';
 
-  // ข้อมูลจริง 100% จากโพสต์ Facebook หลักของทางร้าน
-  const postStats = {
-    commentsCount: 1, // ยอดความคิดเห็นจริงบนโพสต์
-    reactionsCount: 2, // ยอดถูกใจ/ความรู้สึก
+  // Default fallback verified data
+  const initialStats = {
+    commentsCount: 1,
+    reactionsCount: 2,
     rating: '5.0',
-    lastUpdated: 'อัปเดตล่าสุดตรงกับ Facebook'
+    lastUpdated: 'อัปเดตล่าสุด'
   };
 
-  const realReviews = [
+  const initialReviews = [
     {
-      id: 1,
+      id: 'initial_1',
       name: 'JobJab Troy',
       initials: 'JT',
       avatarBg: 'bg-gradient-to-tr from-slate-700 via-slate-800 to-slate-900 border-2 border-blue-400',
@@ -27,6 +27,42 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
     }
   ];
 
+  const [reviews, setReviews] = useState(initialReviews);
+  const [stats, setStats] = useState(initialStats);
+  const [isLive, setIsLive] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  // Background fetch from Serverless Graph API endpoint
+  const fetchFbReviews = async () => {
+    setIsRefreshing(true);
+    try {
+      const res = await fetch('/api/fb-reviews');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
+          if (data.reviews && data.reviews.length > 0) {
+            setReviews(data.reviews);
+          }
+          setStats({
+            commentsCount: data.commentsCount ?? 1,
+            reactionsCount: data.reactionsCount ?? 2,
+            rating: data.rating || '5.0',
+            lastUpdated: 'ซิงค์จาก Graph API เรียลไทม์'
+          });
+          setIsLive(Boolean(data.isLive));
+        }
+      }
+    } catch (err) {
+      console.log('Background FB reviews sync note:', err.message);
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFbReviews();
+  }, []);
+
   return (
     <section id="reviews" className="py-14 sm:py-20 bg-gradient-to-b from-slate-950 via-[#0d1424] to-slate-950 border-t border-b border-slate-800/80 relative overflow-hidden">
       {/* Background ambient glow */}
@@ -38,8 +74,10 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-bold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>💬 รีวิว & เครดิตจากโพสต์จริงบน Facebook</span>
+            <span className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-400 animate-ping' : 'bg-blue-400'}`}></span>
+            <span>
+              {isLive ? '🟢 Facebook Graph API • เชื่อมต่อสดเรียลไทม์' : '💬 รีวิว & เครดิตจากโพสต์จริงบน Facebook'}
+            </span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
@@ -54,18 +92,29 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
           <div className="pt-2 flex items-center justify-center gap-3 flex-wrap">
             <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-slate-900 border border-blue-500/40 shadow">
               <span className="text-amber-400 text-sm">⭐⭐⭐⭐⭐</span>
-              <span className="text-white text-xs font-black">{postStats.rating} เต็ม</span>
+              <span className="text-white text-xs font-black">{stats.rating} เต็ม</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-900 border border-slate-800 shadow text-xs">
               <span className="text-blue-400 font-bold">💬</span>
-              <span className="text-white font-bold">{postStats.commentsCount} ความคิดเห็นจริง</span>
+              <span className="text-white font-bold">{stats.commentsCount} ความคิดเห็นจริง</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-900 border border-slate-800 shadow text-xs">
               <span className="text-pink-400 font-bold">❤️</span>
-              <span className="text-slate-300 font-medium">{postStats.reactionsCount} ถูกใจ</span>
+              <span className="text-slate-300 font-medium">{stats.reactionsCount} ถูกใจ</span>
             </div>
+
+            <button
+              type="button"
+              onClick={fetchFbReviews}
+              disabled={isRefreshing}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-bold transition-all active:scale-95 disabled:opacity-50"
+              title="ดึงข้อมูลล่าสุดจาก Facebook Graph API"
+            >
+              <span className={isRefreshing ? 'animate-spin' : ''}>🔄</span>
+              <span>{isRefreshing ? 'กำลังซิงค์...' : 'รีเฟรช'}</span>
+            </button>
 
             <a
               href={fbPostUrl}
@@ -80,11 +129,11 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
           </div>
         </div>
 
-        {/* 2-COLUMN SHOWCASE (REAL REVIEW + INVITATION CARD) */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        {/* SHOWCASE GRID (REAL REVIEWS FROM GRAPH API + INVITATION CARD) */}
+        <div className={`max-w-5xl mx-auto grid grid-cols-1 ${reviews.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'} gap-6 items-stretch`}>
           
-          {/* CARD 1: REAL REVIEW FROM JOBJAB TROY */}
-          {realReviews.map((rev) => (
+          {/* REAL REVIEWS */}
+          {reviews.map((rev) => (
             <div
               key={rev.id}
               className="p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#141e33] to-[#0f172a] border-2 border-blue-500/60 shadow-xl shadow-blue-950/40 flex flex-col justify-between relative overflow-hidden group hover:border-blue-400 transition-all"
@@ -95,12 +144,12 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                 {/* Header: User avatar + name + badges */}
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className={`w-12 h-12 rounded-full ${rev.avatarBg} text-white font-black text-sm flex items-center justify-center shadow-md`}>
-                      {rev.initials}
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-slate-700 via-slate-800 to-slate-900 border-2 border-blue-400 text-white font-black text-sm flex items-center justify-center shadow-md shrink-0">
+                      {rev.initials || 'FB'}
                     </div>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h4 className="text-sm sm:text-base font-black text-white">
+                        <h4 className="text-sm sm:text-base font-black text-white line-clamp-1">
                           {rev.name}
                         </h4>
                         {rev.hasAuthorHeart && (
@@ -111,7 +160,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                         )}
                       </div>
                       <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-0.5">
-                        <span>{rev.date}</span>
+                        <span>{rev.date || 'ล่าสุด'}</span>
                         <span>•</span>
                         <span className="text-blue-400 font-semibold flex items-center gap-0.5">
                           <span>✓</span>
@@ -122,14 +171,14 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                   </div>
 
                   <div className="flex text-amber-400 text-sm">
-                    {'⭐'.repeat(rev.rating)}
+                    {'⭐'.repeat(rev.rating || 5)}
                   </div>
                 </div>
 
                 {/* Badge */}
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-blue-950/80 text-blue-300 border border-blue-500/40 shadow-sm">
-                    <span>{rev.typeBadge}</span>
+                    <span>{rev.typeBadge || '🌟 คอมเมนต์จริงจากโพสต์ Facebook'}</span>
                   </span>
                 </div>
 
@@ -141,10 +190,10 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                 </div>
               </div>
 
-              {/* Bottom: Item highlight and link */}
+              {/* Bottom: highlight and link */}
               <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
                 <span className="truncate max-w-[200px] text-slate-300">
-                  🛡️ <strong className="text-amber-400 font-semibold">{rev.highlight}</strong>
+                  🛡️ <strong className="text-amber-400 font-semibold">{rev.highlight || 'ลูกค้าจริงบนโพสต์เพจ PUBG SIAM'}</strong>
                 </span>
                 <a
                   href={fbPostUrl}
@@ -158,7 +207,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
             </div>
           ))}
 
-          {/* CARD 2: INVITATION / SHARE CREDIT CARD */}
+          {/* INVITATION / SHARE CREDIT CARD */}
           <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-blue-950/20 via-slate-900/60 to-purple-950/30 border-2 border-dashed border-blue-500/40 flex flex-col justify-between shadow-xl shadow-slate-950/50">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -180,7 +229,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                   ลูกค้าที่เคยซื้อสด ผ่อนชำระ หรือฝากขายไอดีกับ <strong className="text-white">PUBG SIAM</strong> สามารถร่วมคอมเมนต์รีวิวในโพสต์ Facebook หลักของทางร้านได้เลยครับ
                 </p>
                 <p className="text-slate-400 text-xs">
-                  ✨ ทุกความคิดเห็นมีความสำคัญมากในการพัฒนาบริการและสร้างความมั่นใจให้กับผู้ซื้อท่านอื่น
+                  ✨ ทุกความคิดเห็นจะถูกนำมาอัปเดตขึ้นหน้าร้านอัตโนมัติ เพื่อสร้างความมั่นใจให้กับผู้ซื้อท่านอื่น
                 </p>
               </div>
             </div>

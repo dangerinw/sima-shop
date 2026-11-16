@@ -6,4 +6,10 @@ module.exports = function(app) {
     const chinaDetailsHandler = require('../../api/china-details');
     chinaDetailsHandler(req, res);
   });
+
+  app.get('/api/fb-reviews', (req, res) => {
+    delete require.cache[require.resolve('../../api/fb-reviews')];
+    const fbReviewsHandler = require('../../api/fb-reviews');
+    fbReviewsHandler(req, res);
+  });
 };
