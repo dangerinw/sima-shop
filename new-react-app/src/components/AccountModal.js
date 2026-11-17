@@ -108,6 +108,7 @@ export default function AccountModal({
   onBuySuccess,
   onOpenRules,
   onOpenWarranty,
+  onMarkSold,
   storeSettings = {}
 }) {
   const [step, setStep] = useState('details'); // 'details' | 'contact'
@@ -118,6 +119,7 @@ export default function AccountModal({
   const [loadingDetailImg, setLoadingDetailImg] = useState(false);
   const [detailImages, setDetailImages] = useState([]);
   const [coverImg, setCoverImg] = useState('');
+  const [isSoldOut, setIsSoldOut] = useState(Boolean(account?.isSold));
 
   // Check if account is Foreign (China/Vietnam/etc.) or Thai
   const isForeignAccount = Boolean(account && (account.region === 'cn' || account.region === 'vn' || (account.region && account.region !== 'th')));
@@ -136,6 +138,7 @@ export default function AccountModal({
     setCopiedText(false);
     setIsLightboxOpen(false);
     setLightboxZoom('fit');
+    setIsSoldOut(Boolean(account.isSold));
 
     const initialCover = account.coverImg || account.images?.[0] || '';
     setCoverImg(initialCover);
@@ -155,7 +158,14 @@ export default function AccountModal({
       const queryUrl = `/api/china-details?bianhao=${encodeURIComponent(targetCode)}&id=${encodeURIComponent(targetId)}`;
 
       fetch(queryUrl)
-        .then((r) => (r.ok ? r.json() : null))
+        .then((r) => {
+          if (r.status === 404) {
+            setIsSoldOut(true);
+            onMarkSold && onMarkSold(account.id);
+            return null;
+          }
+          return r.ok ? r.json() : null;
+        })
         .then((data) => {
           setLoadingDetailImg(false);
           if (data && data.success) {
@@ -169,13 +179,16 @@ export default function AccountModal({
               // Automatically switch to detail image once loaded
               setActiveTab('detail');
             }
+          } else if (data && data.success === false) {
+            setIsSoldOut(true);
+            onMarkSold && onMarkSold(account.id);
           }
         })
         .catch(() => {
           setLoadingDetailImg(false);
         });
     }
-  }, [account]);
+  }, [account, onMarkSold]);
 
   // Handle ESC key to close lightbox or modal
   useEffect(() => {
@@ -304,6 +317,32 @@ export default function AccountModal({
               ✕
             </button>
           </div>
+
+          {/* SOLD OUT ALERT BANNER ⭐ */}
+          {isSoldOut && (
+            <div className="mx-4 sm:mx-6 mt-4 p-4 rounded-2xl bg-gradient-to-r from-rose-950/90 via-red-950/80 to-slate-900 border-2 border-rose-500/80 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-in fade-in">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-rose-600/30 border border-rose-500/60 flex items-center justify-center text-xl shrink-0">
+                  🔴
+                </div>
+                <div>
+                  <h4 className="font-black text-rose-200 text-sm sm:text-base flex items-center gap-2">
+                    <span>ไอดีนี้ปิดการขายในระบบแล้ว (Sold Out)</span>
+                  </h4>
+                  <p className="text-xs text-rose-300/80 mt-0.5 leading-relaxed">
+                    ขออภัยครับ ไอดีนี้มีผู้สั่งซื้อไปแล้วในระบบจีน ทางร้านได้ปรับสถานะเป็น 'ขายแล้ว' ในหน้าร้านให้อัตโนมัติ เพื่อไม่ให้ท่านอื่นเสียเวลาครับ
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-lg transition-all shrink-0 text-center"
+              >
+                ดูไอดีอื่นที่พร้อมขาย ↗
+              </button>
+            </div>
+          )}
 
           {/* STEP 1: ACCOUNT DETAILS & HIGH-RES GALLERY */}
           {step === 'details' && (
@@ -742,48 +781,64 @@ export default function AccountModal({
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
-                  {/* 1-Click Copy Info */}
-                  <button
-                    type="button"
-                    onClick={handleCopyOrderInfo}
-                    className={`px-3.5 py-3 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border shadow ${
-                      copiedText
-                        ? 'bg-emerald-500 text-black border-emerald-400'
-                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
-                    }`}
-                    title="คัดลอกข้อความสั่งซื้อไอดีนี้"
-                  >
-                    <span>{copiedText ? '✓' : '📋'}</span>
-                    <span>{copiedText ? 'คัดลอกรหัสแล้ว!' : 'คัดลอกรหัสไอดี'}</span>
-                  </button>
+                {isSoldOut ? (
+                  <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
+                    <span className="px-5 py-3 rounded-xl bg-rose-950/80 border border-rose-500/60 text-rose-300 font-black text-xs sm:text-sm flex items-center gap-2 shadow">
+                      <span>❌</span>
+                      <span>ไอดีนี้ขายแล้ว (Sold Out)</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={onClose}
+                      className="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs shadow transition-all"
+                    >
+                      เลือกดูไอดีอื่น
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
+                    {/* 1-Click Copy Info */}
+                    <button
+                      type="button"
+                      onClick={handleCopyOrderInfo}
+                      className={`px-3.5 py-3 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border shadow ${
+                        copiedText
+                          ? 'bg-emerald-500 text-black border-emerald-400'
+                          : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                      }`}
+                      title="คัดลอกข้อความสั่งซื้อไอดีนี้"
+                    >
+                      <span>{copiedText ? '✓' : '📋'}</span>
+                      <span>{copiedText ? 'คัดลอกรหัสแล้ว!' : 'คัดลอกรหัสไอดี'}</span>
+                    </button>
 
-                  {/* Facebook Button */}
-                  <a
-                    href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={handleCopyOrderInfo}
-                    className="px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
-                    title="เปิดแชท Facebook: SunsnappZ (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
-                  >
-                    <span>📘</span>
-                    <span>สั่งซื้อทาง Facebook</span>
-                  </a>
+                    {/* Facebook Button */}
+                    <a
+                      href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={handleCopyOrderInfo}
+                      className="px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
+                      title="เปิดแชท Facebook: SunsnappZ (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
+                    >
+                      <span>📘</span>
+                      <span>สั่งซื้อทาง Facebook</span>
+                    </a>
 
-                  {/* Discord Button */}
-                  <a
-                    href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={handleCopyOrderInfo}
-                    className="px-4 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
-                    title="เปิด Discord (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
-                  >
-                    <span>💜</span>
-                    <span>สั่งซื้อทาง Discord</span>
-                  </a>
-                </div>
+                    {/* Discord Button */}
+                    <a
+                      href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={handleCopyOrderInfo}
+                      className="px-4 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs shadow-lg flex items-center gap-1.5 transition-all"
+                      title="เปิด Discord (พร้อมคัดลอกรหัสไอดีให้อัตโนมัติ)"
+                    >
+                      <span>💜</span>
+                      <span>สั่งซื้อทาง Discord</span>
+                    </a>
+                  </div>
+                )}
 
                 {/* Create Warranty & Installment Contract Buttons */}
                 {onOpenWarranty && (

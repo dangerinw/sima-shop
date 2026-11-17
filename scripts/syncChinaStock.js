@@ -14,8 +14,9 @@ const path = require('path');
 const args = process.argv.slice(2);
 const isWatch = args.includes('--watch');
 const fetchAll = args.includes('--all') || args.includes('-a');
+const keepStale = args.includes('--keep-stale');
 
-let cliPages = fetchAll ? 9999 : 50; // Default 50 pages = 1,000 accounts if not specified
+let cliPages = fetchAll ? 9999 : 80; // Default 80 pages (~1,600 fresh active accounts)
 
 const pagesEq = args.find(a => a.startsWith('--pages='));
 if (pagesEq) {
@@ -475,7 +476,7 @@ function httpRequest(url, method, payload, customHeaders = {}) {
         }
       });
     });
-    req.setTimeout(15000, () => {
+    req.setTimeout(6000, () => {
       req.destroy(new Error('Request timeout'));
     });
     req.on('error', reject);
@@ -550,8 +551,11 @@ async function syncCycle() {
 
   const accountMap = new Map();
 
-  // Smart Merge: Preload existing stock so incremental sync never deletes older accounts!
-  if (!fetchAll && fs.existsSync(CONFIG.outputPath)) {
+  // Fresh Active Mode (Default):
+  // PUBG accounts sell out rapidly in China. To prevent customer frustration from seeing sold-out IDs,
+  // we build fresh inventory directly from live Chinese sources.
+  // Stale accounts that were sold or delisted are cleanly purged automatically!
+  if (keepStale && fs.existsSync(CONFIG.outputPath)) {
     try {
       const existing = JSON.parse(fs.readFileSync(CONFIG.outputPath, 'utf8'));
       existing.forEach(acc => {
@@ -559,10 +563,12 @@ async function syncCycle() {
           accountMap.set(acc.id, acc);
         }
       });
-      console.log(`📦 โหลดสต็อกเดิมที่มีอยู่แล้ว: ${accountMap.size.toLocaleString()} ไอดี (โหมด Smart Merge ไม่ลบของเดิม)`);
+      console.log(`📦 โหลดสต็อกเดิม: ${accountMap.size.toLocaleString()} ไอดี (โหมด Keep Stale)`);
     } catch (e) {
       console.warn('Could not preload existing stock:', e.message);
     }
+  } else {
+    console.log(`⚡ โหมด Fresh Active Inventory: กวาดไอดีสดใหม่จากระบบจีนเท่านั้น (เคลียร์ไอดีที่ขายแล้วออกอัตโนมัติ)`);
   }
 
   const CONCURRENCY = 12;
@@ -671,7 +677,7 @@ async function syncCycle() {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(CONFIG.outputPath, JSON.stringify(allAccounts, null, 2), 'utf8');
+    fs.writeFileSync(CONFIG.outputPath, JSON.stringify(allAccounts), 'utf8');
     console.log(`\n💾 บันทึกไฟล์สำเร็จ: ${CONFIG.outputPath} (ทั้งหมด ${allAccounts.length.toLocaleString()} ไอดีจีนพร้อมขาย)!`);
   } catch (fsErr) {
     console.error('Failed to write JSON output:', fsErr.message);

@@ -11,8 +11,8 @@ module.exports = async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Ultra-fast cache: 5s edge cache, revalidates within 15s for true real-time
-  res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate=15');
+  // Real-time zero cache: Always fresh live fetch
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
 
   const FB_POST_FBID = process.env.FB_POST_ID || '122106639411543579';
 

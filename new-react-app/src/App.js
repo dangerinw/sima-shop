@@ -716,6 +716,23 @@ function App() {
     }
   };
 
+  const handleMarkSold = useCallback((accountId) => {
+    let targetAcc = null;
+    setAccounts((prev) =>
+      prev.map((acc) => {
+        if (acc.id === accountId) {
+          targetAcc = { ...acc, isSold: true };
+          return targetAcc;
+        }
+        return acc;
+      })
+    );
+    setSoldAccountIds((prev) => (prev.includes(accountId) ? prev : [...prev, accountId]));
+    if (targetAcc) {
+      dbService.saveAccount(targetAcc);
+    }
+  }, []);
+
   const handleUpdateOrderStatus = (orderId, newStatus) => {
     setOrders(
       orders.map((ord) => (ord.orderId === orderId ? { ...ord, status: newStatus } : ord))
@@ -902,7 +919,7 @@ function App() {
         counts={categoryCounts}
         t={t}
         lang={lang}
-        onRefreshStock={() => refreshChinaStock(false)}
+        onRefreshStock={() => refreshChinaStock(false, true)}
         isStockRefreshing={isStockRefreshing}
         lastStockUpdated={lastStockUpdated}
         totalAccountsCount={accounts.filter((a) => !a.isSold && (activeRegion === 'all' || a.region === activeRegion)).length}
@@ -1006,6 +1023,7 @@ function App() {
         onBuySuccess={handleBuySuccess}
         onOpenRules={handleOpenRules}
         onOpenWarranty={handleOpenWarranty}
+        onMarkSold={handleMarkSold}
         storeSettings={storeSettings}
       />
 

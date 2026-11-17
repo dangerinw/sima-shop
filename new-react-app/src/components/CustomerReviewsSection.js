@@ -44,6 +44,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
   const [stats, setStats] = useState(initialStats);
   const [isLive, setIsLive] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [lastSyncTime, setLastSyncTime] = useState('');
 
   // Background fetch from Serverless Live endpoint with Cache-Buster
   const fetchFbReviews = async () => {
@@ -63,6 +64,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
             lastUpdated: 'ซิงค์สดจาก Facebook เรียลไทม์'
           });
           setIsLive(Boolean(data.isLive));
+          setLastSyncTime(new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' }));
         }
       }
     } catch (err) {
@@ -92,7 +94,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-bold shadow-sm">
             <span className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-400 animate-ping' : 'bg-blue-400'}`}></span>
             <span>
-              {isLive ? '🟢 Facebook Graph API • เชื่อมต่อสดเรียลไทม์' : '💬 รีวิว & เครดิตจากโพสต์จริงบน Facebook'}
+              {isLive ? `🟢 เชื่อมต่อสดเรียลไทม์จากโพสต์ Facebook ${lastSyncTime ? `• อัปเดต ${lastSyncTime}` : ''}` : '💬 รีวิว & เครดิตจากโพสต์จริงบน Facebook'}
             </span>
           </div>
 
@@ -152,30 +154,30 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#141e33] to-[#0f172a] border-2 border-blue-500/60 shadow-xl shadow-blue-950/40 flex flex-col justify-between relative overflow-hidden group hover:border-blue-400 transition-all"
+              className="p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-[#141e33] to-[#0f172a] border-2 border-blue-500/60 shadow-xl shadow-blue-950/40 flex flex-col justify-between relative overflow-hidden group hover:border-blue-400 transition-all"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full pointer-events-none"></div>
 
               <div className="space-y-4">
                 {/* Header: User avatar + name + badges */}
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-slate-700 via-slate-800 to-slate-900 border-2 border-blue-400 text-white font-black text-sm flex items-center justify-center shadow-md shrink-0">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-slate-700 via-slate-800 to-slate-900 border-2 border-blue-400 text-white font-black text-sm flex items-center justify-center shadow-md shrink-0">
                       {rev.initials || 'FB'}
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h4 className="text-sm sm:text-base font-black text-white line-clamp-1">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <h4 className="text-sm sm:text-base font-black text-white break-words">
                           {rev.name}
                         </h4>
                         {rev.hasAuthorHeart && (
-                          <span className="px-1.5 py-0.5 rounded text-[10px] font-black bg-pink-500/20 text-pink-400 border border-pink-500/30 flex items-center gap-0.5 shadow-sm">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-black bg-pink-500/20 text-pink-400 border border-pink-500/30 flex items-center gap-0.5 shadow-sm shrink-0">
                             <span>💖</span>
                             <span>โดยผู้เขียน</span>
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-0.5">
+                      <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-0.5 whitespace-nowrap">
                         <span>{rev.date || 'ล่าสุด'}</span>
                         <span>•</span>
                         <span className="text-blue-400 font-semibold flex items-center gap-0.5">
@@ -186,8 +188,8 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
                     </div>
                   </div>
 
-                  <div className="flex text-amber-400 text-sm">
-                    {'⭐'.repeat(rev.rating || 5)}
+                  <div className="flex text-amber-400 text-xs shrink-0 tracking-tight">
+                    ⭐⭐⭐⭐⭐
                   </div>
                 </div>
 
@@ -207,15 +209,16 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
               </div>
 
               {/* Bottom: highlight and link */}
-              <div className="mt-5 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 gap-2">
-                <span className="truncate text-slate-300">
-                  🛡️ <strong className="text-amber-400 font-semibold">{rev.highlight || 'ลูกค้ายืนยันจากเพจ PUBG SIAM'}</strong>
+              <div className="mt-5 pt-3.5 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-xs text-slate-400 gap-2">
+                <span className="text-slate-300 flex items-center gap-1 text-[11px] sm:text-xs">
+                  <span>🛡️</span>
+                  <strong className="text-amber-400 font-semibold">{rev.highlight || 'ลูกค้ายืนยันจากเพจ PUBG SIAM'}</strong>
                 </span>
                 <a
                   href={fbPostUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 font-bold hover:underline shrink-0"
+                  className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 font-bold hover:underline shrink-0 text-[11px] sm:text-xs"
                 >
                   <span>ตรวจคอมเมนต์จริง ↗</span>
                 </a>
