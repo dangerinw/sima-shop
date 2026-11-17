@@ -488,8 +488,7 @@ function httpRequest(url, method, payload, customHeaders = {}) {
 const SOURCES = [
   { key: 'xgkk', name: 'XueGaoKK (Link 4)', origin: 'https://xuegaokk.ayxds.com', type: 'ayxds' },
   { key: 'xf', name: 'XF Shop (Link 1)', origin: 'https://xf.ayxds.com', type: 'ayxds' },
-  { key: 'xmgg', name: 'XMGG Shop (Link 3)', origin: 'https://xmgg.ayxds.com', type: 'ayxds' },
-  { key: 'yyy', name: 'YiYou PUBG (Link 2)', origin: 'https://www.yyyxkch.com', type: 'yyy' }
+  { key: 'xmgg', name: 'XMGG Shop (Link 3)', origin: 'https://xmgg.ayxds.com', type: 'ayxds' }
 ];
 
 async function fetchSourcePage(src, page, retries = 2) {
@@ -571,7 +570,7 @@ async function syncCycle() {
     console.log(`⚡ โหมด Fresh Active Inventory: กวาดไอดีสดใหม่จากระบบจีนเท่านั้น (เคลียร์ไอดีที่ขายแล้วออกอัตโนมัติ)`);
   }
 
-  const CONCURRENCY = 16;
+  const CONCURRENCY = 20;
   const startTime = Date.now();
 
   for (const src of SOURCES) {
@@ -640,16 +639,13 @@ async function syncCycle() {
           priceVND: priceInfo.priceVND,
           originalPriceTHB: priceInfo.originalPriceTHB,
           originalPriceVND: priceInfo.originalPriceVND,
-          markupAppliedPercent: priceInfo.activeMarkupPercent,
-          profitTHB: priceInfo.profitTHB,
           tags: extractTags(rawTitle),
           images: item.img ? [item.img] : [],
           coverImg: item.img || '',
           rank: rankTierTh,
           gunLevel_th: gunLevelTh,
           isSold: false,
-          isHot: rmbPrice >= 5000 || rawTitle.includes('极品') || rawTitle.includes('柏林'),
-          createdAt: new Date().toISOString()
+          isHot: rmbPrice >= 5000 || rawTitle.includes('极品') || rawTitle.includes('柏林')
         };
 
         accountMap.set(id, account);
