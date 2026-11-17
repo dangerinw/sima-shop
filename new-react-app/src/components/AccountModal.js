@@ -262,8 +262,10 @@ export default function AccountModal({
   const directUrl = getSourceUrl(account);
 
   const handleCopyOrderInfo = () => {
-    const urlLine = directUrl ? `\nลิงก์ไอดี: ${directUrl}` : '';
-    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดี: #${displayCode}${urlLine}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
+    const rawCodeLine = account.rawBianhao ? `\nรหัสค้นหาในจีน: ${account.rawBianhao}` : '';
+    const sourceShopLine = account.sourceShop ? `\nคลังจีนต้นทาง: ${account.sourceShop}` : '';
+    const urlLine = directUrl ? `\nลิงก์ไอดีในจีน: ${directUrl}` : '';
+    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดีหน้าร้าน: #${displayCode}${rawCodeLine}${sourceShopLine}${urlLine}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
     navigator.clipboard.writeText(orderText);
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2500);
@@ -302,6 +304,28 @@ export default function AccountModal({
                   <span className="text-xs text-slate-300 font-semibold">
                     {getRegionText(account.region)}
                   </span>
+                  {account.rawBianhao && account.rawBianhao !== displayCode && (
+                    <span className="text-[11px] font-mono text-slate-300 bg-slate-900 border border-slate-700 px-2 py-0.5 rounded shadow" title="รหัสต้นฉบับสำหรับค้นหาในเว็บจีน">
+                      🇨🇳 รหัสในจีน: <strong className="text-amber-300 font-bold">{account.rawBianhao}</strong>
+                    </span>
+                  )}
+                  {account.sourceShop && (
+                    <span className="text-[11px] text-blue-300 bg-blue-950/60 border border-blue-800/50 px-2 py-0.5 rounded font-medium">
+                      🏪 {account.sourceShop}
+                    </span>
+                  )}
+                  {directUrl && (
+                    <a
+                      href={directUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-amber-400 hover:text-amber-300 hover:underline flex items-center gap-1 font-bold bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded transition shadow"
+                      title="คลิกเพื่อเปิดดูหน้าไอดีนี้ในเว็บจีนทันที"
+                    >
+                      <span>🔗 ตรวจสอบในเว็บจีน</span>
+                      <span>↗</span>
+                    </a>
+                  )}
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white line-clamp-1 mt-0.5">
                   {title}
@@ -972,10 +996,16 @@ export default function AccountModal({
 
                 <div className="p-3.5 rounded-xl bg-slate-950 font-mono text-xs text-slate-300 border border-slate-800/80 leading-relaxed space-y-1">
                   <div>สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC</div>
-                  <div>รหัสไอดี: <strong className="text-amber-400">#{displayCode}</strong></div>
+                  <div>รหัสไอดีหน้าร้าน: <strong className="text-amber-400">#{displayCode}</strong></div>
+                  {account.rawBianhao && (
+                    <div>รหัสค้นหาในจีน: <strong className="text-amber-300 font-bold">{account.rawBianhao}</strong></div>
+                  )}
+                  {account.sourceShop && (
+                    <div>คลังจีนต้นทาง: <strong className="text-blue-300">{account.sourceShop}</strong></div>
+                  )}
                   {directUrl && (
                     <div className="text-sky-400 break-all">
-                      ลิงก์ไอดี: <a href={directUrl} target="_blank" rel="noreferrer" className="underline hover:text-sky-300">{directUrl}</a>
+                      ลิงก์ไอดีในจีน: <a href={directUrl} target="_blank" rel="noreferrer" className="underline hover:text-sky-300">{directUrl}</a>
                     </div>
                   )}
                   <div>ราคา: <strong className="text-emerald-400">{formatPrice(account.priceVND, account.priceTHB)}</strong></div>
