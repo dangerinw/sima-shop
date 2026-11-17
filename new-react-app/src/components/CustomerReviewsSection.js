@@ -74,8 +74,8 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
 
   useEffect(() => {
     fetchFbReviews();
-    // Auto-sync in background every 30 seconds
-    const interval = setInterval(fetchFbReviews, 30000);
+    // Auto-sync in background every 2 minutes
+    const interval = setInterval(fetchFbReviews, 120000);
     return () => clearInterval(interval);
   }, []);
 

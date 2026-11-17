@@ -216,16 +216,28 @@ function App() {
     soldAccountIds
   ]);
 
-  // Unified China Stock Sync & Auto-Refresh Function (combines cache-busted static JSON + live API)
-  const refreshChinaStock = useCallback(async (isSilent = true) => {
+  // Ref to track if 63MB static stock has already been loaded (to prevent massive redundant downloads)
+  const hasLoadedStaticStockRef = useRef(false);
+
+  // Unified China Stock Sync & Auto-Refresh Function (Optimized for bandwidth preservation)
+  const refreshChinaStock = useCallback(async (isSilent = true, loadStatic = false) => {
     if (!isSilent) setIsStockRefreshing(true);
     try {
-      // 1. Fetch latest static stock from china_stock.json with cache-busting timestamp
-      const staticPromise = fetch(`/data/china_stock.json?_t=${Date.now()}`)
-        .then((res) => (res.ok ? res.json() : null))
-        .catch(() => null);
+      // 1. Fetch static stock from china_stock.json ONLY on initial mount (WITHOUT cache-busting timestamp to allow browser caching)
+      let staticPromise = Promise.resolve(null);
+      if (loadStatic || !hasLoadedStaticStockRef.current) {
+        staticPromise = fetch('/data/china_stock.json')
+          .then((res) => {
+            if (res.ok) {
+              hasLoadedStaticStockRef.current = true;
+              return res.json();
+            }
+            return null;
+          })
+          .catch(() => null);
+      }
 
-      // 2. Query Vercel live serverless proxy if available
+      // 2. Query Vercel live serverless proxy for new arrivals (Lightweight ~10-20KB only!)
       const livePromise = fetch(`/api/china-live-arrivals?pages=2&cnyRateThb=${storeSettings.chinaCnyRateThb || 5.2}&tier1=${storeSettings.chinaMarkupTier1Percent ?? 10}&tier2=${storeSettings.chinaMarkupTier2Percent ?? 13}`)
         .then((res) => (res.ok ? res.json() : null))
         .catch(() => null);
@@ -254,15 +266,24 @@ function App() {
             }
           });
 
-          // 3. Add base stock accounts (exclude China accounts < 500 THB)
-          baseList.forEach((acc) => {
-            if (!map.has(acc.id)) {
-              const priced = calculateCnPricing(acc);
-              if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
-                map.set(acc.id, priced);
+          // 3. Add base stock accounts if static stock was just loaded (exclude China accounts < 500 THB)
+          if (baseList.length > 0) {
+            baseList.forEach((acc) => {
+              if (!map.has(acc.id)) {
+                const priced = calculateCnPricing(acc);
+                if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
+                  map.set(acc.id, priced);
+                }
               }
-            }
-          });
+            });
+          } else {
+            // Keep existing China stock intact when only updating live arrivals
+            prev.forEach((a) => {
+              if (a.region === 'cn' && !map.has(a.id)) {
+                map.set(a.id, a);
+              }
+            });
+          }
 
           return Array.from(map.values());
         });
@@ -275,20 +296,20 @@ function App() {
     }
   }, [calculateCnPricing, storeSettings.chinaCnyRateThb, storeSettings.chinaMarkupTier1Percent, storeSettings.chinaMarkupTier2Percent]);
 
-  // Auto-refresh lifecycle: Initial fetch + Interval (every 60s) + Window Focus Resume
+  // Auto-refresh lifecycle: Initial fetch (with static stock) + Interval (live arrivals only every 120s)
   useEffect(() => {
-    // 1. Initial Load
-    refreshChinaStock(true);
+    // 1. Initial Load: Load static stock once + live arrivals
+    refreshChinaStock(true, true);
 
-    // 2. Continuous Background Interval (every 60 seconds)
+    // 2. Continuous Background Interval: Check ONLY lightweight live arrivals every 2 minutes
     const timer = setInterval(() => {
-      refreshChinaStock(true);
-    }, 60 * 1000);
+      refreshChinaStock(true, false);
+    }, 120 * 1000);
 
-    // 3. Auto-refresh when customer switches back to this browser tab
+    // 3. Auto-refresh when customer switches back to this browser tab (live arrivals only)
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        refreshChinaStock(true);
+        refreshChinaStock(true, false);
       }
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
