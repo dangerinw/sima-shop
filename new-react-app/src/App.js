@@ -223,10 +223,13 @@ function App() {
   const refreshChinaStock = useCallback(async (isSilent = true, loadStatic = false) => {
     if (!isSilent) setIsStockRefreshing(true);
     try {
-      // 1. Fetch static stock from china_stock.json ONLY on initial mount (WITHOUT cache-busting timestamp to allow browser caching)
+      // 1. Fetch static stock from china_stock.json (bypass browser cache if loadStatic is explicitly requested)
       let staticPromise = Promise.resolve(null);
       if (loadStatic || !hasLoadedStaticStockRef.current) {
-        staticPromise = fetch('/data/china_stock.json')
+        const cacheBust = loadStatic ? `?v=${Date.now()}` : '';
+        staticPromise = fetch(`/data/china_stock.json${cacheBust}`, {
+          cache: loadStatic ? 'reload' : 'default'
+        })
           .then((res) => {
             if (res.ok) {
               hasLoadedStaticStockRef.current = true;
