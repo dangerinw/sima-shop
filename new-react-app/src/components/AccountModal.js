@@ -154,8 +154,9 @@ export default function AccountModal({
       setLoadingDetailImg(true);
       const targetCode = account.rawBianhao || account.bianhao || account.id?.replace(/^CN-/, '');
       const targetId = account.rawId || '';
+      const targetSource = account.sourceKey || '';
 
-      const queryUrl = `/api/china-details?bianhao=${encodeURIComponent(targetCode)}&id=${encodeURIComponent(targetId)}`;
+      const queryUrl = `/api/china-details?bianhao=${encodeURIComponent(targetCode)}&id=${encodeURIComponent(targetId)}&source=${encodeURIComponent(targetSource)}`;
 
       fetch(queryUrl)
         .then((r) => {
