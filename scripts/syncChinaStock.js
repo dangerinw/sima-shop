@@ -16,7 +16,7 @@ const isWatch = args.includes('--watch');
 const fetchAll = args.includes('--all') || args.includes('-a');
 const keepStale = args.includes('--keep-stale');
 
-let cliPages = fetchAll ? 9999 : 80; // Default 80 pages (~1,600 fresh active accounts)
+let cliPages = fetchAll ? 9999 : 600; // Default 600 pages (~12,000 active accounts)
 
 const pagesEq = args.find(a => a.startsWith('--pages='));
 if (pagesEq) {
@@ -571,7 +571,7 @@ async function syncCycle() {
     console.log(`⚡ โหมด Fresh Active Inventory: กวาดไอดีสดใหม่จากระบบจีนเท่านั้น (เคลียร์ไอดีที่ขายแล้วออกอัตโนมัติ)`);
   }
 
-  const CONCURRENCY = 12;
+  const CONCURRENCY = 16;
   const startTime = Date.now();
 
   for (const src of SOURCES) {
@@ -643,8 +643,8 @@ async function syncCycle() {
           markupAppliedPercent: priceInfo.activeMarkupPercent,
           profitTHB: priceInfo.profitTHB,
           tags: extractTags(rawTitle),
-          images: images.length > 0 ? images : ['https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80'],
-          coverImg: item.img || images[0] || '',
+          images: item.img ? [item.img] : [],
+          coverImg: item.img || '',
           rank: rankTierTh,
           gunLevel_th: gunLevelTh,
           isSold: false,
