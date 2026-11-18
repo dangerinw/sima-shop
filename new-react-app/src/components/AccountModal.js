@@ -179,6 +179,8 @@ export default function AccountModal({
               account.detailImages = data.detailImages;
               // Automatically switch to detail image once loaded
               setActiveTab('detail');
+            } else {
+              setActiveTab('cover');
             }
           } else if (data && data.success === false) {
             setIsSoldOut(true);
@@ -280,7 +282,7 @@ export default function AccountModal({
   const currentDetailImg = detailImages[0] || '';
   const activeImageUrl = activeTab === 'detail' && currentDetailImg 
     ? currentDetailImg 
-    : (coverImg || currentDetailImg || account.images?.[0] || '');
+    : (coverImg || account.images?.[0] || '');
 
   return (
     <>
@@ -589,10 +591,16 @@ export default function AccountModal({
                 ) : activeTab === 'detail' ? (
                   /* Vertical Scrollable Container for Long Panoramic Detail Image (2160x20000+ px) */
                   <div className="relative w-full rounded-2xl overflow-y-auto overflow-x-hidden bg-black border border-slate-700/80 shadow-2xl h-[560px] sm:h-[680px] lg:h-[750px] scrollbar-thin scrollbar-thumb-amber-500/60 scrollbar-track-slate-900 group">
-                    {activeImageUrl ? (
+                    {loadingDetailImg ? (
+                      <div className="flex flex-col items-center justify-center h-full p-8 text-center">
+                        <div className="w-14 h-14 rounded-full border-4 border-amber-500/20 border-t-amber-500 animate-spin mb-4"></div>
+                        <span className="text-amber-300 font-bold text-sm">กำลังเชื่อมต่อไปยังเซิร์ฟเวอร์จีนเพื่อดึงภาพความละเอียดสูง...</span>
+                        <span className="text-slate-400 text-xs mt-1">กรุณารอสักครู่ ระบบกำลังดึงรูปสกินและสถิติในเกมจริง</span>
+                      </div>
+                    ) : currentDetailImg ? (
                       <div className="w-full flex flex-col items-center">
                         <img
-                          src={activeImageUrl}
+                          src={currentDetailImg}
                           alt={title}
                           className="w-full h-auto block select-none cursor-zoom-in"
                           onClick={() => setIsLightboxOpen(true)}
@@ -600,41 +608,51 @@ export default function AccountModal({
                         />
                       </div>
                     ) : (
-                      <div className="flex flex-col items-center justify-center h-full p-8 text-center text-slate-500">
-                        <span className="text-4xl mb-2">🖼️</span>
-                        <span className="font-bold">กำลังโหลดรูปภาพจากระบบ...</span>
+                      <div className="flex flex-col items-center justify-center h-full p-8 text-center max-w-md mx-auto">
+                        <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl mb-4 text-amber-400">
+                          🖼️
+                        </div>
+                        <h4 className="text-base font-black text-white mb-2">
+                          ไอดีนี้แสดงภาพหน้าคลังสกิน 20 ช่อง
+                        </h4>
+                        <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                          ทางผู้ขายในระบบจีนได้แนบภาพสรุปคลัง 20 ช่องไว้เป็นภาพหลัก หากต้องการดูสกินหรือสถิติในเกมเพิ่มเติม สามารถทักแชทให้แอดมินเปิดสเปกให้ดูได้ทันทีครับ
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => setActiveTab('cover')}
+                          className="py-2.5 px-5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-black text-xs transition-all shadow-lg shadow-amber-900/20"
+                        >
+                          🖼️ สลับไปดูรูปหน้าคลังหลัก (สกิน 20 ช่อง)
+                        </button>
                       </div>
                     )}
 
                     {/* Floating hint to scroll down */}
-                    <div className="sticky bottom-3 inset-x-3 flex justify-between items-center pointer-events-none z-10 px-2">
-                      <div className="bg-slate-950/90 text-amber-300 text-xs px-3.5 py-2 rounded-xl border border-amber-500/40 backdrop-blur-md shadow-2xl flex items-center gap-2 pointer-events-auto animate-bounce">
-                        <span className="text-sm">⬇️</span>
-                        <span className="font-bold">เลื่อนเมาส์ลงเพื่อดูสกิน & สถิติทั้งหมด</span>
-                      </div>
+                    {currentDetailImg && !loadingDetailImg && (
+                      <div className="sticky bottom-3 inset-x-3 flex justify-between items-center pointer-events-none z-10 px-2">
+                        <div className="bg-slate-950/90 text-amber-300 text-xs px-3.5 py-2 rounded-xl border border-amber-500/40 backdrop-blur-md shadow-2xl flex items-center gap-2 pointer-events-auto animate-bounce">
+                          <span className="text-sm">⬇️</span>
+                          <span className="font-bold">เลื่อนเมาส์ลงเพื่อดูสกิน & สถิติทั้งหมด</span>
+                        </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setIsLightboxOpen(true)}
-                        className="bg-black/90 hover:bg-black text-amber-400 text-xs px-3.5 py-2 rounded-xl border border-amber-500/40 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-2xl pointer-events-auto font-bold"
-                      >
-                        <span>🔍</span>
-                        <span>ขยายเต็มจอ</span>
-                      </button>
-                    </div>
+                        <button
+                          type="button"
+                          onClick={() => setIsLightboxOpen(true)}
+                          className="bg-black/90 hover:bg-black text-amber-400 text-xs px-3.5 py-2 rounded-xl border border-amber-500/40 backdrop-blur-md transition-all flex items-center gap-1.5 shadow-2xl pointer-events-auto font-bold"
+                        >
+                          <span>🔍</span>
+                          <span>ขยายเต็มจอ</span>
+                        </button>
+                      </div>
+                    )}
 
                     {/* Top Left Badge Indicator */}
-                    <div className="sticky top-3 left-3 z-10 flex items-center gap-2 pointer-events-none px-2">
-                      <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-black/85 text-amber-300 border border-amber-500/40 backdrop-blur-md shadow">
-                        📊 รูปรายละเอียดสถิติ & สกินในเกม (เลื่อนลงเพื่อดูต่อ)
-                      </span>
-                    </div>
-
-                    {/* Live Loading Spinner Indicator */}
-                    {loadingDetailImg && (
-                      <div className="absolute top-12 left-4 bg-slate-900/95 border border-amber-500/40 text-amber-300 text-xs px-3 py-1.5 rounded-full flex items-center gap-2 shadow-2xl backdrop-blur-md animate-pulse z-20">
-                        <span className="animate-spin text-sm">⏳</span>
-                        <span>กำลังดึงรูปรายละเอียดในเกมความละเอียดสูงจากจีน...</span>
+                    {currentDetailImg && !loadingDetailImg && (
+                      <div className="sticky top-3 left-3 z-10 flex items-center gap-2 pointer-events-none px-2">
+                        <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-black/85 text-amber-300 border border-amber-500/40 backdrop-blur-md shadow">
+                          📊 รูปรายละเอียดสถิติ & สกินในเกม (เลื่อนลงเพื่อดูต่อ)
+                        </span>
                       </div>
                     )}
                   </div>

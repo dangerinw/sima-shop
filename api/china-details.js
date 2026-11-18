@@ -41,42 +41,72 @@ module.exports = async function handler(req, res) {
 
   try {
     const { id, bianhao, url, source } = req.query;
-    const queryInput = String(url || bianhao || id || '').trim();
 
-    if (!queryInput) {
+    // 1. Direct Numeric ID (Top Priority from account.rawId or URL query)
+    let directNumericId = null;
+    if (id && /^\d+$/.test(String(id).trim())) {
+      directNumericId = String(id).trim();
+    }
+
+    const rawInput = String(url || bianhao || id || '').trim();
+    if (!rawInput && !directNumericId) {
       return res.status(400).json({ success: false, message: 'กรุณากรอกลิงก์ หรือรหัสไอดีจีน (Missing id, bianhao, or url parameter)' });
     }
 
-    // Detect Source Platform from URL or code
-    let detectedSource = source ? String(source).toLowerCase() : null;
-    let cleanCode = queryInput.replace(/^CN-/, '').trim();
-    let directNumericId = null;
-
-    if (/xf\.ayxds\.com/i.test(queryInput) || /^XF/i.test(queryInput)) {
-      detectedSource = 'xf';
-    } else if (/yyyxkch\.com/i.test(queryInput)) {
-      detectedSource = 'yyy';
-    } else if (/xmgg\.ayxds\.com/i.test(queryInput)) {
-      detectedSource = 'xmgg';
-    } else if (/xuegaokk\.ayxds\.com/i.test(queryInput) || /^XGKK/i.test(queryInput)) {
-      detectedSource = 'xgkk';
-    }
-
-    // Extract ID or Code from URL if full URL is passed
-    const mId = queryInput.match(/[?&#]id=([0-9]+)/i);
-    const mBianhao = queryInput.match(/[?&#]bianhao=([A-Za-z0-9_-]+)/i);
-
+    // Extract ID from URL if full URL is passed
+    const mId = rawInput.match(/[?&#]id=([0-9]+)/i);
     if (mId) {
       directNumericId = mId[1];
-      cleanCode = mId[1];
-    } else if (mBianhao) {
-      cleanCode = mBianhao[1];
-    } else if (/^\d+$/.test(cleanCode)) {
-      directNumericId = cleanCode;
-    } else {
-      const mCode = queryInput.match(/([A-Za-z0-9_-]{4,30})/);
-      if (mCode && !queryInput.startsWith('http')) {
-        cleanCode = mCode[1];
+    } else if (!directNumericId && /^\d+$/.test(rawInput)) {
+      directNumericId = rawInput;
+    }
+
+    // Extract Clean Code
+    let cleanCode = String(bianhao || rawInput).trim();
+    cleanCode = cleanCode.replace(/^CN-/i, '').trim();
+
+    const mBianhao = rawInput.match(/[?&#]bianhao=([^&#]+)/i);
+    if (mBianhao) {
+      cleanCode = decodeURIComponent(mBianhao[1]).trim();
+    }
+
+    // Check code prefix for source hints
+    let prefixSource = null;
+    if (/^XMGG[-_]/i.test(cleanCode)) {
+      prefixSource = 'xmgg';
+      cleanCode = cleanCode.replace(/^XMGG[-_]/i, '').trim();
+    } else if (/^XGKK[-_]/i.test(cleanCode)) {
+      prefixSource = 'xgkk';
+      cleanCode = cleanCode.replace(/^XGKK[-_]/i, '').trim();
+    } else if (/^XF[-_]/i.test(cleanCode)) {
+      prefixSource = 'xf';
+      cleanCode = cleanCode.replace(/^XF[-_]/i, '').trim();
+    } else if (/^DLMX[-_]/i.test(cleanCode)) {
+      prefixSource = 'yyy';
+    }
+
+    // Detect Source Platform
+    let detectedSource = source ? String(source).toLowerCase().trim() : null;
+    if (detectedSource) {
+      if (detectedSource.includes('xmgg') || detectedSource === 'link 3') detectedSource = 'xmgg';
+      else if (detectedSource.includes('xgkk') || detectedSource.includes('xuegao') || detectedSource === 'link 4') detectedSource = 'xgkk';
+      else if (detectedSource.includes('xf') || detectedSource === 'link 1') detectedSource = 'xf';
+      else if (detectedSource.includes('yyy') || detectedSource === 'link 2') detectedSource = 'yyy';
+    }
+
+    if (!detectedSource && prefixSource) {
+      detectedSource = prefixSource;
+    }
+
+    if (!detectedSource) {
+      if (/xf\.ayxds\.com/i.test(rawInput)) {
+        detectedSource = 'xf';
+      } else if (/yyyxkch\.com/i.test(rawInput) || /^DLMX/i.test(cleanCode)) {
+        detectedSource = 'yyy';
+      } else if (/xmgg\.ayxds\.com/i.test(rawInput)) {
+        detectedSource = 'xmgg';
+      } else if (/xuegaokk\.ayxds\.com/i.test(rawInput)) {
+        detectedSource = 'xgkk';
       }
     }
 
@@ -88,7 +118,7 @@ module.exports = async function handler(req, res) {
         let yyyItem = null;
 
         // If numeric ID and detected as yyy (e.g. from yyyxkch.com URL)
-        if (directNumericId && (detectedSource === 'yyy' || Number(directNumericId) < 100000)) {
+        if (directNumericId && (detectedSource === 'yyy' || Number(directNumericId) < 1000000)) {
           const infoRes = await fetch('https://www.yyyxkch.com/api/goods_info', {
             method: 'POST',
             headers: {
@@ -178,65 +208,28 @@ module.exports = async function handler(req, res) {
     // ================================================================
     // SOURCES 1, 3, 4: AYXDS Platform (XF, XMGG, XGKK)
     // ================================================================
+    const ayxdsOrigins = {
+      xmgg: { origin: 'https://xmgg.ayxds.com', code: 'XMGG', name: 'XMGG Shop (Link 3)', url: 'https://xmgg.ayxds.com/pc/' },
+      xgkk: { origin: 'https://xuegaokk.ayxds.com', code: 'XGKK', name: 'XueGaoKK (Link 4)', url: 'https://xuegaokk.ayxds.com/pc/' },
+      xf: { origin: 'https://xf.ayxds.com', code: 'XF', name: 'XF Shop (Link 1)', url: 'https://xf.ayxds.com/pc/' }
+    };
+
     const candidateOrigins = [];
-    if (detectedSource === 'xf') {
-      candidateOrigins.push({ origin: 'https://xf.ayxds.com', code: 'XF', name: 'XF Shop', url: 'https://xf.ayxds.com/pc/' });
-    } else if (detectedSource === 'xmgg') {
-      candidateOrigins.push({ origin: 'https://xmgg.ayxds.com', code: 'XMGG', name: 'XMGG Shop', url: 'https://xmgg.ayxds.com/pc/' });
+    if (detectedSource === 'xmgg') {
+      candidateOrigins.push(ayxdsOrigins.xmgg, ayxdsOrigins.xgkk, ayxdsOrigins.xf);
     } else if (detectedSource === 'xgkk') {
-      candidateOrigins.push({ origin: 'https://xuegaokk.ayxds.com', code: 'XGKK', name: 'XueGaoKK', url: 'https://xuegaokk.ayxds.com/pc/' });
+      candidateOrigins.push(ayxdsOrigins.xgkk, ayxdsOrigins.xmgg, ayxdsOrigins.xf);
+    } else if (detectedSource === 'xf') {
+      candidateOrigins.push(ayxdsOrigins.xf, ayxdsOrigins.xmgg, ayxdsOrigins.xgkk);
     } else {
-      // Prioritize based on code prefix if recognizable
-      if (/^XF/i.test(cleanCode)) {
-        candidateOrigins.push({ origin: 'https://xf.ayxds.com', code: 'XF', name: 'XF Shop', url: 'https://xf.ayxds.com/pc/' });
-      } else if (/^XGKK/i.test(cleanCode)) {
-        candidateOrigins.push({ origin: 'https://xuegaokk.ayxds.com', code: 'XGKK', name: 'XueGaoKK', url: 'https://xuegaokk.ayxds.com/pc/' });
-      } else if (/^DLMX/i.test(cleanCode)) {
-        candidateOrigins.push({ origin: 'https://xmgg.ayxds.com', code: 'XMGG', name: 'XMGG Shop', url: 'https://xmgg.ayxds.com/pc/' });
-      }
-      
-      // Fallback candidates
-      [
-        { origin: 'https://xf.ayxds.com', code: 'XF', name: 'XF Shop', url: 'https://xf.ayxds.com/pc/' },
-        { origin: 'https://xmgg.ayxds.com', code: 'XMGG', name: 'XMGG Shop', url: 'https://xmgg.ayxds.com/pc/' },
-        { origin: 'https://xuegaokk.ayxds.com', code: 'XGKK', name: 'XueGaoKK', url: 'https://xuegaokk.ayxds.com/pc/' }
-      ].forEach(cand => {
-        if (!candidateOrigins.some(c => c.origin === cand.origin)) {
-          candidateOrigins.push(cand);
-        }
-      });
+      candidateOrigins.push(ayxdsOrigins.xmgg, ayxdsOrigins.xgkk, ayxdsOrigins.xf);
     }
 
     for (const item of candidateOrigins) {
       try {
-        let targetId = directNumericId && Number(directNumericId) > 1000000 ? directNumericId : null;
+        let targetId = directNumericId ? Number(directNumericId) : null;
 
-        // Search in newShangpinList if not a direct numeric ID
-        if (!targetId) {
-          const listRes = await fetch('https://fzht.xuxug.com/api/api/newShangpinList', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json, text/plain, */*',
-              'Content-Type': 'application/json',
-              'Origin': item.origin,
-              'Referer': `${item.origin}/`,
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            },
-            body: JSON.stringify({
-              page: 1,
-              datainfo: { zuidijia: '', zuigaojia: '', guanjianci: cleanCode, biaoqian: [], paixu: '' }
-            })
-          });
-
-          if (listRes.ok) {
-            const listData = await listRes.json();
-            const found = listData?.data?.data?.[0];
-            if (found && found.id) {
-              targetId = found.id;
-            }
-          }
-        }
-
+        // Try direct lookup with targetId first if available
         if (targetId) {
           const detailRes = await fetch('https://fzht.xuxug.com/api/api/newGoodsDetails', {
             method: 'POST',
@@ -247,7 +240,7 @@ module.exports = async function handler(req, res) {
               'Referer': `${item.origin}/`,
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
             },
-            body: JSON.stringify({ id: Number(targetId) })
+            body: JSON.stringify({ id: targetId })
           });
 
           if (detailRes.ok) {
@@ -288,6 +281,96 @@ module.exports = async function handler(req, res) {
                 originalPriceVND: priceInfo.originalPriceVND,
                 shoujiaRmb: data.shoujia || 0
               });
+            }
+          }
+        }
+
+        // If no direct ID or direct ID not found on this origin, search newShangpinList with cleanCode
+        if (cleanCode) {
+          const listRes = await fetch('https://fzht.xuxug.com/api/api/newShangpinList', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json',
+              'Origin': item.origin,
+              'Referer': `${item.origin}/`,
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            },
+            body: JSON.stringify({
+              page: 1,
+              datainfo: { zuidijia: '', zuigaojia: '', guanjianci: cleanCode, biaoqian: [], paixu: '' }
+            })
+          });
+
+          if (listRes.ok) {
+            const listData = await listRes.json();
+            const list = listData?.data?.data || [];
+            
+            // STRICT MATCHING: Only accept item if its bianhao, id, or clean code matches!
+            // Never blindly pick list[0] to prevent mismatching accounts!
+            const matched = list.find(it => {
+              if (!it) return false;
+              if (String(it.id) === String(cleanCode)) return true;
+              const itBianhao = String(it.bianhao || '').trim().toLowerCase();
+              const target = String(cleanCode).trim().toLowerCase();
+              if (itBianhao === target) return true;
+              if (itBianhao.includes(target) || target.includes(itBianhao)) return true;
+              return false;
+            });
+
+            if (matched && matched.id) {
+              const detailRes = await fetch('https://fzht.xuxug.com/api/api/newGoodsDetails', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json, text/plain, */*',
+                  'Content-Type': 'application/json',
+                  'Origin': item.origin,
+                  'Referer': `${item.origin}/`,
+                  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                },
+                body: JSON.stringify({ id: Number(matched.id) })
+              });
+
+              if (detailRes.ok) {
+                const detailData = await detailRes.json();
+                if (detailData.code === 'true' && detailData.data && detailData.data.title) {
+                  const data = detailData.data;
+                  const coverImg = data.img || '';
+                  const detailImages = [];
+                  const imgRegex = /src=["']([^"']+)["']/g;
+                  let match;
+                  while ((match = imgRegex.exec(data.xiangqing || '')) !== null) {
+                    if (match[1] && !detailImages.includes(match[1]) && match[1] !== coverImg) {
+                      detailImages.push(match[1]);
+                    }
+                  }
+
+                  const priceInfo = calculateTieredPrice(data.shoujia || 0);
+
+                  return res.status(200).json({
+                    success: true,
+                    source: item.code,
+                    sourceName: `${item.name}`,
+                    sourceUrl: item.url,
+                    rawId: data.id,
+                    bianhao: data.bianhao || cleanCode,
+                    title: data.title,
+                    coverImg,
+                    detailImages,
+                    specs: {
+                      shengcundengji: data.shengcundengji || 'สี่ขั้นตอน (Tier 4)',
+                      xinyongdengji: data.xinyongdengji || 'ระดับ 3 (สมบูรณ์)',
+                      shifoupaiwei: data.shifoupaiwei || '1',
+                      shoujiaRmb: data.shoujia || 0
+                    },
+                    priceTHB: priceInfo.priceTHB,
+                    priceVND: priceInfo.priceVND,
+                    originalPriceTHB: priceInfo.originalPriceTHB,
+                    originalPriceVND: priceInfo.originalPriceVND,
+                    shoujiaRmb: data.shoujia || 0
+                  });
+                }
+              }
             }
           }
         }
