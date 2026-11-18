@@ -1001,7 +1001,7 @@ function App() {
       <CountryRulesSection lang={lang} t={t} onOpenWarranty={handleOpenWarranty} />
 
       {/* Verified Customer Reviews & Facebook Testimonials (id="reviews") ⭐ */}
-      <CustomerReviewsSection lang={lang} t={t} />
+      <CustomerReviewsSection lang={lang} t={t} storeSettings={storeSettings} />
 
       {/* Trust & Guarantee Section */}
       <FeaturesSection t={t} />

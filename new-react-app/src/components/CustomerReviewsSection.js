@@ -51,13 +51,16 @@ const DEFAULT_VERIFIED_REVIEWS = [
   }
 ];
 
-export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
+export default function CustomerReviewsSection({ lang = 'th', t = {}, storeSettings = {} }) {
   const fbPostUrl = 'https://www.facebook.com/photo?fbid=122106639411543579&set=a.122106640989543579';
   const fbEmbedUrl = 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D122106639411543579&show_text=true&width=500';
 
   // Toggle between Cards view (default) and Original Facebook Post Embed
   const [activeView, setActiveView] = useState('cards'); // 'cards' | 'embed'
   const [reviews, setReviews] = useState(() => {
+    if (storeSettings?.customReviews && Array.isArray(storeSettings.customReviews) && storeSettings.customReviews.length > 0) {
+      return storeSettings.customReviews;
+    }
     try {
       const saved = localStorage.getItem('sima_custom_reviews');
       if (saved) {
@@ -68,9 +71,16 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
     return DEFAULT_VERIFIED_REVIEWS;
   });
 
+  // Keep reviews in sync when storeSettings updates
+  useEffect(() => {
+    if (storeSettings?.customReviews && Array.isArray(storeSettings.customReviews) && storeSettings.customReviews.length > 0) {
+      setReviews(storeSettings.customReviews);
+    }
+  }, [storeSettings?.customReviews]);
+
   const [stats, setStats] = useState({
-    commentsCount: 4,
-    reactionsCount: 3,
+    commentsCount: storeSettings?.reviewsCommentsCount || 4,
+    reactionsCount: storeSettings?.reviewsReactionsCount || 3,
     rating: '5.0'
   });
 

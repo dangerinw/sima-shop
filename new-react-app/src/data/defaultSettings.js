@@ -34,6 +34,60 @@ export const defaultStoreSettings = {
   deliveredCountMode: 'real', // 'real' | 'custom'
   baseDeliveredCount: 0,
 
+  // Facebook Customer Reviews
+  customReviews: [
+    {
+      id: 'real_fb_1',
+      name: 'JobJab Troy',
+      initials: 'JT',
+      comment: '++ ค้าบบบริการดีมาก🥰',
+      rating: 5,
+      date: '1 วันที่แล้ว',
+      verified: true,
+      hasAuthorHeart: true,
+      typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+      highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+    },
+    {
+      id: 'real_fb_2',
+      name: "Freedyz M'Issarapong",
+      initials: 'FI',
+      comment: 'บริการดีจริงครับ',
+      rating: 5,
+      date: '1 วันที่แล้ว',
+      verified: true,
+      hasAuthorHeart: true,
+      typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+      highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+    },
+    {
+      id: 'real_fb_3',
+      name: 'Kittisak Tonphotham',
+      initials: 'KT',
+      comment: '+1 เครดิตแน่น ซื้อขายปลอดภัย ไว้วางใจได้ครับ',
+      rating: 5,
+      date: '1 วันที่แล้ว',
+      verified: true,
+      hasAuthorHeart: false,
+      typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+      highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+    },
+    {
+      id: 'real_fb_4',
+      name: 'Ploykanok Saejew',
+      initials: 'PS',
+      comment: '+++ บริการรวดเร็วมาก ได้ไอดีชัวร์ 100%',
+      rating: 5,
+      date: '1 วันที่แล้ว',
+      verified: true,
+      hasAuthorHeart: false,
+      typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+      highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+    }
+  ],
+  reviewsCommentsCount: 4,
+  reviewsReactionsCount: 3,
+
   // Cloud Database Configuration (Google Firebase 🔥 / Supabase ⚡)
   cloudDbProvider: 'firebase', // 'firebase' | 'supabase'
   useCloudDb: true,

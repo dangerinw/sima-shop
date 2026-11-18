@@ -44,6 +44,71 @@ export default function AdminDashboard({
   const [cloudTestResult, setCloudTestResult] = useState(null);
   const [showAnonKey, setShowAnonKey] = useState(false);
 
+  // Customer Reviews Management State
+  const [newReviewForm, setNewReviewForm] = useState({
+    name: '',
+    comment: '',
+    rating: 5,
+    date: 'ล่าสุด',
+    verified: true,
+    hasAuthorHeart: false,
+    typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+    highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+  });
+  const [isAddingReview, setIsAddingReview] = useState(false);
+
+  const handleAddReview = () => {
+    if (!newReviewForm.name.trim() || !newReviewForm.comment.trim()) {
+      alert('กรุณากรอกชื่อลูกค้าและข้อความรีวิวให้ครบถ้วนครับ');
+      return;
+    }
+    const nameParts = newReviewForm.name.trim().split(' ').filter(Boolean);
+    const initials = nameParts.length > 1
+      ? (nameParts[0][0] + nameParts[1][0]).toUpperCase()
+      : newReviewForm.name.trim().slice(0, 2).toUpperCase();
+
+    const newRev = {
+      id: `fb_custom_${Date.now()}`,
+      name: newReviewForm.name.trim(),
+      initials: initials || 'FB',
+      comment: newReviewForm.comment.trim(),
+      rating: Number(newReviewForm.rating) || 5,
+      date: newReviewForm.date || 'ล่าสุด',
+      verified: true,
+      hasAuthorHeart: Boolean(newReviewForm.hasAuthorHeart),
+      typeBadge: newReviewForm.typeBadge || '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+      highlight: newReviewForm.highlight || 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+    };
+
+    const currentList = settingsForm.customReviews || defaultStoreSettings.customReviews || [];
+    const updated = [newRev, ...currentList];
+    const newSettings = { ...settingsForm, customReviews: updated, reviewsCommentsCount: updated.length };
+    setSettingsForm(newSettings);
+    if (onUpdateStoreSettings) {
+      onUpdateStoreSettings(newSettings);
+    }
+    try {
+      localStorage.setItem('sima_custom_reviews', JSON.stringify(updated));
+    } catch (_) {}
+    setIsAddingReview(false);
+    setNewReviewForm({ name: '', comment: '', rating: 5, date: 'ล่าสุด', verified: true, hasAuthorHeart: false, typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook', highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM' });
+    alert('เพิ่มรีวิวใหม่เรียบร้อยแล้วและขึ้นหน้าร้านทันที!');
+  };
+
+  const handleDeleteReview = (id) => {
+    if (!window.confirm('คุณต้องการลบรีวิวนี้ใช่หรือไม่?')) return;
+    const currentList = settingsForm.customReviews || defaultStoreSettings.customReviews || [];
+    const updated = currentList.filter((r) => r.id !== id);
+    const newSettings = { ...settingsForm, customReviews: updated, reviewsCommentsCount: updated.length };
+    setSettingsForm(newSettings);
+    if (onUpdateStoreSettings) {
+      onUpdateStoreSettings(newSettings);
+    }
+    try {
+      localStorage.setItem('sima_custom_reviews', JSON.stringify(updated));
+    } catch (_) {}
+  };
+
   // China Real-time Sync State
   const [syncingChina, setSyncingChina] = useState(false);
   const [chinaSyncLogs, setChinaSyncLogs] = useState([]);
@@ -498,6 +563,15 @@ export default function AdminDashboard({
             >
               <span>🇨🇳</span>
               <span>ซิงค์สต็อกจีน Real-time</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('reviews')}
+              className={`px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
+                activeTab === 'reviews' ? 'bg-amber-500 text-black shadow' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <span>⭐</span>
+              <span>จัดการรีวิว Facebook ({(settingsForm.customReviews || defaultStoreSettings.customReviews || []).length})</span>
             </button>
           </div>
 
@@ -1798,6 +1872,169 @@ export default function AdminDashboard({
                   ))
                 )}
               </div>
+            </div>
+
+          </div>
+        )}
+
+        {/* REVIEWS MANAGEMENT TAB ⭐ */}
+        {activeTab === 'reviews' && (
+          <div className="space-y-6">
+            
+            {/* Header & Add Button */}
+            <div className="bg-[#111723] p-6 rounded-2xl border border-slate-800 shadow flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-black text-white flex items-center gap-2">
+                  <span>⭐</span>
+                  <span>จัดการรีวิวและเครดิตจาก Facebook</span>
+                  <span className="text-xs bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded font-mono font-bold">
+                    {(settingsForm.customReviews || defaultStoreSettings.customReviews || []).length} รีวิว
+                  </span>
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  เพิ่ม แก้ไข หรือลบรีวิวที่แสดงบนหน้าแรกของเว็บได้ทันที (ซิงก์ตรงกันทุกอุปกรณ์)
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsAddingReview(!isAddingReview)}
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-black text-xs sm:text-sm shadow-lg shadow-amber-950/40 flex items-center gap-2 transition-all active:scale-95"
+              >
+                <span>{isAddingReview ? '✕ ปิดฟอร์ม' : '+ เพิ่มรีวิวใหม่'}</span>
+              </button>
+            </div>
+
+            {/* Add Review Form */}
+            {isAddingReview && (
+              <div className="bg-[#151c2c] p-6 rounded-2xl border-2 border-amber-500/50 shadow-2xl space-y-4">
+                <h4 className="text-sm font-black text-amber-400 flex items-center gap-2">
+                  <span>✍️</span>
+                  <span>กรอกข้อมูลรีวิวใหม่จาก Facebook</span>
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 mb-1">ชื่อลูกค้า (Facebook Name) *</label>
+                    <input
+                      type="text"
+                      placeholder="เช่น Kittisak Tonphotham หรือ Somchai"
+                      value={newReviewForm.name}
+                      onChange={(e) => setNewReviewForm({ ...newReviewForm, name: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 mb-1">วันที่ / เวลาแสดง</label>
+                    <input
+                      type="text"
+                      placeholder="เช่น ล่าสุด หรือ 1 วันที่แล้ว"
+                      value={newReviewForm.date}
+                      onChange={(e) => setNewReviewForm({ ...newReviewForm, date: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-slate-300 mb-1">ข้อความรีวิวของลูกค้า *</label>
+                    <textarea
+                      rows="3"
+                      placeholder="เช่น +1 ได้ไอดีจริง บริการไวมาก แอดมินตอบไวครับ"
+                      value={newReviewForm.comment}
+                      onChange={(e) => setNewReviewForm({ ...newReviewForm, comment: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
+                    ></textarea>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 mb-1">ป้ายกำกับรีวิว</label>
+                    <input
+                      type="text"
+                      placeholder="🌟 คอมเมนต์จริงจากโพสต์ Facebook"
+                      value={newReviewForm.typeBadge}
+                      onChange={(e) => setNewReviewForm({ ...newReviewForm, typeBadge: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-4 pt-4">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-300">
+                      <input
+                        type="checkbox"
+                        checked={newReviewForm.hasAuthorHeart}
+                        onChange={(e) => setNewReviewForm({ ...newReviewForm, hasAuthorHeart: e.target.checked })}
+                        className="rounded accent-amber-500 w-4 h-4"
+                      />
+                      <span>ติดป้าย "💖 โดยผู้เขียน" (Author Loved)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex items-center justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsAddingReview(false)}
+                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs"
+                  >
+                    ยกเลิก
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleAddReview}
+                    className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm shadow-lg shadow-emerald-950/40"
+                  >
+                    ✓ บันทึกรีวิวขึ้นหน้าร้านทันที
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Reviews List Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(settingsForm.customReviews || defaultStoreSettings.customReviews || []).map((rev, index) => (
+                <div
+                  key={rev.id || index}
+                  className="bg-[#111723] p-5 rounded-2xl border border-slate-800 shadow flex flex-col justify-between space-y-3"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-blue-600/30 border border-blue-400 text-blue-300 font-black text-sm flex items-center justify-center shrink-0">
+                        {rev.initials || 'FB'}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <h4 className="font-bold text-white text-sm">{rev.name}</h4>
+                          {rev.hasAuthorHeart && (
+                            <span className="text-[10px] bg-pink-500/20 text-pink-400 border border-pink-500/30 px-1.5 py-0.5 rounded font-black">
+                              💖 ผู้เขียน
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-[11px] text-slate-400 mt-0.5">{rev.date || 'ล่าสุด'}</div>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteReview(rev.id)}
+                      className="px-2.5 py-1 rounded-lg bg-rose-950/60 hover:bg-rose-900/60 text-rose-300 border border-rose-800/40 text-xs font-bold transition-colors"
+                      title="ลบรีวิวนี้"
+                    >
+                      🗑️ ลบ
+                    </button>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 text-xs sm:text-sm text-slate-200">
+                    "{rev.comment}"
+                  </div>
+
+                  <div className="text-[11px] text-slate-400 flex items-center justify-between pt-1">
+                    <span className="text-amber-400 font-bold">⭐⭐⭐⭐⭐ 5.0 ดาว</span>
+                    <span className="text-blue-400 font-medium">{rev.typeBadge || '🌟 คอมเมนต์จริงจากโพสต์ Facebook'}</span>
+                  </div>
+                </div>
+              ))}
             </div>
 
           </div>
