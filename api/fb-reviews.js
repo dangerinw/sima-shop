@@ -13,7 +13,8 @@ module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
 
   const FB_POST_FBID = process.env.FB_POST_ID || '122106639411543579';
-  const accessToken = process.env.FB_PAGE_ACCESS_TOKEN || req.query.token;
+  const defaultPageToken = 'EAAi0hmBXtNgBTAA2RZB8y7CrsZCgn3mz3W0CeOZC6YTJ487NktlHAZCYyBpF2kESrdPrB8SLIWxPbZAX1axJYXoOPKZC6eYLKOs8vaDpDxvCju4id2rzsmG6mB6LVmpiPnsyDRJcZAwvuzMdwIpcg0vDnTjjejZALT4opxCspw6jJ94J4jOl3UUdr9x884w9AcwBu9zCYX8JHE0YZB1zZAkx8KpwCvJFqrMfBNVYhZCX00ZD';
+  const accessToken = process.env.FB_PAGE_ACCESS_TOKEN || req.query.token || defaultPageToken;
 
   // 1. Official Meta Graph API (100% Live Auto Sync when Token is configured)
   if (accessToken) {
