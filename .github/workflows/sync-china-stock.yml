@@ -2,10 +2,11 @@ name: Automated 24/7 China PUBG Stock Sync (Zero-DB Free Mode)
 
 on:
   schedule:
-    # Run every 30 minutes automatically 24/7
-    - cron: '*/30 * * * *'
+    # Run every 6 hours automatically (4 times a day: 07:00, 13:00, 19:00, 01:00 TH)
+    # Balanced to keep within GitHub Actions free tier (720 / 2,000 min) while keeping 35,000+ accounts ultra-fresh
+    - cron: '0 */6 * * *'
   workflow_dispatch:
-    # Allows manual trigger button from GitHub Actions UI
+    # Allows manual trigger button from GitHub Actions UI at any time
 
 permissions:
   contents: write
@@ -42,4 +43,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add new-react-app/public/data/china_stock.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(stock): auto-update China inventory [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(stock): auto-update China inventory" && git push)
