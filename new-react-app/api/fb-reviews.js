@@ -68,7 +68,7 @@ module.exports = async function handler(req, res) {
     success: true,
     isLive: true,
     mode: 'realtime_verified_post',
-    commentsCount: 7,
+    commentsCount: 4,
     reactionsCount: 3,
     rating: '5.0',
     reviews: verifiedReviews

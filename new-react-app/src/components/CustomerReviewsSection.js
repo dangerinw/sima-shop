@@ -69,7 +69,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
   });
 
   const [stats, setStats] = useState({
-    commentsCount: 7,
+    commentsCount: 4,
     reactionsCount: 3,
     rating: '5.0'
   });
@@ -89,7 +89,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {} }) {
             setReviews(data.reviews);
           }
           setStats({
-            commentsCount: data.commentsCount || 7,
+            commentsCount: data.commentsCount || 4,
             reactionsCount: data.reactionsCount || 3,
             rating: data.rating || '5.0'
           });
