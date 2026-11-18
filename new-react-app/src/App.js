@@ -22,6 +22,23 @@ import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
 import { dbService } from './services/dbService';
 import { isSkinMatchingAccount } from './utils/pubgSkinMatcher';
 
+// Cross-shop deduplication key helper for Chinese accounts
+function getCnDedupKey(acc) {
+  if (!acc) return '';
+  if (acc.coverImg) {
+    const mImg = acc.coverImg.match(/([0-9a-zA-Z_-]+\.(png|jpg|jpeg|webp))/i);
+    if (mImg && !mImg[1].toLowerCase().startsWith('default')) return 'IMG_' + mImg[1].toLowerCase();
+  }
+  const code = (acc.bianhao || acc.id || '')
+    .replace(/^CN-/, '')
+    .replace(/^(XMGG|XGKK|XF)-/i, '')
+    .trim()
+    .toUpperCase();
+  if (code && code.length >= 4) return 'CODE_' + code;
+  if (acc.rawBianhao) return 'RAW_' + acc.rawBianhao.trim();
+  return acc.id;
+}
+
 function App() {
   const [currency, setCurrency] = useState(() => {
     try {
@@ -253,11 +270,24 @@ function App() {
       if (baseList.length > 0 || liveItems.length > 0) {
         setAccounts((prev) => {
           const map = new Map();
+          const seenCnKeys = new Set();
+
+          const addAccountDedup = (acc) => {
+            if (!acc || !acc.id) return;
+            if (acc.region === 'cn') {
+              const dedupKey = getCnDedupKey(acc);
+              if (dedupKey) {
+                if (seenCnKeys.has(dedupKey)) return;
+                seenCnKeys.add(dedupKey);
+              }
+            }
+            map.set(acc.id, acc);
+          };
 
           // 1. Preserve local / Thai / VN custom accounts
           prev.forEach((a) => {
             if (a.region !== 'cn' || a.isCustomLocal) {
-              map.set(a.id, a);
+              addAccountDedup(a);
             }
           });
 
@@ -265,25 +295,23 @@ function App() {
           liveItems.forEach((acc) => {
             const priced = calculateCnPricing(acc);
             if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
-              map.set(acc.id, priced);
+              addAccountDedup(priced);
             }
           });
 
           // 3. Add base stock accounts if static stock was just loaded (exclude China accounts < 500 THB)
           if (baseList.length > 0) {
             baseList.forEach((acc) => {
-              if (!map.has(acc.id)) {
-                const priced = calculateCnPricing(acc);
-                if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
-                  map.set(acc.id, priced);
-                }
+              const priced = calculateCnPricing(acc);
+              if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
+                addAccountDedup(priced);
               }
             });
           } else {
             // Keep existing China stock intact when only updating live arrivals
             prev.forEach((a) => {
-              if (a.region === 'cn' && !map.has(a.id)) {
-                map.set(a.id, a);
+              if (a.region === 'cn') {
+                addAccountDedup(a);
               }
             });
           }
@@ -464,12 +492,22 @@ function App() {
 
   // Filtered & Sorted accounts for Storefront
   const filteredAccounts = useMemo(() => {
+    const seenCnKeys = new Set();
     let result = accounts.filter((item) => {
       // Hide sold accounts in storefront
       if (item.isSold) return false;
 
       // Exclude Chinese accounts under 500 THB
       if (item.region === 'cn' && Number(item.priceTHB) < 500) return false;
+
+      // Eliminate cross-shop duplicate listings
+      if (item.region === 'cn') {
+        const k = getCnDedupKey(item);
+        if (k) {
+          if (seenCnKeys.has(k)) return false;
+          seenCnKeys.add(k);
+        }
+      }
 
       // 1. Country / Region match (all | th | cn | vn)
       if (activeRegion !== 'all') {

@@ -549,6 +549,7 @@ async function syncCycle() {
   }
 
   const accountMap = new Map();
+  const seenDedupKeys = new Set();
 
   // Fresh Active Mode (Default):
   // PUBG accounts sell out rapidly in China. To prevent customer frustration from seeing sold-out IDs,
@@ -594,6 +595,20 @@ async function syncCycle() {
         const items = pageData.data || [];
         items.forEach((item) => {
           const { cleanCode, rawOriginal } = cleanBianhao(item.bianhao || item.id);
+
+          // Cross-shop deduplication key to eliminate duplicate syndicated listings
+          let dedupKey = '';
+          if (item.img) {
+            const mImg = item.img.match(/([0-9a-zA-Z_-]+\.(png|jpg|jpeg|webp))/i);
+            if (mImg && !mImg[1].toLowerCase().startsWith('default')) dedupKey = 'IMG_' + mImg[1].toLowerCase();
+          }
+          if (!dedupKey) {
+            dedupKey = 'CODE_' + cleanCode.toUpperCase();
+          }
+
+          if (seenDedupKeys.has(dedupKey)) return;
+          seenDedupKeys.add(dedupKey);
+
           let uniqueCode = cleanCode;
           if (!uniqueCode.toLowerCase().startsWith(src.key.toLowerCase())) {
             uniqueCode = `${src.key.toUpperCase()}-${uniqueCode}`;

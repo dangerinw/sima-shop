@@ -87,6 +87,7 @@ module.exports = async function handler(req, res) {
 
     const results = await Promise.all(fetchPromises);
     const itemMap = new Map();
+    const seenDedupKeys = new Set();
 
     for (const { src, items } of results) {
       for (const item of items) {
@@ -99,6 +100,19 @@ module.exports = async function handler(req, res) {
 
         // Exclude Chinese accounts under 500 THB
         if (priceTHB < 500) continue;
+
+        // Cross-shop deduplication key to eliminate duplicate listings
+        let dedupKey = '';
+        if (item.img) {
+          const mImg = item.img.match(/([0-9a-zA-Z_-]+\.(png|jpg|jpeg|webp))/i);
+          if (mImg && !mImg[1].startsWith('default')) dedupKey = `IMG_${mImg[1].toLowerCase()}`;
+        }
+        if (!dedupKey) {
+          dedupKey = `CODE_${cleanCode.toUpperCase()}`;
+        }
+
+        if (seenDedupKeys.has(dedupKey)) continue;
+        seenDedupKeys.add(dedupKey);
 
         const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
         const id = `CN-${src.key.toUpperCase()}-${cleanCode}`;
