@@ -91,7 +91,7 @@ module.exports = async function handler(req, res) {
     for (const { src, items } of results) {
       for (const item of items) {
         const cleanCode = extractCleanCode(item.bianhao, item.id);
-        const rmb = parseFloat(item.price || item.rmbPrice || 0);
+        const rmb = parseFloat(item.shoujia || item.price || item.rmbPrice || 0);
         const rawThb = rmb * cnyRateThb;
         const rawVnd = rmb * cnyRateVnd;
         const activeMarkup = rawThb < threshold ? markupTier1 : markupTier2;
