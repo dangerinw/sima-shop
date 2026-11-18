@@ -64,7 +64,7 @@ export const defaultStoreSettings = {
       id: 'real_fb_3',
       name: 'Kittisak Tonphotham',
       initials: 'KT',
-      comment: '+1 เครดิตแน่น ซื้อขายปลอดภัย ไว้วางใจได้ครับ',
+      comment: '+1',
       rating: 5,
       date: '1 วันที่แล้ว',
       verified: true,
@@ -74,9 +74,22 @@ export const defaultStoreSettings = {
     },
     {
       id: 'real_fb_4',
+      name: 'ชลสิทธิ์ ยิ้มละม้าย',
+      initials: 'ชย',
+      comment: '+1',
+      rating: 5,
+      date: 'ล่าสุด',
+      verified: true,
+      isVerifiedBadge: true,
+      hasAuthorHeart: false,
+      typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+      highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+    },
+    {
+      id: 'real_fb_5',
       name: 'Ploykanok Saejew',
       initials: 'PS',
-      comment: '+++ บริการรวดเร็วมาก ได้ไอดีชัวร์ 100%',
+      comment: '+++',
       rating: 5,
       date: '1 วันที่แล้ว',
       verified: true,
@@ -85,7 +98,7 @@ export const defaultStoreSettings = {
       highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
     }
   ],
-  reviewsCommentsCount: 4,
+  reviewsCommentsCount: 5,
   reviewsReactionsCount: 3,
 
   // Cloud Database Configuration (Google Firebase 🔥 / Supabase ⚡)

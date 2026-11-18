@@ -29,7 +29,7 @@ const DEFAULT_VERIFIED_REVIEWS = [
     id: 'real_fb_3',
     name: 'Kittisak Tonphotham',
     initials: 'KT',
-    comment: '+1 เครดิตแน่น ซื้อขายปลอดภัย ไว้วางใจได้ครับ',
+    comment: '+1',
     rating: 5,
     date: '1 วันที่แล้ว',
     verified: true,
@@ -39,9 +39,22 @@ const DEFAULT_VERIFIED_REVIEWS = [
   },
   {
     id: 'real_fb_4',
+    name: 'ชลสิทธิ์ ยิ้มละม้าย',
+    initials: 'ชย',
+    comment: '+1',
+    rating: 5,
+    date: 'ล่าสุด',
+    verified: true,
+    isVerifiedBadge: true,
+    hasAuthorHeart: false,
+    typeBadge: '🌟 คอมเมนต์จริงจากโพสต์ Facebook',
+    highlight: 'ลูกค้ายืนยันจากเพจ PUBG SIAM'
+  },
+  {
+    id: 'real_fb_5',
     name: 'Ploykanok Saejew',
     initials: 'PS',
-    comment: '+++ บริการรวดเร็วมาก ได้ไอดีชัวร์ 100%',
+    comment: '+++',
     rating: 5,
     date: '1 วันที่แล้ว',
     verified: true,
@@ -79,7 +92,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {}, storeSetti
   }, [storeSettings?.customReviews]);
 
   const [stats, setStats] = useState({
-    commentsCount: storeSettings?.reviewsCommentsCount || 4,
+    commentsCount: storeSettings?.reviewsCommentsCount || 5,
     reactionsCount: storeSettings?.reviewsReactionsCount || 3,
     rating: '5.0'
   });
@@ -99,7 +112,7 @@ export default function CustomerReviewsSection({ lang = 'th', t = {}, storeSetti
             setReviews(data.reviews);
           }
           setStats({
-            commentsCount: data.commentsCount || 4,
+            commentsCount: data.commentsCount || 5,
             reactionsCount: data.reactionsCount || 3,
             rating: data.rating || '5.0'
           });
@@ -227,6 +240,13 @@ export default function CustomerReviewsSection({ lang = 'th', t = {}, storeSetti
                           <h4 className="text-sm sm:text-base font-black text-white break-words">
                             {rev.name}
                           </h4>
+                          {rev.isVerifiedBadge && (
+                            <span className="inline-flex items-center text-blue-400" title="บัญชีได้รับการยืนยันตัวตน (Verified Badge)">
+                              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                              </svg>
+                            </span>
+                          )}
                           {rev.hasAuthorHeart && (
                             <span className="px-1.5 py-0.5 rounded text-[10px] font-black bg-pink-500/20 text-pink-400 border border-pink-500/30 flex items-center gap-0.5 shadow-sm shrink-0">
                               <span>💖</span>
