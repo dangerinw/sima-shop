@@ -121,14 +121,10 @@ export default function AccountModal({
   const [coverImg, setCoverImg] = useState('');
   const [isSoldOut, setIsSoldOut] = useState(Boolean(account?.isSold));
 
-  // Check if account is Foreign (China/Vietnam/etc.) or Thai
-  const isForeignAccount = Boolean(account && (account.region === 'cn' || account.region === 'vn' || (account.region && account.region !== 'th')));
-  const isThaiAccount = !isForeignAccount;
-
-  // Check if account allows installment (explicit flag or default to Thai account)
+  // Check if account allows installment (default to true for all accounts, both Thai and Foreign accounts)
   const canInstallment = account?.allowInstallment !== undefined 
     ? Boolean(account.allowInstallment) 
-    : isThaiAccount;
+    : true;
 
   // Reset and fetch high-res in-game screenshots for Chinese accounts
   useEffect(() => {

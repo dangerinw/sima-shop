@@ -69,11 +69,11 @@ export default function InstallmentRulesCard({ onOpenWarranty, lang = 'th', stan
         {/* Warning Callout Notice & Thai ID Restriction */}
         <div className="my-4 space-y-2 relative z-10">
           <div className="p-3.5 rounded-2xl bg-gradient-to-r from-purple-950/60 to-indigo-950/60 border border-purple-500/40 text-purple-200 text-xs sm:text-sm font-bold flex items-center gap-2.5">
-            <span className="text-xl shrink-0">🇹🇭</span>
+            <span className="text-xl shrink-0">✨</span>
             <span className="leading-relaxed">
               {isTh
-                ? 'สัญญาผ่อนชำระไอดีสงวนสิทธิ์เฉพาะ "ไอดีไทย" เท่านั้น สำหรับไอดีต่างประเทศ (จีน / เวียดนาม) จำหน่ายแบบชำระสดเต็มจำนวน'
-                : 'Installment contracts are strictly reserved for "Thailand Accounts" only. Foreign accounts (China / Vietnam) are cash purchase only.'}
+                ? 'สัญญาผ่อนชำระไอดี รองรับทั้ง "ไอดีไทย" และ "ไอดีนอก" (จีน / เวียดนาม / เซิร์ฟนอก) มีเอกสารใบประกันและสัญญาคุ้มครองถูกต้อง 100%'
+                : 'Installment contracts support both "Thailand Accounts" and "Foreign Accounts" (China / Vietnam) with 100% legal warranty.'}
             </span>
           </div>
 

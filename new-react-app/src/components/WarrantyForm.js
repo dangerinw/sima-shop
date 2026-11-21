@@ -109,10 +109,6 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
       if (initialAccount.region) {
         const isTh = initialAccount.region === 'th';
         setIdType(isTh ? 'thai' : 'foreign');
-        // Foreign accounts are strictly cash purchase only (no installments)
-        if (!isTh) {
-          setDocType('cash');
-        }
       }
       if (initialAccount.sellerName) setSellerName(initialAccount.sellerName);
       if (initialAccount.warranty) setWarrantyPeriod(initialAccount.warranty);
@@ -1005,19 +1001,59 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
     ctx.fillStyle = '#0f172a';
     ctx.fillText(pId, 215, row2Y);
 
+    // Divider line 1
     ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(600, box2Top + 10);
-    ctx.lineTo(600, row2Y + 12);
+    ctx.moveTo(500, box2Top + 10);
+    ctx.lineTo(500, row2Y + 12);
     ctx.stroke();
 
+    // ประเภทไอดี: [x] ไอดีไทย  [ ] ไอดีนอก
     ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
     ctx.fillStyle = '#0f172a';
-    ctx.fillText('มูลค่าไอดี :', 630, row2Y);
+    ctx.fillText('ประเภท :', 515, row2Y);
+
+    const cbY2 = row2Y - 17;
+    const cb1X2 = 585;
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 2;
+    roundRect(ctx, cb1X2, cbY2, 17, 17, 4);
+    ctx.stroke();
+    if (idType === 'thai') {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(cb1X2 + 3, cbY2 + 3, 11, 11);
+    }
+    ctx.font = 'bold 16px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText('ไอดีไทย', cb1X2 + 24, row2Y);
+
+    const cb2X2 = 685;
+    roundRect(ctx, cb2X2, cbY2, 17, 17, 4);
+    ctx.stroke();
+    if (idType === 'foreign') {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(cb2X2 + 3, cbY2 + 3, 11, 11);
+    }
+    ctx.font = 'bold 16px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText('ไอดีนอก', cb2X2 + 24, row2Y);
+
+    // Divider line 2
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(780, box2Top + 10);
+    ctx.lineTo(780, row2Y + 12);
+    ctx.stroke();
+
+    // มูลค่าไอดี
+    ctx.font = 'bold 17px "Prompt", "Sarabun", sans-serif';
+    ctx.fillStyle = '#0f172a';
+    ctx.fillText('มูลค่าไอดี :', 795, row2Y);
     ctx.font = 'bold 18px "Sarabun", "Prompt", sans-serif';
     ctx.fillStyle = '#b45309';
-    ctx.fillText(pVal, 735, row2Y);
+    ctx.fillText(pVal, 890, row2Y);
 
     ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
@@ -1750,41 +1786,24 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
             <span>สัญญาซื้อขายสด</span>
           </button>
 
-          {isInitialForeign ? (
-            <div
-              className="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-slate-500 bg-slate-950/60 border border-slate-800/80 flex items-center justify-center gap-1.5 cursor-not-allowed opacity-60"
-              title="ไอดีต่างประเทศไม่สามารถผ่อนชำระได้ (ซื้อสดเท่านั้น)"
-              onClick={() => showToast('⚠️ ไอดีต่างประเทศสงวนสิทธิ์ซื้อสดเต็มจำนวนเท่านั้น (ไม่มีระบบผ่อน)', true)}
-            >
-              <span>🔒</span>
-              <span>ผ่อนชำระ (เฉพาะไอดีไทย)</span>
-            </div>
-          ) : (
-            <button
-              type="button"
-              onClick={() => {
-                if (idType === 'foreign') {
-                  showToast('⚠️ ไอดีต่างประเทศไม่สามารถผ่อนชำระได้ ระบบผ่อนสงวนสิทธิ์เฉพาะไอดีไทยเท่านั้น', true);
-                  return;
-                }
-                setDocType('installment');
-              }}
-              className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 ${
-                docType === 'installment'
-                  ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-[1.02]'
-                  : 'text-purple-300 hover:text-white hover:bg-purple-950/40'
-              }`}
-            >
-              <span>⚡</span>
-              <span>สัญญาผ่อนชำระไอดี</span>
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={() => setDocType('installment')}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 ${
+              docType === 'installment'
+                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-[1.02]'
+                : 'text-purple-300 hover:text-white hover:bg-purple-950/40'
+            }`}
+          >
+            <span>⚡</span>
+            <span>สัญญาผ่อนชำระไอดี (รองรับไอดีไทย & นอก)</span>
+          </button>
         </div>
 
         {isInitialForeign && (
-          <div className="max-w-xl mx-auto my-2 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm">
-            <span>ℹ️</span>
-            <span>ไอดีนี้เป็นไอดีต่างประเทศ ({initialAccount.region === 'cn' ? 'จีน 🇨🇳' : initialAccount.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) จำหน่ายแบบซื้อสดเต็มจำนวนเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+          <div className="max-w-xl mx-auto my-2 p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm">
+            <span>✨</span>
+            <span>ไอดีนี้เป็นไอดีต่างประเทศ ({initialAccount.region === 'cn' ? 'จีน 🇨🇳' : initialAccount.region === 'vn' ? 'เวียดนาม 🇻🇳' : 'ต่างประเทศ 🌐'}) รองรับทั้งการผ่อนชำระและซื้อสด มีใบประกันและสัญญาถูกต้อง 100%</span>
           </div>
         )}
 
@@ -1957,40 +1976,40 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
                 </div>
               </div>
 
+              <div>
+                <label className="block text-slate-400 mb-1">ประเภทไอดี *</label>
+                <div className="grid grid-cols-2 gap-2">
+                  <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
+                    idType === 'thai' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
+                  }`}>
+                    <input 
+                      type="radio" 
+                      name="reactIdType" 
+                      value="thai" 
+                      checked={idType === 'thai'} 
+                      onChange={() => setIdType('thai')} 
+                      className="text-amber-500 focus:ring-amber-500 shrink-0"
+                    />
+                    <span className="font-semibold text-xs">🇹🇭 ไอดีไทย</span>
+                  </label>
+                  <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
+                    idType === 'foreign' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
+                  }`}>
+                    <input 
+                      type="radio" 
+                      name="reactIdType" 
+                      value="foreign" 
+                      checked={idType === 'foreign'} 
+                      onChange={() => setIdType('foreign')} 
+                      className="text-amber-500 focus:ring-amber-500 shrink-0"
+                    />
+                    <span className="font-semibold text-xs">🌐 ไอดีนอก</span>
+                  </label>
+                </div>
+              </div>
+
               {docType === 'cash' && (
                 <>
-                  <div>
-                    <label className="block text-slate-400 mb-1">ประเภทไอดี *</label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
-                        idType === 'thai' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
-                      }`}>
-                        <input 
-                          type="radio" 
-                          name="reactIdType" 
-                          value="thai" 
-                          checked={idType === 'thai'} 
-                          onChange={() => setIdType('thai')} 
-                          className="text-amber-500 focus:ring-amber-500 shrink-0"
-                        />
-                        <span className="font-semibold text-xs">🇹🇭 ไอดีไทย</span>
-                      </label>
-                      <label className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer border transition ${
-                        idType === 'foreign' ? 'bg-amber-500/10 border-amber-500/50 text-amber-300' : 'bg-slate-800/80 border-slate-700 text-slate-300'
-                      }`}>
-                        <input 
-                          type="radio" 
-                          name="reactIdType" 
-                          value="foreign" 
-                          checked={idType === 'foreign'} 
-                          onChange={() => setIdType('foreign')} 
-                          className="text-amber-500 focus:ring-amber-500 shrink-0"
-                        />
-                        <span className="font-semibold text-xs">🌐 ไอดีนอก</span>
-                      </label>
-                    </div>
-                  </div>
-
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <div>
                       <label className="block text-slate-400 mb-1">เลขที่บัญชีรับเงิน *</label>

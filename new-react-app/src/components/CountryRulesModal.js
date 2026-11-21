@@ -196,7 +196,7 @@ export default function CountryRulesModal({
               }`}
             >
               <span>⚡</span>
-              <span>{isTh ? 'กฎการผ่อนไอดี (เฉพาะไอดีไทย)' : 'Installment Rules (Thai ID)'}</span>
+              <span>{isTh ? 'กฎการผ่อนไอดี (ไอดีไทย & นอก)' : 'Installment Rules (Thai & Foreign)'}</span>
               <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
                 selectedCountry === 'installment' ? 'bg-black/30 text-white' : 'bg-purple-900 text-purple-200'
               }`}>

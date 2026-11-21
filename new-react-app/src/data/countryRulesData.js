@@ -744,8 +744,8 @@ export const countryRulesData = {
       en: '/images/sunsnappz-installment-rules.jpg'
     },
     bannerNotice: {
-      th: '⚡ สัญญาผ่อนชำระสงวนสิทธิ์เฉพาะ "ไอดีไทย" เท่านั้น (ไอดีต่างประเทศ จำหน่ายแบบซื้อสดเต็มจำนวนเท่านั้น) • ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด',
-      en: '⚡ Installment agreements are strictly reserved for "Thailand Accounts" (Foreign accounts are cash-only). All installment buyers must strictly follow these 7 rules.'
+      th: '⚡ สัญญาผ่อนชำระไอดี รองรับทั้ง "ไอดีไทย" และ "ไอดีนอก" (จีน / เวียดนาม / เซิร์ฟนอก) • ผู้ผ่อนชำระทุกคนต้องยอมรับเงื่อนไข 7 ข้อนี้อย่างเคร่งครัด',
+      en: '⚡ Installment agreements support both "Thailand Accounts" and "Foreign Accounts" (China / Vietnam). All installment buyers must strictly follow these 7 rules.'
     },
     bannerType: 'warning',
     rules: [
