@@ -21,6 +21,23 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
   const warranty = lang === 'th' ? (account.warranty_th || 'มีประกันมือ 1 แท้ (ปลอดภัย 100% ไม่ดึงคืน)') : (account.warranty_en || '1st Hand Owner Warranty');
   const coverImage = account.coverImg || account.images?.[0];
 
+  // Determine if account is pulled from external API vs posted by our shop
+  const isApiStock = Boolean(
+    !account.isCustomLocal && (
+      account.sourceShop ||
+      account.sourceKey ||
+      account.rawId ||
+      account.rmbPrice ||
+      account.bianhao ||
+      (account.region === 'cn' && !account.isCustomLocal)
+    )
+  );
+
+  // Accounts eligible for installment MUST be accounts we posted ourselves, NOT from the API
+  const canInstallment = isApiStock
+    ? false
+    : (account.allowInstallment !== undefined ? Boolean(account.allowInstallment) : true);
+
   // Region Badge Helper
   const getRegionBadge = (region) => {
     switch (region) {
@@ -91,7 +108,7 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
             </span>
 
             {/* Installment / Cash-Only Badge ⭐ */}
-            {(account.allowInstallment !== undefined ? account.allowInstallment : true) ? (
+            {canInstallment ? (
               <span className="px-2 py-0.5 rounded-md text-[11px] font-black border flex items-center gap-1 shadow-sm backdrop-blur-md bg-purple-600/30 text-purple-200 border-purple-400/50">
                 <span>⚡</span>
                 <span>ผ่อนได้</span>

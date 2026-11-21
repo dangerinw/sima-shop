@@ -121,10 +121,22 @@ export default function AccountModal({
   const [coverImg, setCoverImg] = useState('');
   const [isSoldOut, setIsSoldOut] = useState(Boolean(account?.isSold));
 
-  // Check if account allows installment (default to true for all accounts, both Thai and Foreign accounts)
-  const canInstallment = account?.allowInstallment !== undefined 
-    ? Boolean(account.allowInstallment) 
-    : true;
+  // Determine if account is pulled from external API vs posted by our shop
+  const isApiStock = Boolean(
+    account && !account.isCustomLocal && (
+      account.sourceShop ||
+      account.sourceKey ||
+      account.rawId ||
+      account.rmbPrice ||
+      account.bianhao ||
+      (account.region === 'cn' && !account.isCustomLocal)
+    )
+  );
+
+  // Accounts eligible for installment MUST be accounts we posted ourselves (isCustomLocal / Thai / our stock), NOT from the API
+  const canInstallment = isApiStock
+    ? false
+    : (account?.allowInstallment !== undefined ? Boolean(account.allowInstallment) : true);
 
   // Reset and fetch high-res in-game screenshots for Chinese accounts
   useEffect(() => {
@@ -925,7 +937,7 @@ export default function AccountModal({
                         </button>
                         <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-amber-300 bg-amber-950/40 border border-amber-800/50 rounded-xl py-2 px-3 text-center font-bold">
                           <span>ℹ️</span>
-                          <span>ไอดีนี้จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+                          <span>ไอดีนี้เป็นไอดีจากระบบ API ต่างประเทศ จำหน่ายแบบซื้อสดเท่านั้น (ระบบผ่อนชำระสงวนสิทธิ์เฉพาะไอดีที่ทางร้านลงเอง)</span>
                         </div>
                       </div>
                     )}
@@ -1158,7 +1170,7 @@ export default function AccountModal({
                         </button>
                         <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs text-amber-300 bg-amber-950/40 border border-amber-800/50 rounded-xl py-2 px-3 text-center font-bold">
                           <span>ℹ️</span>
-                          <span>ไอดีนี้จำหน่ายแบบซื้อสดเท่านั้น (ไม่มีระบบผ่อนชำระ)</span>
+                          <span>ไอดีนี้เป็นไอดีจากระบบ API ต่างประเทศ จำหน่ายแบบซื้อสดเท่านั้น (ระบบผ่อนชำระสงวนสิทธิ์เฉพาะไอดีที่ทางร้านลงเอง)</span>
                         </div>
                       </div>
                     )}

@@ -72,8 +72,8 @@ export default function InstallmentRulesCard({ onOpenWarranty, lang = 'th', stan
             <span className="text-xl shrink-0">✨</span>
             <span className="leading-relaxed">
               {isTh
-                ? 'สัญญาผ่อนชำระไอดี รองรับทั้ง "ไอดีไทย" และ "ไอดีนอก" (จีน / เวียดนาม / เซิร์ฟนอก) มีเอกสารใบประกันและสัญญาคุ้มครองถูกต้อง 100%'
-                : 'Installment contracts support both "Thailand Accounts" and "Foreign Accounts" (China / Vietnam) with 100% legal warranty.'}
+                ? 'สัญญาผ่อนชำระไอดี สงวนสิทธิ์เฉพาะ "ไอดีที่ทางร้านลงเอง" (รองรับทั้งไอดีไทย และไอดีนอกที่ร้านลงเอง) • ไม่สามารถผ่อนไอดีที่ดึงจาก API ต่างประเทศได้ (ไอดี API ซื้อสดเท่านั้น)'
+                : 'Installment contracts are reserved for "Shop Own Inventory" (both Thai & Foreign accounts posted by shop). Live API accounts are cash-only.'}
             </span>
           </div>
 
