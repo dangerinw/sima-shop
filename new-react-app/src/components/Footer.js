@@ -56,9 +56,11 @@ export default function Footer({ t, storeSettings = {}, onOpenRules, onOpenWarra
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-amber-500/30 hover:border-amber-400/60 shadow-md transition-all group"
               title="บริการกด Code Item & เติม G-Coin: All New Code PUBG"
             >
-              <div className="w-6 h-6 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 flex items-center justify-center font-black text-xs shrink-0 group-hover:scale-105 transition-transform">
-                🪙
-              </div>
+              <img 
+                src="/images/allnew-viper-logo.jpg" 
+                alt="All New Viper Loot Topup" 
+                className="w-6 h-6 rounded-lg object-cover border border-amber-500/40 shrink-0 group-hover:scale-105 transition-transform"
+              />
               <div className="text-left leading-tight">
                 <span className="text-[10px] text-amber-400 block font-bold group-hover:text-amber-300 transition-colors">All New Code PUBG</span>
                 <span className="text-[9px] text-slate-400">กด Code & เติม G-Coin</span>

@@ -19,8 +19,12 @@ export default function GcoinCodeServicesSection({ lang = 'th', t = {} }) {
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto space-y-3.5 mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-purple-500/15 to-blue-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-bold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-            <span>🪙 {isTh ? 'บริการเสริมพิเศษ • เครือข่ายพาร์ทเนอร์ PUBG SIAM' : 'Special Partner Services • PUBG SIAM Network'}</span>
+            <img 
+              src="/images/allnew-viper-logo.jpg" 
+              alt="All New Viper Logo" 
+              className="w-5 h-5 rounded-full object-cover border border-amber-400 shrink-0 shadow"
+            />
+            <span>{isTh ? 'All New Viper Loot Topup • เครือข่ายพาร์ทเนอร์ทางการ' : 'All New Viper Loot Topup • Official Partner'}</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
@@ -37,8 +41,8 @@ export default function GcoinCodeServicesSection({ lang = 'th', t = {} }) {
 
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl mx-auto">
             {isTh
-              ? 'สำหรับลูกค้าที่ต้องการซื้อโค้ดสกินลิมิเต็ด, กล่องไอเทมแรร์ หรือเติมเหรียญ G-Coin ราคาพิเศษสุดคุ้ม ปลอดภัย 100% สามารถติดต่อใช้บริการได้โดยตรงที่เพจทางการ "All New Code PUBG"'
-              : 'Looking to purchase limited weapon codes, exclusive skins, or top-up G-Coin at the best discount rates safely? Contact our official partner page "All New Code PUBG" directly!'}
+              ? 'สำหรับลูกค้าที่ต้องการซื้อโค้ดสกินลิมิเต็ด, กล่องไอเทมแรร์ หรือเติมเหรียญ G-Coin ราคาพิเศษสุดคุ้ม ปลอดภัย 100% สามารถติดต่อใช้บริการได้โดยตรงที่เพจ "All New Viper Loot Topup (All New Code PUBG)"'
+              : 'Looking to purchase limited weapon codes, exclusive skins, or top-up G-Coin at the best discount rates safely? Contact our official partner page "All New Viper Loot Topup" directly!'}
           </p>
         </div>
 
@@ -178,22 +182,27 @@ export default function GcoinCodeServicesSection({ lang = 'th', t = {} }) {
         {/* OFFICIAL PARTNER BANNER STRIP */}
         <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-slate-900 via-[#10182b] to-slate-900 border-2 border-slate-800/90 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 border border-blue-400 text-white flex items-center justify-center text-3xl shadow-lg shrink-0">
-              📘
-            </div>
+            <img 
+              src="/images/allnew-viper-logo.jpg" 
+              alt="All New Viper Loot Topup" 
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-amber-400 shadow-xl drop-shadow-[0_4px_16px_rgba(245,158,11,0.35)] shrink-0"
+            />
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h4 className="text-base sm:text-lg font-black text-white">
-                  All New Code PUBG
+                  All New Viper Loot Topup
                 </h4>
                 <span className="px-2 py-0.5 rounded text-[10px] font-black bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center gap-1">
                   <span>✓</span>
                   <span>เพจทางการ Facebook</span>
                 </span>
               </div>
+              <p className="text-xs text-amber-300 font-semibold mt-0.5">
+                Facebook: All New Code PUBG (All New Viper Loot Topup)
+              </p>
               <p className="text-xs text-slate-400 mt-1">
                 {isTh 
-                  ? 'เพจพันธมิตรผู้เชี่ยวชาญด้านการกด Code Item & เติม G-Coin ในเครือข่าย PUBG SIAM มั่นใจในความปลอดภัยและเครดิต'
+                  ? 'เพจพันธมิตรผู้เชี่ยวชาญด้านการกด Code Item & เติม G-Coin ในเครือข่าย PUBG SIAM มั่นใจในความปลอดภัยและเครดิต 100%'
                   : 'Official affiliated partner for PUBG item codes & G-Coin top-ups in PUBG SIAM network.'}
               </p>
             </div>

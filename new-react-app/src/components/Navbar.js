@@ -35,48 +35,56 @@ export default function Navbar({
                 PUBG<span className="text-amber-400"> SIAM</span>
                 <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">PUBG PC</span>
               </div>
-              <p className="hidden md:block text-[10px] text-slate-400 -mt-0.5 font-medium tracking-wide whitespace-nowrap">{t.brandSub}</p>
+              <p className="hidden 2xl:block text-[10px] text-slate-400 -mt-0.5 font-medium tracking-wide whitespace-nowrap">{t.brandSub}</p>
             </div>
           </a>
 
-          {/* DESKTOP NAV LINKS (xl and up) */}
-          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-semibold shrink-0">
-            <a href="#hero" className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 whitespace-nowrap">
-              <span>{t.navHome}</span>
+          {/* DESKTOP NAV LINKS (xl and up) - Ultra Compact & No Overflow */}
+          <nav className="hidden xl:flex items-center gap-2 xl:gap-2.5 2xl:gap-3.5 text-xs 2xl:text-sm font-semibold shrink-0">
+            <a href="#hero" className="text-amber-400 hover:text-amber-300 transition-colors whitespace-nowrap">
+              {t.navHome}
             </a>
-            <a href="#catalog" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navCatalog}</a>
+            <a href="#catalog" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+              {t.navCatalog}
+            </a>
             <button
               type="button"
               onClick={() => onOpenRules ? onOpenRules('th') : (window.location.hash = '#rules')}
-              className="text-slate-300 hover:text-amber-400 transition-colors whitespace-nowrap flex items-center gap-1"
+              className="text-slate-300 hover:text-amber-400 transition-colors whitespace-nowrap"
             >
-              <span>{t.navRules}</span>
+              {t.navRules}
             </button>
             <button
               type="button"
               onClick={() => onOpenRules ? onOpenRules('installment') : (window.location.hash = '#rules')}
-              className="text-purple-300 hover:text-purple-200 font-semibold transition-all whitespace-nowrap flex items-center gap-1 px-2.5 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-xs shadow-sm"
-              title="ดูกฎการผ่อนไอดี 7 ข้อของทางร้าน Sunsnappz"
+              className="text-purple-300 hover:text-purple-200 font-bold transition-all whitespace-nowrap px-1.5 py-0.5 rounded bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-[11px] shadow-sm flex items-center gap-1"
+              title="ดูกฎการผ่อนไอดีของทางร้าน"
             >
               <span>⚡</span>
-              <span>กฎผ่อนไอดี</span>
+              <span>กฎผ่อน</span>
             </button>
             <button
               type="button"
               onClick={onOpenWarranty}
-              className="text-amber-400 hover:text-amber-300 font-bold transition-all whitespace-nowrap flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 shadow-sm"
+              className="text-amber-300 hover:text-amber-200 font-bold transition-all whitespace-nowrap px-2 py-0.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-[11px] shadow-sm flex items-center gap-1"
               title="เปิดระบบสร้างใบรับประกันการซื้อขายสด / สัญญาผ่อนชำระไอดี A4"
             >
               <span>🛡️</span>
-              <span>ใบรับประกัน / สัญญาผ่อน</span>
+              <span>ใบสัญญา A4</span>
             </button>
-            <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
-            <a href="#gcoin-codes" className="text-amber-300 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1 font-bold">
+            <a href="#gcoin-codes" className="text-amber-300 hover:text-amber-200 transition-colors whitespace-nowrap flex items-center gap-1 font-bold">
               <span>🪙</span>
-              <span>{t.navGcoinCodes || 'กด Code & G-Coin'}</span>
+              <span>{t.navGcoinCodes || 'เติม G-Coin & โค้ด'}</span>
             </a>
-            <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
-            <a href="#faq" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navFaq}</a>
+            <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+              {t.navReviews}
+            </a>
+            <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+              {t.navWarranty}
+            </a>
+            <a href="#faq" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+              {t.navFaq}
+            </a>
           </nav>
 
           {/* RIGHT ACTIONS: Social contact + Language + Currency + Search + Admin + Mobile toggle */}
@@ -87,11 +95,11 @@ export default function Navbar({
               href={storeSettings.facebookPageUrl || 'https://www.facebook.com/profile.php?id=61596307388431'} 
               target="_blank" 
               rel="noreferrer" 
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold whitespace-nowrap bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-400 px-2.5 py-1.5 rounded-lg border border-blue-500/30 transition-all shadow-sm"
+              className="hidden sm:inline-flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-blue-500/10 hover:bg-blue-600 hover:text-white text-blue-400 px-2 py-1 rounded-lg border border-blue-500/30 transition-all shadow-sm"
               title="ติดต่อสั่งซื้อผ่าน Facebook: SunsnappZ"
             >
               <span>📘</span>
-              <span className="hidden xl:inline">Facebook</span>
+              <span className="hidden 2xl:inline">Facebook</span>
             </a>
 
             {/* DISCORD CONTACT BUTTON */}
@@ -99,11 +107,11 @@ export default function Navbar({
               href={storeSettings.discordInviteUrl || 'https://discord.gg/p9fHwmMUPd'} 
               target="_blank" 
               rel="noreferrer" 
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold whitespace-nowrap bg-indigo-500/10 hover:bg-indigo-600 hover:text-white text-indigo-400 px-2.5 py-1.5 rounded-lg border border-indigo-500/30 transition-all shadow-sm"
+              className="hidden sm:inline-flex items-center gap-1 text-xs font-bold whitespace-nowrap bg-indigo-500/10 hover:bg-indigo-600 hover:text-white text-indigo-400 px-2 py-1 rounded-lg border border-indigo-500/30 transition-all shadow-sm"
               title="ติดต่อสั่งซื้อผ่าน Discord: AWESOMEZ SHOP"
             >
               <span>💜</span>
-              <span className="hidden xl:inline">Discord</span>
+              <span className="hidden 2xl:inline">Discord</span>
             </a>
 
             {/* LANGUAGE SWITCHER */}
