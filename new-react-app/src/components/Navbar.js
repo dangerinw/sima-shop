@@ -76,6 +76,10 @@ export default function Navbar({
               <span>🪙</span>
               <span>{t.navGcoinCodes || 'เติม G-Coin & โค้ด'}</span>
             </a>
+            <a href="#community" className="text-cyan-300 hover:text-cyan-200 transition-colors whitespace-nowrap flex items-center gap-1 font-bold">
+              <span>🎧</span>
+              <span>{t.navCommunity || 'หาตี้เล่น TS'}</span>
+            </a>
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">
               {t.navReviews}
             </a>
@@ -264,6 +268,14 @@ export default function Navbar({
               >
                 <span>🪙</span>
                 <span>{t.navGcoinCodes || 'กด Code & เติม G-Coin (All New Code)'}</span>
+              </a>
+              <a 
+                href="#community" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3.5 py-2.5 rounded-xl bg-blue-500/10 text-cyan-300 font-bold hover:bg-blue-500/20 flex items-center gap-2.5 transition-colors border border-blue-500/30"
+              >
+                <span>🎧</span>
+                <span>{t.navCommunity || 'หาตี้เล่น PUBG (TeamSpeak: THPUBG-TS)'}</span>
               </a>
               <a 
                 href="#reviews" 

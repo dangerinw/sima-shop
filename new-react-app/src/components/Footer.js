@@ -67,6 +67,21 @@ export default function Footer({ t, storeSettings = {}, onOpenRules, onOpenWarra
               </div>
             </a>
 
+            {/* TeamSpeak Community Badge */}
+            <a 
+              href="#community"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-blue-500/30 hover:border-blue-400/60 shadow-md transition-all group"
+              title="TeamSpeak หาเพื่อนเล่น: THPUBG-TS"
+            >
+              <div className="w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-500/40 text-blue-300 flex items-center justify-center font-black text-xs shrink-0 group-hover:scale-105 transition-transform">
+                🎧
+              </div>
+              <div className="text-left leading-tight">
+                <span className="text-[10px] text-blue-400 block font-bold group-hover:text-blue-300 transition-colors">TeamSpeak 3</span>
+                <span className="text-[9px] text-slate-400 font-mono">THPUBG-TS</span>
+              </div>
+            </a>
+
             <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
               <span>🛡️</span>
               <span>ประกันมือ 1 แท้ 100%</span>

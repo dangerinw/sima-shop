@@ -11,6 +11,7 @@ import CountryRulesSection from './components/CountryRulesSection';
 import CountryRulesModal from './components/CountryRulesModal';
 import CustomerReviewsSection from './components/CustomerReviewsSection';
 import GcoinCodeServicesSection from './components/GcoinCodeServicesSection';
+import CommunitySection from './components/CommunitySection';
 import Footer from './components/Footer';
 import Pagination from './components/Pagination';
 import AdminDashboard from './components/admin/AdminDashboard';
@@ -1041,6 +1042,9 @@ function App() {
 
       {/* Special Partner Services: Code Item & G-Coin Top-up (All New Code PUBG) ⭐ */}
       <GcoinCodeServicesSection lang={lang} t={t} />
+
+      {/* PUBG Community & TeamSpeak 3 Find Squad Section (id="community") ⭐ */}
+      <CommunitySection lang={lang} t={t} />
 
       {/* Verified Customer Reviews & Facebook Testimonials (id="reviews") ⭐ */}
       <CustomerReviewsSection lang={lang} t={t} storeSettings={storeSettings} />
