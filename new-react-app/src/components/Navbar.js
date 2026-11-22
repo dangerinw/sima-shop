@@ -71,6 +71,10 @@ export default function Navbar({
               <span>ใบรับประกัน / สัญญาผ่อน</span>
             </button>
             <a href="#features" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navWarranty}</a>
+            <a href="#gcoin-codes" className="text-amber-300 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1 font-bold">
+              <span>🪙</span>
+              <span>{t.navGcoinCodes || 'กด Code & G-Coin'}</span>
+            </a>
             <a href="#reviews" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navReviews}</a>
             <a href="#faq" className="text-slate-300 hover:text-white transition-colors whitespace-nowrap">{t.navFaq}</a>
           </nav>
@@ -244,6 +248,14 @@ export default function Navbar({
               >
                 <span>🛡️</span>
                 <span>{t.navWarranty}</span>
+              </a>
+              <a 
+                href="#gcoin-codes" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3.5 py-2.5 rounded-xl bg-amber-500/10 text-amber-300 font-bold hover:bg-amber-500/20 flex items-center gap-2.5 transition-colors border border-amber-500/30"
+              >
+                <span>🪙</span>
+                <span>{t.navGcoinCodes || 'กด Code & เติม G-Coin (All New Code)'}</span>
               </a>
               <a 
                 href="#reviews" 
