@@ -1771,7 +1771,7 @@ export default function WarrantyForm({ onBack, initialAccount = null, initialDoc
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/40 rounded-full text-xs sm:text-sm font-semibold">
             <span>🛡️</span>
-            <span>PUBG SIAM • ระบบทำสัญญาซื้อขายและรับประกันไอดี (A4)</span>
+            <span>PUBG SIAM • ระบบใบสัญญากลางแอดมิน & รับประกันไอดี (A4)</span>
           </div>
 
           <a 

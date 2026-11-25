@@ -23,7 +23,7 @@ export default function Navbar({
 
       {/* Main Navbar */}
       <header className="sticky top-0 z-40 bg-[#0b0f17]/95 backdrop-blur-md border-b border-slate-800/80 transition-all">
-        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 lg:gap-6">
+        <div className="max-w-[1600px] w-full mx-auto px-3 sm:px-4 xl:px-5 2xl:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 xl:gap-2.5 2xl:gap-5">
           
           {/* LOGO: PUBG SIAM */}
           <a href="#hero" className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0 group">
@@ -40,7 +40,7 @@ export default function Navbar({
           </a>
 
           {/* DESKTOP NAV LINKS (xl and up) - Ultra Compact & No Overflow */}
-          <nav className="hidden xl:flex items-center gap-2 xl:gap-2.5 2xl:gap-3.5 text-xs 2xl:text-sm font-semibold shrink-0">
+          <nav className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-3 text-xs 2xl:text-sm font-semibold shrink-0">
             <a href="#hero" className="text-amber-400 hover:text-amber-300 transition-colors whitespace-nowrap">
               {t.navHome}
             </a>
@@ -66,11 +66,11 @@ export default function Navbar({
             <button
               type="button"
               onClick={onOpenWarranty}
-              className="text-amber-300 hover:text-amber-200 font-bold transition-all whitespace-nowrap px-2 py-0.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-[11px] shadow-sm flex items-center gap-1"
-              title="เปิดระบบสร้างใบรับประกันการซื้อขายสด / สัญญาผ่อนชำระไอดี A4"
+              className="text-amber-300 hover:text-amber-100 font-black transition-all whitespace-nowrap px-2.5 xl:px-3 2xl:px-3.5 py-1 2xl:py-1.5 rounded-xl bg-gradient-to-r from-amber-500/20 via-yellow-500/25 to-amber-500/20 hover:from-amber-500/35 hover:to-yellow-500/35 border-2 border-amber-400/80 hover:border-amber-300 text-xs xl:text-[13px] 2xl:text-sm shadow-md shadow-amber-950/40 hover:scale-105 active:scale-95 flex items-center gap-1.5 tracking-wide ring-1 ring-amber-400/30"
+              title="เปิดระบบสร้างใบสัญญากลางแอดมิน / ใบรับประกันการซื้อขายสด / สัญญาผ่อนชำระไอดี A4"
             >
-              <span>🛡️</span>
-              <span>ใบสัญญา A4</span>
+              <span className="text-sm xl:text-base">🛡️</span>
+              <span>{t.navContractAdmin || 'ใบสัญญากลางแอดมิน'}</span>
             </button>
             <a href="#gcoin-codes" className="text-amber-300 hover:text-amber-200 transition-colors whitespace-nowrap flex items-center gap-1 font-bold">
               <span>🪙</span>
@@ -92,7 +92,7 @@ export default function Navbar({
           </nav>
 
           {/* RIGHT ACTIONS: Social contact + Language + Currency + Search + Admin + Mobile toggle */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 2xl:gap-2 shrink-0">
             
             {/* FACEBOOK CONTACT BUTTON */}
             <a 
@@ -248,10 +248,10 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                   if (onOpenWarranty) onOpenWarranty();
                 }}
-                className="px-3.5 py-2.5 rounded-xl bg-amber-500/15 text-amber-400 font-bold flex items-center gap-2.5 border border-amber-500/30 text-left transition-colors"
+                className="px-3.5 py-3 rounded-xl bg-gradient-to-r from-amber-500/20 via-yellow-500/25 to-amber-500/20 text-amber-300 font-black flex items-center gap-2.5 border-2 border-amber-400/70 text-left text-sm shadow-md transition-all"
               >
-                <span>🛡️</span>
-                <span>สร้างใบรับประกัน / สัญญาผ่อนไอดี (A4)</span>
+                <span className="text-base">🛡️</span>
+                <span>ใบสัญญากลางแอดมิน (สร้างใบรับประกัน & สัญญาผ่อน A4)</span>
               </button>
               <a 
                 href="#features" 
