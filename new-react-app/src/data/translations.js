@@ -34,6 +34,7 @@ export const translations = {
     catProgressive: 'ปืนอัปเกรด Progressive',
     catRankReady: 'พร้อมลงแรงค์',
     catRareSkins: 'ของสะสม & สกินแรร์',
+    catSmurf: '🐔 ไอดีไก่จีน & กล่องสุ่ม',
 
     // Regions
     filterRegionTitle: 'เลือกประเทศไอดี:',
@@ -139,6 +140,7 @@ export const translations = {
     catProgressive: 'Progressive Skins',
     catRankReady: 'Rank Ready',
     catRareSkins: 'Rare Outfits',
+    catSmurf: '🐔 Chinese Smurf & Crates',
 
     // Regions
     filterRegionTitle: 'Filter by Region:',

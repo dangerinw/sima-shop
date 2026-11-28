@@ -307,19 +307,21 @@ function App() {
             }
           });
 
-          // 2. Prepend live arrivals if available (exclude China accounts < 500 THB)
+          // 2. Prepend live arrivals if available (exclude China accounts < 500 THB unless smurf)
           liveItems.forEach((acc) => {
             const priced = calculateCnPricing(acc);
-            if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
+            const isSmurf = priced.category === 'smurf' || priced.isSmurf || /工坊|猎人|宝箱|cdk|ไก่|smurf/i.test(priced.title_th || priced.title || '');
+            if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500 || isSmurf) {
               addAccountDedup(priced);
             }
           });
 
-          // 3. Add base stock accounts if static stock was just loaded (exclude China accounts < 500 THB)
+          // 3. Add base stock accounts if static stock was just loaded (exclude China accounts < 500 THB unless smurf)
           if (baseList.length > 0) {
             baseList.forEach((acc) => {
               const priced = calculateCnPricing(acc);
-              if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500) {
+              const isSmurf = priced.category === 'smurf' || priced.isSmurf || /工坊|猎人|宝箱|cdk|ไก่|smurf/i.test(priced.title_th || priced.title || '');
+              if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500 || isSmurf) {
                 addAccountDedup(priced);
               }
             });
@@ -385,7 +387,12 @@ function App() {
             localStorage.setItem('sima_accounts', JSON.stringify(mockAccounts));
             return mockAccounts;
           }
-          return parsed.map((acc) => {
+          // Merge newly introduced mock accounts (e.g. Chinese Smurf accounts) if not present in cache
+          const parsedIds = new Set(parsed.map((a) => a.id));
+          const missingMocks = mockAccounts.filter((m) => !parsedIds.has(m.id));
+          const merged = [...parsed, ...missingMocks];
+
+          return merged.map((acc) => {
             if (acc.id === 'PC-1001' && (!acc.coverImg || !acc.images || acc.images.length === 0)) {
               return {
                 ...acc,
@@ -499,10 +506,11 @@ function App() {
     let progressive = 0;
     let rankReady = 0;
     let rareSkins = 0;
+    let smurf = 0;
     for (let i = 0; i < accounts.length; i++) {
       const a = accounts[i];
       if (a.isSold) continue;
-      all++;
+      
       const fullText = [
         a.title,
         a.title_th,
@@ -515,11 +523,23 @@ function App() {
         (a.tags || []).join(' ')
       ].filter(Boolean).join(' ').toLowerCase();
 
-      if (a.category === 'progressive' || fullText.includes('progressive') || fullText.includes('lv.') || fullText.includes('max') || fullText.includes('ปืนอัปเกรด')) progressive++;
-      else if (a.category === 'rank-ready' || fullText.includes('rank') || fullText.includes('แรงค์') || fullText.includes('plus')) rankReady++;
-      else if (a.category === 'rare-skins' || fullText.includes('แรร์') || fullText.includes('bape') || fullText.includes('shroud') || fullText.includes('ทรงจีน') || fullText.includes('urus')) rareSkins++;
+      const isSmurf = 
+        a.category === 'smurf' || 
+        a.category === 'chicken' || 
+        a.isSmurf || 
+        (a.priceTHB && Number(a.priceTHB) <= 150) ||
+        /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf/i.test(fullText);
+
+      if (isSmurf) {
+        smurf++;
+      } else {
+        all++;
+        if (a.category === 'progressive' || fullText.includes('progressive') || fullText.includes('lv.') || fullText.includes('max') || fullText.includes('ปืนอัปเกรด')) progressive++;
+        else if (a.category === 'rank-ready' || fullText.includes('rank') || fullText.includes('แรงค์') || fullText.includes('plus')) rankReady++;
+        else if (a.category === 'rare-skins' || fullText.includes('แรร์') || fullText.includes('bape') || fullText.includes('shroud') || fullText.includes('ทรงจีน') || fullText.includes('urus')) rareSkins++;
+      }
     }
-    return { all, progressive, rankReady, rareSkins };
+    return { all, progressive, rankReady, rareSkins, smurf };
   }, [accounts]);
 
   // Filtered & Sorted accounts for Storefront
@@ -529,8 +549,24 @@ function App() {
       // Hide sold accounts in storefront
       if (item.isSold) return false;
 
-      // Exclude Chinese accounts under 500 THB
-      if (item.region === 'cn' && Number(item.priceTHB) < 500) return false;
+      // Identify whether this item is a Smurf or Crate / Workshop item
+      const isSmurfItem = 
+        item.category === 'smurf' || 
+        item.category === 'chicken' || 
+        item.isSmurf || 
+        (item.priceTHB && Number(item.priceTHB) <= 150) ||
+        /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf/i.test([item.title, item.title_th, item.title_en, (item.tags || []).join(' ')].join(' '));
+
+      // Hybrid View Filtering Logic:
+      // When in 'smurf' category view -> Show only smurf/crate items (regardless of region or low price)
+      if (activeCategory === 'smurf') {
+        if (!isSmurfItem) return false;
+      } else {
+        // Exclude Chinese accounts under 500 THB if they are not smurf items
+        if (item.region === 'cn' && Number(item.priceTHB) < 500 && !isSmurfItem) return false;
+        // In other specific categories or default 'all', keep smurf items out of the main list unless searched
+        if (isSmurfItem && !searchQuery) return false;
+      }
 
       // Eliminate cross-shop duplicate listings
       if (item.region === 'cn') {
@@ -548,7 +584,7 @@ function App() {
       }
 
       // 2. Category match (supports direct category + tags + keyword heuristics for custom accounts)
-      if (activeCategory !== 'all') {
+      if (activeCategory !== 'all' && activeCategory !== 'smurf') {
         const matchesDirect = item.category === activeCategory;
         const tagList = Array.isArray(item.tags)
           ? item.tags.map((t) => String(t).toLowerCase().replace(/[-_\s]/g, ''))

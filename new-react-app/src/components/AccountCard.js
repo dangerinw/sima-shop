@@ -107,6 +107,14 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
               <span>{regionInfo.label}</span>
             </span>
 
+            {/* Smurf / Crate Badge ⭐ */}
+            {(account.category === 'smurf' || account.isSmurf || (account.priceTHB && account.priceTHB <= 150)) && (
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-black border flex items-center gap-1 shadow-sm backdrop-blur-md bg-amber-500/25 text-amber-300 border-amber-500/50">
+                <span>🐔</span>
+                <span>{lang === 'th' ? 'ไอดีไก่ / กล่องสุ่ม' : 'Smurf / Crate'}</span>
+              </span>
+            )}
+
             {/* Installment / Cash-Only Badge ⭐ */}
             {canInstallment ? (
               <span className="px-2 py-0.5 rounded-md text-[11px] font-black border flex items-center gap-1 shadow-sm backdrop-blur-md bg-purple-600/30 text-purple-200 border-purple-400/50">

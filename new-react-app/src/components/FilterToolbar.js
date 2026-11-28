@@ -111,6 +111,16 @@ export default function FilterToolbar({
             >
               {t.catRareSkins} ({counts.rareSkins})
             </button>
+            <button 
+              onClick={() => setActiveCategory('smurf')} 
+              className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${activeCategory === 'smurf' ? 'bg-amber-500 text-black shadow' : 'text-slate-400 hover:text-white'}`}
+            >
+              <span>🐔</span>
+              <span>{t.catSmurf || 'ไอดีไก่จีน & กล่องสุ่ม'}</span>
+              <span className={`px-1.5 py-0.2 rounded-full text-[11px] font-bold ${activeCategory === 'smurf' ? 'bg-black/20 text-black' : 'bg-slate-800 text-slate-300'}`}>
+                {counts.smurf || 0}
+              </span>
+            </button>
           </div>
 
           {/* Search Box */}
@@ -176,6 +186,61 @@ export default function FilterToolbar({
           </div>
 
         </div>
+
+        {/* Hybrid Showcase Banner for Smurf Accounts & Workshop Crates ⭐ */}
+        {activeCategory === 'smurf' ? (
+          <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-purple-900/30 to-slate-950 border border-amber-500/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg shadow-amber-500/5 animate-in fade-in">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl p-2 rounded-xl bg-amber-500/20 border border-amber-500/40">🐔</span>
+              <div>
+                <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
+                  <span>{lang === 'th' ? 'กำลังแสดงหมวดหมู่: ไอดีไก่จีน & กล่องสุ่ม Workshop / CDK' : 'Showing: Chinese Smurf Accounts & Workshop Crates / CDK'}</span>
+                  <span className="px-2 py-0.5 rounded-md bg-amber-500 text-black text-[10px] font-extrabold uppercase">
+                    Hybrid View
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-0.5">
+                  {lang === 'th' ? 'คัดสรรไอดีไก่ราคาประหยัด 25 - 150 บาท พร้อมจัดส่งอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%' : 'Budget smurf accounts 25 - 150 THB with 24H instant delivery and 100% guarantee'}
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setActiveCategory('all')}
+              className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-bold border border-slate-700 transition-all cursor-pointer whitespace-nowrap self-end sm:self-auto"
+            >
+              {lang === 'th' ? '✕ แสดงไอดีทั้งหมด' : '✕ Show All Accounts'}
+            </button>
+          </div>
+        ) : (
+          <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-purple-950/20 to-slate-950/80 border border-amber-500/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm hover:border-amber-500/40 transition-all">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl p-1.5 sm:p-2 rounded-xl bg-amber-500/15 border border-amber-500/30">🐔</span>
+              <div>
+                <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
+                  <span>{lang === 'th' ? 'คลังไอดีไก่จีน & กล่องสุ่ม Workshop เริ่มต้นเพียง 25 - 150 บาท' : 'Chinese Smurf Accounts & Workshop Crates from 25 - 150 THB'}</span>
+                  <span className="hidden sm:inline-block px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-400 text-[10px] font-bold border border-amber-500/30">
+                    24H Auto Delivery
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-0.5">
+                  {lang === 'th' ? 'เหมาะสำหรับสายเปิดกล่องเวิร์กช็อป สุ่มสกินปืนอัปเกรด หรือไอดีซ้อมมือ ไม่ต้องรอแอดมิน' : 'Instant keys & crates for unboxing progressive skins or practice accounts'}
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setActiveCategory('smurf')}
+              className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs transition-all shadow-md shadow-amber-500/20 hover:scale-[1.02] flex items-center gap-1.5 cursor-pointer whitespace-nowrap self-end sm:self-auto"
+            >
+              <span>{lang === 'th' ? 'เลือกดูไอดีไก่ & กล่องสุ่ม' : 'View Smurf & Crates'}</span>
+              <span className="px-1.5 py-0.2 rounded-full bg-black/20 text-black text-[10px] font-black">
+                {counts.smurf || 0}
+              </span>
+              <span>→</span>
+            </button>
+          </div>
+        )}
 
         {/* Active Selected Item Chips Row ⭐ */}
         {selectedItems.length > 0 && (
