@@ -119,7 +119,6 @@ export default function AccountModal({
   const [step, setStep] = useState('details'); // 'details' | 'contact'
   const [activeTab, setActiveTab] = useState('detail'); // 'detail' | 'cover'
   const [copiedText, setCopiedText] = useState(false);
-  const [copiedChinese, setCopiedChinese] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxZoom, setLightboxZoom] = useState('fit'); // 'fit' | 'large' | 'ultra'
   const [loadingDetailImg, setLoadingDetailImg] = useState(false);
@@ -139,8 +138,20 @@ export default function AccountModal({
     )
   );
 
-  // Accounts eligible for installment MUST be accounts we posted ourselves (isCustomLocal / Thai / our stock), NOT from the API
-  const canInstallment = isApiStock
+  const isChineseOrPackage = Boolean(
+    account && (
+      account.region === 'cn' ||
+      account.category === 'smurf' ||
+      account.isSmurf ||
+      String(account.id).startsWith('CN-') ||
+      account.chineseSkuName ||
+      account.allowInstallment === false ||
+      isApiStock
+    )
+  );
+
+  // Accounts eligible for installment MUST be Thai accounts we posted ourselves, NEVER Chinese packages/API
+  const canInstallment = isChineseOrPackage
     ? false
     : (account?.allowInstallment !== undefined ? Boolean(account.allowInstallment) : true);
 
@@ -150,7 +161,6 @@ export default function AccountModal({
 
     setStep('details');
     setCopiedText(false);
-    setCopiedChinese(false);
     setIsLightboxOpen(false);
     setLightboxZoom('fit');
     setIsSoldOut(Boolean(account.isSold));
@@ -284,11 +294,13 @@ export default function AccountModal({
   const directUrl = getSourceUrl(account);
 
   const handleCopyOrderInfo = () => {
-    const rawCodeLine = account.rawBianhao ? `\nรหัสค้นหาในจีน: ${account.rawBianhao}` : '';
-    const chineseSkuLine = account.chineseSkuName ? `\nชื่อแพ็กเกจในจีน (ค้นหา Ctrl+F): ${account.chineseSkuName} (หมวดหมู่: ${account.chineseCategory || '-'} | ราคาทุน: ¥${account.rmbPrice || '-'} หยวน)` : '';
-    const sourceShopLine = account.sourceShop ? `\nคลังจีนต้นทาง: ${account.sourceShop}` : '';
-    const urlLine = directUrl ? `\nลิงก์สั่งซื้อในเว็บจีน: ${directUrl}` : '';
-    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดีหน้าร้าน: #${displayCode}${rawCodeLine}${chineseSkuLine}${sourceShopLine}${urlLine}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
+    const rawCodeLine = account.rawBianhao ? `\n🇨🇳 รหัสค้นหาในจีน: ${account.rawBianhao}` : '';
+    const chineseSkuLine = account.chineseSkuName ? `\n🇨🇳 ชื่อแพ็กเกจในจีน (Ctrl+F): ${account.chineseSkuName}` : '';
+    const categoryLine = account.chineseCategory ? `\n🗂️ หมวดหมู่ในจีน: ${account.chineseCategory}` : '';
+    const rmbPriceLine = account.rmbPrice ? `\n💴 ราคาทุนจีน: ¥${account.rmbPrice} หยวน` : '';
+    const sourceShopLine = account.sourceShop ? `\n🏪 คลังจีนต้นทาง: ${account.sourceShop}` : '';
+    const urlLine = directUrl ? `\n🔗 ลิงก์สั่งซื้อในเว็บจีน: ${directUrl}` : '';
+    const orderText = `สวัสดีครับ สนใจสั่งซื้อไอดี PUBG PC\nรหัสไอดีหน้าร้าน: #${displayCode}${rawCodeLine}${chineseSkuLine}${categoryLine}${rmbPriceLine}${sourceShopLine}${urlLine}\nราคา: ${formatPrice(account.priceVND, account.priceTHB)}\nชื่อสกิน: ${title}\n(จากร้าน PUBG SIAM)`;
     navigator.clipboard.writeText(orderText);
     setCopiedText(true);
     setTimeout(() => setCopiedText(false), 2500);
@@ -342,18 +354,6 @@ export default function AccountModal({
                     <span className="text-[11px] text-blue-300 bg-blue-950/60 border border-blue-800/50 px-2 py-0.5 rounded font-medium">
                       🏪 {account.sourceShop}
                     </span>
-                  )}
-                  {directUrl && (
-                    <a
-                      href={directUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] text-amber-400 hover:text-amber-300 hover:underline flex items-center gap-1 font-bold bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded transition shadow"
-                      title="คลิกเพื่อเปิดดูหน้าไอดีนี้ในเว็บจีนทันที"
-                    >
-                      <span>🔗 ตรวจสอบในเว็บจีน</span>
-                      <span>↗</span>
-                    </a>
                   )}
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white line-clamp-1 mt-0.5">
@@ -791,72 +791,6 @@ export default function AccountModal({
                   <span className="text-amber-400 font-bold text-xs">{warranty}</span>
                 </div>
               </div>
-
-              {/* ADMIN / BUYER QUICK CHINESE SEARCH HELPER BOX ⭐ */}
-              {account.chineseSkuName && (
-                <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-950/40 via-purple-950/30 to-slate-950 border border-amber-500/40 shadow-xl space-y-2.5">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-black text-amber-300 flex items-center gap-1.5">
-                        <span>🇨🇳</span>
-                        <span>ค้นหาในเว็บจีน (Xiafei):</span>
-                      </span>
-                      <span className="text-xs font-mono text-amber-200 bg-amber-500/20 border border-amber-500/40 px-2 py-0.5 rounded font-bold">
-                        {account.chineseSkuName}
-                      </span>
-                      {account.chineseCategory && (
-                        <span className="text-[11px] text-purple-300 bg-purple-950/60 border border-purple-700/50 px-2 py-0.5 rounded">
-                          หมวด: {account.chineseCategory}
-                        </span>
-                      )}
-                      {account.rmbPrice && (
-                        <span className="text-[11px] text-emerald-300 bg-emerald-950/60 border border-emerald-700/50 px-2 py-0.5 rounded font-bold">
-                          ราคาทุน: ¥{account.rmbPrice} หยวน
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-2 shrink-0">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          navigator.clipboard.writeText(account.chineseSkuName);
-                          setCopiedChinese(true);
-                          setTimeout(() => setCopiedChinese(false), 2500);
-                        }}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 border shadow ${
-                          copiedChinese
-                            ? 'bg-emerald-500 text-black border-emerald-400'
-                            : 'bg-amber-500 hover:bg-amber-400 text-black border-amber-400 shadow-amber-900/30 active:scale-95'
-                        }`}
-                        title="คัดลอกชื่อภาษาจีนเพื่อนำไปกด Ctrl + F ค้นหาในหน้าเว็บจีน"
-                      >
-                        <span>{copiedChinese ? '✓' : '📋'}</span>
-                        <span>{copiedChinese ? 'คัดลอกชื่อจีนแล้ว!' : 'คัดลอกชื่อจีน (Ctrl+F)'}</span>
-                      </button>
-
-                      {directUrl && (
-                        <a
-                          href={directUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-amber-400 hover:text-amber-300 text-xs font-bold border border-slate-700 flex items-center gap-1 transition shadow"
-                          title="เปิดหน้าเว็บ Xiafei สินค้า #53 ทันที"
-                        >
-                          <span>เปิดเว็บจีน ↗</span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="text-[11px] text-slate-300/90 leading-relaxed bg-black/50 p-2.5 rounded-xl border border-slate-800/80 flex items-start gap-2">
-                    <span className="text-amber-400 text-xs mt-0.5 shrink-0">💡</span>
-                    <span>
-                      <strong>วิธีสั่งซื้อในเว็บจีน:</strong> เว็บ Xiafei ไม่มีช่องค้นหารหัส #ID แต่ใช้ระบบปุ่มชื่อสินค้า — แอดมินสามารถกดปุ่ม <strong className="text-amber-300">[คัดลอกชื่อจีน (Ctrl+F)]</strong> แล้วคลิก <strong className="text-amber-300">[เปิดเว็บจีน]</strong> จากนั้นกด <kbd className="px-1.5 py-0.5 bg-slate-800 border border-slate-600 rounded text-[10px] text-amber-200 font-mono">Ctrl + F</kbd> แล้วกดวาง (<code className="text-amber-300">{account.chineseSkuName}</code>) เบราว์เซอร์จะไฮไลท์ปุ่มแพ็กเกจให้กดสั่งซื้อได้ทันที!
-                    </span>
-                  </div>
-                </div>
-              )}
 
               {/* DESCRIPTION & WEAPON HIGHLIGHTS (100% THAI, NO WHOLESALE) */}
               <div className="space-y-2 text-xs">

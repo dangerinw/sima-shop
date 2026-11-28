@@ -36,8 +36,18 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
     )
   );
 
-  // Accounts eligible for installment MUST be accounts we posted ourselves, NOT from the API
-  const canInstallment = isApiStock
+  const isChineseOrPackage = Boolean(
+    account.region === 'cn' ||
+    account.category === 'smurf' ||
+    account.isSmurf ||
+    String(account.id).startsWith('CN-') ||
+    account.chineseSkuName ||
+    account.allowInstallment === false ||
+    isApiStock
+  );
+
+  // Accounts eligible for installment MUST be Thai accounts we posted ourselves, NEVER Chinese packages/API
+  const canInstallment = isChineseOrPackage
     ? false
     : (account.allowInstallment !== undefined ? Boolean(account.allowInstallment) : true);
 
