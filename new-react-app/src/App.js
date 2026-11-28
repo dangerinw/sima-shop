@@ -300,9 +300,9 @@ function App() {
             map.set(acc.id, acc);
           };
 
-          // 1. Preserve local / Thai / VN custom accounts
+          // 1. Preserve local / Thai / VN custom accounts and all smurf accounts
           prev.forEach((a) => {
-            if (a.region !== 'cn' || a.isCustomLocal) {
+            if (a.region !== 'cn' || a.isCustomLocal || a.category === 'smurf' || a.isSmurf) {
               addAccountDedup(a);
             }
           });
@@ -310,7 +310,7 @@ function App() {
           // 2. Prepend live arrivals if available (exclude China accounts < 500 THB unless smurf)
           liveItems.forEach((acc) => {
             const priced = calculateCnPricing(acc);
-            const isSmurf = priced.category === 'smurf' || priced.isSmurf || /工坊|猎人|宝箱|cdk|ไก่|smurf/i.test(priced.title_th || priced.title || '');
+            const isSmurf = priced.category === 'smurf' || priced.isSmurf;
             if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500 || isSmurf) {
               addAccountDedup(priced);
             }
@@ -320,7 +320,7 @@ function App() {
           if (baseList.length > 0) {
             baseList.forEach((acc) => {
               const priced = calculateCnPricing(acc);
-              const isSmurf = priced.category === 'smurf' || priced.isSmurf || /工坊|猎人|宝箱|cdk|ไก่|smurf/i.test(priced.title_th || priced.title || '');
+              const isSmurf = priced.category === 'smurf' || priced.isSmurf;
               if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500 || isSmurf) {
                 addAccountDedup(priced);
               }
@@ -433,7 +433,7 @@ function App() {
   // NOTE: Exclude China stock from localStorage to keep within 5MB browser quota and maintain 60 FPS
   useEffect(() => {
     try {
-      const localOnly = accounts.filter((a) => a.region !== 'cn' || a.isCustomLocal);
+      const localOnly = accounts.filter((a) => a.region !== 'cn' || a.isCustomLocal || a.category === 'smurf' || a.isSmurf);
       localStorage.setItem('sima_accounts', JSON.stringify(localOnly));
     } catch (e) {
       console.warn('[LocalStorage] Quota exceeded, applying safe image fallback for local persistence:', e);
@@ -527,8 +527,8 @@ function App() {
         a.category === 'smurf' || 
         a.category === 'chicken' || 
         a.isSmurf || 
-        (a.priceTHB && Number(a.priceTHB) <= 150) ||
-        /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf/i.test(fullText);
+        ((Number(a.priceTHB) <= 350 || (a.rmbPrice && Number(a.rmbPrice) <= 50)) && 
+         /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf|ไก่จีน/i.test(fullText));
 
       if (isSmurf) {
         smurf++;
@@ -554,8 +554,8 @@ function App() {
         item.category === 'smurf' || 
         item.category === 'chicken' || 
         item.isSmurf || 
-        (item.priceTHB && Number(item.priceTHB) <= 150) ||
-        /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf/i.test([item.title, item.title_th, item.title_en, (item.tags || []).join(' ')].join(' '));
+        ((Number(item.priceTHB) <= 350 || (item.rmbPrice && Number(item.rmbPrice) <= 50)) && 
+         /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf|ไก่จีน/i.test([item.title, item.title_th, item.title_en, (item.tags || []).join(' ')].join(' ')));
 
       // Hybrid View Filtering Logic:
       // When in 'smurf' category view -> Show only smurf/crate items (regardless of region or low price)
