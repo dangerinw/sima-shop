@@ -310,7 +310,7 @@ export default function FilterToolbar({
         </div>
 
         {/* Quick Tag Filter Pills (Multi-Select) */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar flex-wrap">
           <span className="text-slate-500 font-semibold whitespace-nowrap">{t.popularTags}</span>
           {quickTags.map((tag) => {
             const isActive = currentSelectedTags.includes(tag.id);
@@ -319,7 +319,7 @@ export default function FilterToolbar({
                 key={tag.id}
                 type="button"
                 onClick={() => handleToggleTag(tag.id)}
-                className={`px-3 py-1.5 rounded-lg border whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg border whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
                   isActive 
                     ? 'bg-amber-500 text-black border-amber-500 font-bold shadow-md shadow-amber-500/25 scale-[1.02]' 
                     : 'bg-slate-800/80 text-slate-300 border-slate-700/60 hover:bg-amber-500/20 hover:text-amber-400 hover:border-amber-500/40'
@@ -339,7 +339,7 @@ export default function FilterToolbar({
             <button 
               type="button"
               onClick={handleClearTags}
-              className="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-amber-400 text-xs underline whitespace-nowrap transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-amber-400 text-xs underline whitespace-nowrap transition-colors flex items-center gap-1 cursor-pointer shrink-0"
             >
               <span>✕</span>
               <span>{t.clearFilters || 'ล้างตัวกรอง'}</span>
