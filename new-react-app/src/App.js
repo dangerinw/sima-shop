@@ -570,11 +570,7 @@ function App() {
       if (activeCategory === 'smurf') {
         if (!isSmurfItem) return false;
         if (packageSubFilter && packageSubFilter !== 'all') {
-          if (packageSubFilter === 'vault') {
-            if (item.packageCategory !== 'girlgroup' && item.packageCategory !== 'highgb') return false;
-          } else {
-            if (item.packageCategory !== packageSubFilter) return false;
-          }
+          if (item.packageCategory !== packageSubFilter) return false;
         }
       } else {
         // Exclude Chinese accounts under 500 THB if they are not smurf items

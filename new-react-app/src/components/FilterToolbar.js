@@ -197,13 +197,13 @@ export default function FilterToolbar({
                 <span className="text-2xl p-2 rounded-xl bg-amber-500/20 border border-amber-500/40">📦</span>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
-                    <span>{lang === 'th' ? `คลังแพ็กเกจไอดีจีนโรงงาน Xiafei (#53) & กล่องสุ่ม (${counts.smurf || 90} แพ็กเกจ)` : `Chinese Xiafei Factory Packages & Crates (${counts.smurf || 90} Items)`}</span>
+                    <span>{lang === 'th' ? `คลังแพ็กเกจไอดีจีนโรงงาน Xiafei (#53) & กล่องสุ่ม (${counts.smurf || 245} แพ็กเกจ)` : `Chinese Xiafei Factory Packages & Crates (${counts.smurf || 245} Items)`}</span>
                     <span className="px-2 py-0.5 rounded-md bg-amber-500 text-black text-[10px] font-extrabold uppercase">
                       Xiafei Direct
                     </span>
                   </div>
                   <div className="text-[11px] text-slate-300 mt-0.5">
-                    {lang === 'th' ? 'มีครบทั้งรถหรู Porsche / Martin, การ์ดจอ Progressive, Medusa งูขาว-งูดำ, ซูคุนะ, และไอดีไก่ ส่งมอบอัตโนมัติ 24 ชม. ปลอดภัย 100%' : 'All 75+ authentic packages from Chinese supplier #53: Supercars, Progressive, Medusa, Sukuna & Smurfs'}
+                    {lang === 'th' ? 'มีครบทั้งรูปจริงตารางสกินทุกแพ็กเกจ, ปืนเติบโต Progressive 1-5 กระบอก, ซูเปอร์คาร์, Medusa งูขาว, ตั๋วดำ และไอดีไก่ ส่งมอบออโต้ 24 ชม.' : 'All 241 authentic packages from Chinese supplier #53 with real infographic images'}
                   </div>
                 </div>
               </div>
@@ -219,13 +219,13 @@ export default function FilterToolbar({
             {/* Sub-Category Filter Pills ⭐ */}
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs">
               {[
-                { id: 'all', label_th: '🔥 ทั้งหมด (90)', label_en: '🔥 All (90)' },
-                { id: 'car', label_th: '🚗 รถหรู Porsche / Martin (26)', label_en: '🚗 Supercars (26)' },
-                { id: 'progressive', label_th: '🎮 การ์ดจอ Progressive (22)', label_en: '🎮 Progressive GPU (22)' },
-                { id: 'rare', label_th: '🐍 Medusa งูขาว-งูดำ (11)', label_en: '🐍 Medusa Series (11)' },
-                { id: 'anime', label_th: '⚡ ซูคุนะ Sukuna (6)', label_en: '⚡ Sukuna (6)' },
-                { id: 'vault', label_th: '💰 GB สูง & เกิร์ลกรุ๊ป (6)', label_en: '💰 High-GB & Idol (6)' },
-                { id: 'smurf', label_th: '🛡️ ไอดีไก่ & ซ้อมมือ (15)', label_en: '🛡️ Smurf & Rank (15)' },
+                { id: 'all', label_th: `🔥 ทั้งหมด (${counts.smurf || 245})`, label_en: `🔥 All (${counts.smurf || 245})` },
+                { id: 'progressive', label_th: '🎮 ปืนเติบโต Progressive (111)', label_en: '🎮 Progressive (111)' },
+                { id: 'smurf', label_th: '🛡️ ไอดีไก่ & พร้อมแข่ง (39)', label_en: '🛡️ Smurf & Rank (39)' },
+                { id: 'car', label_th: '🚗 รถหรู Porsche / Martin (33)', label_en: '🚗 Supercars (33)' },
+                { id: 'rare', label_th: '🐍 สกินแรร์ Medusa / ชุดดัง (29)', label_en: '🐍 Rare Skins (29)' },
+                { id: 'tickets', label_th: '🎫 ตั๋วดำ 1,000+ ใบ (15)', label_en: '🎫 1000 Tickets (15)' },
+                { id: 'vault', label_th: '💰 GB สูง & เกิร์ลกรุ๊ป (14)', label_en: '💰 High-GB & Idol (14)' },
                 { id: 'crate', label_th: '📦 กล่องสุ่ม & CDK (4)', label_en: '📦 Crates & CDK (4)' }
               ].map((sub) => {
                 const isActive = (packageSubFilter || 'all') === sub.id;
@@ -252,13 +252,13 @@ export default function FilterToolbar({
               <span className="text-2xl p-1.5 sm:p-2 rounded-xl bg-amber-500/15 border border-amber-500/30">📦</span>
               <div>
                 <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
-                  <span>{lang === 'th' ? `คลังแพ็กเกจไอดีจีนตรงจากโรงงาน Xiafei (#53) & กล่องสุ่ม (${counts.smurf || 90} รายการ)` : `Chinese Xiafei Factory Packages & Crates (${counts.smurf || 90} Items)`}</span>
+                  <span>{lang === 'th' ? `คลังแพ็กเกจไอดีจีนตรงจากโรงงาน Xiafei (#53) & กล่องสุ่ม (${counts.smurf || 245} รายการ)` : `Chinese Xiafei Factory Packages & Crates (${counts.smurf || 245} Items)`}</span>
                   <span className="hidden sm:inline-block px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-400 text-[10px] font-bold border border-amber-500/30">
                     24H Auto Delivery
                   </span>
                 </div>
                 <div className="text-[11px] text-slate-400 mt-0.5">
-                  {lang === 'th' ? 'สเปกตรงปก: รถสปอร์ต Porsche / Martin, การ์ดจอ Progressive, งูขาว Medusa, ซูคุนะ และไอดีไก่ ส่งมอบออโต้ 24 ชม.' : 'Authentic Xiafei China packages: Porsche, Martin, Progressive GPU, Medusa & Sukuna'}
+                  {lang === 'th' ? 'มีรูปตารางจริงทุกแพ็กเกจ: ปืนเติบโต Progressive, รถ Porsche / Martin, งูขาว Medusa, ตั๋วดำ และไอดีไก่ ส่งมอบออโต้ 24 ชม.' : 'Authentic Xiafei China packages with real images: Progressive, Porsche, Medusa & Smurf'}
                 </div>
               </div>
             </div>
@@ -269,7 +269,7 @@ export default function FilterToolbar({
             >
               <span>{lang === 'th' ? 'เลือกดูแพ็กเกจจีน & กล่องสุ่ม' : 'View China Packages'}</span>
               <span className="px-1.5 py-0.2 rounded-full bg-black/20 text-black text-[10px] font-black">
-                {counts.smurf || 90}
+                {counts.smurf || 245}
               </span>
               <span>→</span>
             </button>

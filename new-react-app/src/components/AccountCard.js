@@ -85,6 +85,7 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
             alt={title}
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90"
             loading="lazy"
+            referrerPolicy="no-referrer"
           />
         )}
         

@@ -673,6 +673,7 @@ export default function AccountModal({
                         alt={title}
                         className="w-full h-full max-h-[62vh] object-contain transition-all duration-300 cursor-zoom-in"
                         onClick={() => setIsLightboxOpen(true)}
+                        referrerPolicy="no-referrer"
                       />
                     ) : (
                       <div className="flex flex-col items-center justify-center p-8 text-center text-slate-500">
