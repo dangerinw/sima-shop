@@ -1,9 +1,3 @@
-// =====================================================================
-// PUBG SIAM - Authentic Chinese Smurf Accounts, Crates & Xiafei Packages 🇨🇳
-// Auto-synchronized directly from Xiafei Supplier API (Goods #53)
-// Total Packages: 245
-// =====================================================================
-
 export const smurfAccounts = [
   {
     "id": "CN-SMURF-J001",
@@ -18,10 +12,10 @@ export const smurfAccounts = [
     "title_en": "PUBG Workshop & Hunter Chests Smurf Account (Auto Delivery)",
     "subtitle_th": "ไอดีไก่จีนสำหรับเปิดกล่องเวิร์กช็อป ลุ้นสกินปืนอัปเกรด คุ้มสุดๆ ส่งมอบอัตโนมัติ 24 ชม.",
     "subtitle_en": "Chinese Smurf Account with Workshop & Hunter Crates. 24H Instant Auto Delivery.",
-    "priceTHB": 29,
-    "priceVND": 22000,
-    "originalPriceTHB": 45,
-    "originalPriceVND": 35000,
+    "priceTHB": 70,
+    "priceVND": 50000,
+    "originalPriceTHB": 81,
+    "originalPriceVND": 57500,
     "rmbPrice": 4,
     "tags": [
       "Smurf",
@@ -60,10 +54,10 @@ export const smurfAccounts = [
     "title_en": "PUBG Workshop x5 Chests + Hunter x5 Bundle Smurf ID",
     "subtitle_th": "แพ็กเกจสุดคุ้ม 10 กล่อง สุ่มสกินปืนเติบโต Progressive ส่งมอบรวดเร็ว ปลอดภัย",
     "subtitle_en": "10 Chests Value Bundle: 5x Workshop + 5x Hunter. Great for progressive skins.",
-    "priceTHB": 129,
-    "priceVND": 95000,
-    "originalPriceTHB": 189,
-    "originalPriceVND": 140000,
+    "priceTHB": 150,
+    "priceVND": 107000,
+    "originalPriceTHB": 173,
+    "originalPriceVND": 123050,
     "rmbPrice": 19,
     "tags": [
       "Workshop",
@@ -102,10 +96,10 @@ export const smurfAccounts = [
     "title_en": "PUBG Mega 20 Chests Crate Bundle (10x Workshop + 10x Hunter)",
     "subtitle_th": "ชุดใหญ่สำหรับสายเปิดกล่องลุ้นสกินปืนตัวท็อปและชุดแฟชั่นแรร์ คุ้มค่าที่สุดในคลัง",
     "subtitle_en": "Mega 20 Chests Pack for hunting top-tier progressive skins and rare outfits.",
-    "priceTHB": 249,
-    "priceVND": 185000,
-    "originalPriceTHB": 320,
-    "originalPriceVND": 240000,
+    "priceTHB": 250,
+    "priceVND": 178000,
+    "originalPriceTHB": 288,
+    "originalPriceVND": 204700,
     "rmbPrice": 38,
     "tags": [
       "MegaBundle",
@@ -144,10 +138,10 @@ export const smurfAccounts = [
     "title_en": "PUBG Global Steam CDK Key Code (Instant Activation)",
     "subtitle_th": "โค้ดสำหรับรับไอเทม / แพ็กเกจในเกม PUBG Steam ส่งมอบรหัสทันที ใช้งานได้ทั่วโลก",
     "subtitle_en": "Authentic PUBG Steam redeem code. 24H instant delivery.",
-    "priceTHB": 49,
-    "priceVND": 38000,
-    "originalPriceTHB": 69,
-    "originalPriceVND": 50000,
+    "priceTHB": 90,
+    "priceVND": 64000,
+    "originalPriceTHB": 103,
+    "originalPriceVND": 73600,
     "rmbPrice": 8,
     "tags": [
       "CDK",
@@ -189,10 +183,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 高GB女团优选版 (高GB区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 新女团必选 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (高GB女团优选版). 100% Safe Instant Delivery.",
-    "priceTHB": 880,
-    "priceVND": 616000,
-    "originalPriceTHB": 1144,
-    "originalPriceVND": 800800,
+    "priceTHB": 900,
+    "priceVND": 640000,
+    "originalPriceTHB": 1035,
+    "originalPriceVND": 736000,
     "rmbPrice": 154,
     "stock": 10,
     "tags": [
@@ -218,7 +212,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/20/6db134c6-7518-473e-b373-586eabb9cb4c.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 高GB女团优选版\n- หมวดหมู่สินค้า: 高GB区\n- ป้ายกำกับ: 新女团必选\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿880 บาท)\n- สต็อกพร้อมส่ง: 10 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 高GB女团优选版\n- หมวดหมู่สินค้า: 高GB区\n- ป้ายกำกับ: 新女团必选\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿900 บาท)\n- สต็อกพร้อมส่ง: 10 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-562",
@@ -237,9 +231,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 新女团必选 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (高GB女团精选版). 100% Safe Instant Delivery.",
     "priceTHB": 1070,
-    "priceVND": 749000,
-    "originalPriceTHB": 1391,
-    "originalPriceVND": 973700,
+    "priceVND": 761000,
+    "originalPriceTHB": 1231,
+    "originalPriceVND": 875150,
     "rmbPrice": 187,
     "stock": 10,
     "tags": [
@@ -283,10 +277,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 畅玩版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 火爆 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (畅玩版). 100% Safe Instant Delivery.",
-    "priceTHB": 379,
-    "priceVND": 265300,
-    "originalPriceTHB": 493,
-    "originalPriceVND": 345100,
+    "priceTHB": 400,
+    "priceVND": 285000,
+    "originalPriceTHB": 460,
+    "originalPriceVND": 327750,
     "rmbPrice": 67,
     "stock": 100,
     "tags": [
@@ -312,7 +306,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/07/bd8d4e1c-25a2-4ea0-b729-331d42ecb736.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 畅玩版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 火爆\n- ราคาจีน: ¥67 หยวน (แปลงเป็นเงินไทย ฿379 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 畅玩版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 火爆\n- ราคาจีน: ¥67 หยวน (แปลงเป็นเงินไทย ฿400 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-312",
@@ -330,10 +324,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 进阶版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 火爆 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (进阶版). 100% Safe Instant Delivery.",
-    "priceTHB": 449,
-    "priceVND": 314300,
-    "originalPriceTHB": 584,
-    "originalPriceVND": 408800,
+    "priceTHB": 460,
+    "priceVND": 327000,
+    "originalPriceTHB": 529,
+    "originalPriceVND": 376050,
     "rmbPrice": 78,
     "stock": 100,
     "tags": [
@@ -359,7 +353,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/7f85bbd0-ad3e-4d78-ae80-01f2f0a82bfb.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 进阶版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 火爆\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿449 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 进阶版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 火爆\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿460 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-304",
@@ -377,10 +371,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷进阶版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 火爆 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷进阶版). 100% Safe Instant Delivery.",
-    "priceTHB": 449,
-    "priceVND": 314300,
-    "originalPriceTHB": 584,
-    "originalPriceVND": 408800,
+    "priceTHB": 460,
+    "priceVND": 327000,
+    "originalPriceTHB": 529,
+    "originalPriceVND": 376050,
     "rmbPrice": 78,
     "stock": 100,
     "tags": [
@@ -406,7 +400,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/62687466-ec0b-4226-a00b-ee108280400b.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷进阶版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: 火爆\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿449 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷进阶版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: 火爆\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿460 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-305",
@@ -424,10 +418,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 臻选版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 热销 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (臻选版). 100% Safe Instant Delivery.",
-    "priceTHB": 590,
-    "priceVND": 413000,
-    "originalPriceTHB": 767,
-    "originalPriceVND": 536900,
+    "priceTHB": 640,
+    "priceVND": 455000,
+    "originalPriceTHB": 736,
+    "originalPriceVND": 523250,
     "rmbPrice": 103,
     "stock": 17,
     "tags": [
@@ -453,7 +447,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/10/720b57db-bce8-4df1-846a-cfa548551aa9.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 臻选版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 热销\n- ราคาจีน: ¥103 หยวน (แปลงเป็นเงินไทย ฿590 บาท)\n- สต็อกพร้อมส่ง: 17 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 臻选版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 热销\n- ราคาจีน: ¥103 หยวน (แปลงเป็นเงินไทย ฿640 บาท)\n- สต็อกพร้อมส่ง: 17 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-521",
@@ -471,10 +465,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷臻选版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 热销 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷臻选版). 100% Safe Instant Delivery.",
-    "priceTHB": 570,
-    "priceVND": 399000,
-    "originalPriceTHB": 741,
-    "originalPriceVND": 518700,
+    "priceTHB": 620,
+    "priceVND": 441000,
+    "originalPriceTHB": 713,
+    "originalPriceVND": 507150,
     "rmbPrice": 100,
     "stock": 100,
     "tags": [
@@ -500,7 +494,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/60aa6745-da87-4ee2-a8e7-c60da0cef6b7.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷臻选版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: 热销\n- ราคาจีน: ¥100 หยวน (แปลงเป็นเงินไทย ฿570 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷臻选版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: 热销\n- ราคาจีน: ¥100 หยวน (แปลงเป็นเงินไทย ฿620 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-424",
@@ -519,9 +513,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 多马丁 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (多马丁高级版). 100% Safe Instant Delivery.",
     "priceTHB": 1150,
-    "priceVND": 805000,
-    "originalPriceTHB": 1495,
-    "originalPriceVND": 1046500,
+    "priceVND": 818000,
+    "originalPriceTHB": 1323,
+    "originalPriceVND": 940700,
     "rmbPrice": 201,
     "stock": 13,
     "tags": [
@@ -565,10 +559,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 多马丁中级版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 多马丁 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (多马丁中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 820,
-    "priceVND": 574000,
-    "originalPriceTHB": 1066,
-    "originalPriceVND": 746200,
+    "priceTHB": 840,
+    "priceVND": 598000,
+    "originalPriceTHB": 966,
+    "originalPriceVND": 687700,
     "rmbPrice": 143,
     "stock": 16,
     "tags": [
@@ -594,7 +588,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/16/ba8be95e-0ff3-41d1-837d-df055e6dd872.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 多马丁中级版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: 多马丁\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿820 บาท)\n- สต็อกพร้อมส่ง: 16 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 多马丁中级版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: 多马丁\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿840 บาท)\n- สต็อกพร้อมส่ง: 16 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-427",
@@ -612,10 +606,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 多马丁初级版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 多马丁 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (多马丁初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 640,
-    "priceVND": 448000,
-    "originalPriceTHB": 832,
-    "originalPriceVND": 582400,
+    "priceTHB": 680,
+    "priceVND": 484000,
+    "originalPriceTHB": 782,
+    "originalPriceVND": 556600,
     "rmbPrice": 112,
     "stock": 16,
     "tags": [
@@ -641,7 +635,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/792d3c85-cedb-460e-8c21-2b3782e91d77.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 多马丁初级版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: 多马丁\n- ราคาจีน: ¥112 หยวน (แปลงเป็นเงินไทย ฿640 บาท)\n- สต็อกพร้อมส่ง: 16 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 多马丁初级版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: 多马丁\n- ราคาจีน: ¥112 หยวน (แปลงเป็นเงินไทย ฿680 บาท)\n- สต็อกพร้อมส่ง: 16 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-425",
@@ -659,10 +653,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 多马丁入门版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 多马丁 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (多马丁入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 479,
-    "priceVND": 335300,
-    "originalPriceTHB": 623,
-    "originalPriceVND": 436100,
+    "priceTHB": 490,
+    "priceVND": 349000,
+    "originalPriceTHB": 564,
+    "originalPriceVND": 401350,
     "rmbPrice": 84,
     "stock": 5,
     "tags": [
@@ -688,7 +682,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/bd6cc463-41dc-4c4b-8aac-6980730c99c4.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 多马丁入门版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: 多马丁\n- ราคาจีน: ¥84 หยวน (แปลงเป็นเงินไทย ฿479 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 多马丁入门版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: 多马丁\n- ราคาจีน: ¥84 หยวน (แปลงเป็นเงินไทย ฿490 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-417",
@@ -706,10 +700,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷引流竞争版 (竞争者专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷引流竞争版). 100% Safe Instant Delivery.",
-    "priceTHB": 179,
-    "priceVND": 125300,
-    "originalPriceTHB": 233,
-    "originalPriceVND": 163100,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 32,
     "stock": 53,
     "tags": [
@@ -735,7 +729,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/18189a42-0677-4ad7-b947-6ab11d48f49b.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷引流竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿179 บาท)\n- สต็อกพร้อมส่ง: 53 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷引流竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 53 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-422",
@@ -753,10 +747,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 青铜竞争版 (竞争者专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (青铜竞争版). 100% Safe Instant Delivery.",
-    "priceTHB": 279,
-    "priceVND": 195300,
-    "originalPriceTHB": 363,
-    "originalPriceVND": 254100,
+    "priceTHB": 300,
+    "priceVND": 213000,
+    "originalPriceTHB": 345,
+    "originalPriceVND": 244950,
     "rmbPrice": 49,
     "stock": 100,
     "tags": [
@@ -782,7 +776,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/e8514734-d7b7-4f39-be72-0c6817977373.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 青铜竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿279 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 青铜竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿300 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-421",
@@ -800,10 +794,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷青铜竞争版 (竞争者专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷青铜竞争版). 100% Safe Instant Delivery.",
-    "priceTHB": 279,
-    "priceVND": 195300,
-    "originalPriceTHB": 363,
-    "originalPriceVND": 254100,
+    "priceTHB": 300,
+    "priceVND": 213000,
+    "originalPriceTHB": 345,
+    "originalPriceVND": 244950,
     "rmbPrice": 49,
     "stock": 27,
     "tags": [
@@ -829,7 +823,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/61cd5dee-b5f7-47ee-9d07-19a62070402a.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷青铜竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿279 บาท)\n- สต็อกพร้อมส่ง: 27 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷青铜竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿300 บาท)\n- สต็อกพร้อมส่ง: 27 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-423",
@@ -847,10 +841,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 进阶竞争版 (竞争者专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (进阶竞争版). 100% Safe Instant Delivery.",
-    "priceTHB": 449,
-    "priceVND": 314300,
-    "originalPriceTHB": 584,
-    "originalPriceVND": 408800,
+    "priceTHB": 460,
+    "priceVND": 327000,
+    "originalPriceTHB": 529,
+    "originalPriceVND": 376050,
     "rmbPrice": 78,
     "stock": 38,
     "tags": [
@@ -876,7 +870,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/83379129-1854-478a-974d-dbe7cfe414b3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 进阶竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿449 บาท)\n- สต็อกพร้อมส่ง: 38 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 进阶竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿460 บาท)\n- สต็อกพร้อมส่ง: 38 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-418",
@@ -894,10 +888,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 臻选竞争版 (竞争者专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (臻选竞争版). 100% Safe Instant Delivery.",
-    "priceTHB": 590,
-    "priceVND": 413000,
-    "originalPriceTHB": 767,
-    "originalPriceVND": 536900,
+    "priceTHB": 640,
+    "priceVND": 455000,
+    "originalPriceTHB": 736,
+    "originalPriceVND": 523250,
     "rmbPrice": 103,
     "stock": 100,
     "tags": [
@@ -923,7 +917,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/16/4099bd44-ee0f-42c9-9d9c-b7b5b87ad3f5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 臻选竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥103 หยวน (แปลงเป็นเงินไทย ฿590 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 臻选竞争版\n- หมวดหมู่สินค้า: 竞争者专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥103 หยวน (แปลงเป็นเงินไทย ฿640 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-563",
@@ -941,10 +935,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡新手版 (显卡专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡新手版). 100% Safe Instant Delivery.",
-    "priceTHB": 439,
-    "priceVND": 307300,
-    "originalPriceTHB": 571,
-    "originalPriceVND": 399700,
+    "priceTHB": 450,
+    "priceVND": 320000,
+    "originalPriceTHB": 518,
+    "originalPriceVND": 368000,
     "rmbPrice": 76,
     "stock": 42,
     "tags": [
@@ -970,7 +964,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/07/800f09f9-7086-465d-bf29-d3fd775a0709.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡新手版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥76 หยวน (แปลงเป็นเงินไทย ฿439 บาท)\n- สต็อกพร้อมส่ง: 42 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡新手版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥76 หยวน (แปลงเป็นเงินไทย ฿450 บาท)\n- สต็อกพร้อมส่ง: 42 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-402",
@@ -988,10 +982,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡入门版 (显卡专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 570,
-    "priceVND": 399000,
-    "originalPriceTHB": 741,
-    "originalPriceVND": 518700,
+    "priceTHB": 620,
+    "priceVND": 441000,
+    "originalPriceTHB": 713,
+    "originalPriceVND": 507150,
     "rmbPrice": 100,
     "stock": 28,
     "tags": [
@@ -1017,7 +1011,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/2f0bac5d-136c-4947-8f33-7aecf2406981.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡入门版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥100 หยวน (แปลงเป็นเงินไทย ฿570 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡入门版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥100 หยวน (แปลงเป็นเงินไทย ฿620 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-404",
@@ -1035,10 +1029,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡初级版 (显卡专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 780,
-    "priceVND": 546000,
-    "originalPriceTHB": 1014,
-    "originalPriceVND": 709800,
+    "priceTHB": 810,
+    "priceVND": 576000,
+    "originalPriceTHB": 931,
+    "originalPriceVND": 662400,
     "rmbPrice": 137,
     "stock": 23,
     "tags": [
@@ -1064,7 +1058,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/cf06a9a0-47fc-4533-a18d-8793824f5a70.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡初级版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥137 หยวน (แปลงเป็นเงินไทย ฿780 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡初级版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥137 หยวน (แปลงเป็นเงินไทย ฿810 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-403",
@@ -1082,10 +1076,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡中级版 (显卡专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 960,
-    "priceVND": 672000,
-    "originalPriceTHB": 1248,
-    "originalPriceVND": 873600,
+    "priceTHB": 970,
+    "priceVND": 690000,
+    "originalPriceTHB": 1116,
+    "originalPriceVND": 793500,
     "rmbPrice": 167,
     "stock": 26,
     "tags": [
@@ -1111,7 +1105,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/60adc0b9-74d0-4ac0-b0b5-e0d4ab1af206.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡中级版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥167 หยวน (แปลงเป็นเงินไทย ฿960 บาท)\n- สต็อกพร้อมส่ง: 26 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡中级版\n- หมวดหมู่สินค้า: 显卡专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥167 หยวน (แปลงเป็นเงินไทย ฿970 บาท)\n- สต็อกพร้อมส่ง: 26 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-405",
@@ -1130,9 +1124,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡高级版). 100% Safe Instant Delivery.",
     "priceTHB": 1260,
-    "priceVND": 882000,
-    "originalPriceTHB": 1638,
-    "originalPriceVND": 1146600,
+    "priceVND": 897000,
+    "originalPriceTHB": 1449,
+    "originalPriceVND": 1031550,
     "rmbPrice": 221,
     "stock": 25,
     "tags": [
@@ -1177,9 +1171,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡新异色入门版). 100% Safe Instant Delivery.",
     "priceTHB": 1260,
-    "priceVND": 882000,
-    "originalPriceTHB": 1638,
-    "originalPriceVND": 1146600,
+    "priceVND": 897000,
+    "originalPriceTHB": 1449,
+    "originalPriceVND": 1031550,
     "rmbPrice": 221,
     "stock": 3,
     "tags": [
@@ -1224,9 +1218,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡新异色初级版). 100% Safe Instant Delivery.",
     "priceTHB": 1450,
-    "priceVND": 1015000,
-    "originalPriceTHB": 1885,
-    "originalPriceVND": 1319500,
+    "priceVND": 1032000,
+    "originalPriceTHB": 1667,
+    "originalPriceVND": 1186800,
     "rmbPrice": 254,
     "stock": 3,
     "tags": [
@@ -1271,9 +1265,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡新异色中级版). 100% Safe Instant Delivery.",
     "priceTHB": 1840,
-    "priceVND": 1288000,
-    "originalPriceTHB": 2392,
-    "originalPriceVND": 1674400,
+    "priceVND": 1309000,
+    "originalPriceTHB": 2116,
+    "originalPriceVND": 1505350,
     "rmbPrice": 321,
     "stock": 4,
     "tags": [
@@ -1318,9 +1312,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡新异色高级版). 100% Safe Instant Delivery.",
     "priceTHB": 2220,
-    "priceVND": 1554000,
-    "originalPriceTHB": 2886,
-    "originalPriceVND": 2020200,
+    "priceVND": 1580000,
+    "originalPriceTHB": 2553,
+    "originalPriceVND": 1817000,
     "rmbPrice": 388,
     "stock": 5,
     "tags": [
@@ -1365,9 +1359,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡老异色入门版). 100% Safe Instant Delivery.",
     "priceTHB": 1840,
-    "priceVND": 1288000,
-    "originalPriceTHB": 2392,
-    "originalPriceVND": 1674400,
+    "priceVND": 1309000,
+    "originalPriceTHB": 2116,
+    "originalPriceVND": 1505350,
     "rmbPrice": 321,
     "stock": 2,
     "tags": [
@@ -1412,9 +1406,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡老异色初级版). 100% Safe Instant Delivery.",
     "priceTHB": 1970,
-    "priceVND": 1379000,
-    "originalPriceTHB": 2561,
-    "originalPriceVND": 1792700,
+    "priceVND": 1402000,
+    "originalPriceTHB": 2266,
+    "originalPriceVND": 1612300,
     "rmbPrice": 344,
     "stock": 2,
     "tags": [
@@ -1459,9 +1453,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡老异色中级版). 100% Safe Instant Delivery.",
     "priceTHB": 2540,
-    "priceVND": 1778000,
-    "originalPriceTHB": 3302,
-    "originalPriceVND": 2311400,
+    "priceVND": 1807000,
+    "originalPriceTHB": 2921,
+    "originalPriceVND": 2078050,
     "rmbPrice": 444,
     "stock": 2,
     "tags": [
@@ -1506,9 +1500,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡老异色高级版). 100% Safe Instant Delivery.",
     "priceTHB": 2860,
-    "priceVND": 2002000,
-    "originalPriceTHB": 3718,
-    "originalPriceVND": 2602600,
+    "priceVND": 2035000,
+    "originalPriceTHB": 3289,
+    "originalPriceVND": 2340250,
     "rmbPrice": 500,
     "stock": 2,
     "tags": [
@@ -1553,9 +1547,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡双异色极品版). 100% Safe Instant Delivery.",
     "priceTHB": 6180,
-    "priceVND": 4326000,
-    "originalPriceTHB": 8034,
-    "originalPriceVND": 5623800,
+    "priceVND": 4397000,
+    "originalPriceTHB": 7107,
+    "originalPriceVND": 5056550,
     "rmbPrice": 1080,
     "stock": 1,
     "tags": [
@@ -1600,9 +1594,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎白蛇显卡顶级版). 100% Safe Instant Delivery.",
     "priceTHB": 10780,
-    "priceVND": 7546000,
-    "originalPriceTHB": 14014,
-    "originalPriceVND": 9809800,
+    "priceVND": 7670000,
+    "originalPriceTHB": 12397,
+    "originalPriceVND": 8820500,
     "rmbPrice": 1884,
     "stock": 1,
     "tags": [
@@ -1647,9 +1641,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎白蛇显卡初级版). 100% Safe Instant Delivery.",
     "priceTHB": 6380,
-    "priceVND": 4466000,
-    "originalPriceTHB": 8294,
-    "originalPriceVND": 5805800,
+    "priceVND": 4540000,
+    "originalPriceTHB": 7337,
+    "originalPriceVND": 5221000,
     "rmbPrice": 1115,
     "stock": 1,
     "tags": [
@@ -1694,9 +1688,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎白蛇98k权志龙版). 100% Safe Instant Delivery.",
     "priceTHB": 10200,
-    "priceVND": 7140000,
-    "originalPriceTHB": 13260,
-    "originalPriceVND": 9282000,
+    "priceVND": 7258000,
+    "originalPriceTHB": 11730,
+    "originalPriceVND": 8346700,
     "rmbPrice": 1784,
     "stock": 1,
     "tags": [
@@ -1740,10 +1734,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - PUBG夹克标准版 (PUBG夹克专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (PUBG夹克标准版). 100% Safe Instant Delivery.",
-    "priceTHB": 449,
-    "priceVND": 314300,
-    "originalPriceTHB": 584,
-    "originalPriceVND": 408800,
+    "priceTHB": 460,
+    "priceVND": 327000,
+    "originalPriceTHB": 529,
+    "originalPriceVND": 376050,
     "rmbPrice": 78,
     "stock": 3,
     "tags": [
@@ -1769,7 +1763,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/681bd3f4-22bb-4863-909a-b0ab3a528cdb.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: PUBG夹克标准版\n- หมวดหมู่สินค้า: PUBG夹克专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿449 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: PUBG夹克标准版\n- หมวดหมู่สินค้า: PUBG夹克专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥78 หยวน (แปลงเป็นเงินไทย ฿460 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-401",
@@ -1787,10 +1781,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - PUBG夹克优选版 (PUBG夹克专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (PUBG夹克优选版). 100% Safe Instant Delivery.",
-    "priceTHB": 700,
-    "priceVND": 490000,
-    "originalPriceTHB": 910,
-    "originalPriceVND": 637000,
+    "priceTHB": 740,
+    "priceVND": 527000,
+    "originalPriceTHB": 851,
+    "originalPriceVND": 606050,
     "rmbPrice": 123,
     "stock": 4,
     "tags": [
@@ -1816,7 +1810,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/5ecfeb6e-5004-4e31-bedd-c081eb50b424.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: PUBG夹克优选版\n- หมวดหมู่สินค้า: PUBG夹克专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥123 หยวน (แปลงเป็นเงินไทย ฿700 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: PUBG夹克优选版\n- หมวดหมู่สินค้า: PUBG夹克专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥123 หยวน (แปลงเป็นเงินไทย ฿740 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-400",
@@ -1834,10 +1828,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - PUBG夹克尊享版 (PUBG夹克专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (PUBG夹克尊享版). 100% Safe Instant Delivery.",
-    "priceTHB": 820,
-    "priceVND": 574000,
-    "originalPriceTHB": 1066,
-    "originalPriceVND": 746200,
+    "priceTHB": 840,
+    "priceVND": 598000,
+    "originalPriceTHB": 966,
+    "originalPriceVND": 687700,
     "rmbPrice": 143,
     "stock": 10,
     "tags": [
@@ -1863,7 +1857,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/90161791-9fe2-4ad6-9c3d-2a0af4063718.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: PUBG夹克尊享版\n- หมวดหมู่สินค้า: PUBG夹克专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿820 บาท)\n- สต็อกพร้อมส่ง: 10 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: PUBG夹克尊享版\n- หมวดหมู่สินค้า: PUBG夹克专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿840 บาท)\n- สต็อกพร้อมส่ง: 10 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-493",
@@ -1881,10 +1875,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宇宙98k入门版 (宇宙98K专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 329,
-    "priceVND": 230300,
-    "originalPriceTHB": 428,
-    "originalPriceVND": 299600,
+    "priceTHB": 350,
+    "priceVND": 249000,
+    "originalPriceTHB": 402,
+    "originalPriceVND": 286350,
     "rmbPrice": 58,
     "stock": 21,
     "tags": [
@@ -1910,7 +1904,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/0f22605e-40b2-49b3-9ffe-073f39b868db.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k入门版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥58 หยวน (แปลงเป็นเงินไทย ฿329 บาท)\n- สต็อกพร้อมส่ง: 21 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k入门版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥58 หยวน (แปลงเป็นเงินไทย ฿350 บาท)\n- สต็อกพร้อมส่ง: 21 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-490",
@@ -1928,10 +1922,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宇宙98k初级版 (宇宙98K专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 479,
-    "priceVND": 335300,
-    "originalPriceTHB": 623,
-    "originalPriceVND": 436100,
+    "priceTHB": 490,
+    "priceVND": 349000,
+    "originalPriceTHB": 564,
+    "originalPriceVND": 401350,
     "rmbPrice": 84,
     "stock": 28,
     "tags": [
@@ -1957,7 +1951,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/66f75d8d-54b8-4a42-981b-32d4b6575971.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k初级版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥84 หยวน (แปลงเป็นเงินไทย ฿479 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k初级版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥84 หยวน (แปลงเป็นเงินไทย ฿490 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-491",
@@ -1975,10 +1969,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宇宙98k中级版 (宇宙98K专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 640,
-    "priceVND": 448000,
-    "originalPriceTHB": 832,
-    "originalPriceVND": 582400,
+    "priceTHB": 680,
+    "priceVND": 484000,
+    "originalPriceTHB": 782,
+    "originalPriceVND": 556600,
     "rmbPrice": 112,
     "stock": 24,
     "tags": [
@@ -2004,7 +1998,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/21/15438914-23b9-47ee-9af7-0adce4617b42.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k中级版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥112 หยวน (แปลงเป็นเงินไทย ฿640 บาท)\n- สต็อกพร้อมส่ง: 24 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k中级版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥112 หยวน (แปลงเป็นเงินไทย ฿680 บาท)\n- สต็อกพร้อมส่ง: 24 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-486",
@@ -2022,10 +2016,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宇宙98k高级版 (宇宙98K专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k高级版). 100% Safe Instant Delivery.",
-    "priceTHB": 830,
-    "priceVND": 581000,
-    "originalPriceTHB": 1079,
-    "originalPriceVND": 755300,
+    "priceTHB": 850,
+    "priceVND": 605000,
+    "originalPriceTHB": 977,
+    "originalPriceVND": 695750,
     "rmbPrice": 145,
     "stock": 17,
     "tags": [
@@ -2051,7 +2045,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/e6363458-96f9-4f8b-b5c3-5ce260c9b850.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k高级版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥145 หยวน (แปลงเป็นเงินไทย ฿830 บาท)\n- สต็อกพร้อมส่ง: 17 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k高级版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥145 หยวน (แปลงเป็นเงินไทย ฿850 บาท)\n- สต็อกพร้อมส่ง: 17 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-489",
@@ -2069,10 +2063,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宇宙98k异色入门版 (宇宙98K专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k异色入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 880,
-    "priceVND": 616000,
-    "originalPriceTHB": 1144,
-    "originalPriceVND": 800800,
+    "priceTHB": 900,
+    "priceVND": 640000,
+    "originalPriceTHB": 1035,
+    "originalPriceVND": 736000,
     "rmbPrice": 154,
     "stock": 3,
     "tags": [
@@ -2098,7 +2092,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/0e0a419c-7bef-4ee5-b3e9-1acd64caccf3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k异色入门版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿880 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宇宙98k异色入门版\n- หมวดหมู่สินค้า: 宇宙98K专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿900 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-492",
@@ -2116,10 +2110,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宇宙98k异色初级版 (宇宙98K专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k异色初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 1020,
-    "priceVND": 714000,
-    "originalPriceTHB": 1326,
-    "originalPriceVND": 928200,
+    "priceTHB": 1030,
+    "priceVND": 733000,
+    "originalPriceTHB": 1185,
+    "originalPriceVND": 842950,
     "rmbPrice": 179,
     "stock": 3,
     "tags": [
@@ -2164,9 +2158,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k异色中级版). 100% Safe Instant Delivery.",
     "priceTHB": 1330,
-    "priceVND": 931000,
-    "originalPriceTHB": 1729,
-    "originalPriceVND": 1210300,
+    "priceVND": 946000,
+    "originalPriceTHB": 1529,
+    "originalPriceVND": 1087900,
     "rmbPrice": 232,
     "stock": 3,
     "tags": [
@@ -2211,9 +2205,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宇宙98k异色高级版). 100% Safe Instant Delivery.",
     "priceTHB": 1520,
-    "priceVND": 1064000,
-    "originalPriceTHB": 1976,
-    "originalPriceVND": 1383200,
+    "priceVND": 1082000,
+    "originalPriceTHB": 1748,
+    "originalPriceVND": 1244300,
     "rmbPrice": 266,
     "stock": 2,
     "tags": [
@@ -2258,9 +2252,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡优选版). 100% Safe Instant Delivery.",
     "priceTHB": 2350,
-    "priceVND": 1645000,
-    "originalPriceTHB": 3055,
-    "originalPriceVND": 2138500,
+    "priceVND": 1672000,
+    "originalPriceTHB": 2703,
+    "originalPriceVND": 1922800,
     "rmbPrice": 411,
     "stock": 3,
     "tags": [
@@ -2305,9 +2299,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡精选版). 100% Safe Instant Delivery.",
     "priceTHB": 3120,
-    "priceVND": 2184000,
-    "originalPriceTHB": 4056,
-    "originalPriceVND": 2839200,
+    "priceVND": 2220000,
+    "originalPriceTHB": 3588,
+    "originalPriceVND": 2553000,
     "rmbPrice": 545,
     "stock": 1,
     "tags": [
@@ -2352,9 +2346,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡进阶版). 100% Safe Instant Delivery.",
     "priceTHB": 3430,
-    "priceVND": 2401000,
-    "originalPriceTHB": 4459,
-    "originalPriceVND": 3121300,
+    "priceVND": 2441000,
+    "originalPriceTHB": 3944,
+    "originalPriceVND": 2807150,
     "rmbPrice": 600,
     "stock": 2,
     "tags": [
@@ -2399,9 +2393,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡豪华版). 100% Safe Instant Delivery.",
     "priceTHB": 4010,
-    "priceVND": 2807000,
-    "originalPriceTHB": 5213,
-    "originalPriceVND": 3649100,
+    "priceVND": 2853000,
+    "originalPriceTHB": 4612,
+    "originalPriceVND": 3280950,
     "rmbPrice": 701,
     "stock": 2,
     "tags": [
@@ -2446,9 +2440,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 精品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎黑蛇优选版). 100% Safe Instant Delivery.",
     "priceTHB": 1450,
-    "priceVND": 1015000,
-    "originalPriceTHB": 1885,
-    "originalPriceVND": 1319500,
+    "priceVND": 1032000,
+    "originalPriceTHB": 1667,
+    "originalPriceVND": 1186800,
     "rmbPrice": 254,
     "stock": 3,
     "tags": [
@@ -2493,9 +2487,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 精品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎黑蛇精选版). 100% Safe Instant Delivery.",
     "priceTHB": 2790,
-    "priceVND": 1953000,
-    "originalPriceTHB": 3627,
-    "originalPriceVND": 2538900,
+    "priceVND": 1985000,
+    "originalPriceTHB": 3208,
+    "originalPriceVND": 2282750,
     "rmbPrice": 487,
     "stock": 2,
     "tags": [
@@ -2540,9 +2534,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 精品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎白蛇尊享版). 100% Safe Instant Delivery.",
     "priceTHB": 3880,
-    "priceVND": 2716000,
-    "originalPriceTHB": 5044,
-    "originalPriceVND": 3530800,
+    "priceVND": 2761000,
+    "originalPriceTHB": 4462,
+    "originalPriceVND": 3175150,
     "rmbPrice": 679,
     "stock": 1,
     "tags": [
@@ -2587,9 +2581,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 精品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎白蛇卓越版). 100% Safe Instant Delivery.",
     "priceTHB": 10850,
-    "priceVND": 7595000,
-    "originalPriceTHB": 14105,
-    "originalPriceVND": 9873500,
+    "priceVND": 7720000,
+    "originalPriceTHB": 12477,
+    "originalPriceVND": 8878000,
     "rmbPrice": 1896,
     "stock": 1,
     "tags": [
@@ -2633,10 +2627,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宿傩入门版 (精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宿傩入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 34,
     "tags": [
@@ -2662,7 +2656,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/26/05708b89-ecc4-45b1-92fc-887cb9260ef3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩入门版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 34 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩入门版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 34 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-553",
@@ -2680,10 +2674,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宿傩中级版 (精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宿傩中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 880,
-    "priceVND": 616000,
-    "originalPriceTHB": 1144,
-    "originalPriceVND": 800800,
+    "priceTHB": 900,
+    "priceVND": 640000,
+    "originalPriceTHB": 1035,
+    "originalPriceVND": 736000,
     "rmbPrice": 154,
     "stock": 23,
     "tags": [
@@ -2709,7 +2703,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/18/29ab0143-53ed-41e4-b213-839e84f22660.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩中级版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿880 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩中级版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿900 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-554",
@@ -2727,10 +2721,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宿傩高级版 (精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宿傩高级版). 100% Safe Instant Delivery.",
-    "priceTHB": 930,
-    "priceVND": 651000,
-    "originalPriceTHB": 1209,
-    "originalPriceVND": 846300,
+    "priceTHB": 940,
+    "priceVND": 669000,
+    "originalPriceTHB": 1081,
+    "originalPriceVND": 769350,
     "rmbPrice": 162,
     "stock": 23,
     "tags": [
@@ -2756,7 +2750,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/26/48839b9c-5b15-48ff-b0fc-2604a4a070c5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩高级版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥162 หยวน (แปลงเป็นเงินไทย ฿930 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩高级版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥162 หยวน (แปลงเป็นเงินไทย ฿940 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-555",
@@ -2775,9 +2769,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宿傩顶级版). 100% Safe Instant Delivery.",
     "priceTHB": 1120,
-    "priceVND": 784000,
-    "originalPriceTHB": 1456,
-    "originalPriceVND": 1019200,
+    "priceVND": 797000,
+    "originalPriceTHB": 1288,
+    "originalPriceVND": 916550,
     "rmbPrice": 195,
     "stock": 19,
     "tags": [
@@ -2821,10 +2815,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宿傩纸壳子版 (精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宿傩纸壳子版). 100% Safe Instant Delivery.",
-    "priceTHB": 439,
-    "priceVND": 307300,
-    "originalPriceTHB": 571,
-    "originalPriceVND": 399700,
+    "priceTHB": 450,
+    "priceVND": 320000,
+    "originalPriceTHB": 518,
+    "originalPriceVND": 368000,
     "rmbPrice": 76,
     "stock": 17,
     "tags": [
@@ -2850,7 +2844,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/26/fd7f08ee-4c68-4947-b8d0-27b5562ca707.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩纸壳子版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥76 หยวน (แปลงเป็นเงินไทย ฿439 บาท)\n- สต็อกพร้อมส่ง: 17 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩纸壳子版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥76 หยวน (แปลงเป็นเงินไทย ฿450 บาท)\n- สต็อกพร้อมส่ง: 17 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-551",
@@ -2868,10 +2862,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 宿傩宇宙之力版 (精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (宿傩宇宙之力版). 100% Safe Instant Delivery.",
-    "priceTHB": 560,
-    "priceVND": 392000,
-    "originalPriceTHB": 728,
-    "originalPriceVND": 509600,
+    "priceTHB": 610,
+    "priceVND": 434000,
+    "originalPriceTHB": 702,
+    "originalPriceVND": 499100,
     "rmbPrice": 98,
     "stock": 12,
     "tags": [
@@ -2897,7 +2891,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/26/72d89505-3b29-4c64-bb13-5a04f053d117.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩宇宙之力版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿560 บาท)\n- สต็อกพร้อมส่ง: 12 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 宿傩宇宙之力版\n- หมวดหมู่สินค้า: 精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿610 บาท)\n- สต็อกพร้อมส่ง: 12 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-232",
@@ -2916,9 +2910,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 高GB ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (高GB标准版). 100% Safe Instant Delivery.",
     "priceTHB": 1520,
-    "priceVND": 1064000,
-    "originalPriceTHB": 1976,
-    "originalPriceVND": 1383200,
+    "priceVND": 1082000,
+    "originalPriceTHB": 1748,
+    "originalPriceVND": 1244300,
     "rmbPrice": 266,
     "stock": 8,
     "tags": [
@@ -2963,9 +2957,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 高GB ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (高GB精英版). 100% Safe Instant Delivery.",
     "priceTHB": 1660,
-    "priceVND": 1162000,
-    "originalPriceTHB": 2158,
-    "originalPriceVND": 1510600,
+    "priceVND": 1181000,
+    "originalPriceTHB": 1909,
+    "originalPriceVND": 1358150,
     "rmbPrice": 290,
     "stock": 6,
     "tags": [
@@ -3010,9 +3004,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 高GB ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (高GB���尊版). 100% Safe Instant Delivery.",
     "priceTHB": 1850,
-    "priceVND": 1295000,
-    "originalPriceTHB": 2405,
-    "originalPriceVND": 1683500,
+    "priceVND": 1316000,
+    "originalPriceTHB": 2128,
+    "originalPriceVND": 1513400,
     "rmbPrice": 323,
     "stock": 5,
     "tags": [
@@ -3057,9 +3051,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 高GB ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (高GB终极版). 100% Safe Instant Delivery.",
     "priceTHB": 2040,
-    "priceVND": 1428000,
-    "originalPriceTHB": 2652,
-    "originalPriceVND": 1856400,
+    "priceVND": 1452000,
+    "originalPriceTHB": 2346,
+    "originalPriceVND": 1669800,
     "rmbPrice": 357,
     "stock": 6,
     "tags": [
@@ -3103,10 +3097,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 哈雷逐风版 (哈雷专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (哈雷逐风版). 100% Safe Instant Delivery.",
-    "priceTHB": 289,
-    "priceVND": 202300,
-    "originalPriceTHB": 376,
-    "originalPriceVND": 263200,
+    "priceTHB": 310,
+    "priceVND": 221000,
+    "originalPriceTHB": 357,
+    "originalPriceVND": 254150,
     "rmbPrice": 50,
     "stock": 31,
     "tags": [
@@ -3132,7 +3126,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/17/b1c8ed76-e14d-4e0d-874f-09b10acef346.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 哈雷逐风版\n- หมวดหมู่สินค้า: 哈雷专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥50 หยวน (แปลงเป็นเงินไทย ฿289 บาท)\n- สต็อกพร้อมส่ง: 31 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 哈雷逐风版\n- หมวดหมู่สินค้า: 哈雷专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥50 หยวน (แปลงเป็นเงินไทย ฿310 บาท)\n- สต็อกพร้อมส่ง: 31 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-297",
@@ -3150,10 +3144,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 哈雷乘风版 (哈雷专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (哈雷乘风版). 100% Safe Instant Delivery.",
-    "priceTHB": 319,
-    "priceVND": 223300,
-    "originalPriceTHB": 415,
-    "originalPriceVND": 290500,
+    "priceTHB": 340,
+    "priceVND": 242000,
+    "originalPriceTHB": 391,
+    "originalPriceVND": 278300,
     "rmbPrice": 56,
     "stock": 25,
     "tags": [
@@ -3179,7 +3173,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/17/6ea69d6f-851c-4480-9bc1-7d58a49d2cc5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 哈雷乘风版\n- หมวดหมู่สินค้า: 哈雷专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿319 บาท)\n- สต็อกพร้อมส่ง: 25 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 哈雷乘风版\n- หมวดหมู่สินค้า: 哈雷专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿340 บาท)\n- สต็อกพร้อมส่ง: 25 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-298",
@@ -3197,10 +3191,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 哈雷凌风版 (哈雷专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (哈雷凌风版). 100% Safe Instant Delivery.",
-    "priceTHB": 179,
-    "priceVND": 125300,
-    "originalPriceTHB": 233,
-    "originalPriceVND": 163100,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 32,
     "stock": 33,
     "tags": [
@@ -3226,7 +3220,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/15/83af1949-6a94-4ec1-a738-31df177896fe.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 哈雷凌风版\n- หมวดหมู่สินค้า: 哈雷专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿179 บาท)\n- สต็อกพร้อมส่ง: 33 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 哈雷凌风版\n- หมวดหมู่สินค้า: 哈雷专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 33 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-247",
@@ -3244,10 +3238,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 马丁逐梦启程版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (马丁逐梦启程版). 100% Safe Instant Delivery.",
-    "priceTHB": 329,
-    "priceVND": 230300,
-    "originalPriceTHB": 428,
-    "originalPriceVND": 299600,
+    "priceTHB": 350,
+    "priceVND": 249000,
+    "originalPriceTHB": 402,
+    "originalPriceVND": 286350,
     "rmbPrice": 58,
     "stock": 27,
     "tags": [
@@ -3273,7 +3267,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/17/e8d8284c-81ca-4676-984c-261161abafab.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 马丁逐梦启程版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥58 หยวน (แปลงเป็นเงินไทย ฿329 บาท)\n- สต็อกพร้อมส่ง: 27 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 马丁逐梦启程版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥58 หยวน (แปลงเป็นเงินไทย ฿350 บาท)\n- สต็อกพร้อมส่ง: 27 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-246",
@@ -3291,10 +3285,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 马丁筑梦进阶版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (马丁筑梦进阶版). 100% Safe Instant Delivery.",
-    "priceTHB": 479,
-    "priceVND": 335300,
-    "originalPriceTHB": 623,
-    "originalPriceVND": 436100,
+    "priceTHB": 490,
+    "priceVND": 349000,
+    "originalPriceTHB": 564,
+    "originalPriceVND": 401350,
     "rmbPrice": 84,
     "stock": 22,
     "tags": [
@@ -3320,7 +3314,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/17/8eae47b7-09fa-4c0c-b45a-2f92562c68cd.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 马丁筑梦进阶版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥84 หยวน (แปลงเป็นเงินไทย ฿479 บาท)\n- สต็อกพร้อมส่ง: 22 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 马丁筑梦进阶版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥84 หยวน (แปลงเป็นเงินไทย ฿490 บาท)\n- สต็อกพร้อมส่ง: 22 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-245",
@@ -3339,9 +3333,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (马丁燃梦冲刺版). 100% Safe Instant Delivery.",
     "priceTHB": 510,
-    "priceVND": 357000,
-    "originalPriceTHB": 663,
-    "originalPriceVND": 464100,
+    "priceVND": 363000,
+    "originalPriceTHB": 587,
+    "originalPriceVND": 417450,
     "rmbPrice": 89,
     "stock": 17,
     "tags": [
@@ -3386,9 +3380,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (马丁圆梦典藏版). 100% Safe Instant Delivery.",
     "priceTHB": 1200,
-    "priceVND": 840000,
-    "originalPriceTHB": 1560,
-    "originalPriceVND": 1092000,
+    "priceVND": 854000,
+    "originalPriceTHB": 1380,
+    "originalPriceVND": 982100,
     "rmbPrice": 210,
     "stock": 14,
     "tags": [
@@ -3432,10 +3426,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 红信中级版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 自玩 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (红信中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 269,
-    "priceVND": 188300,
-    "originalPriceTHB": 350,
-    "originalPriceVND": 245000,
+    "priceTHB": 290,
+    "priceVND": 206000,
+    "originalPriceTHB": 334,
+    "originalPriceVND": 236900,
     "rmbPrice": 47,
     "stock": 60,
     "tags": [
@@ -3461,7 +3455,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/def27c02-348d-41a4-bd7e-b944cc02b0e5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 红信中级版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 自玩\n- ราคาจีน: ¥47 หยวน (แปลงเป็นเงินไทย ฿269 บาท)\n- สต็อกพร้อมส่ง: 60 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 红信中级版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: 自玩\n- ราคาจีน: ¥47 หยวน (แปลงเป็นเงินไทย ฿290 บาท)\n- สต็อกพร้อมส่ง: 60 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-274",
@@ -3479,10 +3473,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 红信初级版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 自玩 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (红信初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 239,
-    "priceVND": 167300,
-    "originalPriceTHB": 311,
-    "originalPriceVND": 217700,
+    "priceTHB": 260,
+    "priceVND": 185000,
+    "originalPriceTHB": 299,
+    "originalPriceVND": 212750,
     "rmbPrice": 41,
     "stock": 67,
     "tags": [
@@ -3508,7 +3502,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/30/61c16b34-3c91-4978-9110-0ba8148c781f.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 红信初级版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: 自玩\n- ราคาจีน: ¥41 หยวน (แปลงเป็นเงินไทย ฿239 บาท)\n- สต็อกพร้อมส่ง: 67 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 红信初级版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: 自玩\n- ราคาจีน: ¥41 หยวน (แปลงเป็นเงินไทย ฿260 บาท)\n- สต็อกพร้อมส่ง: 67 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-156",
@@ -3526,10 +3520,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account -  保时捷低级版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package ( 保时捷低级版). 100% Safe Instant Delivery.",
-    "priceTHB": 720,
-    "priceVND": 504000,
-    "originalPriceTHB": 936,
-    "originalPriceVND": 655200,
+    "priceTHB": 750,
+    "priceVND": 534000,
+    "originalPriceTHB": 862,
+    "originalPriceVND": 614100,
     "rmbPrice": 125,
     "stock": 39,
     "tags": [
@@ -3555,7 +3549,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/25/b7fc952c-0214-4ef5-bd7c-ba3811d91612.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ:  保时捷低级版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥125 หยวน (แปลงเป็นเงินไทย ฿720 บาท)\n- สต็อกพร้อมส่ง: 39 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ:  保时捷低级版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥125 หยวน (แปลงเป็นเงินไทย ฿750 บาท)\n- สต็อกพร้อมส่ง: 39 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-160",
@@ -3573,10 +3567,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷白金版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷白金版). 100% Safe Instant Delivery.",
-    "priceTHB": 830,
-    "priceVND": 581000,
-    "originalPriceTHB": 1079,
-    "originalPriceVND": 755300,
+    "priceTHB": 850,
+    "priceVND": 605000,
+    "originalPriceTHB": 977,
+    "originalPriceVND": 695750,
     "rmbPrice": 145,
     "stock": 28,
     "tags": [
@@ -3602,7 +3596,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/f7058480-b66f-4f5e-a4fa-2993bfe2254b.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷白金版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥145 หยวน (แปลงเป็นเงินไทย ฿830 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷白金版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥145 หยวน (แปลงเป็นเงินไทย ฿850 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-313",
@@ -3620,10 +3614,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷优选版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷优选版). 100% Safe Instant Delivery.",
-    "priceTHB": 650,
-    "priceVND": 455000,
-    "originalPriceTHB": 845,
-    "originalPriceVND": 591500,
+    "priceTHB": 690,
+    "priceVND": 491000,
+    "originalPriceTHB": 793,
+    "originalPriceVND": 564650,
     "rmbPrice": 114,
     "stock": 50,
     "tags": [
@@ -3649,7 +3643,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/b272d400-cf79-4a1c-8b1b-c42af283daf2.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷优选版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥114 หยวน (แปลงเป็นเงินไทย ฿650 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷优选版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥114 หยวน (แปลงเป็นเงินไทย ฿690 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-157",
@@ -3667,10 +3661,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷黄金版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷黄金版). 100% Safe Instant Delivery.",
-    "priceTHB": 1910,
-    "priceVND": 1337000,
-    "originalPriceTHB": 2483,
-    "originalPriceVND": 1738100,
+    "priceTHB": 1900,
+    "priceVND": 1352000,
+    "originalPriceTHB": 2185,
+    "originalPriceVND": 1554800,
     "rmbPrice": 333,
     "stock": 3,
     "tags": [
@@ -3714,10 +3708,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷白银版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷白银版). 100% Safe Instant Delivery.",
-    "priceTHB": 670,
-    "priceVND": 469000,
-    "originalPriceTHB": 871,
-    "originalPriceVND": 609700,
+    "priceTHB": 710,
+    "priceVND": 505000,
+    "originalPriceTHB": 816,
+    "originalPriceVND": 580750,
     "rmbPrice": 117,
     "stock": 40,
     "tags": [
@@ -3743,7 +3737,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/5fea7aaf-31e5-4050-8047-966704ec9c21.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷白银版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 40 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷白银版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿710 บาท)\n- สต็อกพร้อมส่ง: 40 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-155",
@@ -3761,10 +3755,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account -  保时捷简单版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package ( 保时捷简单版). 100% Safe Instant Delivery.",
-    "priceTHB": 660,
-    "priceVND": 462000,
-    "originalPriceTHB": 858,
-    "originalPriceVND": 600600,
+    "priceTHB": 700,
+    "priceVND": 498000,
+    "originalPriceTHB": 805,
+    "originalPriceVND": 572700,
     "rmbPrice": 115,
     "stock": 4,
     "tags": [
@@ -3790,7 +3784,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/692fd801-d74b-4236-922e-f83de53479cd.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ:  保时捷简单版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥115 หยวน (แปลงเป็นเงินไทย ฿660 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ:  保时捷简单版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥115 หยวน (แปลงเป็นเงินไทย ฿700 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-154",
@@ -3809,9 +3803,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package ( 保时捷特惠版). 100% Safe Instant Delivery.",
     "priceTHB": 1140,
-    "priceVND": 798000,
-    "originalPriceTHB": 1482,
-    "originalPriceVND": 1037400,
+    "priceVND": 811000,
+    "originalPriceTHB": 1311,
+    "originalPriceVND": 932650,
     "rmbPrice": 199,
     "stock": 15,
     "tags": [
@@ -3855,10 +3849,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷标准版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷标准版). 100% Safe Instant Delivery.",
-    "priceTHB": 419,
-    "priceVND": 293300,
-    "originalPriceTHB": 545,
-    "originalPriceVND": 381500,
+    "priceTHB": 430,
+    "priceVND": 306000,
+    "originalPriceTHB": 494,
+    "originalPriceVND": 351900,
     "rmbPrice": 73,
     "stock": 100,
     "tags": [
@@ -3884,7 +3878,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/51e0c63a-2d59-4738-bbe7-ce7a1e572001.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷标准版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥73 หยวน (แปลงเป็นเงินไทย ฿419 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷标准版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥73 หยวน (แปลงเป็นเงินไทย ฿430 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-159",
@@ -3902,10 +3896,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷推荐版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷推荐版). 100% Safe Instant Delivery.",
-    "priceTHB": 690,
-    "priceVND": 483000,
-    "originalPriceTHB": 897,
-    "originalPriceVND": 627900,
+    "priceTHB": 730,
+    "priceVND": 519000,
+    "originalPriceTHB": 839,
+    "originalPriceVND": 596850,
     "rmbPrice": 121,
     "stock": 35,
     "tags": [
@@ -3931,7 +3925,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/15/9559127e-c134-49cb-bcbd-8b4c34ae99a2.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷推荐版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥121 หยวน (แปลงเป็นเงินไทย ฿690 บาท)\n- สต็อกพร้อมส่ง: 35 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷推荐版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥121 หยวน (แปลงเป็นเงินไทย ฿730 บาท)\n- สต็อกพร้อมส่ง: 35 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-217",
@@ -3949,10 +3943,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷普通版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷普通版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 380,
+    "priceVND": 270000,
+    "originalPriceTHB": 437,
+    "originalPriceVND": 310500,
     "rmbPrice": 64,
     "stock": 100,
     "tags": [
@@ -3978,7 +3972,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/56d6e402-0abb-406b-86f1-ce1569ae02af.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷普通版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥64 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷普通版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥64 หยวน (แปลงเป็นเงินไทย ฿380 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-310",
@@ -3996,10 +3990,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷入门版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 329,
-    "priceVND": 230300,
-    "originalPriceTHB": 428,
-    "originalPriceVND": 299600,
+    "priceTHB": 350,
+    "priceVND": 249000,
+    "originalPriceTHB": 402,
+    "originalPriceVND": 286350,
     "rmbPrice": 58,
     "stock": 100,
     "tags": [
@@ -4025,7 +4019,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/3a9c5632-0e54-4146-90c6-dba5835e530c.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷入门版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥58 หยวน (แปลงเป็นเงินไทย ฿329 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷入门版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥58 หยวน (แปลงเป็นเงินไทย ฿350 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-158",
@@ -4043,10 +4037,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷青铜版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷青铜版). 100% Safe Instant Delivery.",
-    "priceTHB": 279,
-    "priceVND": 195300,
-    "originalPriceTHB": 363,
-    "originalPriceVND": 254100,
+    "priceTHB": 300,
+    "priceVND": 213000,
+    "originalPriceTHB": 345,
+    "originalPriceVND": 244950,
     "rmbPrice": 49,
     "stock": 100,
     "tags": [
@@ -4072,7 +4066,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/575fdd28-4255-4ec9-aa82-ac5e2fac6123.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷青铜版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿279 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷青铜版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿300 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-311",
@@ -4090,10 +4084,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷基础版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷基础版). 100% Safe Instant Delivery.",
-    "priceTHB": 189,
-    "priceVND": 132300,
-    "originalPriceTHB": 246,
-    "originalPriceVND": 172200,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 33,
     "stock": 100,
     "tags": [
@@ -4119,7 +4113,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/50ea82e6-dfc5-4450-aa9a-5d40795850d5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷基础版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿189 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷基础版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-167",
@@ -4137,10 +4131,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷黄铜版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷黄铜版). 100% Safe Instant Delivery.",
-    "priceTHB": 259,
-    "priceVND": 181300,
-    "originalPriceTHB": 337,
-    "originalPriceVND": 235900,
+    "priceTHB": 280,
+    "priceVND": 199000,
+    "originalPriceTHB": 322,
+    "originalPriceVND": 228850,
     "rmbPrice": 45,
     "stock": 100,
     "tags": [
@@ -4166,7 +4160,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/17/64e9ae8c-4199-4055-9918-a54483e83fda.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷黄铜版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥45 หยวน (แปลงเป็นเงินไทย ฿259 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷黄铜版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥45 หยวน (แปลงเป็นเงินไทย ฿280 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-302",
@@ -4184,10 +4178,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷尝鲜版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷尝鲜版). 100% Safe Instant Delivery.",
-    "priceTHB": 319,
-    "priceVND": 223300,
-    "originalPriceTHB": 415,
-    "originalPriceVND": 290500,
+    "priceTHB": 340,
+    "priceVND": 242000,
+    "originalPriceTHB": 391,
+    "originalPriceVND": 278300,
     "rmbPrice": 56,
     "stock": 23,
     "tags": [
@@ -4213,7 +4207,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/20/70a442fd-0f9d-4ae4-8a82-14918f3af17f.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷尝鲜版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿319 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷尝鲜版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿340 บาท)\n- สต็อกพร้อมส่ง: 23 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-303",
@@ -4231,10 +4225,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷冒险版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷冒险版). 100% Safe Instant Delivery.",
-    "priceTHB": 169,
-    "priceVND": 118300,
-    "originalPriceTHB": 220,
-    "originalPriceVND": 154000,
+    "priceTHB": 210,
+    "priceVND": 149000,
+    "originalPriceTHB": 241,
+    "originalPriceVND": 171350,
     "rmbPrice": 30,
     "stock": 100,
     "tags": [
@@ -4260,7 +4254,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/2723d50f-9cc7-4bab-876a-3cdef7e62325.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷冒险版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥30 หยวน (แปลงเป็นเงินไทย ฿169 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷冒险版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥30 หยวน (แปลงเป็นเงินไทย ฿210 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-163",
@@ -4278,10 +4272,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 保时捷引流版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (保时捷引流版). 100% Safe Instant Delivery.",
-    "priceTHB": 179,
-    "priceVND": 125300,
-    "originalPriceTHB": 233,
-    "originalPriceVND": 163100,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 32,
     "stock": 100,
     "tags": [
@@ -4307,7 +4301,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/25/f6e786f4-c162-4f17-bba5-2ac227bb033f.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷引流版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿179 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 保时捷引流版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-164",
@@ -4325,10 +4319,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 跑车梦��版 (保时捷精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (跑车梦��版). 100% Safe Instant Delivery.",
-    "priceTHB": 149,
-    "priceVND": 104300,
-    "originalPriceTHB": 194,
-    "originalPriceVND": 135800,
+    "priceTHB": 190,
+    "priceVND": 135000,
+    "originalPriceTHB": 218,
+    "originalPriceVND": 155250,
     "rmbPrice": 27,
     "stock": 100,
     "tags": [
@@ -4354,7 +4348,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/25/0cdc586b-4016-4703-906b-ddd08afe9cba.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 跑车梦��版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥27 หยวน (แปลงเป็นเงินไทย ฿149 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 跑车梦��版\n- หมวดหมู่สินค้า: 保时捷精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥27 หยวน (แปลงเป็นเงินไทย ฿190 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-152",
@@ -4373,9 +4367,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (多女团黄东豪华版). 100% Safe Instant Delivery.",
     "priceTHB": 1450,
-    "priceVND": 1015000,
-    "originalPriceTHB": 1885,
-    "originalPriceVND": 1319500,
+    "priceVND": 1032000,
+    "originalPriceTHB": 1667,
+    "originalPriceVND": 1186800,
     "rmbPrice": 254,
     "stock": 11,
     "tags": [
@@ -4420,9 +4414,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字双亚马逊版). 100% Safe Instant Delivery.",
     "priceTHB": 1330,
-    "priceVND": 931000,
-    "originalPriceTHB": 1729,
-    "originalPriceVND": 1210300,
+    "priceVND": 946000,
+    "originalPriceTHB": 1529,
+    "originalPriceVND": 1087900,
     "rmbPrice": 232,
     "stock": 9,
     "tags": [
@@ -4467,9 +4461,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (简装版). 100% Safe Instant Delivery.",
     "priceTHB": 1200,
-    "priceVND": 840000,
-    "originalPriceTHB": 1560,
-    "originalPriceVND": 1092000,
+    "priceVND": 854000,
+    "originalPriceTHB": 1380,
+    "originalPriceVND": 982100,
     "rmbPrice": 210,
     "stock": 8,
     "tags": [
@@ -4513,10 +4507,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 热销版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (热销版). 100% Safe Instant Delivery.",
-    "priceTHB": 630,
-    "priceVND": 441000,
-    "originalPriceTHB": 819,
-    "originalPriceVND": 573300,
+    "priceTHB": 670,
+    "priceVND": 477000,
+    "originalPriceTHB": 770,
+    "originalPriceVND": 548550,
     "rmbPrice": 110,
     "stock": 50,
     "tags": [
@@ -4542,7 +4536,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/339acb8f-8137-45ee-aad0-06ce33fca3f3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 热销版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿630 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 热销版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-118",
@@ -4561,9 +4555,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (白金版). 100% Safe Instant Delivery.",
     "priceTHB": 1070,
-    "priceVND": 749000,
-    "originalPriceTHB": 1391,
-    "originalPriceVND": 973700,
+    "priceVND": 761000,
+    "originalPriceTHB": 1231,
+    "originalPriceVND": 875150,
     "rmbPrice": 187,
     "stock": 31,
     "tags": [
@@ -4607,10 +4601,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 精选版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (精选版). 100% Safe Instant Delivery.",
-    "priceTHB": 670,
-    "priceVND": 469000,
-    "originalPriceTHB": 871,
-    "originalPriceVND": 609700,
+    "priceTHB": 710,
+    "priceVND": 505000,
+    "originalPriceTHB": 816,
+    "originalPriceVND": 580750,
     "rmbPrice": 117,
     "stock": 50,
     "tags": [
@@ -4636,7 +4630,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/21/b2469689-4006-4d9c-bd67-5f124ef1632c.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 精选版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 精选版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿710 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-116",
@@ -4654,10 +4648,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 白银版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (白银版). 100% Safe Instant Delivery.",
-    "priceTHB": 670,
-    "priceVND": 469000,
-    "originalPriceTHB": 871,
-    "originalPriceVND": 609700,
+    "priceTHB": 710,
+    "priceVND": 505000,
+    "originalPriceTHB": 816,
+    "originalPriceVND": 580750,
     "rmbPrice": 117,
     "stock": 44,
     "tags": [
@@ -4683,7 +4677,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/5fe8532e-0b22-4941-9ef3-858a7959d1ca.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 白银版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 44 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 白银版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿710 บาท)\n- สต็อกพร้อมส่ง: 44 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-67",
@@ -4702,9 +4696,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (特惠版). 100% Safe Instant Delivery.",
     "priceTHB": 1070,
-    "priceVND": 749000,
-    "originalPriceTHB": 1391,
-    "originalPriceVND": 973700,
+    "priceVND": 761000,
+    "originalPriceTHB": 1231,
+    "originalPriceVND": 875150,
     "rmbPrice": 187,
     "stock": 3,
     "tags": [
@@ -4748,10 +4742,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 简单版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (简单版). 100% Safe Instant Delivery.",
-    "priceTHB": 730,
-    "priceVND": 511000,
-    "originalPriceTHB": 949,
-    "originalPriceVND": 664300,
+    "priceTHB": 770,
+    "priceVND": 548000,
+    "originalPriceTHB": 885,
+    "originalPriceVND": 630200,
     "rmbPrice": 128,
     "stock": 36,
     "tags": [
@@ -4777,7 +4771,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/6590e69a-e2cc-4279-ae69-4e8eefea6202.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 简单版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥128 หยวน (แปลงเป็นเงินไทย ฿730 บาท)\n- สต็อกพร้อมส่ง: 36 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 简单版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥128 หยวน (แปลงเป็นเงินไทย ฿770 บาท)\n- สต็อกพร้อมส่ง: 36 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-222",
@@ -4795,10 +4789,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 活动版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (活动版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 100,
     "tags": [
@@ -4824,7 +4818,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/23/81d9cc84-1e06-4243-8a10-7b36b1b45378.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 活动版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 活动版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-115",
@@ -4842,10 +4836,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 推荐版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (推荐版). 100% Safe Instant Delivery.",
-    "priceTHB": 770,
-    "priceVND": 539000,
-    "originalPriceTHB": 1001,
-    "originalPriceVND": 700700,
+    "priceTHB": 800,
+    "priceVND": 569000,
+    "originalPriceTHB": 920,
+    "originalPriceVND": 654350,
     "rmbPrice": 134,
     "stock": 50,
     "tags": [
@@ -4871,7 +4865,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/18/a419059d-4e94-463f-ba81-ef21f20f2b15.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 推荐版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥134 หยวน (แปลงเป็นเงินไทย ฿770 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 推荐版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥134 หยวน (แปลงเป็นเงินไทย ฿800 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-123",
@@ -4889,10 +4883,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 布加迪版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (布加迪版). 100% Safe Instant Delivery.",
-    "priceTHB": 459,
-    "priceVND": 321300,
-    "originalPriceTHB": 597,
-    "originalPriceVND": 417900,
+    "priceTHB": 470,
+    "priceVND": 334000,
+    "originalPriceTHB": 541,
+    "originalPriceVND": 384100,
     "rmbPrice": 80,
     "stock": 50,
     "tags": [
@@ -4918,7 +4912,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/4e3f8a38-0948-45fc-9636-8fb7d60349ea.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 布加迪版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥80 หยวน (แปลงเป็นเงินไทย ฿459 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 布加迪版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥80 หยวน (แปลงเป็นเงินไทย ฿470 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-104",
@@ -4936,10 +4930,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 青铜版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (青铜版). 100% Safe Instant Delivery.",
-    "priceTHB": 279,
-    "priceVND": 195300,
-    "originalPriceTHB": 363,
-    "originalPriceVND": 254100,
+    "priceTHB": 300,
+    "priceVND": 213000,
+    "originalPriceTHB": 345,
+    "originalPriceVND": 244950,
     "rmbPrice": 49,
     "stock": 100,
     "tags": [
@@ -4965,7 +4959,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/98e3dff6-3bfc-49b7-8d40-a9d08c371f1c.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 青铜版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿279 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 青铜版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥49 หยวน (แปลงเป็นเงินไทย ฿300 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-223",
@@ -4983,10 +4977,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 素银版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (素银版). 100% Safe Instant Delivery.",
-    "priceTHB": 219,
-    "priceVND": 153300,
-    "originalPriceTHB": 285,
-    "originalPriceVND": 199500,
+    "priceTHB": 250,
+    "priceVND": 178000,
+    "originalPriceTHB": 288,
+    "originalPriceVND": 204700,
     "rmbPrice": 38,
     "stock": 100,
     "tags": [
@@ -5012,7 +5006,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/af51f229-d889-4482-8701-c59d12d46668.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 素银版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥38 หยวน (แปลงเป็นเงินไทย ฿219 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 素银版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥38 หยวน (แปลงเป็นเงินไทย ฿250 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-243",
@@ -5030,10 +5024,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 初级马丁素银版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (初级马丁素银版). 100% Safe Instant Delivery.",
-    "priceTHB": 269,
-    "priceVND": 188300,
-    "originalPriceTHB": 350,
-    "originalPriceVND": 245000,
+    "priceTHB": 290,
+    "priceVND": 206000,
+    "originalPriceTHB": 334,
+    "originalPriceVND": 236900,
     "rmbPrice": 47,
     "stock": 100,
     "tags": [
@@ -5059,7 +5053,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/ef8dd4d0-b093-4a8f-b308-df13019a971a.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 初级马丁素银版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥47 หยวน (แปลงเป็นเงินไทย ฿269 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 初级马丁素银版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥47 หยวน (แปลงเป็นเงินไทย ฿290 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-244",
@@ -5077,10 +5071,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 中级马丁素银版 (马丁精品专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (中级马丁素银版). 100% Safe Instant Delivery.",
-    "priceTHB": 309,
-    "priceVND": 216300,
-    "originalPriceTHB": 402,
-    "originalPriceVND": 281400,
+    "priceTHB": 330,
+    "priceVND": 235000,
+    "originalPriceTHB": 379,
+    "originalPriceVND": 270250,
     "rmbPrice": 54,
     "stock": 100,
     "tags": [
@@ -5106,7 +5100,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/10/128d0de3-51c4-4d69-abc4-53b330aa8b07.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 中级马丁素银版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥54 หยวน (แปลงเป็นเงินไทย ฿309 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 中级马丁素银版\n- หมวดหมู่สินค้า: 马丁精品专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥54 หยวน (แปลงเป็นเงินไทย ฿330 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-314",
@@ -5124,10 +5118,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 新人版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (新人版). 100% Safe Instant Delivery.",
-    "priceTHB": 209,
-    "priceVND": 146300,
-    "originalPriceTHB": 272,
-    "originalPriceVND": 190400,
+    "priceTHB": 240,
+    "priceVND": 171000,
+    "originalPriceTHB": 276,
+    "originalPriceVND": 196650,
     "rmbPrice": 36,
     "stock": 45,
     "tags": [
@@ -5153,7 +5147,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/2c4b8431-1e7a-4516-9c92-b8f8239d16c9.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 新人版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥36 หยวน (แปลงเป็นเงินไทย ฿209 บาท)\n- สต็อกพร้อมส่ง: 45 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 新人版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥36 หยวน (แปลงเป็นเงินไทย ฿240 บาท)\n- สต็อกพร้อมส่ง: 45 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-110",
@@ -5171,10 +5165,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 引流版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (引流版). 100% Safe Instant Delivery.",
-    "priceTHB": 179,
-    "priceVND": 125300,
-    "originalPriceTHB": 233,
-    "originalPriceVND": 163100,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 32,
     "stock": 100,
     "tags": [
@@ -5200,7 +5194,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/25/7c2be003-d5b3-46c2-9c64-e38c72a01337.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 引流版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿179 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 引流版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥32 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-124",
@@ -5218,10 +5212,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 黄铜版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (黄铜版). 100% Safe Instant Delivery.",
-    "priceTHB": 229,
-    "priceVND": 160300,
-    "originalPriceTHB": 298,
-    "originalPriceVND": 208600,
+    "priceTHB": 260,
+    "priceVND": 185000,
+    "originalPriceTHB": 299,
+    "originalPriceVND": 212750,
     "rmbPrice": 40,
     "stock": 100,
     "tags": [
@@ -5247,7 +5241,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/17/0c8a89f0-d65f-4e7b-a99e-e04c8812dae6.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黄铜版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥40 หยวน (แปลงเป็นเงินไทย ฿229 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黄铜版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥40 หยวน (แปลงเป็นเงินไทย ฿260 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-309",
@@ -5265,10 +5259,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 启航版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (启航版). 100% Safe Instant Delivery.",
-    "priceTHB": 139,
-    "priceVND": 97300,
-    "originalPriceTHB": 181,
-    "originalPriceVND": 126700,
+    "priceTHB": 180,
+    "priceVND": 128000,
+    "originalPriceTHB": 207,
+    "originalPriceVND": 147200,
     "rmbPrice": 25,
     "stock": 74,
     "tags": [
@@ -5294,7 +5288,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/5730c0b3-2483-4e2b-9f28-02032b38167e.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 启航版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥25 หยวน (แปลงเป็นเงินไทย ฿139 บาท)\n- สต็อกพร้อมส่ง: 74 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 启航版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥25 หยวน (แปลงเป็นเงินไทย ฿180 บาท)\n- สต็อกพร้อมส่ง: 74 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-306",
@@ -5312,10 +5306,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 滑雪镜定制版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (滑雪镜定制版). 100% Safe Instant Delivery.",
-    "priceTHB": 209,
-    "priceVND": 146300,
-    "originalPriceTHB": 272,
-    "originalPriceVND": 190400,
+    "priceTHB": 240,
+    "priceVND": 171000,
+    "originalPriceTHB": 276,
+    "originalPriceVND": 196650,
     "rmbPrice": 37,
     "stock": 5,
     "tags": [
@@ -5341,7 +5335,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/5a8d1587-441f-4889-9c67-464f940bd9a2.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 滑雪镜定制版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥37 หยวน (แปลงเป็นเงินไทย ฿209 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 滑雪镜定制版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥37 หยวน (แปลงเป็นเงินไทย ฿240 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-143",
@@ -5359,10 +5353,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 布加迪体验版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (布加迪体验版). 100% Safe Instant Delivery.",
-    "priceTHB": 139,
-    "priceVND": 97300,
-    "originalPriceTHB": 181,
-    "originalPriceVND": 126700,
+    "priceTHB": 180,
+    "priceVND": 128000,
+    "originalPriceTHB": 207,
+    "originalPriceVND": 147200,
     "rmbPrice": 25,
     "stock": 100,
     "tags": [
@@ -5388,7 +5382,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/25/654c3bce-605d-4d03-979e-8e5be2ddbec7.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 布加迪体验版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥25 หยวน (แปลงเป็นเงินไทย ฿139 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 布加迪体验版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥25 หยวน (แปลงเป็นเงินไทย ฿180 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-250",
@@ -5406,10 +5400,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 黑铁版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (黑铁版). 100% Safe Instant Delivery.",
-    "priceTHB": 69,
-    "priceVND": 48300,
-    "originalPriceTHB": 90,
-    "originalPriceVND": 63000,
+    "priceTHB": 110,
+    "priceVND": 78000,
+    "originalPriceTHB": 126,
+    "originalPriceVND": 89700,
     "rmbPrice": 11,
     "stock": 100,
     "tags": [
@@ -5435,7 +5429,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/74087a2b-539d-48fe-afc1-b43de884c1e2.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黑铁版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥11 หยวน (แปลงเป็นเงินไทย ฿69 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黑铁版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥11 หยวน (แปลงเป็นเงินไทย ฿110 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-340",
@@ -5453,10 +5447,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 萌新版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (萌新版). 100% Safe Instant Delivery.",
-    "priceTHB": 29,
-    "priceVND": 20300,
-    "originalPriceTHB": 38,
-    "originalPriceVND": 26600,
+    "priceTHB": 70,
+    "priceVND": 50000,
+    "originalPriceTHB": 81,
+    "originalPriceVND": 57500,
     "rmbPrice": 4,
     "stock": 100,
     "tags": [
@@ -5482,7 +5476,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/a3a8e79a-65a1-42ac-80b5-c15d1f719ce3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 萌新版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥4 หยวน (แปลงเป็นเงินไทย ฿29 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 萌新版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥4 หยวน (แปลงเป็นเงินไทย ฿70 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-95",
@@ -5500,10 +5494,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 初级版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 570,
-    "priceVND": 399000,
-    "originalPriceTHB": 741,
-    "originalPriceVND": 518700,
+    "priceTHB": 620,
+    "priceVND": 441000,
+    "originalPriceTHB": 713,
+    "originalPriceVND": 507150,
     "rmbPrice": 100,
     "stock": 2,
     "tags": [
@@ -5529,7 +5523,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/e4b66b3a-893f-4655-bdda-74df9e6c3516.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 初级版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥100 หยวน (แปลงเป็นเงินไทย ฿570 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 初级版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥100 หยวน (แปลงเป็นเงินไทย ฿620 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-195",
@@ -5547,10 +5541,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 简化版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (简化版). 100% Safe Instant Delivery.",
-    "priceTHB": 560,
-    "priceVND": 392000,
-    "originalPriceTHB": 728,
-    "originalPriceVND": 509600,
+    "priceTHB": 610,
+    "priceVND": 434000,
+    "originalPriceTHB": 702,
+    "originalPriceVND": 499100,
     "rmbPrice": 98,
     "stock": 5,
     "tags": [
@@ -5576,7 +5570,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/3731f723-ba7c-479d-834f-961c32b95362.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 简化版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿560 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 简化版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿610 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-168",
@@ -5594,10 +5588,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 黄东基础版 (黄东精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (黄东基础版). 100% Safe Instant Delivery.",
-    "priceTHB": 620,
-    "priceVND": 434000,
-    "originalPriceTHB": 806,
-    "originalPriceVND": 564200,
+    "priceTHB": 670,
+    "priceVND": 477000,
+    "originalPriceTHB": 770,
+    "originalPriceVND": 548550,
     "rmbPrice": 109,
     "stock": 32,
     "tags": [
@@ -5623,7 +5617,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/5bcd75d3-ffff-4edd-aa75-5742e89d9022.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黄东基础版\n- หมวดหมู่สินค้า: 黄东精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥109 หยวน (แปลงเป็นเงินไทย ฿620 บาท)\n- สต็อกพร้อมส่ง: 32 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黄东基础版\n- หมวดหมู่สินค้า: 黄东精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥109 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 32 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-169",
@@ -5641,10 +5635,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 黄东中级版 (黄东精品区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (黄东中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 830,
-    "priceVND": 581000,
-    "originalPriceTHB": 1079,
-    "originalPriceVND": 755300,
+    "priceTHB": 850,
+    "priceVND": 605000,
+    "originalPriceTHB": 977,
+    "originalPriceVND": 695750,
     "rmbPrice": 145,
     "stock": 24,
     "tags": [
@@ -5670,7 +5664,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/d39fe37b-1975-48dc-89d2-0128265f0780.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黄东中级版\n- หมวดหมู่สินค้า: 黄东精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥145 หยวน (แปลงเป็นเงินไทย ฿830 บาท)\n- สต็อกพร้อมส่ง: 24 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 黄东中级版\n- หมวดหมู่สินค้า: 黄东精品区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥145 หยวน (แปลงเป็นเงินไทย ฿850 บาท)\n- สต็อกพร้อมส่ง: 24 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-72",
@@ -5688,10 +5682,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 纯数字账号悲喜 (悲喜套装区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字账号悲喜). 100% Safe Instant Delivery.",
-    "priceTHB": 1790,
-    "priceVND": 1253000,
-    "originalPriceTHB": 2327,
-    "originalPriceVND": 1628900,
+    "priceTHB": 1780,
+    "priceVND": 1267000,
+    "originalPriceTHB": 2047,
+    "originalPriceVND": 1457050,
     "rmbPrice": 312,
     "stock": 10,
     "tags": [
@@ -5736,9 +5730,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (悲喜小红鞋基础版). 100% Safe Instant Delivery.",
     "priceTHB": 1070,
-    "priceVND": 749000,
-    "originalPriceTHB": 1391,
-    "originalPriceVND": 973700,
+    "priceVND": 761000,
+    "originalPriceTHB": 1231,
+    "originalPriceVND": 875150,
     "rmbPrice": 187,
     "stock": 16,
     "tags": [
@@ -5782,10 +5776,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 纯数字先锋版 (千票版本区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字先锋版). 100% Safe Instant Delivery.",
-    "priceTHB": 960,
-    "priceVND": 672000,
-    "originalPriceTHB": 1248,
-    "originalPriceVND": 873600,
+    "priceTHB": 970,
+    "priceVND": 690000,
+    "originalPriceTHB": 1116,
+    "originalPriceVND": 793500,
     "rmbPrice": 167,
     "stock": 32,
     "tags": [
@@ -5811,7 +5805,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/6f127c82-ed76-42f0-9053-a19cbe3e8a0b.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字先锋版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥167 หยวน (แปลงเป็นเงินไทย ฿960 บาท)\n- สต็อกพร้อมส่ง: 32 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字先锋版\n- หมวดหมู่สินค้า: 千票版本区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥167 หยวน (แปลงเป็นเงินไทย ฿970 บาท)\n- สต็อกพร้อมส่ง: 32 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-301",
@@ -5829,10 +5823,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 纯数字悲喜旗舰版 (悲喜套装区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字悲喜旗舰版). 100% Safe Instant Delivery.",
-    "priceTHB": 890,
-    "priceVND": 623000,
-    "originalPriceTHB": 1157,
-    "originalPriceVND": 809900,
+    "priceTHB": 910,
+    "priceVND": 648000,
+    "originalPriceTHB": 1047,
+    "originalPriceVND": 745200,
     "rmbPrice": 156,
     "stock": 44,
     "tags": [
@@ -5858,7 +5852,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/0b425d1d-6c0f-41c4-acd3-e0f76355095d.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字悲喜旗舰版\n- หมวดหมู่สินค้า: 悲喜套装区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥156 หยวน (แปลงเป็นเงินไทย ฿890 บาท)\n- สต็อกพร้อมส่ง: 44 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字悲喜旗舰版\n- หมวดหมู่สินค้า: 悲喜套装区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥156 หยวน (แปลงเป็นเงินไทย ฿910 บาท)\n- สต็อกพร้อมส่ง: 44 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-377",
@@ -5876,10 +5870,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 悲喜精选版 (悲喜套装区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (悲喜精选版). 100% Safe Instant Delivery.",
-    "priceTHB": 349,
-    "priceVND": 244300,
-    "originalPriceTHB": 454,
-    "originalPriceVND": 317800,
+    "priceTHB": 370,
+    "priceVND": 263000,
+    "originalPriceTHB": 425,
+    "originalPriceVND": 302450,
     "rmbPrice": 61,
     "stock": 50,
     "tags": [
@@ -5905,7 +5899,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/f0c5f30a-126d-43cc-8487-c85be15616ac.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 悲喜精选版\n- หมวดหมู่สินค้า: 悲喜套装区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥61 หยวน (แปลงเป็นเงินไทย ฿349 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 悲喜精选版\n- หมวดหมู่สินค้า: 悲喜套装区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥61 หยวน (แปลงเป็นเงินไทย ฿370 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-198",
@@ -5923,10 +5917,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 纯数字悲喜基础版 (悲喜套装区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字悲喜基础版). 100% Safe Instant Delivery.",
-    "priceTHB": 399,
-    "priceVND": 279300,
-    "originalPriceTHB": 519,
-    "originalPriceVND": 363300,
+    "priceTHB": 410,
+    "priceVND": 292000,
+    "originalPriceTHB": 471,
+    "originalPriceVND": 335800,
     "rmbPrice": 69,
     "stock": 50,
     "tags": [
@@ -5952,7 +5946,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/12/52fc2063-4115-4ab9-b793-705c560e0443.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字悲喜基础版\n- หมวดหมู่สินค้า: 悲喜套装区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥69 หยวน (แปลงเป็นเงินไทย ฿399 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字悲喜基础版\n- หมวดหมู่สินค้า: 悲喜套装区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥69 หยวน (แปลงเป็นเงินไทย ฿410 บาท)\n- สต็อกพร้อมส่ง: 50 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-251",
@@ -5970,10 +5964,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 纯数字新手版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字新手版). 100% Safe Instant Delivery.",
-    "priceTHB": 109,
-    "priceVND": 76300,
-    "originalPriceTHB": 142,
-    "originalPriceVND": 99400,
+    "priceTHB": 150,
+    "priceVND": 107000,
+    "originalPriceTHB": 173,
+    "originalPriceVND": 123050,
     "rmbPrice": 20,
     "stock": 100,
     "tags": [
@@ -5999,7 +5993,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/25/40dc8414-e42c-4ff1-9f30-55663be47fe7.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字新手版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥20 หยวน (แปลงเป็นเงินไทย ฿109 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 纯数字新手版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥20 หยวน (แปลงเป็นเงินไทย ฿150 บาท)\n- สต็อกพร้อมส่ง: 100 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-59",
@@ -6018,9 +6012,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (黄东双TW夹克版). 100% Safe Instant Delivery.",
     "priceTHB": 2030,
-    "priceVND": 1421000,
-    "originalPriceTHB": 2639,
-    "originalPriceVND": 1847300,
+    "priceVND": 1444000,
+    "originalPriceTHB": 2335,
+    "originalPriceVND": 1660600,
     "rmbPrice": 355,
     "stock": 1,
     "tags": [
@@ -6065,9 +6059,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (经典版). 100% Safe Instant Delivery.",
     "priceTHB": 1280,
-    "priceVND": 896000,
-    "originalPriceTHB": 1664,
-    "originalPriceVND": 1164800,
+    "priceVND": 911000,
+    "originalPriceTHB": 1472,
+    "originalPriceVND": 1047650,
     "rmbPrice": 223,
     "stock": 9,
     "tags": [
@@ -6112,9 +6106,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (悲喜小红鞋高阶版). 100% Safe Instant Delivery.",
     "priceTHB": 2480,
-    "priceVND": 1736000,
-    "originalPriceTHB": 3224,
-    "originalPriceVND": 2256800,
+    "priceVND": 1765000,
+    "originalPriceTHB": 2852,
+    "originalPriceVND": 2029750,
     "rmbPrice": 433,
     "stock": 1,
     "tags": [
@@ -6159,9 +6153,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (新手版). 100% Safe Instant Delivery.",
     "priceTHB": 3750,
-    "priceVND": 2625000,
-    "originalPriceTHB": 4875,
-    "originalPriceVND": 3412500,
+    "priceVND": 2668000,
+    "originalPriceTHB": 4313,
+    "originalPriceVND": 3068200,
     "rmbPrice": 656,
     "stock": 1,
     "tags": [
@@ -6205,10 +6199,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 版本3 (二代女团物资区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (版本3). 100% Safe Instant Delivery.",
-    "priceTHB": 1910,
-    "priceVND": 1337000,
-    "originalPriceTHB": 2483,
-    "originalPriceVND": 1738100,
+    "priceTHB": 1900,
+    "priceVND": 1352000,
+    "originalPriceTHB": 2185,
+    "originalPriceVND": 1554800,
     "rmbPrice": 333,
     "stock": 2,
     "tags": [
@@ -6253,9 +6247,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (版本5). 100% Safe Instant Delivery.",
     "priceTHB": 2290,
-    "priceVND": 1603000,
-    "originalPriceTHB": 2977,
-    "originalPriceVND": 2083900,
+    "priceVND": 1629000,
+    "originalPriceTHB": 2634,
+    "originalPriceVND": 1873350,
     "rmbPrice": 400,
     "stock": 2,
     "tags": [
@@ -6300,9 +6294,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 新品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (80级悟空排位版). 100% Safe Instant Delivery.",
     "priceTHB": 1200,
-    "priceVND": 840000,
-    "originalPriceTHB": 1560,
-    "originalPriceVND": 1092000,
+    "priceVND": 854000,
+    "originalPriceTHB": 1380,
+    "originalPriceVND": 982100,
     "rmbPrice": 210,
     "stock": 3,
     "tags": [
@@ -6347,9 +6341,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (悟空基础版). 100% Safe Instant Delivery.",
     "priceTHB": 3120,
-    "priceVND": 2184000,
-    "originalPriceTHB": 4056,
-    "originalPriceVND": 2839200,
+    "priceVND": 2220000,
+    "originalPriceTHB": 3588,
+    "originalPriceVND": 2553000,
     "rmbPrice": 545,
     "stock": 5,
     "tags": [
@@ -6394,9 +6388,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (悟空初级版). 100% Safe Instant Delivery.",
     "priceTHB": 2480,
-    "priceVND": 1736000,
-    "originalPriceTHB": 3224,
-    "originalPriceVND": 2256800,
+    "priceVND": 1765000,
+    "originalPriceTHB": 2852,
+    "originalPriceVND": 2029750,
     "rmbPrice": 433,
     "stock": 3,
     "tags": [
@@ -6440,10 +6434,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 美杜莎基础版 (美杜莎专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎基础版). 100% Safe Instant Delivery.",
-    "priceTHB": 820,
-    "priceVND": 574000,
-    "originalPriceTHB": 1066,
-    "originalPriceVND": 746200,
+    "priceTHB": 840,
+    "priceVND": 598000,
+    "originalPriceTHB": 966,
+    "originalPriceVND": 687700,
     "rmbPrice": 143,
     "stock": 20,
     "tags": [
@@ -6469,7 +6463,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/18/4d5b3f9e-2060-44a4-b301-fbce337a26d8.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎基础版\n- หมวดหมู่สินค้า: 美杜莎专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿820 บาท)\n- สต็อกพร้อมส่ง: 20 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎基础版\n- หมวดหมู่สินค้า: 美杜莎专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿840 บาท)\n- สต็อกพร้อมส่ง: 20 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-213",
@@ -6487,10 +6481,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 美杜莎初级版 (美杜莎专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 940,
-    "priceVND": 658000,
-    "originalPriceTHB": 1222,
-    "originalPriceVND": 855400,
+    "priceTHB": 960,
+    "priceVND": 683000,
+    "originalPriceTHB": 1104,
+    "originalPriceVND": 785450,
     "rmbPrice": 165,
     "stock": 28,
     "tags": [
@@ -6516,7 +6510,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/19/2e7cd686-48d7-45c7-b5c1-901e5b9b96b2.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎初级版\n- หมวดหมู่สินค้า: 美杜莎专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥165 หยวน (แปลงเป็นเงินไทย ฿940 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎初级版\n- หมวดหมู่สินค้า: 美杜莎专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥165 หยวน (แปลงเป็นเงินไทย ฿960 บาท)\n- สต็อกพร้อมส่ง: 28 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-215",
@@ -6535,9 +6529,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎中级版). 100% Safe Instant Delivery.",
     "priceTHB": 1710,
-    "priceVND": 1197000,
-    "originalPriceTHB": 2223,
-    "originalPriceVND": 1556100,
+    "priceVND": 1217000,
+    "originalPriceTHB": 1966,
+    "originalPriceVND": 1399550,
     "rmbPrice": 299,
     "stock": 23,
     "tags": [
@@ -6582,9 +6576,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎高级版). 100% Safe Instant Delivery.",
     "priceTHB": 1850,
-    "priceVND": 1295000,
-    "originalPriceTHB": 2405,
-    "originalPriceVND": 1683500,
+    "priceVND": 1316000,
+    "originalPriceTHB": 2128,
+    "originalPriceVND": 1513400,
     "rmbPrice": 323,
     "stock": 28,
     "tags": [
@@ -6628,10 +6622,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 圣诞mini入门版 (圣诞mini专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (圣诞mini入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 5,
     "tags": [
@@ -6657,7 +6651,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/f3bd239e-c3e9-4bd9-89b9-3db9cbebb8cf.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 圣诞mini入门版\n- หมวดหมู่สินค้า: 圣诞mini专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 圣诞mini入门版\n- หมวดหมู่สินค้า: 圣诞mini专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-433",
@@ -6676,9 +6670,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (圣诞mini初级版). 100% Safe Instant Delivery.",
     "priceTHB": 540,
-    "priceVND": 378000,
-    "originalPriceTHB": 702,
-    "originalPriceVND": 491400,
+    "priceVND": 384000,
+    "originalPriceTHB": 621,
+    "originalPriceVND": 441600,
     "rmbPrice": 95,
     "stock": 5,
     "tags": [
@@ -6722,10 +6716,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 圣诞mini中级版 (圣诞mini专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (圣诞mini中级版). 100% Safe Instant Delivery.",
-    "priceTHB": 700,
-    "priceVND": 490000,
-    "originalPriceTHB": 910,
-    "originalPriceVND": 637000,
+    "priceTHB": 740,
+    "priceVND": 527000,
+    "originalPriceTHB": 851,
+    "originalPriceVND": 606050,
     "rmbPrice": 123,
     "stock": 6,
     "tags": [
@@ -6751,7 +6745,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/59803592-d871-41cc-95fb-ae6c36b355d3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 圣诞mini中级版\n- หมวดหมู่สินค้า: 圣诞mini专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥123 หยวน (แปลงเป็นเงินไทย ฿700 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 圣诞mini中级版\n- หมวดหมู่สินค้า: 圣诞mini专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥123 หยวน (แปลงเป็นเงินไทย ฿740 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-435",
@@ -6769,10 +6763,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 圣诞mini高级版 (圣诞mini专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (圣诞mini高级版). 100% Safe Instant Delivery.",
-    "priceTHB": 880,
-    "priceVND": 616000,
-    "originalPriceTHB": 1144,
-    "originalPriceVND": 800800,
+    "priceTHB": 900,
+    "priceVND": 640000,
+    "originalPriceTHB": 1035,
+    "originalPriceVND": 736000,
     "rmbPrice": 154,
     "stock": 5,
     "tags": [
@@ -6798,7 +6792,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/11/968ffe22-8920-481b-9f23-175d17275635.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 圣诞mini高级版\n- หมวดหมู่สินค้า: 圣诞mini专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿880 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 圣诞mini高级版\n- หมวดหมู่สินค้า: 圣诞mini专区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿900 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-138",
@@ -6816,10 +6810,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - AUG体验版 (权志龙AUG区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (AUG体验版). 100% Safe Instant Delivery.",
-    "priceTHB": 289,
-    "priceVND": 202300,
-    "originalPriceTHB": 376,
-    "originalPriceVND": 263200,
+    "priceTHB": 310,
+    "priceVND": 221000,
+    "originalPriceTHB": 357,
+    "originalPriceVND": 254150,
     "rmbPrice": 50,
     "stock": 47,
     "tags": [
@@ -6845,7 +6839,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/48140606-e5ee-45bd-b02b-d4551d9f4a13.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: AUG体验版\n- หมวดหมู่สินค้า: 权志龙AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥50 หยวน (แปลงเป็นเงินไทย ฿289 บาท)\n- สต็อกพร้อมส่ง: 47 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: AUG体验版\n- หมวดหมู่สินค้า: 权志龙AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥50 หยวน (แปลงเป็นเงินไทย ฿310 บาท)\n- สต็อกพร้อมส่ง: 47 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-144",
@@ -6863,10 +6857,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - AUG新手版 (权志龙AUG区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (AUG新手版). 100% Safe Instant Delivery.",
-    "priceTHB": 620,
-    "priceVND": 434000,
-    "originalPriceTHB": 806,
-    "originalPriceVND": 564200,
+    "priceTHB": 670,
+    "priceVND": 477000,
+    "originalPriceTHB": 770,
+    "originalPriceVND": 548550,
     "rmbPrice": 109,
     "stock": 22,
     "tags": [
@@ -6892,7 +6886,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/4ecb23b4-a0f7-4066-9c8f-7b79c0313154.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: AUG新手版\n- หมวดหมู่สินค้า: 权志龙AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥109 หยวน (แปลงเป็นเงินไทย ฿620 บาท)\n- สต็อกพร้อมส่ง: 22 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: AUG新手版\n- หมวดหมู่สินค้า: 权志龙AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥109 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 22 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-145",
@@ -6911,9 +6905,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (AUG普通版). 100% Safe Instant Delivery.",
     "priceTHB": 540,
-    "priceVND": 378000,
-    "originalPriceTHB": 702,
-    "originalPriceVND": 491400,
+    "priceVND": 384000,
+    "originalPriceTHB": 621,
+    "originalPriceVND": 441600,
     "rmbPrice": 95,
     "stock": 23,
     "tags": [
@@ -6957,10 +6951,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - AUG入门版 (权志龙AUG区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (AUG入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 860,
-    "priceVND": 602000,
-    "originalPriceTHB": 1118,
-    "originalPriceVND": 782600,
+    "priceTHB": 890,
+    "priceVND": 633000,
+    "originalPriceTHB": 1023,
+    "originalPriceVND": 727950,
     "rmbPrice": 151,
     "stock": 24,
     "tags": [
@@ -6986,7 +6980,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/91174373-d06a-4b8c-874c-bd17c2ba526f.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: AUG入门版\n- หมวดหมู่สินค้า: 权志龙AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥151 หยวน (แปลงเป็นเงินไทย ฿860 บาท)\n- สต็อกพร้อมส่ง: 24 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: AUG入门版\n- หมวดหมู่สินค้า: 权志龙AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥151 หยวน (แปลงเป็นเงินไทย ฿890 บาท)\n- สต็อกพร้อมส่ง: 24 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-137",
@@ -7005,9 +6999,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (AUG异色版). 100% Safe Instant Delivery.",
     "priceTHB": 1580,
-    "priceVND": 1106000,
-    "originalPriceTHB": 2054,
-    "originalPriceVND": 1437800,
+    "priceVND": 1124000,
+    "originalPriceTHB": 1817,
+    "originalPriceVND": 1292600,
     "rmbPrice": 277,
     "stock": 1,
     "tags": [
@@ -7052,9 +7046,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎权志龙aug版). 100% Safe Instant Delivery.",
     "priceTHB": 1340,
-    "priceVND": 938000,
-    "originalPriceTHB": 1742,
-    "originalPriceVND": 1219400,
+    "priceVND": 953000,
+    "originalPriceTHB": 1541,
+    "originalPriceVND": 1095950,
     "rmbPrice": 234,
     "stock": 2,
     "tags": [
@@ -7099,9 +7093,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎塞壬版). 100% Safe Instant Delivery.",
     "priceTHB": 1280,
-    "priceVND": 896000,
-    "originalPriceTHB": 1664,
-    "originalPriceVND": 1164800,
+    "priceVND": 911000,
+    "originalPriceTHB": 1472,
+    "originalPriceVND": 1047650,
     "rmbPrice": 223,
     "stock": 2,
     "tags": [
@@ -7146,9 +7140,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎牛头aug版). 100% Safe Instant Delivery.",
     "priceTHB": 1710,
-    "priceVND": 1197000,
-    "originalPriceTHB": 2223,
-    "originalPriceVND": 1556100,
+    "priceVND": 1217000,
+    "originalPriceTHB": 1966,
+    "originalPriceVND": 1399550,
     "rmbPrice": 299,
     "stock": 2,
     "tags": [
@@ -7193,9 +7187,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎圣诞mini版). 100% Safe Instant Delivery.",
     "priceTHB": 1390,
-    "priceVND": 973000,
-    "originalPriceTHB": 1807,
-    "originalPriceVND": 1264900,
+    "priceVND": 989000,
+    "originalPriceTHB": 1598,
+    "originalPriceVND": 1137350,
     "rmbPrice": 243,
     "stock": 2,
     "tags": [
@@ -7239,10 +7233,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 美杜莎纸壳子版 (双成长专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎纸壳子版). 100% Safe Instant Delivery.",
-    "priceTHB": 990,
-    "priceVND": 693000,
-    "originalPriceTHB": 1287,
-    "originalPriceVND": 900900,
+    "priceTHB": 1000,
+    "priceVND": 712000,
+    "originalPriceTHB": 1150,
+    "originalPriceVND": 818800,
     "rmbPrice": 173,
     "stock": 2,
     "tags": [
@@ -7268,7 +7262,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/16/55cef748-9d99-4443-a7b4-9ea5ed8e87e5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎纸壳子版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥173 หยวน (แปลงเป็นเงินไทย ฿990 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎纸壳子版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥173 หยวน (แปลงเป็นเงินไทย ฿1,000 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-443",
@@ -7287,9 +7281,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎宇宙之力98k版). 100% Safe Instant Delivery.",
     "priceTHB": 1330,
-    "priceVND": 931000,
-    "originalPriceTHB": 1729,
-    "originalPriceVND": 1210300,
+    "priceVND": 946000,
+    "originalPriceTHB": 1529,
+    "originalPriceVND": 1087900,
     "rmbPrice": 232,
     "stock": 3,
     "tags": [
@@ -7334,9 +7328,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡圣诞mini版). 100% Safe Instant Delivery.",
     "priceTHB": 1270,
-    "priceVND": 889000,
-    "originalPriceTHB": 1651,
-    "originalPriceVND": 1155700,
+    "priceVND": 904000,
+    "originalPriceTHB": 1461,
+    "originalPriceVND": 1039600,
     "rmbPrice": 222,
     "stock": 2,
     "tags": [
@@ -7380,10 +7374,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡纸壳子版 (双成长专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡纸壳子版). 100% Safe Instant Delivery.",
-    "priceTHB": 930,
-    "priceVND": 651000,
-    "originalPriceTHB": 1209,
-    "originalPriceVND": 846300,
+    "priceTHB": 950,
+    "priceVND": 676000,
+    "originalPriceTHB": 1093,
+    "originalPriceVND": 777400,
     "rmbPrice": 163,
     "stock": 6,
     "tags": [
@@ -7409,7 +7403,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/16/1c59c643-15ca-4cfd-8867-98fad668d79c.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡纸壳子版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥163 หยวน (แปลงเป็นเงินไทย ฿930 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 显卡纸壳子版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥163 หยวน (แปลงเป็นเงินไทย ฿950 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-446",
@@ -7427,10 +7421,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡权志龙aug版 (双成长专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙aug版). 100% Safe Instant Delivery.",
-    "priceTHB": 1010,
-    "priceVND": 707000,
-    "originalPriceTHB": 1313,
-    "originalPriceVND": 919100,
+    "priceTHB": 1020,
+    "priceVND": 726000,
+    "originalPriceTHB": 1173,
+    "originalPriceVND": 834900,
     "rmbPrice": 176,
     "stock": 2,
     "tags": [
@@ -7475,9 +7469,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡牛头aug版). 100% Safe Instant Delivery.",
     "priceTHB": 1310,
-    "priceVND": 917000,
-    "originalPriceTHB": 1703,
-    "originalPriceVND": 1192100,
+    "priceVND": 932000,
+    "originalPriceTHB": 1506,
+    "originalPriceVND": 1071800,
     "rmbPrice": 229,
     "stock": 1,
     "tags": [
@@ -7522,9 +7516,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡宇宙之力98k版). 100% Safe Instant Delivery.",
     "priceTHB": 1200,
-    "priceVND": 840000,
-    "originalPriceTHB": 1560,
-    "originalPriceVND": 1092000,
+    "priceVND": 854000,
+    "originalPriceTHB": 1380,
+    "originalPriceVND": 982100,
     "rmbPrice": 210,
     "stock": 7,
     "tags": [
@@ -7568,10 +7562,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 显卡塞壬版 (双成长专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡塞壬版). 100% Safe Instant Delivery.",
-    "priceTHB": 1010,
-    "priceVND": 707000,
-    "originalPriceTHB": 1313,
-    "originalPriceVND": 919100,
+    "priceTHB": 1020,
+    "priceVND": 726000,
+    "originalPriceTHB": 1173,
+    "originalPriceVND": 834900,
     "rmbPrice": 177,
     "stock": 2,
     "tags": [
@@ -7616,9 +7610,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头圣诞mini版). 100% Safe Instant Delivery.",
     "priceTHB": 1520,
-    "priceVND": 1064000,
-    "originalPriceTHB": 1976,
-    "originalPriceVND": 1383200,
+    "priceVND": 1082000,
+    "originalPriceTHB": 1748,
+    "originalPriceVND": 1244300,
     "rmbPrice": 266,
     "stock": 1,
     "tags": [
@@ -7663,9 +7657,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头宇宙之力98k版). 100% Safe Instant Delivery.",
     "priceTHB": 1150,
-    "priceVND": 805000,
-    "originalPriceTHB": 1495,
-    "originalPriceVND": 1046500,
+    "priceVND": 818000,
+    "originalPriceTHB": 1323,
+    "originalPriceVND": 940700,
     "rmbPrice": 201,
     "stock": 2,
     "tags": [
@@ -7709,10 +7703,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 牛头权志龙aug版 (双成长专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头权志龙aug版). 100% Safe Instant Delivery.",
-    "priceTHB": 940,
-    "priceVND": 658000,
-    "originalPriceTHB": 1222,
-    "originalPriceVND": 855400,
+    "priceTHB": 960,
+    "priceVND": 683000,
+    "originalPriceTHB": 1104,
+    "originalPriceVND": 785450,
     "rmbPrice": 165,
     "stock": 2,
     "tags": [
@@ -7738,7 +7732,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/16/e22fd6f7-ff2f-4327-ba7e-4ec74dccd041.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头权志龙aug版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥165 หยวน (แปลงเป็นเงินไทย ฿940 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头权志龙aug版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥165 หยวน (แปลงเป็นเงินไทย ฿960 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-453",
@@ -7756,10 +7750,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 权志龙aug宇宙之力98k版 (双成长专区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 双成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (权志龙aug宇宙之力98k版). 100% Safe Instant Delivery.",
-    "priceTHB": 630,
-    "priceVND": 441000,
-    "originalPriceTHB": 819,
-    "originalPriceVND": 573300,
+    "priceTHB": 670,
+    "priceVND": 477000,
+    "originalPriceTHB": 770,
+    "originalPriceVND": 548550,
     "rmbPrice": 110,
     "stock": 2,
     "tags": [
@@ -7785,7 +7779,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/16/6bef4362-c281-4465-878d-2a0468f75090.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 权志龙aug宇宙之力98k版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿630 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 权志龙aug宇宙之力98k版\n- หมวดหมู่สินค้า: 双成长专区\n- ป้ายกำกับ: 双成长\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-456",
@@ -7804,9 +7798,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡牛头宇宙之力版). 100% Safe Instant Delivery.",
     "priceTHB": 1720,
-    "priceVND": 1204000,
-    "originalPriceTHB": 2236,
-    "originalPriceVND": 1565200,
+    "priceVND": 1224000,
+    "originalPriceTHB": 1978,
+    "originalPriceVND": 1407600,
     "rmbPrice": 300,
     "stock": 1,
     "tags": [
@@ -7851,9 +7845,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙宇宙版). 100% Safe Instant Delivery.",
     "priceTHB": 1410,
-    "priceVND": 987000,
-    "originalPriceTHB": 1833,
-    "originalPriceVND": 1283100,
+    "priceVND": 1003000,
+    "originalPriceTHB": 1621,
+    "originalPriceVND": 1153450,
     "rmbPrice": 246,
     "stock": 1,
     "tags": [
@@ -7898,9 +7892,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡圣诞宇宙之力版). 100% Safe Instant Delivery.",
     "priceTHB": 2230,
-    "priceVND": 1561000,
-    "originalPriceTHB": 2899,
-    "originalPriceVND": 2029300,
+    "priceVND": 1587000,
+    "originalPriceTHB": 2565,
+    "originalPriceVND": 1825050,
     "rmbPrice": 389,
     "stock": 1,
     "tags": [
@@ -7945,9 +7939,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡宇宙之力纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 1330,
-    "priceVND": 931000,
-    "originalPriceTHB": 1729,
-    "originalPriceVND": 1210300,
+    "priceVND": 946000,
+    "originalPriceTHB": 1529,
+    "originalPriceVND": 1087900,
     "rmbPrice": 232,
     "stock": 2,
     "tags": [
@@ -7992,9 +7986,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙宇宙塞壬版). 100% Safe Instant Delivery.",
     "priceTHB": 3750,
-    "priceVND": 2625000,
-    "originalPriceTHB": 4875,
-    "originalPriceVND": 3412500,
+    "priceVND": 2668000,
+    "originalPriceTHB": 4313,
+    "originalPriceVND": 3068200,
     "rmbPrice": 656,
     "stock": 1,
     "tags": [
@@ -8039,9 +8033,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 1370,
-    "priceVND": 959000,
-    "originalPriceTHB": 1781,
-    "originalPriceVND": 1246700,
+    "priceVND": 975000,
+    "originalPriceTHB": 1575,
+    "originalPriceVND": 1121250,
     "rmbPrice": 240,
     "stock": 2,
     "tags": [
@@ -8086,9 +8080,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡宇宙之力版). 100% Safe Instant Delivery.",
     "priceTHB": 2740,
-    "priceVND": 1918000,
-    "originalPriceTHB": 3562,
-    "originalPriceVND": 2493400,
+    "priceVND": 1950000,
+    "originalPriceTHB": 3151,
+    "originalPriceVND": 2242500,
     "rmbPrice": 479,
     "stock": 1,
     "tags": [
@@ -8133,9 +8127,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡权志龙版). 100% Safe Instant Delivery.",
     "priceTHB": 2540,
-    "priceVND": 1778000,
-    "originalPriceTHB": 3302,
-    "originalPriceVND": 2311400,
+    "priceVND": 1807000,
+    "originalPriceTHB": 2921,
+    "originalPriceVND": 2078050,
     "rmbPrice": 444,
     "stock": 1,
     "tags": [
@@ -8180,9 +8174,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡大菠萝版). 100% Safe Instant Delivery.",
     "priceTHB": 2600,
-    "priceVND": 1820000,
-    "originalPriceTHB": 3380,
-    "originalPriceVND": 2366000,
+    "priceVND": 1850000,
+    "originalPriceTHB": 2990,
+    "originalPriceVND": 2127500,
     "rmbPrice": 455,
     "stock": 1,
     "tags": [
@@ -8227,9 +8221,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎权志龙宇宙版). 100% Safe Instant Delivery.",
     "priceTHB": 2430,
-    "priceVND": 1701000,
-    "originalPriceTHB": 3159,
-    "originalPriceVND": 2211300,
+    "priceVND": 1729000,
+    "originalPriceTHB": 2795,
+    "originalPriceVND": 1988350,
     "rmbPrice": 424,
     "stock": 1,
     "tags": [
@@ -8274,9 +8268,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎权志龙纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 2160,
-    "priceVND": 1512000,
-    "originalPriceTHB": 2808,
-    "originalPriceVND": 1965600,
+    "priceVND": 1537000,
+    "originalPriceTHB": 2484,
+    "originalPriceVND": 1767550,
     "rmbPrice": 377,
     "stock": 1,
     "tags": [
@@ -8321,9 +8315,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (权志龙宇宙塞壬版). 100% Safe Instant Delivery.",
     "priceTHB": 1180,
-    "priceVND": 826000,
-    "originalPriceTHB": 1534,
-    "originalPriceVND": 1073800,
+    "priceVND": 840000,
+    "originalPriceTHB": 1357,
+    "originalPriceVND": 966000,
     "rmbPrice": 206,
     "stock": 1,
     "tags": [
@@ -8368,9 +8362,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎宇宙塞壬版). 100% Safe Instant Delivery.",
     "priceTHB": 3750,
-    "priceVND": 2625000,
-    "originalPriceTHB": 4875,
-    "originalPriceVND": 3412500,
+    "priceVND": 2668000,
+    "originalPriceTHB": 4313,
+    "originalPriceVND": 3068200,
     "rmbPrice": 656,
     "stock": 1,
     "tags": [
@@ -8415,9 +8409,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎大菠萝宇宙版). 100% Safe Instant Delivery.",
     "priceTHB": 2350,
-    "priceVND": 1645000,
-    "originalPriceTHB": 3055,
-    "originalPriceVND": 2138500,
+    "priceVND": 1672000,
+    "originalPriceTHB": 2703,
+    "originalPriceVND": 1922800,
     "rmbPrice": 411,
     "stock": 1,
     "tags": [
@@ -8462,9 +8456,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 3560,
-    "priceVND": 2492000,
-    "originalPriceTHB": 4628,
-    "originalPriceVND": 3239600,
+    "priceVND": 2533000,
+    "originalPriceTHB": 4094,
+    "originalPriceVND": 2912950,
     "rmbPrice": 623,
     "stock": 1,
     "tags": [
@@ -8509,9 +8503,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 三成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡塞壬版). 100% Safe Instant Delivery.",
     "priceTHB": 3670,
-    "priceVND": 2569000,
-    "originalPriceTHB": 4771,
-    "originalPriceVND": 3339700,
+    "priceVND": 2611000,
+    "originalPriceTHB": 4221,
+    "originalPriceVND": 3002650,
     "rmbPrice": 642,
     "stock": 1,
     "tags": [
@@ -8556,9 +8550,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎权志龙宇宙纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 5040,
-    "priceVND": 3528000,
-    "originalPriceTHB": 6552,
-    "originalPriceVND": 4586400,
+    "priceVND": 3586000,
+    "originalPriceTHB": 5796,
+    "originalPriceVND": 4123900,
     "rmbPrice": 881,
     "stock": 1,
     "tags": [
@@ -8603,9 +8597,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙宇宙纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 4010,
-    "priceVND": 2807000,
-    "originalPriceTHB": 5213,
-    "originalPriceVND": 3649100,
+    "priceVND": 2853000,
+    "originalPriceTHB": 4612,
+    "originalPriceVND": 3280950,
     "rmbPrice": 701,
     "stock": 1,
     "tags": [
@@ -8650,9 +8644,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡权志龙宇宙版). 100% Safe Instant Delivery.",
     "priceTHB": 6380,
-    "priceVND": 4466000,
-    "originalPriceTHB": 8294,
-    "originalPriceVND": 5805800,
+    "priceVND": 4540000,
+    "originalPriceTHB": 7337,
+    "originalPriceVND": 5221000,
     "rmbPrice": 1115,
     "stock": 1,
     "tags": [
@@ -8697,9 +8691,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡宇宙纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 5670,
-    "priceVND": 3969000,
-    "originalPriceTHB": 7371,
-    "originalPriceVND": 5159700,
+    "priceVND": 4034000,
+    "originalPriceTHB": 6520,
+    "originalPriceVND": 4639100,
     "rmbPrice": 991,
     "stock": 1,
     "tags": [
@@ -8744,9 +8738,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎显卡权志龙纸壳子版). 100% Safe Instant Delivery.",
     "priceTHB": 6940,
-    "priceVND": 4858000,
-    "originalPriceTHB": 9022,
-    "originalPriceVND": 6315400,
+    "priceVND": 4938000,
+    "originalPriceTHB": 7981,
+    "originalPriceVND": 5678700,
     "rmbPrice": 1214,
     "stock": 1,
     "tags": [
@@ -8791,9 +8785,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙大菠萝宇宙版). 100% Safe Instant Delivery.",
     "priceTHB": 5740,
-    "priceVND": 4018000,
-    "originalPriceTHB": 7462,
-    "originalPriceVND": 5223400,
+    "priceVND": 4084000,
+    "originalPriceTHB": 6601,
+    "originalPriceVND": 4696600,
     "rmbPrice": 1004,
     "stock": 1,
     "tags": [
@@ -8838,9 +8832,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 四成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (显卡权志龙圣诞宇宙版). 100% Safe Instant Delivery.",
     "priceTHB": 5740,
-    "priceVND": 4018000,
-    "originalPriceTHB": 7462,
-    "originalPriceVND": 5223400,
+    "priceVND": 4084000,
+    "originalPriceTHB": 6601,
+    "originalPriceVND": 4696600,
     "rmbPrice": 1003,
     "stock": 1,
     "tags": [
@@ -8885,9 +8879,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 五成长 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (5成长武器极品版). 100% Safe Instant Delivery.",
     "priceTHB": 8220,
-    "priceVND": 5754000,
-    "originalPriceTHB": 10686,
-    "originalPriceVND": 7480200,
+    "priceVND": 5849000,
+    "originalPriceTHB": 9453,
+    "originalPriceVND": 6726350,
     "rmbPrice": 1437,
     "stock": 1,
     "tags": [
@@ -8932,9 +8926,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 稀有 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (纯数字女团大厅版). 100% Safe Instant Delivery.",
     "priceTHB": 18440,
-    "priceVND": 12908000,
-    "originalPriceTHB": 23972,
-    "originalPriceVND": 16780400,
+    "priceVND": 13121000,
+    "originalPriceTHB": 21206,
+    "originalPriceVND": 15089150,
     "rmbPrice": 3223,
     "stock": 1,
     "tags": [
@@ -8979,9 +8973,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก PLUS ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (悲喜升级版). 100% Safe Instant Delivery.",
     "priceTHB": 1840,
-    "priceVND": 1288000,
-    "originalPriceTHB": 2392,
-    "originalPriceVND": 1674400,
+    "priceVND": 1309000,
+    "originalPriceTHB": 2116,
+    "originalPriceVND": 1505350,
     "rmbPrice": 321,
     "stock": 1,
     "tags": [
@@ -9026,9 +9020,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก PLUS ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (热血竞技版). 100% Safe Instant Delivery.",
     "priceTHB": 3120,
-    "priceVND": 2184000,
-    "originalPriceTHB": 4056,
-    "originalPriceVND": 2839200,
+    "priceVND": 2220000,
+    "originalPriceTHB": 3588,
+    "originalPriceVND": 2553000,
     "rmbPrice": 545,
     "stock": 1,
     "tags": [
@@ -9073,9 +9067,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก PLUS ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (星魂滑雪镜悲喜竞技版). 100% Safe Instant Delivery.",
     "priceTHB": 2480,
-    "priceVND": 1736000,
-    "originalPriceTHB": 3224,
-    "originalPriceVND": 2256800,
+    "priceVND": 1765000,
+    "originalPriceTHB": 2852,
+    "originalPriceVND": 2029750,
     "rmbPrice": 433,
     "stock": 1,
     "tags": [
@@ -9120,9 +9114,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก PLUS ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (兰博基尼竞技版). 100% Safe Instant Delivery.",
     "priceTHB": 2290,
-    "priceVND": 1603000,
-    "originalPriceTHB": 2977,
-    "originalPriceVND": 2083900,
+    "priceVND": 1629000,
+    "originalPriceTHB": 2634,
+    "originalPriceVND": 1873350,
     "rmbPrice": 400,
     "stock": 8,
     "tags": [
@@ -9167,9 +9161,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก PLUS ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (至尊版). 100% Safe Instant Delivery.",
     "priceTHB": 1760,
-    "priceVND": 1232000,
-    "originalPriceTHB": 2288,
-    "originalPriceVND": 1601600,
+    "priceVND": 1252000,
+    "originalPriceTHB": 2024,
+    "originalPriceVND": 1439800,
     "rmbPrice": 307,
     "stock": 1,
     "tags": [
@@ -9214,9 +9208,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG异色版). 100% Safe Instant Delivery.",
     "priceTHB": 2550,
-    "priceVND": 1785000,
-    "originalPriceTHB": 3315,
-    "originalPriceVND": 2320500,
+    "priceVND": 1814000,
+    "originalPriceTHB": 2933,
+    "originalPriceVND": 2086100,
     "rmbPrice": 445,
     "stock": 2,
     "tags": [
@@ -9261,9 +9255,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG终极版). 100% Safe Instant Delivery.",
     "priceTHB": 1700,
-    "priceVND": 1190000,
-    "originalPriceTHB": 2210,
-    "originalPriceVND": 1547000,
+    "priceVND": 1210000,
+    "originalPriceTHB": 1955,
+    "originalPriceVND": 1391500,
     "rmbPrice": 297,
     "stock": 4,
     "tags": [
@@ -9308,9 +9302,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG强化版). 100% Safe Instant Delivery.",
     "priceTHB": 1140,
-    "priceVND": 798000,
-    "originalPriceTHB": 1482,
-    "originalPriceVND": 1037400,
+    "priceVND": 811000,
+    "originalPriceTHB": 1311,
+    "originalPriceVND": 932650,
     "rmbPrice": 199,
     "stock": 2,
     "tags": [
@@ -9355,9 +9349,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG精选版). 100% Safe Instant Delivery.",
     "priceTHB": 1070,
-    "priceVND": 749000,
-    "originalPriceTHB": 1391,
-    "originalPriceVND": 973700,
+    "priceVND": 761000,
+    "originalPriceTHB": 1231,
+    "originalPriceVND": 875150,
     "rmbPrice": 187,
     "stock": 3,
     "tags": [
@@ -9401,10 +9395,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 牛头AUG进阶版 (牛头AUG区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG进阶版). 100% Safe Instant Delivery.",
-    "priceTHB": 690,
-    "priceVND": 483000,
-    "originalPriceTHB": 897,
-    "originalPriceVND": 627900,
+    "priceTHB": 730,
+    "priceVND": 519000,
+    "originalPriceTHB": 839,
+    "originalPriceVND": 596850,
     "rmbPrice": 121,
     "stock": 5,
     "tags": [
@@ -9430,7 +9424,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/8cd2a28e-f6c5-4aea-a7d9-a717be686033.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头AUG进阶版\n- หมวดหมู่สินค้า: 牛头AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥121 หยวน (แปลงเป็นเงินไทย ฿690 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头AUG进阶版\n- หมวดหมู่สินค้า: 牛头AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥121 หยวน (แปลงเป็นเงินไทย ฿730 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-333",
@@ -9448,10 +9442,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 牛头AUG入门版 (牛头AUG区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG入门版). 100% Safe Instant Delivery.",
-    "priceTHB": 670,
-    "priceVND": 469000,
-    "originalPriceTHB": 871,
-    "originalPriceVND": 609700,
+    "priceTHB": 710,
+    "priceVND": 505000,
+    "originalPriceTHB": 816,
+    "originalPriceVND": 580750,
     "rmbPrice": 117,
     "stock": 21,
     "tags": [
@@ -9477,7 +9471,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/28/632f4c58-071a-4994-ac60-3b037cffe4a9.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头AUG入门版\n- หมวดหมู่สินค้า: 牛头AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 21 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头AUG入门版\n- หมวดหมู่สินค้า: 牛头AUG区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥117 หยวน (แปลงเป็นเงินไทย ฿710 บาท)\n- สต็อกพร้อมส่ง: 21 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-330",
@@ -9496,9 +9490,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝显卡双异色版). 100% Safe Instant Delivery.",
     "priceTHB": 5100,
-    "priceVND": 3570000,
-    "originalPriceTHB": 6630,
-    "originalPriceVND": 4641000,
+    "priceVND": 3629000,
+    "originalPriceTHB": 5865,
+    "originalPriceVND": 4173350,
     "rmbPrice": 892,
     "stock": 1,
     "tags": [
@@ -9543,9 +9537,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝王者版). 100% Safe Instant Delivery.",
     "priceTHB": 1260,
-    "priceVND": 882000,
-    "originalPriceTHB": 1638,
-    "originalPriceVND": 1146600,
+    "priceVND": 897000,
+    "originalPriceTHB": 1449,
+    "originalPriceVND": 1031550,
     "rmbPrice": 221,
     "stock": 3,
     "tags": [
@@ -9589,10 +9583,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 大菠萝精选版 (大菠萝区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝精选版). 100% Safe Instant Delivery.",
-    "priceTHB": 880,
-    "priceVND": 616000,
-    "originalPriceTHB": 1144,
-    "originalPriceVND": 800800,
+    "priceTHB": 900,
+    "priceVND": 640000,
+    "originalPriceTHB": 1035,
+    "originalPriceVND": 736000,
     "rmbPrice": 154,
     "stock": 3,
     "tags": [
@@ -9618,7 +9612,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/8f942ac3-68b8-4b0c-8880-f579adceaf67.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝精选版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿880 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝精选版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥154 หยวน (แปลงเป็นเงินไทย ฿900 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-331",
@@ -9636,10 +9630,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 大菠萝增强版 (大菠萝区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝增强版). 100% Safe Instant Delivery.",
-    "priceTHB": 700,
-    "priceVND": 490000,
-    "originalPriceTHB": 910,
-    "originalPriceVND": 637000,
+    "priceTHB": 730,
+    "priceVND": 519000,
+    "originalPriceTHB": 839,
+    "originalPriceVND": 596850,
     "rmbPrice": 122,
     "stock": 6,
     "tags": [
@@ -9665,7 +9659,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/05/344fd15c-bd2e-4ec5-9709-f830d60731d7.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝增强版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥122 หยวน (แปลงเป็นเงินไทย ฿700 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝增强版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥122 หยวน (แปลงเป็นเงินไทย ฿730 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-329",
@@ -9683,10 +9677,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 大菠萝进阶版 (大菠萝区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝进阶版). 100% Safe Instant Delivery.",
-    "priceTHB": 499,
-    "priceVND": 349300,
-    "originalPriceTHB": 649,
-    "originalPriceVND": 454300,
+    "priceTHB": 500,
+    "priceVND": 356000,
+    "originalPriceTHB": 575,
+    "originalPriceVND": 409400,
     "rmbPrice": 87,
     "stock": 4,
     "tags": [
@@ -9712,7 +9706,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/30/16c445f1-a687-4cf7-b180-e0e110e44cd0.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝进阶版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥87 หยวน (แปลงเป็นเงินไทย ฿499 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝进阶版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥87 หยวน (แปลงเป็นเงินไทย ฿500 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-327",
@@ -9730,10 +9724,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 大菠萝初级版 (大菠萝区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝初级版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 21,
     "tags": [
@@ -9759,7 +9753,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/04/62866ff2-7909-4520-bc1c-1148dd1e5643.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝初级版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 21 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝初级版\n- หมวดหมู่สินค้า: 大菠萝区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 21 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-325",
@@ -9777,10 +9771,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 塞壬异色版 (塞壬区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (塞壬异色版). 100% Safe Instant Delivery.",
-    "priceTHB": 1010,
-    "priceVND": 707000,
-    "originalPriceTHB": 1313,
-    "originalPriceVND": 919100,
+    "priceTHB": 1020,
+    "priceVND": 726000,
+    "originalPriceTHB": 1173,
+    "originalPriceVND": 834900,
     "rmbPrice": 176,
     "stock": 1,
     "tags": [
@@ -9824,10 +9818,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 塞壬巅峰版 (塞壬区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (塞壬巅峰版). 100% Safe Instant Delivery.",
-    "priceTHB": 1020,
-    "priceVND": 714000,
-    "originalPriceTHB": 1326,
-    "originalPriceVND": 928200,
+    "priceTHB": 1030,
+    "priceVND": 733000,
+    "originalPriceTHB": 1185,
+    "originalPriceVND": 842950,
     "rmbPrice": 179,
     "stock": 2,
     "tags": [
@@ -9871,10 +9865,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 塞壬经典版 (塞壬区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (塞壬经典版). 100% Safe Instant Delivery.",
-    "priceTHB": 690,
-    "priceVND": 483000,
-    "originalPriceTHB": 897,
-    "originalPriceVND": 627900,
+    "priceTHB": 730,
+    "priceVND": 519000,
+    "originalPriceTHB": 839,
+    "originalPriceVND": 596850,
     "rmbPrice": 121,
     "stock": 2,
     "tags": [
@@ -9900,7 +9894,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/c663526a-3290-493c-8880-a91bae1a5056.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬经典版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥121 หยวน (แปลงเป็นเงินไทย ฿690 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬经典版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥121 หยวน (แปลงเป็นเงินไทย ฿730 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-317",
@@ -9918,10 +9912,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 塞壬精英版 (塞壬区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (塞壬精英版). 100% Safe Instant Delivery.",
-    "priceTHB": 640,
-    "priceVND": 448000,
-    "originalPriceTHB": 832,
-    "originalPriceVND": 582400,
+    "priceTHB": 680,
+    "priceVND": 484000,
+    "originalPriceTHB": 782,
+    "originalPriceVND": 556600,
     "rmbPrice": 112,
     "stock": 6,
     "tags": [
@@ -9947,7 +9941,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/c8433375-54f5-4b73-94ae-114524414d1b.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬精英版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥112 หยวน (แปลงเป็นเงินไทย ฿640 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬精英版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥112 หยวน (แปลงเป็นเงินไทย ฿680 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-320",
@@ -9965,10 +9959,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 塞壬标准版 (塞壬区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (塞壬标准版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 2,
     "tags": [
@@ -9994,7 +9988,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/c25de9b8-ac99-44aa-b2aa-4411f31b993d.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬标准版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬标准版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-322",
@@ -10012,10 +10006,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 塞壬基础版 (塞壬区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (塞壬基础版). 100% Safe Instant Delivery.",
-    "priceTHB": 289,
-    "priceVND": 202300,
-    "originalPriceTHB": 376,
-    "originalPriceVND": 263200,
+    "priceTHB": 310,
+    "priceVND": 221000,
+    "originalPriceTHB": 357,
+    "originalPriceVND": 254150,
     "rmbPrice": 50,
     "stock": 8,
     "tags": [
@@ -10041,7 +10035,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/13/e3e1a73c-9822-46f6-88b6-5f5835686677.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬基础版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥50 หยวน (แปลงเป็นเงินไทย ฿289 บาท)\n- สต็อกพร้อมส่ง: 8 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 塞壬基础版\n- หมวดหมู่สินค้า: 塞壬区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥50 หยวน (แปลงเป็นเงินไทย ฿310 บาท)\n- สต็อกพร้อมส่ง: 8 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-224",
@@ -10060,9 +10054,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก PLUS ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (小丑女版). 100% Safe Instant Delivery.",
     "priceTHB": 3120,
-    "priceVND": 2184000,
-    "originalPriceTHB": 4056,
-    "originalPriceVND": 2839200,
+    "priceVND": 2220000,
+    "originalPriceTHB": 3588,
+    "originalPriceVND": 2553000,
     "rmbPrice": 545,
     "stock": 6,
     "tags": [
@@ -10106,10 +10100,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 兰博图纸版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (兰博图纸版). 100% Safe Instant Delivery.",
-    "priceTHB": 820,
-    "priceVND": 574000,
-    "originalPriceTHB": 1066,
-    "originalPriceVND": 746200,
+    "priceTHB": 840,
+    "priceVND": 598000,
+    "originalPriceTHB": 966,
+    "originalPriceVND": 687700,
     "rmbPrice": 143,
     "stock": 6,
     "tags": [
@@ -10135,7 +10129,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/6e43e331-7010-4a81-a329-3c03f5745fbf.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博图纸版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿820 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博图纸版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿840 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-253",
@@ -10153,10 +10147,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 武器体验版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (武器体验版). 100% Safe Instant Delivery.",
-    "priceTHB": 229,
-    "priceVND": 160300,
-    "originalPriceTHB": 298,
-    "originalPriceVND": 208600,
+    "priceTHB": 260,
+    "priceVND": 185000,
+    "originalPriceTHB": 299,
+    "originalPriceVND": 212750,
     "rmbPrice": 40,
     "stock": 8,
     "tags": [
@@ -10182,7 +10176,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/7284469d-660f-4247-8faa-a6693013b470.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 武器体验版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥40 หยวน (แปลงเป็นเงินไทย ฿229 บาท)\n- สต็อกพร้อมส่ง: 8 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 武器体验版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥40 หยวน (แปลงเป็นเงินไทย ฿260 บาท)\n- สต็อกพร้อมส่ง: 8 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-254",
@@ -10200,10 +10194,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 简约版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 推荐 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (简约版). 100% Safe Instant Delivery.",
-    "priceTHB": 149,
-    "priceVND": 104300,
-    "originalPriceTHB": 194,
-    "originalPriceVND": 135800,
+    "priceTHB": 190,
+    "priceVND": 135000,
+    "originalPriceTHB": 218,
+    "originalPriceVND": 155250,
     "rmbPrice": 26,
     "stock": 5,
     "tags": [
@@ -10229,7 +10223,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/5ffdd727-ff8f-4b60-b7f7-c56b68eb9bba.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 简约版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: 推荐\n- ราคาจีน: ¥26 หยวน (แปลงเป็นเงินไทย ฿149 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 简约版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: 推荐\n- ราคาจีน: ¥26 หยวน (แปลงเป็นเงินไทย ฿190 บาท)\n- สต็อกพร้อมส่ง: 5 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-255",
@@ -10247,10 +10241,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 兰博冲锋版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (兰博冲锋版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 3,
     "tags": [
@@ -10276,7 +10270,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/d6421098-3b7c-4550-8780-25a0f6d5d033.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博冲锋版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博冲锋版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-256",
@@ -10294,10 +10288,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 兰博进阶版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (兰博进阶版). 100% Safe Instant Delivery.",
-    "priceTHB": 419,
-    "priceVND": 293300,
-    "originalPriceTHB": 545,
-    "originalPriceVND": 381500,
+    "priceTHB": 430,
+    "priceVND": 306000,
+    "originalPriceTHB": 494,
+    "originalPriceVND": 351900,
     "rmbPrice": 73,
     "stock": 4,
     "tags": [
@@ -10323,7 +10317,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/be2b737d-be57-4918-8fd9-cc83cb8573e5.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博进阶版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥73 หยวน (แปลงเป็นเงินไทย ฿419 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博进阶版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥73 หยวน (แปลงเป็นเงินไทย ฿430 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-257",
@@ -10341,10 +10335,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 兰博冲刺版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (兰博冲刺版). 100% Safe Instant Delivery.",
-    "priceTHB": 560,
-    "priceVND": 392000,
-    "originalPriceTHB": 728,
-    "originalPriceVND": 509600,
+    "priceTHB": 610,
+    "priceVND": 434000,
+    "originalPriceTHB": 702,
+    "originalPriceVND": 499100,
     "rmbPrice": 98,
     "stock": 4,
     "tags": [
@@ -10370,7 +10364,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/f258ba76-9e81-4dc5-8db2-303dfbd4230a.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博冲刺版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿560 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 兰博冲刺版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿610 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-259",
@@ -10388,10 +10382,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 喷子S1987版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (喷子S1987版). 100% Safe Instant Delivery.",
-    "priceTHB": 309,
-    "priceVND": 216300,
-    "originalPriceTHB": 402,
-    "originalPriceVND": 281400,
+    "priceTHB": 330,
+    "priceVND": 235000,
+    "originalPriceTHB": 379,
+    "originalPriceVND": 270250,
     "rmbPrice": 54,
     "stock": 9,
     "tags": [
@@ -10417,7 +10411,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/a03f8728-431e-45c5-8696-799e2159c440.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 喷子S1987版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥54 หยวน (แปลงเป็นเงินไทย ฿309 บาท)\n- สต็อกพร้อมส่ง: 9 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 喷子S1987版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥54 หยวน (แปลงเป็นเงินไทย ฿330 บาท)\n- สต็อกพร้อมส่ง: 9 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-260",
@@ -10435,10 +10429,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 猛虎猎手98K版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (猛虎猎手98K版). 100% Safe Instant Delivery.",
-    "priceTHB": 439,
-    "priceVND": 307300,
-    "originalPriceTHB": 571,
-    "originalPriceVND": 399700,
+    "priceTHB": 450,
+    "priceVND": 320000,
+    "originalPriceTHB": 518,
+    "originalPriceVND": 368000,
     "rmbPrice": 76,
     "stock": 1,
     "tags": [
@@ -10464,7 +10458,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/10412ca1-ff7f-46f4-af5b-7391334d7958.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 猛虎猎手98K版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥76 หยวน (แปลงเป็นเงินไทย ฿439 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 猛虎猎手98K版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥76 หยวน (แปลงเป็นเงินไทย ฿450 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-262",
@@ -10482,10 +10476,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 赛博Mk12版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (赛博Mk12版). 100% Safe Instant Delivery.",
-    "priceTHB": 560,
-    "priceVND": 392000,
-    "originalPriceTHB": 728,
-    "originalPriceVND": 509600,
+    "priceTHB": 610,
+    "priceVND": 434000,
+    "originalPriceTHB": 702,
+    "originalPriceVND": 499100,
     "rmbPrice": 98,
     "stock": 1,
     "tags": [
@@ -10511,7 +10505,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/13b00430-75ad-4501-97c2-e3745dfd8e46.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 赛博Mk12版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿560 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 赛博Mk12版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿610 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-263",
@@ -10529,10 +10523,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 翰娜版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (翰娜版). 100% Safe Instant Delivery.",
-    "priceTHB": 319,
-    "priceVND": 223300,
-    "originalPriceTHB": 415,
-    "originalPriceVND": 290500,
+    "priceTHB": 340,
+    "priceVND": 242000,
+    "originalPriceTHB": 391,
+    "originalPriceVND": 278300,
     "rmbPrice": 56,
     "stock": 7,
     "tags": [
@@ -10558,7 +10552,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/9280f112-2399-4fdb-b1ab-0007893f930b.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 翰娜版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿319 บาท)\n- สต็อกพร้อมส่ง: 7 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 翰娜版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿340 บาท)\n- สต็อกพร้อมส่ง: 7 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-264",
@@ -10576,10 +10570,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 无信号版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (无信号版). 100% Safe Instant Delivery.",
-    "priceTHB": 630,
-    "priceVND": 441000,
-    "originalPriceTHB": 819,
-    "originalPriceVND": 573300,
+    "priceTHB": 670,
+    "priceVND": 477000,
+    "originalPriceTHB": 770,
+    "originalPriceVND": 548550,
     "rmbPrice": 110,
     "stock": 1,
     "tags": [
@@ -10605,7 +10599,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/4b95be86-2afc-4870-a508-dc6299270349.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 无信号版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿630 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 无信号版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-265",
@@ -10623,10 +10617,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 妖魔ACE版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (妖魔ACE版). 100% Safe Instant Delivery.",
-    "priceTHB": 259,
-    "priceVND": 181300,
-    "originalPriceTHB": 337,
-    "originalPriceVND": 235900,
+    "priceTHB": 280,
+    "priceVND": 199000,
+    "originalPriceTHB": 322,
+    "originalPriceVND": 228850,
     "rmbPrice": 45,
     "stock": 6,
     "tags": [
@@ -10652,7 +10646,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/10/25/4375a385-98e0-4b09-9bee-69308d961758.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 妖魔ACE版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥45 หยวน (แปลงเป็นเงินไทย ฿259 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 妖魔ACE版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥45 หยวน (แปลงเป็นเงินไทย ฿280 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-266",
@@ -10670,10 +10664,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 老黑版 (精品小号自选区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (老黑版). 100% Safe Instant Delivery.",
-    "priceTHB": 189,
-    "priceVND": 132300,
-    "originalPriceTHB": 246,
-    "originalPriceVND": 172200,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 33,
     "stock": 6,
     "tags": [
@@ -10699,7 +10693,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/4bae6b00-a072-433e-b45b-e0415684ba0a.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 老黑版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿189 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 老黑版\n- หมวดหมู่สินค้า: 精品小号自选区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-268",
@@ -10717,10 +10711,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 无重力版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (无重力版). 100% Safe Instant Delivery.",
-    "priceTHB": 560,
-    "priceVND": 392000,
-    "originalPriceTHB": 728,
-    "originalPriceVND": 509600,
+    "priceTHB": 610,
+    "priceVND": 434000,
+    "originalPriceTHB": 702,
+    "originalPriceVND": 499100,
     "rmbPrice": 98,
     "stock": 3,
     "tags": [
@@ -10746,7 +10740,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/e42c3ec2-a6cc-4d52-9ebd-4c6574fc7230.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 无重力版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿560 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 无重力版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿610 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-273",
@@ -10764,10 +10758,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 美杜莎版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎版). 100% Safe Instant Delivery.",
-    "priceTHB": 560,
-    "priceVND": 392000,
-    "originalPriceTHB": 728,
-    "originalPriceVND": 509600,
+    "priceTHB": 610,
+    "priceVND": 434000,
+    "originalPriceTHB": 702,
+    "originalPriceVND": 499100,
     "rmbPrice": 98,
     "stock": 3,
     "tags": [
@@ -10793,7 +10787,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/b5ca5c7a-9559-4066-9fc6-6949089b9908.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿560 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥98 หยวน (แปลงเป็นเงินไทย ฿610 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-275",
@@ -10812,9 +10806,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (彩虹之上M24版). 100% Safe Instant Delivery.",
     "priceTHB": 540,
-    "priceVND": 378000,
-    "originalPriceTHB": 702,
-    "originalPriceVND": 491400,
+    "priceVND": 384000,
+    "originalPriceTHB": 621,
+    "originalPriceVND": 441600,
     "rmbPrice": 95,
     "stock": 1,
     "tags": [
@@ -10858,10 +10852,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 牛头AUG版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (牛头AUG版). 100% Safe Instant Delivery.",
-    "priceTHB": 500,
-    "priceVND": 350000,
-    "originalPriceTHB": 650,
-    "originalPriceVND": 455000,
+    "priceTHB": 510,
+    "priceVND": 363000,
+    "originalPriceTHB": 587,
+    "originalPriceVND": 417450,
     "rmbPrice": 88,
     "stock": 3,
     "tags": [
@@ -10887,7 +10881,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/9cfa0936-e928-46f0-9fa9-007a97f846aa.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头AUG版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥88 หยวน (แปลงเป็นเงินไทย ฿500 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 牛头AUG版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥88 หยวน (แปลงเป็นเงินไทย ฿510 บาท)\n- สต็อกพร้อมส่ง: 3 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-277",
@@ -10906,9 +10900,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (水麒麟). 100% Safe Instant Delivery.",
     "priceTHB": 1710,
-    "priceVND": 1197000,
-    "originalPriceTHB": 2223,
-    "originalPriceVND": 1556100,
+    "priceVND": 1217000,
+    "originalPriceTHB": 1966,
+    "originalPriceVND": 1399550,
     "rmbPrice": 299,
     "stock": 1,
     "tags": [
@@ -10952,10 +10946,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 权志龙AUG版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (权志龙AUG版). 100% Safe Instant Delivery.",
-    "priceTHB": 820,
-    "priceVND": 574000,
-    "originalPriceTHB": 1066,
-    "originalPriceVND": 746200,
+    "priceTHB": 840,
+    "priceVND": 598000,
+    "originalPriceTHB": 966,
+    "originalPriceVND": 687700,
     "rmbPrice": 143,
     "stock": 1,
     "tags": [
@@ -10981,7 +10975,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/11/24/77129355-696c-49da-8b52-fb8a8c83c873.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 权志龙AUG版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿820 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 权志龙AUG版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥143 หยวน (แปลงเป็นเงินไทย ฿840 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-279",
@@ -10999,10 +10993,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 魔咒之力Mk12版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (魔咒之力Mk12版). 100% Safe Instant Delivery.",
-    "priceTHB": 630,
-    "priceVND": 441000,
-    "originalPriceTHB": 819,
-    "originalPriceVND": 573300,
+    "priceTHB": 670,
+    "priceVND": 477000,
+    "originalPriceTHB": 770,
+    "originalPriceVND": 548550,
     "rmbPrice": 110,
     "stock": 1,
     "tags": [
@@ -11028,7 +11022,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/c922e52e-34e5-4d49-aa65-68959afac932.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 魔咒之力Mk12版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿630 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 魔咒之力Mk12版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥110 หยวน (แปลงเป็นเงินไทย ฿670 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-280",
@@ -11046,10 +11040,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 暗影之主Mk12版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (暗影之主Mk12版). 100% Safe Instant Delivery.",
-    "priceTHB": 319,
-    "priceVND": 223300,
-    "originalPriceTHB": 415,
-    "originalPriceVND": 290500,
+    "priceTHB": 340,
+    "priceVND": 242000,
+    "originalPriceTHB": 391,
+    "originalPriceVND": 278300,
     "rmbPrice": 56,
     "stock": 2,
     "tags": [
@@ -11075,7 +11069,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/a1705975-df35-4f6b-89e5-8c135e9cb924.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 暗影之主Mk12版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿319 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 暗影之主Mk12版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥56 หยวน (แปลงเป็นเงินไทย ฿340 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-281",
@@ -11093,10 +11087,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 时空使者版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (时空使者版). 100% Safe Instant Delivery.",
-    "priceTHB": 109,
-    "priceVND": 76300,
-    "originalPriceTHB": 142,
-    "originalPriceVND": 99400,
+    "priceTHB": 150,
+    "priceVND": 107000,
+    "originalPriceTHB": 173,
+    "originalPriceVND": 123050,
     "rmbPrice": 20,
     "stock": 6,
     "tags": [
@@ -11122,7 +11116,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/fe6864d3-b68c-49ec-9020-943ac75a7ed9.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 时空使者版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥20 หยวน (แปลงเป็นเงินไทย ฿109 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 时空使者版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥20 หยวน (แปลงเป็นเงินไทย ฿150 บาท)\n- สต็อกพร้อมส่ง: 6 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-282",
@@ -11140,10 +11134,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 时光加农SKS版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (时光加农SKS版). 100% Safe Instant Delivery.",
-    "priceTHB": 319,
-    "priceVND": 223300,
-    "originalPriceTHB": 415,
-    "originalPriceVND": 290500,
+    "priceTHB": 340,
+    "priceVND": 242000,
+    "originalPriceTHB": 391,
+    "originalPriceVND": 278300,
     "rmbPrice": 55,
     "stock": 1,
     "tags": [
@@ -11169,7 +11163,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/15a243d3-a1d6-4224-b027-e648c3b66767.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 时光加农SKS版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥55 หยวน (แปลงเป็นเงินไทย ฿319 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 时光加农SKS版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥55 หยวน (แปลงเป็นเงินไทย ฿340 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-285",
@@ -11187,10 +11181,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 大菠萝版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (大菠萝版). 100% Safe Instant Delivery.",
-    "priceTHB": 369,
-    "priceVND": 258300,
-    "originalPriceTHB": 480,
-    "originalPriceVND": 336000,
+    "priceTHB": 390,
+    "priceVND": 278000,
+    "originalPriceTHB": 448,
+    "originalPriceVND": 319700,
     "rmbPrice": 65,
     "stock": 4,
     "tags": [
@@ -11216,7 +11210,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/9ac1107f-44e5-4a10-b77c-652d7a7353f3.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿369 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 大菠萝版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥65 หยวน (แปลงเป็นเงินไทย ฿390 บาท)\n- สต็อกพร้อมส่ง: 4 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-286",
@@ -11234,10 +11228,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 寒蚀MP5K版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (寒蚀MP5K版). 100% Safe Instant Delivery.",
-    "priceTHB": 189,
-    "priceVND": 132300,
-    "originalPriceTHB": 246,
-    "originalPriceVND": 172200,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 33,
     "stock": 7,
     "tags": [
@@ -11263,7 +11257,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/64ffb346-e5d8-4456-8dd2-9d3c8cf0b077.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 寒蚀MP5K版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿189 บาท)\n- สต็อกพร้อมส่ง: 7 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 寒蚀MP5K版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 7 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-287",
@@ -11281,10 +11275,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 夜曲M24版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (夜曲M24版). 100% Safe Instant Delivery.",
-    "priceTHB": 189,
-    "priceVND": 132300,
-    "originalPriceTHB": 246,
-    "originalPriceVND": 172200,
+    "priceTHB": 220,
+    "priceVND": 157000,
+    "originalPriceTHB": 253,
+    "originalPriceVND": 180550,
     "rmbPrice": 33,
     "stock": 1,
     "tags": [
@@ -11310,7 +11304,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/6992ccce-b30a-4146-86c0-94e0b9e6ea84.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 夜曲M24版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿189 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 夜曲M24版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥33 หยวน (แปลงเป็นเงินไทย ฿220 บาท)\n- สต็อกพร้อมส่ง: 1 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-288",
@@ -11328,10 +11322,10 @@ export const smurfAccounts = [
     "title_en": "Chinese PUBG Account - 玩偶炮版 (成长武器区)",
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (玩偶炮版). 100% Safe Instant Delivery.",
-    "priceTHB": 259,
-    "priceVND": 181300,
-    "originalPriceTHB": 337,
-    "originalPriceVND": 235900,
+    "priceTHB": 280,
+    "priceVND": 199000,
+    "originalPriceTHB": 322,
+    "originalPriceVND": 228850,
     "rmbPrice": 45,
     "stock": 2,
     "tags": [
@@ -11357,7 +11351,7 @@ export const smurfAccounts = [
       "https://static.jcdianwan.com/profile/upload/2026/09/17/0fc9159d-50ea-436a-b0c5-7f9dfe07dead.png?x-oss-process=image/resize,w_1200,m_lfit"
     ],
     "accentColor": "from-purple-950 via-slate-900 to-slate-950",
-    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 玩偶炮版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥45 หยวน (แปลงเป็นเงินไทย ฿259 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
+    "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 玩偶炮版\n- หมวดหมู่สินค้า: 成长武器区\n- ป้ายกำกับ: สินค้าคุณภาพ\n- ราคาจีน: ¥45 หยวน (แปลงเป็นเงินไทย ฿280 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   },
   {
     "id": "CN-XF53-292",
@@ -11376,9 +11370,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก ประกันแท้ 100% ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (三级美杜莎版). 100% Safe Instant Delivery.",
     "priceTHB": 2000,
-    "priceVND": 1400000,
-    "originalPriceTHB": 2600,
-    "originalPriceVND": 1820000,
+    "priceVND": 1423000,
+    "originalPriceTHB": 2300,
+    "originalPriceVND": 1636450,
     "rmbPrice": 350,
     "stock": 1,
     "tags": [
@@ -11423,9 +11417,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 精品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎白蛇盲盒版). 100% Safe Instant Delivery.",
     "priceTHB": 2920,
-    "priceVND": 2044000,
-    "originalPriceTHB": 3796,
-    "originalPriceVND": 2657200,
+    "priceVND": 2078000,
+    "originalPriceTHB": 3358,
+    "originalPriceVND": 2389700,
     "rmbPrice": 511,
     "stock": 2,
     "tags": [
@@ -11470,9 +11464,9 @@ export const smurfAccounts = [
     "subtitle_th": "แพ็กเกจตรงจากโรงงานจีน Xiafei (#53) สเปกตรงปก 精品 ส่งมอบออโต้ 24 ชม.",
     "subtitle_en": "Authentic Xiafei China Supplier Package (美杜莎双异色盲盒版). 100% Safe Instant Delivery.",
     "priceTHB": 4390,
-    "priceVND": 3073000,
-    "originalPriceTHB": 5707,
-    "originalPriceVND": 3994900,
+    "priceVND": 3124000,
+    "originalPriceTHB": 5049,
+    "originalPriceVND": 3592600,
     "rmbPrice": 768,
     "stock": 2,
     "tags": [
@@ -11501,3 +11495,4 @@ export const smurfAccounts = [
     "details_th": "แพ็กเกจไอดีจีน PUBG สต็อกตรงจากซัพพลายเออร์ Xiafei (#53)\n- ชื่อแพ็กเกจ: 美杜莎双异色盲盒版\n- หมวดหมู่สินค้า: 美杜莎异色专区\n- ป้ายกำกับ: 精品\n- ราคาจีน: ¥768 หยวน (แปลงเป็นเงินไทย ฿4,390 บาท)\n- สต็อกพร้อมส่ง: 2 รายการ\n- รูปภาพประกอบ: รูปจริงตารางไอเทม/กล่องสุ่ม/สกินจากคลังผู้ผลิต\n- ส่งมอบข้อมูลไอดีและรหัสผ่านอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%"
   }
 ];
+export default smurfAccounts;

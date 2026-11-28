@@ -1661,52 +1661,76 @@ export default function AdminDashboard({
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                    {/* Case 1: Below Threshold */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    {/* Tier 1: < 500฿ */}
                     <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="text-emerald-400 font-bold text-[11px]">
-                          🟢 ไอดีต่ำกว่า {Number(settingsForm.chinaMarkupThreshold || 100000).toLocaleString()}฿
+                          🟢 ต่ำกว่า 500฿
                         </span>
                         <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">
-                          +{settingsForm.chinaMarkupTier1Percent ?? 10}%
+                          +50 บาท
                         </span>
                       </div>
-                      <div className="text-slate-400 text-[11px]">
-                        ทุนจีน ¥1,000 RMB (≈ ฿{Math.round(1000 * (settingsForm.chinaCnyRateThb || 5.2)).toLocaleString()})
+                      <div className="text-slate-400 text-[10px]">
+                        ทุนจีน ¥67 (≈ ฿{Math.round(67 * (settingsForm.chinaCnyRateThb || 5.2))})
                       </div>
                       <div className="flex items-baseline justify-between pt-1 border-t border-slate-800">
-                        <span className="text-slate-400 text-[10px]">ราคาขายหน้าร้าน:</span>
-                        <span className="text-base font-black text-emerald-400 font-mono">
-                          ฿{Math.round((1000 * (settingsForm.chinaCnyRateThb || 5.2) * (1 + (settingsForm.chinaMarkupTier1Percent ?? 10) / 100)) / 10) * 10}
+                        <span className="text-slate-400 text-[10px]">ราคาขาย:</span>
+                        <span className="text-sm font-black text-emerald-400 font-mono">
+                          ฿{Math.round((67 * (settingsForm.chinaCnyRateThb || 5.2) + 50) / 10) * 10}
                         </span>
                       </div>
                       <div className="text-right text-[10px] text-slate-500">
-                        กำไร ฿{Math.round(1000 * (settingsForm.chinaCnyRateThb || 5.2) * ((settingsForm.chinaMarkupTier1Percent ?? 10) / 100))}
+                        กำไร ฿50
                       </div>
                     </div>
 
-                    {/* Case 2: Above Threshold */}
+                    {/* Tier 2: 500 - 1,000฿ */}
                     <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                       <div className="flex items-center justify-between">
-                        <span className="text-amber-400 font-bold text-[11px]">
-                          🟡 ไอดีตั้งแต่ {Number(settingsForm.chinaMarkupThreshold || 100000).toLocaleString()}฿ ขึ้นไป
+                        <span className="text-blue-400 font-bold text-[11px]">
+                          🔵 500 - 1,000฿
                         </span>
-                        <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono font-bold">
-                          +{settingsForm.chinaMarkupTier2Percent ?? 13}%
+                        <span className="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 text-[10px] font-mono font-bold">
+                          +100 บาท
                         </span>
                       </div>
-                      <div className="text-slate-400 text-[11px]">
-                        ทุนจีน ¥25,000 RMB (≈ ฿{Math.round(25000 * (settingsForm.chinaCnyRateThb || 5.2)).toLocaleString()})
+                      <div className="text-slate-400 text-[10px]">
+                        ทุนจีน ¥100 (≈ ฿{Math.round(100 * (settingsForm.chinaCnyRateThb || 5.2))})
                       </div>
                       <div className="flex items-baseline justify-between pt-1 border-t border-slate-800">
-                        <span className="text-slate-400 text-[10px]">ราคาขายหน้าร้าน:</span>
-                        <span className="text-base font-black text-amber-400 font-mono">
-                          ฿{Math.round((25000 * (settingsForm.chinaCnyRateThb || 5.2) * (1 + (settingsForm.chinaMarkupTier2Percent ?? 13) / 100)) / 10) * 10}
+                        <span className="text-slate-400 text-[10px]">ราคาขาย:</span>
+                        <span className="text-sm font-black text-blue-400 font-mono">
+                          ฿{Math.round((100 * (settingsForm.chinaCnyRateThb || 5.2) + 100) / 10) * 10}
                         </span>
                       </div>
                       <div className="text-right text-[10px] text-slate-500">
-                        กำไร ฿{Math.round(25000 * (settingsForm.chinaCnyRateThb || 5.2) * ((settingsForm.chinaMarkupTier2Percent ?? 13) / 100))}
+                        กำไร ฿100
+                      </div>
+                    </div>
+
+                    {/* Tier 3: > 1,000฿ */}
+                    <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-amber-400 font-bold text-[11px]">
+                          🟡 มากกว่า 1,000฿
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono font-bold">
+                          +10%
+                        </span>
+                      </div>
+                      <div className="text-slate-400 text-[10px]">
+                        ทุนจีน ¥500 (≈ ฿{Math.round(500 * (settingsForm.chinaCnyRateThb || 5.2))})
+                      </div>
+                      <div className="flex items-baseline justify-between pt-1 border-t border-slate-800">
+                        <span className="text-slate-400 text-[10px]">ราคาขาย:</span>
+                        <span className="text-sm font-black text-amber-400 font-mono">
+                          ฿{Math.round((500 * (settingsForm.chinaCnyRateThb || 5.2) * 1.10) / 10) * 10}
+                        </span>
+                      </div>
+                      <div className="text-right text-[10px] text-slate-500">
+                        กำไร ฿{Math.round(500 * (settingsForm.chinaCnyRateThb || 5.2) * 0.10)}
                       </div>
                     </div>
                   </div>

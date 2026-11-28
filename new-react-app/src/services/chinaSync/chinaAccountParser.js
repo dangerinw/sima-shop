@@ -418,39 +418,46 @@ export function extractGunLevels(title = '') {
 export function calculateTieredPrice(rmbPrice, config = {}) {
   const {
     cnyRateThb = 5.2,
-    cnyRateVnd = 3700,
-    markupMode = 'tiered',
-    markupThreshold = 100000,
-    markupTier1Percent = 10,
-    markupTier2Percent = 13,
-    markupPercent = 15
+    cnyRateVnd = 3700
   } = config;
 
   const rawRmb = Number(rmbPrice || 0);
   const rawThb = rawRmb * Number(cnyRateThb || 5.2);
   const rawVnd = rawRmb * Number(cnyRateVnd || 3700);
 
-  let activeMarkupPercent = Number(markupPercent || 15);
-  if (markupMode === 'tiered') {
-    if (rawThb < Number(markupThreshold || 100000)) {
-      activeMarkupPercent = Number(markupTier1Percent ?? 10);
-    } else {
-      activeMarkupPercent = Number(markupTier2Percent ?? 13);
-    }
+  let priceTHB = 0;
+  let profitTHB = 0;
+  let activeMarkupPercent = 0;
+
+  if (rawThb < 500) {
+    // ไอดีที่ต่ำกว่า 500 บาท บวกเพิ่ม 50 บาท
+    profitTHB = 50;
+    priceTHB = Math.round((rawThb + 50) / 10) * 10;
+    activeMarkupPercent = rawThb > 0 ? Math.round((50 / rawThb) * 100) : 0;
+  } else if (rawThb <= 1000) {
+    // ไอดีที่ 500 - 1000 บาท บวกเพิ่ม 100 บาท
+    profitTHB = 100;
+    priceTHB = Math.round((rawThb + 100) / 10) * 10;
+    activeMarkupPercent = rawThb > 0 ? Math.round((100 / rawThb) * 100) : 0;
+  } else {
+    // ไอดีที่มากกว่า 1000 บาท คิด 10%
+    activeMarkupPercent = 10;
+    profitTHB = Math.round(rawThb * 0.10);
+    priceTHB = Math.round((rawThb * 1.10) / 10) * 10;
   }
 
-  const multiplier = 1 + (activeMarkupPercent / 100);
-  const priceTHB = Math.round((rawThb * multiplier) / 10) * 10;
+  const multiplier = rawThb > 0 ? priceTHB / rawThb : 1.10;
   const priceVND = Math.round((rawVnd * multiplier) / 1000) * 1000;
 
   return {
+    rawRmb,
+    rawThb,
     priceTHB,
     priceVND,
     originalPriceTHB: Math.round(priceTHB * 1.15),
     originalPriceVND: Math.round(priceVND * 1.15),
     activeMarkupPercent,
-    profitTHB: Math.round(rawThb * (activeMarkupPercent / 100)),
-    rawThb
+    profitTHB
   };
 }
 

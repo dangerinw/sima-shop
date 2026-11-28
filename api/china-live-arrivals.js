@@ -95,8 +95,19 @@ module.exports = async function handler(req, res) {
         const rmb = parseFloat(item.shoujia || item.price || item.rmbPrice || 0);
         const rawThb = rmb * cnyRateThb;
         const rawVnd = rmb * cnyRateVnd;
-        const activeMarkup = rawThb < threshold ? markupTier1 : markupTier2;
-        const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
+        
+        let priceTHB = 0;
+        let activeMarkup = 0;
+        if (rawThb < 500) {
+          priceTHB = Math.round((rawThb + 50) / 10) * 10;
+          activeMarkup = rawThb > 0 ? Math.round((50 / rawThb) * 100) : 0;
+        } else if (rawThb <= 1000) {
+          priceTHB = Math.round((rawThb + 100) / 10) * 10;
+          activeMarkup = rawThb > 0 ? Math.round((100 / rawThb) * 100) : 0;
+        } else {
+          priceTHB = Math.round((rawThb * 1.10) / 10) * 10;
+          activeMarkup = 10;
+        }
 
         // Exclude Chinese accounts under 500 THB
         if (priceTHB < 500) continue;

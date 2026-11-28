@@ -133,14 +133,20 @@ export class ChinaSyncService {
                 const rmb = Number(acc.rmbPrice || 0);
                 const rawThb = rmb * Number(cnyRateThb || 5.2);
                 const rawVnd = rmb * Number(cnyRateVnd || 3700);
-                let activeMarkup = Number(markupPercent || 10);
-                if (markupMode === 'tiered') {
-                  activeMarkup = rawThb < Number(markupThreshold || 100000)
-                    ? Number(markupTier1Percent ?? 10)
-                    : Number(markupTier2Percent ?? 13);
+                let priceTHB = 0;
+                let activeMarkup = 0;
+                if (rawThb < 500) {
+                  priceTHB = Math.round((rawThb + 50) / 10) * 10;
+                  activeMarkup = rawThb > 0 ? Math.round((50 / rawThb) * 100) : 0;
+                } else if (rawThb <= 1000) {
+                  priceTHB = Math.round((rawThb + 100) / 10) * 10;
+                  activeMarkup = rawThb > 0 ? Math.round((100 / rawThb) * 100) : 0;
+                } else {
+                  priceTHB = Math.round((rawThb * 1.10) / 10) * 10;
+                  activeMarkup = 10;
                 }
-                const priceTHB = Math.round((rawThb * (1 + activeMarkup / 100)) / 10) * 10;
-                const priceVND = Math.round((rawVnd * (1 + activeMarkup / 100)) / 1000) * 1000;
+                const multiplier = rawThb > 0 ? priceTHB / rawThb : 1.10;
+                const priceVND = Math.round((rawVnd * multiplier) / 1000) * 1000;
                 return {
                   ...acc,
                   priceTHB,
@@ -148,9 +154,9 @@ export class ChinaSyncService {
                   originalPriceTHB: Math.round(priceTHB * 1.15),
                   originalPriceVND: Math.round(priceVND * 1.15),
                   markupAppliedPercent: activeMarkup,
-                  profitTHB: Math.round(rawThb * (activeMarkup / 100))
+                  profitTHB: Math.round(priceTHB - rawThb)
                 };
-              }).filter((acc) => !(acc.region === 'cn' && Number(acc.priceTHB) < 500));
+              });
 
               this.isSyncing = false;
               return {
