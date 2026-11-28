@@ -679,6 +679,19 @@ export default function AdminDashboard({
                                   🔗 เว็บจีน ↗
                                 </a>
                               )}
+                              {item.chineseSkuName && (
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    navigator.clipboard.writeText(item.chineseSkuName);
+                                  }}
+                                  className="text-[10px] text-amber-200 bg-amber-950/80 hover:bg-amber-900 border border-amber-500/40 px-1.5 py-0.5 rounded transition-colors inline-flex items-center gap-0.5 font-bold cursor-pointer"
+                                  title={`คลิกเพื่อคัดลอกชื่อภาษาจีน: ${item.chineseSkuName} (นำไปกด Ctrl+F ในเว็บจีน)`}
+                                >
+                                  📋 {item.chineseSkuName}
+                                </button>
+                              )}
                             </div>
                           </td>
 
