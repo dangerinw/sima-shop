@@ -35,6 +35,7 @@ id steam ไทย มีประกันมือ 1
 มีลิงค์วีดีโอเพิ่มเติม
 All banks accepted.`,
     details_en: 'Aug Minotaur Lv.10 Max + Chroma, Mini Lv.6 Max, Beryl Lv.2, 3 Supercars (Urus S, Cayenne, Aston Martin). 100% 1st-hand warranty.',
-    images: []
+    coverImg: '/images/hot-deal-showcase.jpg',
+    images: ['/images/hot-deal-showcase.jpg']
   }
 ];

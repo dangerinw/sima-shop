@@ -366,9 +366,21 @@ function App() {
       if (saved) {
         const parsed = JSON.parse(saved);
         // Auto-purge legacy mock items (PC-1006, PC-1005) if present from earlier testing
-        if (Array.isArray(parsed) && parsed.some((a) => a.id === 'PC-1006' || a.id === 'PC-1005')) {
-          localStorage.setItem('sima_accounts', JSON.stringify(mockAccounts));
-          return mockAccounts;
+        if (Array.isArray(parsed)) {
+          if (parsed.some((a) => a.id === 'PC-1006' || a.id === 'PC-1005')) {
+            localStorage.setItem('sima_accounts', JSON.stringify(mockAccounts));
+            return mockAccounts;
+          }
+          return parsed.map((acc) => {
+            if (acc.id === 'PC-1001' && (!acc.coverImg || !acc.images || acc.images.length === 0)) {
+              return {
+                ...acc,
+                coverImg: '/images/hot-deal-showcase.jpg',
+                images: ['/images/hot-deal-showcase.jpg']
+              };
+            }
+            return acc;
+          });
         }
         return parsed;
       }
@@ -453,13 +465,17 @@ function App() {
 
   // Hot Deal Account for the Hero section spotlight
   const hotAccount = useMemo(() => {
-    return accounts.find((item) => item.isHot && !item.isSold) || accounts[0];
+    return (
+      accounts.find((item) => item.isHot && !item.isSold && (item.coverImg || item.images?.length > 0)) ||
+      accounts.find((item) => item.isHot && !item.isSold) ||
+      accounts[0]
+    );
   }, [accounts]);
 
   // Calculate real delivered count (completed orders + base count)
   const realDeliveredCount = useMemo(() => {
     const completedOrders = orders.filter((o) => o.status === 'completed' || !o.status).length;
-    const base = Number(storeSettings.baseDeliveredCount || 0);
+    const base = Number(storeSettings.baseDeliveredCount || 1850);
     return base + completedOrders;
   }, [orders, storeSettings.baseDeliveredCount]);
 
