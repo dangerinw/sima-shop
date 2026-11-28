@@ -1,0 +1,23 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="smurfBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#172554"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <filter id="smurfGlow">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#smurfBg)"/>
+  <!-- Helmet Graphic -->
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="90" fill="#1e293b" stroke="#38bdf8" stroke-width="5" filter="url(#smurfGlow)"/>
+    <rect x="-65" y="-10" width="130" height="35" rx="8" fill="#0284c7" stroke="#e0f2fe" stroke-width="3"/>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#fff" text-anchor="middle">LV.20+</text>
+  </g>
+  <rect x="230" y="320" width="340" height="40" rx="10" fill="#0284c7" opacity="0.3" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="400" y="346" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#38bdf8" text-anchor="middle" letter-spacing="3">CLEAN SMURF LV.20+</text>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#7dd3fc" text-anchor="middle" letter-spacing="1">STEAM MARKET UNLOCKED • ZERO VAC • ฿69</text>
+</svg>

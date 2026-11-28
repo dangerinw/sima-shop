@@ -18,6 +18,7 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import AdminLoginModal from './components/admin/AdminLoginModal';
 import WarrantyForm from './components/WarrantyForm';
 import { mockAccounts } from './data/mockAccounts';
+import { smurfAccounts } from './data/smurfAccounts';
 import { mockOrders } from './data/mockOrders';
 import { translations } from './data/translations';
 import { getStoredSettings, saveStoredSettings } from './data/defaultSettings';
@@ -27,7 +28,11 @@ import { isSkinMatchingAccount } from './utils/pubgSkinMatcher';
 // Cross-shop deduplication key helper for Chinese accounts
 function getCnDedupKey(acc) {
   if (!acc) return '';
-  if (acc.coverImg) {
+  // Smurf and Crate accounts are unique distinct products and must NEVER be deduped by shared images
+  if (acc.category === 'smurf' || acc.isSmurf) {
+    return 'SMURF_' + (acc.bianhao || acc.id);
+  }
+  if (acc.coverImg && !acc.coverImg.includes('hot-deal-showcase')) {
     const mImg = acc.coverImg.match(/([0-9a-zA-Z_-]+\.(png|jpg|jpeg|webp))/i);
     if (mImg && !mImg[1].toLowerCase().startsWith('default')) return 'IMG_' + mImg[1].toLowerCase();
   }
@@ -300,6 +305,11 @@ function App() {
             map.set(acc.id, acc);
           };
 
+          // 0. Guarantee all smurfAccounts are always present in the store!
+          smurfAccounts.forEach((s) => {
+            map.set(s.id, s);
+          });
+
           // 1. Preserve local / Thai / VN custom accounts and all smurf accounts
           prev.forEach((a) => {
             if (a.region !== 'cn' || a.isCustomLocal || a.category === 'smurf' || a.isSmurf) {
@@ -392,7 +402,12 @@ function App() {
           const missingMocks = mockAccounts.filter((m) => !parsedIds.has(m.id));
           const merged = [...parsed, ...missingMocks];
 
-          return merged.map((acc) => {
+          // Ensure smurfAccounts are always included in initial render!
+          const existingIds = new Set(merged.map((a) => a.id));
+          const missingSmurfs = smurfAccounts.filter((s) => !existingIds.has(s.id));
+          const allMerged = [...missingSmurfs, ...merged];
+
+          return allMerged.map((acc) => {
             if (acc.id === 'PC-1001' && (!acc.coverImg || !acc.images || acc.images.length === 0)) {
               return {
                 ...acc,
@@ -405,9 +420,11 @@ function App() {
         }
         return parsed;
       }
-      return mockAccounts;
+      const mockIds = new Set(mockAccounts.map((a) => a.id));
+      const missingSmurfs = smurfAccounts.filter((s) => !mockIds.has(s.id));
+      return [...missingSmurfs, ...mockAccounts];
     } catch (e) {
-      return mockAccounts;
+      return [...smurfAccounts, ...mockAccounts];
     }
   });
 
@@ -523,12 +540,7 @@ function App() {
         (a.tags || []).join(' ')
       ].filter(Boolean).join(' ').toLowerCase();
 
-      const isSmurf = 
-        a.category === 'smurf' || 
-        a.category === 'chicken' || 
-        a.isSmurf || 
-        ((Number(a.priceTHB) <= 350 || (a.rmbPrice && Number(a.rmbPrice) <= 50)) && 
-         /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf|ไก่จีน/i.test(fullText));
+      const isSmurf = a.category === 'smurf' || a.isSmurf || a.category === 'chicken';
 
       if (isSmurf) {
         smurf++;
@@ -550,12 +562,7 @@ function App() {
       if (item.isSold) return false;
 
       // Identify whether this item is a Smurf or Crate / Workshop item
-      const isSmurfItem = 
-        item.category === 'smurf' || 
-        item.category === 'chicken' || 
-        item.isSmurf || 
-        ((Number(item.priceTHB) <= 350 || (item.rmbPrice && Number(item.rmbPrice) <= 50)) && 
-         /工坊|猎人|宝箱|cdk|ไก่|กล่องสุ่ม|smurf|ไก่จีน/i.test([item.title, item.title_th, item.title_en, (item.tags || []).join(' ')].join(' ')));
+      const isSmurfItem = item.category === 'smurf' || item.isSmurf || item.category === 'chicken';
 
       // Hybrid View Filtering Logic:
       // When in 'smurf' category view -> Show only smurf/crate items (regardless of region or low price)

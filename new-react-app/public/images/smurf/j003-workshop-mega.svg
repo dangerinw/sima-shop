@@ -1,0 +1,23 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="50%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg3)"/>
+  <circle cx="400" cy="190" r="180" fill="#f59e0b" opacity="0.25" filter="url(#glow3)"/>
+  <g transform="translate(400, 180)">
+    <path d="M-110,-50 L0,-110 L110,-50 L110,70 L0,130 L-110,70 Z" fill="#78350f" stroke="#fbbf24" stroke-width="6"/>
+    <circle cx="0" cy="20" r="30" fill="#f59e0b" stroke="#fff" stroke-width="4" filter="url(#glow3)"/>
+    <text x="0" y="28" font-family="Arial, sans-serif" font-weight="900" font-size="22" fill="#000" text-anchor="middle">20x</text>
+  </g>
+  <rect x="230" y="325" width="340" height="42" rx="10" fill="#b45309" opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+  <text x="400" y="352" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#fef08a" text-anchor="middle" letter-spacing="3">20X MEGA CRATES PACK</text>
+  <text x="400" y="395" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#fbbf24" text-anchor="middle" letter-spacing="1">10x WORKSHOP + 10x HUNTER + 20 KEYS • ฿249</text>
+</svg>

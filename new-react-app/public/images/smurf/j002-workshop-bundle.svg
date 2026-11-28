@@ -1,0 +1,30 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#172554"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg2)"/>
+  <circle cx="400" cy="190" r="170" fill="#3b82f6" opacity="0.2" filter="url(#glow2)"/>
+  <!-- Multi-Crate Stack -->
+  <g transform="translate(330, 210) scale(0.75)">
+    <path d="M-90,-40 L0,-90 L90,-40 L90,60 L0,110 L-90,60 Z" fill="#1e3a8a" stroke="#60a5fa" stroke-width="4"/>
+  </g>
+  <g transform="translate(470, 210) scale(0.75)">
+    <path d="M-90,-40 L0,-90 L90,-40 L90,60 L0,110 L-90,60 Z" fill="#1e3a8a" stroke="#60a5fa" stroke-width="4"/>
+  </g>
+  <g transform="translate(400, 170) scale(0.9)">
+    <path d="M-90,-40 L0,-90 L90,-40 L90,60 L0,110 L-90,60 Z" fill="#1d4ed8" stroke="#93c5fd" stroke-width="5"/>
+    <circle cx="0" cy="15" r="24" fill="#fbbf24" stroke="#fff" stroke-width="3" filter="url(#glow2)"/>
+    <text x="0" y="22" font-family="Arial, sans-serif" font-weight="900" font-size="18" fill="#1e1b4b" text-anchor="middle">5x</text>
+  </g>
+  <rect x="250" y="320" width="300" height="40" rx="10" fill="#1d4ed8" opacity="0.3" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="400" y="346" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#93c5fd" text-anchor="middle" letter-spacing="3">5X CRATE VALUE BUNDLE</text>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#60a5fa" text-anchor="middle" letter-spacing="1">5x WORKSHOP + 5x HUNTER + 10 KEYS • ฿129</text>
+</svg>

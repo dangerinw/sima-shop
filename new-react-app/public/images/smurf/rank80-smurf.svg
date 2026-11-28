@@ -1,0 +1,23 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rankBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451a03"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#3b0764"/>
+    </linearGradient>
+    <filter id="rankGlow">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#rankBg)"/>
+  <g transform="translate(400, 180)">
+    <polygon points="0,-85 75,-30 75,55 0,95 -75,55 -75,-30" fill="#b45309" stroke="#fbbf24" stroke-width="5" filter="url(#rankGlow)"/>
+    <polygon points="0,-65 55,-20 55,45 0,75 -55,45 -55,-20" fill="#78350f" stroke="#fde047" stroke-width="2"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-weight="900" font-size="18" fill="#fef08a" text-anchor="middle">RANK</text>
+    <text x="0" y="32" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#fff" text-anchor="middle">PLUS</text>
+  </g>
+  <rect x="220" y="320" width="360" height="40" rx="10" fill="#d97706" opacity="0.3" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="400" y="346" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#fde047" text-anchor="middle" letter-spacing="3">RANK READY PLUS LV.80+</text>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#fcd34d" text-anchor="middle" letter-spacing="1">RANKED MATCHMAKING UNLOCKED • ฿149</text>
+</svg>

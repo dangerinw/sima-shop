@@ -1,0 +1,22 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="smurfBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <filter id="smurfGlow2">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#smurfBg2)"/>
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="90" fill="#312e81" stroke="#818cf8" stroke-width="5" filter="url(#smurfGlow2)"/>
+    <rect x="-65" y="-10" width="130" height="35" rx="8" fill="#4f46e5" stroke="#e0e7ff" stroke-width="3"/>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#fff" text-anchor="middle">LV.50+</text>
+  </g>
+  <rect x="230" y="320" width="340" height="40" rx="10" fill="#4f46e5" opacity="0.3" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="400" y="346" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#a5b4fc" text-anchor="middle" letter-spacing="3">CLEAN SMURF LV.50+</text>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#818cf8" text-anchor="middle" letter-spacing="1">SQUAD PRACTICE • PLAYTIME 30-50 HRS • ฿99</text>
+</svg>
