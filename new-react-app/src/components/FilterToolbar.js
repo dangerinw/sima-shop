@@ -13,6 +13,8 @@ filterCategoriesData.forEach((cat) => {
 export default function FilterToolbar({
   activeCategory,
   setActiveCategory,
+  packageSubFilter = 'all',
+  setPackageSubFilter,
   activeRegion,
   setActiveRegion,
   searchQuery,
@@ -189,42 +191,74 @@ export default function FilterToolbar({
 
         {/* Hybrid Showcase Banner for Smurf Accounts & Workshop Crates ⭐ */}
         {activeCategory === 'smurf' ? (
-          <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-purple-900/30 to-slate-950 border border-amber-500/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg shadow-amber-500/5 animate-in fade-in">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl p-2 rounded-xl bg-amber-500/20 border border-amber-500/40">🐔</span>
-              <div>
-                <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
-                  <span>{lang === 'th' ? 'กำลังแสดงหมวดหมู่: ไอดีไก่จีน & กล่องสุ่ม Workshop / CDK' : 'Showing: Chinese Smurf Accounts & Workshop Crates / CDK'}</span>
-                  <span className="px-2 py-0.5 rounded-md bg-amber-500 text-black text-[10px] font-extrabold uppercase">
-                    Hybrid View
-                  </span>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-0.5">
-                  {lang === 'th' ? 'คัดสรรไอดีไก่ราคาประหยัด 25 - 150 บาท พร้อมจัดส่งอัตโนมัติ 24 ชม. รับประกันความปลอดภัย 100%' : 'Budget smurf accounts 25 - 150 THB with 24H instant delivery and 100% guarantee'}
+          <div className="flex flex-col gap-2.5 animate-in fade-in">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-purple-900/30 to-slate-950 border border-amber-500/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg shadow-amber-500/5">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl p-2 rounded-xl bg-amber-500/20 border border-amber-500/40">📦</span>
+                <div>
+                  <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
+                    <span>{lang === 'th' ? `คลังแพ็กเกจไอดีจีนโรงงาน Xiafei (#53) & กล่องสุ่ม (${counts.smurf || 90} แพ็กเกจ)` : `Chinese Xiafei Factory Packages & Crates (${counts.smurf || 90} Items)`}</span>
+                    <span className="px-2 py-0.5 rounded-md bg-amber-500 text-black text-[10px] font-extrabold uppercase">
+                      Xiafei Direct
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">
+                    {lang === 'th' ? 'มีครบทั้งรถหรู Porsche / Martin, การ์ดจอ Progressive, Medusa งูขาว-งูดำ, ซูคุนะ, และไอดีไก่ ส่งมอบอัตโนมัติ 24 ชม. ปลอดภัย 100%' : 'All 75+ authentic packages from Chinese supplier #53: Supercars, Progressive, Medusa, Sukuna & Smurfs'}
+                  </div>
                 </div>
               </div>
+              <button
+                type="button"
+                onClick={() => setActiveCategory('all')}
+                className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-bold border border-slate-700 transition-all cursor-pointer whitespace-nowrap self-end sm:self-auto"
+              >
+                {lang === 'th' ? '✕ แสดงไอดีทั้งหมด' : '✕ Show All Accounts'}
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => setActiveCategory('all')}
-              className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-bold border border-slate-700 transition-all cursor-pointer whitespace-nowrap self-end sm:self-auto"
-            >
-              {lang === 'th' ? '✕ แสดงไอดีทั้งหมด' : '✕ Show All Accounts'}
-            </button>
+
+            {/* Sub-Category Filter Pills ⭐ */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs">
+              {[
+                { id: 'all', label_th: '🔥 ทั้งหมด (90)', label_en: '🔥 All (90)' },
+                { id: 'car', label_th: '🚗 รถหรู Porsche / Martin (26)', label_en: '🚗 Supercars (26)' },
+                { id: 'progressive', label_th: '🎮 การ์ดจอ Progressive (22)', label_en: '🎮 Progressive GPU (22)' },
+                { id: 'rare', label_th: '🐍 Medusa งูขาว-งูดำ (11)', label_en: '🐍 Medusa Series (11)' },
+                { id: 'anime', label_th: '⚡ ซูคุนะ Sukuna (6)', label_en: '⚡ Sukuna (6)' },
+                { id: 'vault', label_th: '💰 GB สูง & เกิร์ลกรุ๊ป (6)', label_en: '💰 High-GB & Idol (6)' },
+                { id: 'smurf', label_th: '🛡️ ไอดีไก่ & ซ้อมมือ (15)', label_en: '🛡️ Smurf & Rank (15)' },
+                { id: 'crate', label_th: '📦 กล่องสุ่ม & CDK (4)', label_en: '📦 Crates & CDK (4)' }
+              ].map((sub) => {
+                const isActive = (packageSubFilter || 'all') === sub.id;
+                return (
+                  <button
+                    key={sub.id}
+                    type="button"
+                    onClick={() => setPackageSubFilter && setPackageSubFilter(sub.id)}
+                    className={`px-3 py-1.5 rounded-xl font-bold whitespace-nowrap transition-all border text-[11px] sm:text-xs cursor-pointer ${
+                      isActive
+                        ? 'bg-amber-400 text-black border-amber-300 shadow-md shadow-amber-500/20 scale-[1.02]'
+                        : 'bg-slate-900/90 text-slate-300 border-slate-800 hover:bg-slate-800 hover:text-white'
+                    }`}
+                  >
+                    {lang === 'th' ? sub.label_th : sub.label_en}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         ) : (
           <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-purple-950/20 to-slate-950/80 border border-amber-500/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm hover:border-amber-500/40 transition-all">
             <div className="flex items-center gap-3">
-              <span className="text-2xl p-1.5 sm:p-2 rounded-xl bg-amber-500/15 border border-amber-500/30">🐔</span>
+              <span className="text-2xl p-1.5 sm:p-2 rounded-xl bg-amber-500/15 border border-amber-500/30">📦</span>
               <div>
                 <div className="text-xs sm:text-sm font-bold text-amber-300 flex items-center gap-2">
-                  <span>{lang === 'th' ? 'คลังไอดีไก่จีน & กล่องสุ่ม Workshop เริ่มต้นเพียง 25 - 150 บาท' : 'Chinese Smurf Accounts & Workshop Crates from 25 - 150 THB'}</span>
+                  <span>{lang === 'th' ? `คลังแพ็กเกจไอดีจีนตรงจากโรงงาน Xiafei (#53) & กล่องสุ่ม (${counts.smurf || 90} รายการ)` : `Chinese Xiafei Factory Packages & Crates (${counts.smurf || 90} Items)`}</span>
                   <span className="hidden sm:inline-block px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-400 text-[10px] font-bold border border-amber-500/30">
                     24H Auto Delivery
                   </span>
                 </div>
                 <div className="text-[11px] text-slate-400 mt-0.5">
-                  {lang === 'th' ? 'เหมาะสำหรับสายเปิดกล่องเวิร์กช็อป สุ่มสกินปืนอัปเกรด หรือไอดีซ้อมมือ ไม่ต้องรอแอดมิน' : 'Instant keys & crates for unboxing progressive skins or practice accounts'}
+                  {lang === 'th' ? 'สเปกตรงปก: รถสปอร์ต Porsche / Martin, การ์ดจอ Progressive, งูขาว Medusa, ซูคุนะ และไอดีไก่ ส่งมอบออโต้ 24 ชม.' : 'Authentic Xiafei China packages: Porsche, Martin, Progressive GPU, Medusa & Sukuna'}
                 </div>
               </div>
             </div>
@@ -233,9 +267,9 @@ export default function FilterToolbar({
               onClick={() => setActiveCategory('smurf')}
               className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs transition-all shadow-md shadow-amber-500/20 hover:scale-[1.02] flex items-center gap-1.5 cursor-pointer whitespace-nowrap self-end sm:self-auto"
             >
-              <span>{lang === 'th' ? 'เลือกดูไอดีไก่ & กล่องสุ่ม' : 'View Smurf & Crates'}</span>
+              <span>{lang === 'th' ? 'เลือกดูแพ็กเกจจีน & กล่องสุ่ม' : 'View China Packages'}</span>
               <span className="px-1.5 py-0.2 rounded-full bg-black/20 text-black text-[10px] font-black">
-                {counts.smurf || 0}
+                {counts.smurf || 90}
               </span>
               <span>→</span>
             </button>

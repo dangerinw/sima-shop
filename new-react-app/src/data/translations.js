@@ -34,7 +34,7 @@ export const translations = {
     catProgressive: 'ปืนอัปเกรด Progressive',
     catRankReady: 'พร้อมลงแรงค์',
     catRareSkins: 'ของสะสม & สกินแรร์',
-    catSmurf: '🐔 ไอดีไก่จีน & กล่องสุ่ม',
+    catSmurf: '🐔 คลังแพ็กเกจจีน & กล่องสุ่ม',
 
     // Regions
     filterRegionTitle: 'เลือกประเทศไอดี:',

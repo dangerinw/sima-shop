@@ -79,6 +79,7 @@ function App() {
   };
   const [viewMode, setViewMode] = useState('store'); // 'store' | 'admin'
   const [activeCategory, setActiveCategory] = useState('all');
+  const [packageSubFilter, setPackageSubFilter] = useState('all');
   const [activeRegion, setActiveRegion] = useState('all'); // 'all' | 'th' | 'cn' | 'vn'
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
@@ -482,7 +483,7 @@ function App() {
   // Reset pagination to page 1 whenever any filter or search query changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [activeCategory, activeRegion, selectedTags, searchQuery, sortBy]);
+  }, [activeCategory, packageSubFilter, activeRegion, selectedTags, searchQuery, sortBy]);
 
   // Current translation dictionary
   const t = useMemo(() => {
@@ -568,6 +569,13 @@ function App() {
       // When in 'smurf' category view -> Show only smurf/crate items (regardless of region or low price)
       if (activeCategory === 'smurf') {
         if (!isSmurfItem) return false;
+        if (packageSubFilter && packageSubFilter !== 'all') {
+          if (packageSubFilter === 'vault') {
+            if (item.packageCategory !== 'girlgroup' && item.packageCategory !== 'highgb') return false;
+          } else {
+            if (item.packageCategory !== packageSubFilter) return false;
+          }
+        }
       } else {
         // Exclude Chinese accounts under 500 THB if they are not smurf items
         if (item.region === 'cn' && Number(item.priceTHB) < 500 && !isSmurfItem) return false;
@@ -775,7 +783,7 @@ function App() {
       }
       return a.id === b.id ? 0 : (b.id > a.id ? 1 : -1);
     });
-  }, [accounts, activeCategory, activeRegion, selectedTags, searchQuery, sortBy, currency, selectedFilterItems]);
+  }, [accounts, activeCategory, packageSubFilter, activeRegion, selectedTags, searchQuery, sortBy, currency, selectedFilterItems]);
 
   // Storefront Pagination Calculations
   const totalPages = Math.max(1, Math.ceil(filteredAccounts.length / pageSize));
@@ -1056,6 +1064,8 @@ function App() {
       <FilterToolbar
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
+        packageSubFilter={packageSubFilter}
+        setPackageSubFilter={setPackageSubFilter}
         activeRegion={activeRegion}
         setActiveRegion={setActiveRegion}
         searchQuery={searchQuery}
