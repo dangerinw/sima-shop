@@ -222,21 +222,23 @@ export default function AccountModal({
 
   const displayCode = account.bianhao || account.id?.replace(/^CN-/, '') || account.id;
 
+  const isPackageOrSmurf = account.isSmurf || account.category === 'smurf' || account.isCustomLocal || String(account.id).startsWith('CN-XF53') || String(account.id).startsWith('CN-SMURF');
+
   const rawTitle = lang === 'th' ? (account.title_th || account.title) : (account.title_en || account.title);
-  const title = lang === 'th' ? translateChinesePubgTitle(rawTitle) : rawTitle;
+  const title = (isPackageOrSmurf || lang !== 'th') ? rawTitle : translateChinesePubgTitle(rawTitle);
 
   const rawSub = lang === 'th' 
     ? (account.subtitle_th || `ไอดีจีนแท้ [รหัส #${displayCode}] ปลอดภัย 100% ประกันมือ 1 แท้ PUBG SIAM`) 
     : (account.subtitle_en || `Authentic Steam [Code #${displayCode}] with Warranty PUBG SIAM`);
-  const subtitle = lang === 'th' ? translateChinesePubgTitle(rawSub) : rawSub;
+  const subtitle = (isPackageOrSmurf || lang !== 'th') ? rawSub : translateChinesePubgTitle(rawSub);
 
   const binding = lang === 'th' 
-    ? translateChinesePubgTitle(account.binding_th || 'โอนย้ายเข้า Steam ปลอดภัย 100% มีประกันมือ 1 ไม่ดึงคืน') 
+    ? ((isPackageOrSmurf ? account.binding_th : translateChinesePubgTitle(account.binding_th || 'โอนย้ายเข้า Steam ปลอดภัย 100% มีประกันมือ 1 ไม่ดึงคืน')) || 'โอนย้ายเข้า Steam ปลอดภัย 100%')
     : (account.binding_en || 'Authentic CN Steam ID, transferred directly to buyer with warranty');
   const playtime = lang === 'th' ? (account.playtime_th || '1,000+ ชม.') : (account.playtime_en || '1,000+ hrs');
 
   const rawGun = lang === 'th' ? (account.gunLevel_th || 'ปืนอัปเกรด Progressive') : (account.gunLevel_en || 'Progressive Weapons');
-  const gunLevel = lang === 'th' ? translateChinesePubgTitle(rawGun) : rawGun;
+  const gunLevel = (isPackageOrSmurf || lang !== 'th') ? rawGun : translateChinesePubgTitle(rawGun);
 
   const rank = lang === 'th' ? translateChinesePubgTitle(account.rank || 'แรงค์ Tier 4 (Rank Ready Plus)') : (account.rank || 'Tier 4 (Rank Ready)');
   const warranty = lang === 'th' 

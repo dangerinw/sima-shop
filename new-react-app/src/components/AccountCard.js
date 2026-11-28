@@ -10,14 +10,17 @@ export default function AccountCard({ account, currency, lang, t, onSelect }) {
   };
 
   const displayCode = account.bianhao || account.id?.replace(/^CN-/, '') || account.id;
+  const isPackageOrSmurf = account.isSmurf || account.category === 'smurf' || account.isCustomLocal || String(account.id).startsWith('CN-XF53') || String(account.id).startsWith('CN-SMURF');
   const rawTitle = lang === 'th' ? (account.title_th || account.title) : (account.title_en || account.title);
-  const title = lang === 'th' ? translateChinesePubgTitle(rawTitle) : rawTitle;
-  const subtitle = lang === 'th' 
-    ? translateChinesePubgTitle(account.subtitle_th || `ไอดีจีนแท้ [รหัส #${displayCode}] ปลอดภัย 100% ประกันมือ 1 แท้`) 
-    : (account.subtitle_en || `Authentic Steam [Code #${displayCode}] with Warranty`);
+  const title = (isPackageOrSmurf || lang !== 'th') ? rawTitle : translateChinesePubgTitle(rawTitle);
+  const subtitle = (isPackageOrSmurf || lang !== 'th')
+    ? (lang === 'th' ? account.subtitle_th : account.subtitle_en) || rawTitle
+    : (lang === 'th' 
+        ? translateChinesePubgTitle(account.subtitle_th || `ไอดีจีนแท้ [รหัส #${displayCode}] ปลอดภัย 100% ประกันมือ 1 แท้`) 
+        : (account.subtitle_en || `Authentic Steam [Code #${displayCode}] with Warranty`));
   const playtime = lang === 'th' ? (account.playtime_th || '1,000+ ชม.') : (account.playtime_en || '1,000+ hrs');
   const rawGun = lang === 'th' ? (account.gunLevel_th || 'ปืนอัปเกรด Progressive') : (account.gunLevel_en || 'Progressive Weapons');
-  const gunLevel = lang === 'th' ? translateChinesePubgTitle(rawGun) : rawGun;
+  const gunLevel = (isPackageOrSmurf || lang !== 'th') ? rawGun : translateChinesePubgTitle(rawGun);
   const warranty = lang === 'th' ? (account.warranty_th || 'มีประกันมือ 1 แท้ (ปลอดภัย 100% ไม่ดึงคืน)') : (account.warranty_en || '1st Hand Owner Warranty');
   const coverImage = account.coverImg || account.images?.[0];
 
