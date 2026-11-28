@@ -17,6 +17,8 @@ export default function FilterToolbar({
   setActiveRegion,
   searchQuery,
   setSearchQuery,
+  selectedTags = [],
+  setSelectedTags,
   selectedTag,
   setSelectedTag,
   sortBy,
@@ -40,6 +42,37 @@ export default function FilterToolbar({
     { id: 'BAPE', label: t.tagBape },
     { id: 'Budget', label: t.tagBudget },
   ];
+
+  // Resolve current selected tags supporting both array selectedTags and legacy selectedTag
+  const currentSelectedTags = Array.isArray(selectedTags) && selectedTags.length > 0
+    ? selectedTags
+    : (Array.isArray(selectedTag)
+      ? selectedTag
+      : (selectedTag ? [selectedTag] : []));
+
+  const handleToggleTag = (tagId) => {
+    const isSelected = currentSelectedTags.includes(tagId);
+    const nextTags = isSelected
+      ? currentSelectedTags.filter((id) => id !== tagId)
+      : [...currentSelectedTags, tagId];
+
+    if (setSelectedTags) {
+      setSelectedTags(nextTags);
+    }
+    if (setSelectedTag) {
+      setSelectedTag(nextTags);
+    }
+  };
+
+  const handleClearTags = () => {
+    if (setSelectedTags) {
+      setSelectedTags([]);
+    }
+    if (setSelectedTag) {
+      setSelectedTag([]);
+    }
+    setActiveRegion('all');
+  };
 
   const selectedItems = (selectedItemIds || [])
     .map((id) => allFilterItemsMap.get(id))
@@ -276,34 +309,45 @@ export default function FilterToolbar({
           </div>
         </div>
 
-        {/* Quick Tag Filter Pills */}
+        {/* Quick Tag Filter Pills (Multi-Select) */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
           <span className="text-slate-500 font-semibold whitespace-nowrap">{t.popularTags}</span>
           {quickTags.map((tag) => {
-            const isActive = selectedTag === tag.id;
+            const isActive = currentSelectedTags.includes(tag.id);
             return (
               <button 
                 key={tag.id}
-                onClick={() => setSelectedTag(isActive ? '' : tag.id)}
-                className={`px-3 py-1 rounded-lg border whitespace-nowrap transition-colors ${
+                type="button"
+                onClick={() => handleToggleTag(tag.id)}
+                className={`px-3 py-1.5 rounded-lg border whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
                   isActive 
-                    ? 'bg-amber-500 text-black border-amber-500 font-bold' 
-                    : 'bg-slate-800/80 text-slate-300 border-slate-700/60 hover:bg-amber-500/20 hover:text-amber-400'
+                    ? 'bg-amber-500 text-black border-amber-500 font-bold shadow-md shadow-amber-500/25 scale-[1.02]' 
+                    : 'bg-slate-800/80 text-slate-300 border-slate-700/60 hover:bg-amber-500/20 hover:text-amber-400 hover:border-amber-500/40'
                 }`}
+                title={isActive ? `คลิกเพื่อยกเลิกการเลือก ${tag.label}` : `คลิกเพื่อเลือก ${tag.label}`}
               >
-                {tag.label}
+                <span>{tag.label}</span>
+                {isActive && (
+                  <span className="w-3.5 h-3.5 rounded-full bg-black/25 text-black flex items-center justify-center text-[10px] font-black">
+                    ✓
+                  </span>
+                )}
               </button>
             );
           })}
-          {(selectedTag || activeRegion !== 'all') && (
+          {(currentSelectedTags.length > 0 || activeRegion !== 'all') && (
             <button 
-              onClick={() => {
-                setSelectedTag('');
-                setActiveRegion('all');
-              }}
-              className="px-2 py-1 rounded-lg text-slate-400 hover:text-amber-400 text-xs underline"
+              type="button"
+              onClick={handleClearTags}
+              className="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-amber-400 text-xs underline whitespace-nowrap transition-colors flex items-center gap-1 cursor-pointer"
             >
-              {t.clearFilters}
+              <span>✕</span>
+              <span>{t.clearFilters || 'ล้างตัวกรอง'}</span>
+              {currentSelectedTags.length > 0 && (
+                <span className="px-1.5 py-0.2 rounded-full bg-slate-800 text-amber-400 border border-slate-700 text-[10px] font-bold">
+                  {currentSelectedTags.length}
+                </span>
+              )}
             </button>
           )}
         </div>

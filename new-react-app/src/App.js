@@ -76,9 +76,23 @@ function App() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeRegion, setActiveRegion] = useState('all'); // 'all' | 'th' | 'cn' | 'vn'
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTag, setSelectedTag] = useState('');
+  const [selectedTags, setSelectedTags] = useState([]);
   const [sortBy, setSortBy] = useState('newest');
   const [selectedAccount, setSelectedAccount] = useState(null);
+
+  // Backward-compatibility wrappers for selectedTag
+  const selectedTag = selectedTags[0] || '';
+  const setSelectedTag = (val) => {
+    if (Array.isArray(val)) {
+      setSelectedTags(val);
+    } else if (typeof val === 'function') {
+      setSelectedTags(val);
+    } else if (!val) {
+      setSelectedTags([]);
+    } else {
+      setSelectedTags([val]);
+    }
+  };
 
   // Item Image Filter States ⭐ (Noctis-style filter)
   const [selectedItemIds, setSelectedItemIds] = useState([]);
@@ -444,7 +458,7 @@ function App() {
   // Reset pagination to page 1 whenever any filter or search query changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [activeCategory, activeRegion, selectedTag, searchQuery, sortBy]);
+  }, [activeCategory, activeRegion, selectedTags, searchQuery, sortBy]);
 
   // Current translation dictionary
   const t = useMemo(() => {
@@ -568,15 +582,13 @@ function App() {
         if (!matchesDirect && !matchesTag && !matchesKeywords) return false;
       }
 
-      // 3. Quick Tag filter
-      if (selectedTag) {
+      // 3. Quick Tag filter (Multi-Select Support)
+      if (selectedTags && selectedTags.length > 0) {
         const tagList = Array.isArray(item.tags)
           ? item.tags.map((t) => String(t).toLowerCase().replace(/[-_\s]/g, ''))
           : typeof item.tags === 'string'
           ? item.tags.toLowerCase().replace(/[-_\s]/g, '').split(',')
           : [];
-        const targetTag = selectedTag.toLowerCase().replace(/[-_\s]/g, '');
-        const matchesTag = tagList.includes(targetTag);
 
         const fullText = [
           item.title,
@@ -596,14 +608,49 @@ function App() {
           item.details_en
         ].filter(Boolean).join(' ').toLowerCase();
 
-        const matchesTagHeuristics =
-          (selectedTag === 'Progressive' && (item.category === 'progressive' || fullText.includes('progressive') || fullText.includes('lv.') || fullText.includes('max') || fullText.includes('ปืนอัปเกรด') || fullText.includes('เติบโต'))) ||
-          (selectedTag === 'OriginalMail' && (fullText.includes('มือ 1') || fullText.includes('มือ1') || fullText.includes('ประกัน') || fullText.includes('1st hand') || fullText.includes('warranty'))) ||
-          (selectedTag === 'RankReady' && (item.category === 'rank-ready' || fullText.includes('rank') || fullText.includes('แรงค์') || fullText.includes('plus'))) ||
-          (selectedTag === 'Bape' && (fullText.includes('bape') || fullText.includes('shroud') || fullText.includes('ทรงจีน') || fullText.includes('มัมมี่'))) ||
-          (selectedTag === 'Budget' && ((item.priceTHB && item.priceTHB <= 800) || item.category === 'budget'));
+        const matchesAllTags = selectedTags.every((tagId) => {
+          const targetTag = String(tagId).toLowerCase().replace(/[-_\s]/g, '');
+          const matchesDirect = tagList.includes(targetTag);
 
-        if (!matchesTag && !matchesTagHeuristics) return false;
+          const matchesTagHeuristics =
+            (targetTag === 'progressive' && (
+              item.category === 'progressive' ||
+              fullText.includes('progressive') ||
+              fullText.includes('lv.') ||
+              fullText.includes('max') ||
+              fullText.includes('ปืนอัปเกรด') ||
+              fullText.includes('เติบโต')
+            )) ||
+            (targetTag === 'originalmail' && (
+              fullText.includes('มือ 1') ||
+              fullText.includes('มือ1') ||
+              fullText.includes('ประกัน') ||
+              fullText.includes('1st hand') ||
+              fullText.includes('warranty')
+            )) ||
+            (targetTag === 'rankready' && (
+              item.category === 'rank-ready' ||
+              fullText.includes('rank') ||
+              fullText.includes('แรงค์') ||
+              fullText.includes('plus')
+            )) ||
+            (targetTag === 'bape' && (
+              item.category === 'rare-skins' ||
+              tagList.includes('rareskins') ||
+              fullText.includes('bape') ||
+              fullText.includes('shroud') ||
+              fullText.includes('ทรงจีน') ||
+              fullText.includes('มัมมี่')
+            )) ||
+            (targetTag === 'budget' && (
+              (item.priceTHB && item.priceTHB <= 800) ||
+              item.category === 'budget'
+            ));
+
+          return matchesDirect || matchesTagHeuristics;
+        });
+
+        if (!matchesAllTags) return false;
       }
 
       // 4. Comprehensive Corpus for Item Image Filter & Multi-Keyword Search
@@ -685,7 +732,7 @@ function App() {
       }
       return a.id === b.id ? 0 : (b.id > a.id ? 1 : -1);
     });
-  }, [accounts, activeCategory, activeRegion, selectedTag, searchQuery, sortBy, currency, selectedFilterItems]);
+  }, [accounts, activeCategory, activeRegion, selectedTags, searchQuery, sortBy, currency, selectedFilterItems]);
 
   // Storefront Pagination Calculations
   const totalPages = Math.max(1, Math.ceil(filteredAccounts.length / pageSize));
@@ -718,7 +765,7 @@ function App() {
   const handleResetFilters = () => {
     setActiveCategory('all');
     setActiveRegion('all');
-    setSelectedTag('');
+    setSelectedTags([]);
     setSearchQuery('');
     setSortBy('newest');
     setSelectedItemIds([]);
@@ -970,6 +1017,8 @@ function App() {
         setActiveRegion={setActiveRegion}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        selectedTags={selectedTags}
+        setSelectedTags={setSelectedTags}
         selectedTag={selectedTag}
         setSelectedTag={setSelectedTag}
         sortBy={sortBy}
