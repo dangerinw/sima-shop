@@ -158,7 +158,9 @@ export default function AccountModal({
     setActiveTab(initialDetails.length > 0 ? 'detail' : 'cover');
 
     // If Chinese account and missing detail screenshots, fetch live from serverless proxy
-    if (account.region === 'cn' && initialDetails.length === 0) {
+    // (Exclude Xiafei direct packages and smurf accounts which already have authentic images & stock)
+    const isPackageOrSmurf = account.isSmurf || account.category === 'smurf' || account.isCustomLocal || String(account.id).startsWith('CN-XF53') || String(account.id).startsWith('CN-SMURF');
+    if (account.region === 'cn' && !isPackageOrSmurf && initialDetails.length === 0) {
       setLoadingDetailImg(true);
       const targetCode = account.rawBianhao || account.bianhao || account.id?.replace(/^CN-/, '');
       const targetId = account.rawId || '';

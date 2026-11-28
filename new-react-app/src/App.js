@@ -306,14 +306,15 @@ function App() {
             map.set(acc.id, acc);
           };
 
-          // 0. Guarantee all smurfAccounts are always present in the store!
+          // 0. Guarantee all authoritative smurfAccounts (Xiafei 245 packages) are always cleanly added
           smurfAccounts.forEach((s) => {
             map.set(s.id, s);
           });
 
-          // 1. Preserve local / Thai / VN custom accounts and all smurf accounts
+          // 1. Preserve local / Thai / VN custom accounts (excluding previous smurfs, which are authoritatively provided by smurfAccounts)
           prev.forEach((a) => {
-            if (a.region !== 'cn' || a.isCustomLocal || a.category === 'smurf' || a.isSmurf) {
+            const isSmurf = a.category === 'smurf' || a.isSmurf || String(a.id).startsWith('CN-XF53') || String(a.id).startsWith('CN-SMURF');
+            if (!isSmurf && (a.region !== 'cn' || a.isCustomLocal)) {
               addAccountDedup(a);
             }
           });
@@ -321,8 +322,8 @@ function App() {
           // 2. Prepend live arrivals if available (exclude China accounts < 500 THB unless smurf)
           liveItems.forEach((acc) => {
             const priced = calculateCnPricing(acc);
-            const isSmurf = priced.category === 'smurf' || priced.isSmurf;
-            if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500 || isSmurf) {
+            const isSmurf = priced.category === 'smurf' || priced.isSmurf || String(priced.id).startsWith('CN-XF53') || String(priced.id).startsWith('CN-SMURF');
+            if (!isSmurf && (priced.region !== 'cn' || Number(priced.priceTHB) >= 500)) {
               addAccountDedup(priced);
             }
           });
@@ -331,8 +332,8 @@ function App() {
           if (baseList.length > 0) {
             baseList.forEach((acc) => {
               const priced = calculateCnPricing(acc);
-              const isSmurf = priced.category === 'smurf' || priced.isSmurf;
-              if (priced.region !== 'cn' || Number(priced.priceTHB) >= 500 || isSmurf) {
+              const isSmurf = priced.category === 'smurf' || priced.isSmurf || String(priced.id).startsWith('CN-XF53') || String(priced.id).startsWith('CN-SMURF');
+              if (!isSmurf && (priced.region !== 'cn' || Number(priced.priceTHB) >= 500)) {
                 addAccountDedup(priced);
               }
             });
@@ -398,17 +399,13 @@ function App() {
             localStorage.setItem('sima_accounts', JSON.stringify(mockAccounts));
             return mockAccounts;
           }
-          // Merge newly introduced mock accounts (e.g. Chinese Smurf accounts) if not present in cache
-          const parsedIds = new Set(parsed.map((a) => a.id));
-          const missingMocks = mockAccounts.filter((m) => !parsedIds.has(m.id));
-          const merged = [...parsed, ...missingMocks];
+          // Strip out any legacy cached smurf / package accounts so they never duplicate with smurfAccounts
+          const nonSmurfParsed = parsed.filter((a) => !(a.isSmurf || a.category === 'smurf' || String(a.id).startsWith('CN-XF53') || String(a.id).startsWith('CN-SMURF')));
+          const parsedIds = new Set(nonSmurfParsed.map((a) => a.id));
+          const missingMocks = mockAccounts.filter((m) => !m.isSmurf && m.category !== 'smurf' && !parsedIds.has(m.id));
+          const merged = [...smurfAccounts, ...nonSmurfParsed, ...missingMocks];
 
-          // Ensure smurfAccounts are always included in initial render!
-          const existingIds = new Set(merged.map((a) => a.id));
-          const missingSmurfs = smurfAccounts.filter((s) => !existingIds.has(s.id));
-          const allMerged = [...missingSmurfs, ...merged];
-
-          return allMerged.map((acc) => {
+          return merged.map((acc) => {
             if (acc.id === 'PC-1001' && (!acc.coverImg || !acc.images || acc.images.length === 0)) {
               return {
                 ...acc,
