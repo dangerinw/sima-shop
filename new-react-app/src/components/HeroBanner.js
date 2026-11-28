@@ -13,24 +13,26 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
   const hotPlaytime = hotAccount ? (lang === 'th' ? hotAccount.playtime_th : hotAccount.playtime_en) : '';
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-800/50">
-      {/* Background glow accents */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="hero" className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-purple-900/40">
+      {/* Background glow accents matching new Royal Purple & Amber Gold theme */}
+      <div className="absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[350px] bg-purple-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/4 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+      <div className="absolute bottom-10 left-10 w-80 h-80 bg-fuchsia-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text Presentation */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/15 via-fuchsia-500/15 to-amber-500/15 border border-purple-500/30 text-purple-300 text-xs font-semibold shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              {t.heroBadge}
+              <img src="/images/pubg-siam-logo.png" alt="" className="w-4 h-4 object-contain" />
+              <span>{t.heroBadge}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
-              {t.heroTitle1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500">PUBG PC</span><br className="hidden sm:inline" />
-              {t.heroTitle2} <span className="underline decoration-amber-500 underline-offset-8">{t.heroTitleHighlight}</span>
+              {t.heroTitle1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-amber-400">PUBG PC</span><br className="hidden sm:inline" />
+              {t.heroTitle2} <span className="underline decoration-purple-500 underline-offset-8 decoration-4">{t.heroTitleHighlight}</span>
             </h1>
 
             <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -41,7 +43,7 @@ export default function HeroBanner({ currency, lang, t, onOpenAccount, hotAccoun
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <a 
                 href="#catalog" 
-                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-base shadow-xl pubg-glow transition-all flex items-center gap-2 group"
+                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-black text-base shadow-xl pubg-royal-glow hover:scale-105 active:scale-95 transition-all flex items-center gap-2 group"
               >
                 <span>{t.heroBtnExplore}</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

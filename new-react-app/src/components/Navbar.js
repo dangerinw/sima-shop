@@ -16,26 +16,35 @@ export default function Navbar({
 
   return (
     <>
-      {/* Top Banner Announcement */}
-      <div className="bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-black text-[11px] sm:text-xs font-bold py-1.5 px-3 sm:px-4 text-center flex items-center justify-center gap-2 shadow-inner overflow-hidden">
-        <span className="truncate max-w-[90vw] sm:max-w-none">{t.announcement}</span>
+      {/* Top Banner Announcement - Royal Purple & Gold Theme */}
+      <div className="bg-gradient-to-r from-purple-950 via-[#181028] to-purple-950 border-b border-purple-500/30 text-white text-[11px] sm:text-xs font-bold py-1.5 px-3 sm:px-4 text-center flex items-center justify-center gap-2 shadow-inner overflow-hidden">
+        <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0"></span>
+        <span className="truncate max-w-[90vw] sm:max-w-none text-slate-200">
+          🔥 <strong className="text-amber-400">PUBG SIAM</strong> {t.announcement ? t.announcement.replace(/^🔥\s*PUBG\s*SIAM\s*/i, '') : 'ตลาดซื้อ-ขายไอดี PUBG PC อันดับ 1'}
+        </span>
       </div>
 
       {/* Main Navbar */}
-      <header className="sticky top-0 z-40 bg-[#0b0f17]/95 backdrop-blur-md border-b border-slate-800/80 transition-all">
+      <header className="sticky top-0 z-40 bg-[#080c14]/95 backdrop-blur-md border-b border-purple-900/40 transition-all">
         <div className="max-w-[1600px] w-full mx-auto px-3 sm:px-4 xl:px-5 2xl:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 xl:gap-2.5 2xl:gap-5">
           
-          {/* LOGO: PUBG SIAM */}
-          <a href="#hero" className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-black text-xl sm:text-2xl shadow-lg pubg-glow tracking-tighter shrink-0 transition-transform group-hover:scale-105">
-              PS
+          {/* LOGO: PUBG SIAM Official Brand Emblem */}
+          <a href="#hero" className="flex items-center gap-2 sm:gap-2.5 cursor-pointer shrink-0 group">
+            <div className="relative h-11 sm:h-12 w-auto flex items-center justify-center shrink-0 transition-transform group-hover:scale-105">
+              <img 
+                src="/images/pubg-siam-logo.png" 
+                alt="PUBG SIAM Logo" 
+                className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(168,85,247,0.55)]" 
+              />
             </div>
             <div className="shrink-0">
-              <div className="text-base sm:text-lg font-extrabold tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
-                PUBG<span className="text-amber-400"> SIAM</span>
-                <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">PUBG PC</span>
+              <div className="text-base sm:text-lg font-black tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
+                PUBG<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-amber-400"> SIAM</span>
+                <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r from-purple-500/20 to-amber-500/20 text-amber-300 border border-purple-500/30 shadow-sm">PUBG PC</span>
               </div>
-              <p className="hidden 2xl:block text-[10px] text-slate-400 -mt-0.5 font-medium tracking-wide whitespace-nowrap">{t.brandSub}</p>
+              <p className="hidden 2xl:block text-[10px] text-purple-300/80 -mt-0.5 font-semibold tracking-wide whitespace-nowrap">
+                {t.brandSub}
+              </p>
             </div>
           </a>
 
@@ -200,7 +209,24 @@ export default function Navbar({
 
         {/* MOBILE / TABLET EXPANDABLE DRAWER */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#0d121c]/98 border-t border-slate-800/80 px-4 pt-3 pb-5 space-y-3 shadow-2xl backdrop-blur-lg">
+          <div className="lg:hidden bg-[#0a0d16]/98 border-t border-purple-900/40 px-4 pt-3 pb-5 space-y-3 shadow-2xl backdrop-blur-lg">
+            
+            {/* Brand Header inside Mobile Drawer */}
+            <div className="flex items-center gap-3 p-3 rounded-2xl bg-gradient-to-r from-purple-950/70 via-[#141229] to-slate-900 border border-purple-500/30 shadow-lg">
+              <img 
+                src="/images/pubg-siam-logo.png" 
+                alt="PUBG SIAM" 
+                className="h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(168,85,247,0.6)] shrink-0" 
+              />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm font-black text-white">PUBG <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">SIAM</span></span>
+                  <span className="text-[9px] bg-gradient-to-r from-purple-500 to-amber-500 text-black px-1.5 py-0.2 rounded font-black">PUBG PC</span>
+                </div>
+                <p className="text-[11px] text-amber-300 font-medium mt-0.5 truncate">ครบจบเรื่อง PUBG • ตลาดไอดีมาตรฐาน</p>
+              </div>
+            </div>
+
             <nav className="flex flex-col space-y-1.5 text-sm font-medium">
               <a 
                 href="#hero" 

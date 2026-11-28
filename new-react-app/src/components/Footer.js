@@ -7,13 +7,18 @@ export default function Footer({ t, storeSettings = {}, onOpenRules, onOpenWarra
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center font-black text-black text-sm">
-              PS
-            </div>
+          <div className="flex items-center gap-3.5">
+            <img 
+              src="/images/pubg-siam-logo.png" 
+              alt="PUBG SIAM" 
+              className="h-12 w-auto object-contain drop-shadow-[0_2px_12px_rgba(168,85,247,0.55)] shrink-0" 
+            />
             <div>
-              <span className="text-slate-300 font-bold tracking-wider">PUBG SIAM (PUBG PC Steam Marketplace)</span>
-              <p>{t.footerCopy}</p>
+              <div className="text-white font-black tracking-wider text-sm flex items-center gap-1.5">
+                PUBG <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-amber-400">SIAM</span>
+                <span className="text-[10px] text-amber-300 font-bold bg-purple-500/20 border border-purple-500/30 px-1.5 py-0.2 rounded-full">PUBG PC Steam</span>
+              </div>
+              <p className="text-slate-400 text-xs mt-0.5">{t.footerCopy}</p>
             </div>
           </div>
 
